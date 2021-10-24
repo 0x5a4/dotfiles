@@ -30,8 +30,14 @@ create_link ".gitconfig" ".gitconfig"
 # install packages
 if ((pacinstall)) ; then
   #Arch
-  if which pacman >> /dev/null; then
+  if command -v pacman &> /dev/null; then
     echo "Installing packages from pkglist"
-    sudo pacman -S --needed - < $PWD/pkglist
+    sudo pacman -S --needed - < pkglist
+  fi
+  #Debian
+  if command -v apt-get &> /dev/null; then
+    echo "Installing packages from pkglist"
+    sudo apt-get update 
+    xargs -a pkglist sudo apt-get install
   fi
 fi
