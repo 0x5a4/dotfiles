@@ -15,7 +15,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "Colorscheme
-Plug 'sainnhe/sonokai', { 'do':':colorscheme sonokai' }
+Plug 'sainnhe/sonokai', {'do':':colorscheme sonokai'}
 
 call plug#end()
 
@@ -23,7 +23,14 @@ set nocp
 "visual
 set number
 syntax enable
-set termguicolors
+
+if has('nvim') || has('termguicolors')
+	"true color support
+  set termguicolors
+endif
 
 "fix my tabs
 set tabstop=2 shiftwidth=2 expandtab
+
+"colorscheme
+silent! colorscheme sonokai
