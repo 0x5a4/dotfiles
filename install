@@ -1,0 +1,37 @@
+#!/bin/bash
+
+showhelp=0 pacinstall=0 fail=1
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -h|--help) showhelp=1; shift ;;
+        -i|--pacinstall) pacinstall=1; shift ;;
+        *) echo "Unknown parameter passed: $1"; exit 1 ;;
+    esac
+    shift
+done
+
+if ((showhelp)) ; then
+  echo "options: --help, --pacinstall"
+  exit 0
+fi
+
+# symlink everything where its supposed to be
+function create_link {
+  ln -s $PWD/$1 $HOME/$2
+}
+create_link "vimrc" ".vimrc"
+create_link "starship.toml" ".config/"
+create_link "nvim" ".config/"
+create_link "fishconf/config.fish" ".config/fish/config.fish"
+create_link "fishconf/conf.d/" ".config/fish/"
+create_link ".tmux.conf" ".tmux.conf"
+create_link ".gitconfig" ".gitconfig"
+
+# install packages
+if ((pacinstall)) ; then
+  #Arch
+  if which pacman >> /dev/null; then
+    echo "Installing packages from pkglist"
+    sudo pacman -S --needed - < $PWD/pkglist
+  fi
+fi
