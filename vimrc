@@ -14,13 +14,14 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-fugitive'
+Plug 'rust-lang/rust.vim'
 "Colorscheme
 Plug 'sainnhe/sonokai', {'do':':colorscheme sonokai'}
 
 call plug#end()
 
 set nocp
-"visual
 set number
 syntax enable
 
