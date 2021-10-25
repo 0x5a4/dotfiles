@@ -5,7 +5,6 @@ if empty(glob(s:data_dir.'/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-
 "Plugins
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
@@ -25,7 +24,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'ryanoasis/vim-devicons'
 "Colorscheme
 Plug 'sainnhe/sonokai', {'do':':colorscheme sonokai'}
 "Auto completion
@@ -38,6 +38,8 @@ if has('nvim') || has('termguicolors')
   set termguicolors
 endif
 
+"airline configuration
+let g:airline#extensions#whitespace#enabled = 0
 "fix my tabs
 set tabstop=2 shiftwidth=2 expandtab
 
