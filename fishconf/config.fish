@@ -4,4 +4,6 @@ if status is-interactive
 
 end
 
-thefuck --alias | source
+if command -v thefuck &> /dev/null
+	thefuck --alias | source
+end
