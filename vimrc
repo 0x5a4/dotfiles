@@ -25,7 +25,7 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'ryanoasis/vim-devicons'
+Plug 'fladson/vim-kitty'
 "Colorscheme
 Plug 'sainnhe/sonokai', {'do':':colorscheme sonokai'}
 "Auto completion
@@ -40,6 +40,7 @@ endif
 
 "airline configuration
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline_theme = 'sonokai'
 "fix my tabs
 set tabstop=2 shiftwidth=2 expandtab
 
@@ -51,14 +52,23 @@ set number
 syntax enable
 
 "key mappings
-inoremap jk <esc> 
-inoremap <esc> <nop>
+let g:mapleader = '-'
 "stop using them please
 noremap <Up> <nop>
 noremap <Down> <nop>
-noremap <Left> <nop>
 noremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-inoremap <Left> <nop>
-inoremap <Right> <nop>
+noremap <Left> <nop>
+"fucking qwertz
+nnoremap ü (
+vnoremap ü (
+nnoremap ä )
+vnoremap ä )
+"we HATE capital letters
+nnoremap nt :NERDTree<cr>
+"ctrl-u -> change word to capital letters
+inoremap <c-u> <esc>bveUea
+"utils for quitting
+nnoremap <Leader>QQ :qa<CR>
+nnoremap <Leader>QW :wqa<CR>
+"i dont need this
+noremap Q <nop>
