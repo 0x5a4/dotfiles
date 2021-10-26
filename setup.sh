@@ -30,7 +30,7 @@ fi
 
 # symlink everything where its supposed to be
 if ((link_files)) ; then
-  echo "linking dotfiles"
+  echo "[linking dotfiles]"
   function create_link {
     ln -s $PWD/$1 $HOME/$2
   }
@@ -47,12 +47,12 @@ fi
 if ((pacinstall)) ; then
   #Arch
   if command -v pacman &> /dev/null; then
-    echo "Installing packages from pkglist"
+    echo "[Installing packages from pkglist]"
     sudo pacman -S --needed - < pkglist
   fi
   #Debian
   if command -v apt-get &> /dev/null; then
-    echo "Installing packages from pkglist"
+    echo "[Installing packages from pkglist]"
     sudo apt-get update 
     xargs -a pkglist sudo apt-get install
   fi
@@ -64,6 +64,6 @@ if ((pacinstall)) ; then
 fi
 
 if ((chsh)) ; then
-  echo "Changing user shell to fish"
+  echo "[Changing user shell to fish]"
   which fish | xargs sudo chsh $USER -s
 fi
