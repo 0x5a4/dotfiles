@@ -26,6 +26,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'fladson/vim-kitty'
+Plug 'tpope/vim-surround'
 "Colorscheme
 Plug 'sainnhe/sonokai', {'do':':colorscheme sonokai'}
 "Auto completion
@@ -47,12 +48,20 @@ set tabstop=2 shiftwidth=2 expandtab
 "colorscheme
 silent! colorscheme sonokai
 
+"basic shit
+let mapleader = '-'
+syntax enable
 set nocp
 set number
-syntax enable
+set autoread
+set smartcase
+set hlsearch
+set hidden
+set foldmethod=manual
 
-"key mappings
-let g:mapleader = '-'
+
+"random key mappings
+
 "stop using them please
 noremap <Up> <nop>
 noremap <Down> <nop>
@@ -64,11 +73,15 @@ vnoremap ü (
 nnoremap ä )
 vnoremap ä )
 "we HATE capital letters
-nnoremap nt :NERDTree<cr>
+nnoremap nt :NERDTree<CR>
 "ctrl-u -> change word to capital letters
 inoremap <c-u> <esc>bveUea
 "utils for quitting
-nnoremap <Leader>QQ :qa<CR>
-nnoremap <Leader>QW :wqa<CR>
+nnoremap <Leader>qq :qa<CR>
+nnoremap <Leader>qw :wqa<CR>
 "i dont need this
 noremap Q <nop>
+
+"buffer navigation
+nnoremap <c-n> :bnext<CR>
+nnoremap <c-p> :bprev<CR>
