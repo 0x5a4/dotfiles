@@ -27,6 +27,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'fladson/vim-kitty'
 Plug 'tpope/vim-surround'
+Plug 'mhinz/vim-crates'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'matze/vim-move'
 "Colorscheme
 Plug 'sainnhe/sonokai', {'do':':colorscheme sonokai'}
 "Auto completion
@@ -34,9 +37,13 @@ Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 
 call plug#end()
 
-if has('nvim') || has('termguicolors')
-	"true color support
-  set termguicolors
+if has('nvim')
+  "vim-crates things
+  autocmd BufRead Cargo.toml call crates#toggle()
+  if has('nvim')
+    "true color support
+    set termguicolors
+  endif
 endif
 
 "airline configuration

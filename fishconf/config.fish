@@ -8,5 +8,14 @@ if status is-interactive
 	if command -v thefuck &> /dev/null
 		thefuck --alias | source
 	end
+
+	# aliases
+  alias 'sdown'='shutdown -h now'
+  alias 'sudo'='command sudo -v; command sudo'
+  alias 'gaytrain'='command sl | command lolcat && clear'
+  alias 'nmcu'='nodemcu-tool'
+  alias 'fishconf'='$EDITOR ~/.config/fish/config.fish'
+  alias 'cat'='bat'
+  alias 'gs'='git status'
 end
 
