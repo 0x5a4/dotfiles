@@ -1,3 +1,5 @@
+let mapleader="-"
+
 "Install vim-plug
 let s:data_dir = "~/.vim"
 if empty(glob(s:data_dir.'/autoload/plug.vim'))
@@ -7,10 +9,6 @@ endif
 
 "Plugins
 function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
   if a:info.status == 'installed' || a:info.force
     execute '!'.s:data_dir.'/plugged/YouCompleteMe/install.py --rust-completer'
   endif
@@ -30,6 +28,8 @@ Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-crates'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'matze/vim-move'
+"god this is so unnecessary
+Plug 'vimsence/vimsence'
 "Colorscheme
 Plug 'sainnhe/sonokai', {'do':':colorscheme sonokai'}
 "Auto completion
@@ -49,6 +49,15 @@ endif
 "airline configuration
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_theme = 'sonokai'
+
+"YouCompleteMe configuration
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+"vimsence config
+if has('nvim')
+  let g:vimsence_small_text = 'NeoVim'   
+  let g:vimsence_small_image = 'neovim'  
+endif
 "fix my tabs
 set tabstop=2 shiftwidth=2 expandtab
 
@@ -56,7 +65,6 @@ set tabstop=2 shiftwidth=2 expandtab
 silent! colorscheme sonokai
 
 "basic shit
-let mapleader = '-'
 syntax enable
 set nocp
 set number
@@ -64,8 +72,8 @@ set autoread
 set smartcase
 set hlsearch
 set hidden
+set foldenable
 set foldmethod=manual
-
 
 "random key mappings
 
@@ -75,12 +83,12 @@ noremap <Down> <nop>
 noremap <Right> <nop>
 noremap <Left> <nop>
 "fucking qwertz
-nnoremap ü (
-vnoremap ü (
-nnoremap ä )
-vnoremap ä )
+nnoremap ü {
+vnoremap ü {
+nnoremap ä }
+vnoremap ä }
 "we HATE capital letters
-nnoremap nt :NERDTree<CR>
+nnoremap <silent> nt :NERDTree<CR>
 "ctrl-u -> change word to capital letters
 inoremap <c-u> <esc>bveUea
 "utils for quitting
@@ -90,5 +98,10 @@ nnoremap <Leader>qw :wqa<CR>
 noremap Q <nop>
 
 "buffer navigation
-nnoremap <c-n> :bnext<CR>
-nnoremap <c-p> :bprev<CR>
+nnoremap <silent> , :bnext<CR>
+nnoremap <silent> m :bprev<CR>
+nnoremap <silent> <leader>bd :bd<CR>
+
+"YouCompleteMe shortcuts
+nnoremap <F2> :YcmCompleter FixIt<CR>
+nnoremap <c-F> :YcmCompleter Format<CR>
