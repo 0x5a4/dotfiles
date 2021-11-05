@@ -3,7 +3,9 @@ if status is-interactive
 	fish_vi_key_bindings
 
 	# Commands to run in interactive sessions can go here
-	starship init fish | source
+	if command -v starship &> /dev/null && not contains "linux" $TERM
+		starship init fish | source
+	end
 
 	if command -v thefuck &> /dev/null
 		thefuck --alias | source

@@ -33,7 +33,9 @@ Plug 'vimsence/vimsence'
 "Colorscheme
 Plug 'sainnhe/sonokai', {'do':':colorscheme sonokai'}
 "Auto completion
-Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
+if has('python3') && executable('cmake')
+  Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
+endif
 
 call plug#end()
 
