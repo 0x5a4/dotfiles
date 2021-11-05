@@ -66,5 +66,5 @@ fi
 
 if ((chsh)) ; then
   echo "[Changing user shell to fish]"
-  which fish | xargs sudo chsh $USER -s
+  command -v fish | xargs sudo chsh $USER -s
 fi
