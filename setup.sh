@@ -37,6 +37,7 @@ if ((link_files)) ; then
   create_link "vimrc" ".vimrc"
   create_link "starship.toml" ".config/"
   create_link "nvim" ".config/"
+  mkdir -p ~/.config/fish
   create_link "fishconf/config.fish" ".config/fish/config.fish"
   create_link "fishconf/conf.d/" ".config/fish/"
   create_link ".tmux.conf" ".tmux.conf"
