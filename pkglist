@@ -2,9 +2,9 @@ neovim
 tmux
 neofetch
 python3
+python-pip
 starship
 fish
 cmake
 bat
-kitty
 

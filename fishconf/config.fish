@@ -19,5 +19,10 @@ if status is-interactive
   alias 'fishconf'='$EDITOR ~/.config/fish/config.fish'
   alias 'cat'='bat'
   alias 'gs'='git status'
+	
+	#kitty ssh fix
+	if contains "kitty" $TERM
+		alias 'ssh'='kitty +kitten ssh'
+	end
 end
 
