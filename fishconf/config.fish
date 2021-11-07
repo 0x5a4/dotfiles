@@ -21,8 +21,9 @@ if status is-interactive
   alias 'gs'='git status'
 	
 	#kitty ssh fix
-	if contains "kitty" $TERM
+	if contains "kitty" $TERM && not set -q SSH_CLIENT
 		alias 'ssh'='kitty +kitten ssh'
+		set TERM ansi
 	end
 end
 
