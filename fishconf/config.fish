@@ -1,3 +1,7 @@
+#ENVIRONMENT VARIABLES
+set EDITOR nvim
+
+
 if status is-interactive
 	# vim all the way
 	fish_vi_key_bindings
@@ -23,6 +27,11 @@ if status is-interactive
 	#kitty ssh fix
 	if [ $TERM = 'xterm-kitty' ]
 			alias 'ssh'='kitty +kitten ssh'
+	end
+
+	#man with color
+	if command -v batman &> /dev/null 
+		alias 'man'='batman'
 	end
 
 	#Disable Greeting
