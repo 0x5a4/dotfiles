@@ -74,7 +74,7 @@ set nocp
 set number
 set autoread
 set smartcase
-set hlsearch
+set nohlsearch
 set hidden
 set foldenable
 set foldmethod=manual
@@ -86,6 +86,10 @@ noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Right> <nop>
 noremap <Left> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Right> <nop>
+inoremap <Left> <nop>
 "fucking qwertz
 nnoremap ü {
 vnoremap ü {
