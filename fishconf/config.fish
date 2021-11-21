@@ -29,6 +29,10 @@ if status is-interactive
 			alias 'ssh'='kitty +kitten ssh'
 	end
 
+	if command -v tutel &> /dev/null 
+		tutel init fish | source
+	end
+
 	#man with color
 	if command -v batman &> /dev/null 
 		alias 'man'='batman'
