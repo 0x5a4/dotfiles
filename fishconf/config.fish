@@ -16,7 +16,7 @@ if status is-interactive
 	end
 
 	# aliases
-  alias 'sdown'='systemctl power-off'
+  alias 'sdown'='systemctl poweroff'
   alias 'sudo'='command sudo -v; command sudo'
   alias 'nmcu'='nodemcu-tool'
   alias 'fishconf'='$EDITOR ~/.config/fish/config.fish'
