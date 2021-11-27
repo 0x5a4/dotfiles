@@ -41,6 +41,7 @@ if ((link_files)) ; then
   create_link "fishconf/config.fish" ".config/fish/config.fish"
   create_link ".tmux.conf" ".tmux.conf"
   create_link ".gitconfig" ".gitconfig"
+  create_link "kitty" ".config/kitty"
 fi
 
 # install packages
