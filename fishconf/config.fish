@@ -1,7 +1,6 @@
 #ENVIRONMENT VARIABLES
 set EDITOR nvim
 
-
 if status is-interactive
 	# vim all the way
 	fish_vi_key_bindings
@@ -22,6 +21,9 @@ if status is-interactive
   alias 'fishconf'='$EDITOR ~/.config/fish/config.fish'
   alias 'cat'='bat'
   alias 'gs'='git status'
+	alias 'll'='ls -l'
+	alias 'la'='ls -al'
+	alias 'lsblk'='command lsblk -f'
 	
 	#kitty ssh fix
 	if [ $TERM = 'xterm-kitty' ]

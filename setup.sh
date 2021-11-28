@@ -44,26 +44,6 @@ if ((link_files)) ; then
   create_link "kitty" ".config/kitty"
 fi
 
-# install packages
-if ((pacinstall)) ; then
-  #Arch
-  if command -v pacman &> /dev/null; then
-    echo "[Installing packages from pkglist]"
-    sudo pacman -S --needed - < pkglist
-  fi
-  #Debian
-  if command -v apt-get &> /dev/null; then
-    echo "[Installing packages from pkglist]"
-    sudo apt-get update 
-    xargs -a pkglist sudo apt-get install
-  fi
-
-  #Python
-  if command -v python3 $> /dev/null; then
-    python3 -m pip --user --upgrade pynvim
-  fi
-fi
-
 if ((chsh)) ; then
   echo "[Changing user shell to fish]"
   command -v fish | xargs sudo chsh $USER -s
