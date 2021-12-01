@@ -5,19 +5,64 @@ tags = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 layouts = ["MainAndVertStack", "MainAndHorizontalStack", "MainAndDeck", "GridHorizontal", "EvenHorizontal", "EvenVertical", "Fibonacci", "CenterMain", "CenterMainBalanced", "Monocle", "RightWiderLeftStack", "LeftWiderRightStack"]
 layout_mode = "Workspace"
 scratchpad = []
-disable_current_tag_swap = false
-focus_behaviour = "ClickTo"
+disable_current_tag_swap = true
+focus_behaviour = "Driven"
 focus_new_windows = true
 
+#Screenshot
 [[keybind]]
 command = "Execute"
-value = "dmenu_run"
+value = "flameshot gui"
+key = "Print"
+modifier = []
+
+#Window sizing
+[[keybind]]
+command = "ToggleFullScreen"
+key = "f"
 modifier = ["modkey"]
-key = "p"
+
+# Music controls
+[[keybind]]
+command = "Execute"
+value = "amixer set 'Master' 5%+"
+key = "XF86XK_AudioRaiseVolume"
+modifier = []
 
 [[keybind]]
 command = "Execute"
-value = "kitty -1 -e tmux"
+value = "amixer set 'Master' 5%-"
+key = "XF86XK_AudioLowerVolume"
+modifier = []
+
+[[keybind]]
+command = "Execute"
+value = "playerctl play-pause"
+key = "XF86XK_AudioPlay"
+modifier = []
+
+[[keybind]]
+command = "Execute"
+value = "playerctl previous"
+key = "XF86XK_AudioPrev"
+modifier = []
+
+[[keybind]]
+command = "Execute"
+value = "playerctl next"
+key = "XF86XK_AudioNext"
+modifier = []
+
+#rofi
+[[keybind]]
+command = "Execute"
+value = "rofi -show drun"
+modifier = ["Alt"]
+key = "space"
+
+[[keybind]]
+command = "Execute"
+value = "kitty -1"
 modifier = ["Control", "Alt"]
 key = "t"
 
@@ -98,45 +143,45 @@ command = "FocusWorkspacePrevious"
 modifier = ["modkey"]
 key = "h"
 
-[[keybind]]
-command = "MoveWindowUp"
-modifier = ["modkey", "Shift"]
-key = "Up"
+#[[keybind]]
+#command = "MoveWindowUp"
+#modifier = ["modkey", "Shift"]
+#key = "Up"
+#
+#[[keybind]]
+#command = "MoveWindowDown"
+#modifier = ["modkey", "Shift"]
+#key = "Down"
 
-[[keybind]]
-command = "MoveWindowDown"
-modifier = ["modkey", "Shift"]
-key = "Down"
+#[[keybind]]
+#command = "FocusWindowUp"
+#modifier = ["modkey"]
+#key = "Up"
+#
+#[[keybind]]
+#command = "FocusWindowDown"
+#modifier = ["modkey"]
+#key = "Down"
 
-[[keybind]]
-command = "FocusWindowUp"
-modifier = ["modkey"]
-key = "Up"
+#[[keybind]]
+#command = "NextLayout"
+#modifier = ["modkey", "Control"]
+#key = "Up"
+#
+#[[keybind]]
+#command = "PreviousLayout"
+#modifier = ["modkey", "Control"]
+#key = "Down"
 
-[[keybind]]
-command = "FocusWindowDown"
-modifier = ["modkey"]
-key = "Down"
-
-[[keybind]]
-command = "NextLayout"
-modifier = ["modkey", "Control"]
-key = "Up"
-
-[[keybind]]
-command = "PreviousLayout"
-modifier = ["modkey", "Control"]
-key = "Down"
-
-[[keybind]]
-command = "FocusWorkspaceNext"
-modifier = ["modkey"]
-key = "Right"
-
-[[keybind]]
-command = "FocusWorkspacePrevious"
-modifier = ["modkey"]
-key = "Left"
+#[[keybind]]
+#command = "FocusWorkspaceNext"
+#modifier = ["modkey"]
+#key = "Right"
+#
+#[[keybind]]
+#command = "FocusWorkspacePrevious"
+#modifier = ["modkey"]
+#key = "Left"
 
 [[keybind]]
 command = "GotoTag"

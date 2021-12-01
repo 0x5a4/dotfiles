@@ -42,6 +42,8 @@ if ((link_files)) ; then
   create_link ".tmux.conf" ".tmux.conf"
   create_link ".gitconfig" ".gitconfig"
   create_link "kitty" ".config/kitty"
+  mkdir -p ~/.config/leftwm
+  create_link "leftwm/config.toml" ".config/leftwm/"
 fi
 
 if ((chsh)) ; then
