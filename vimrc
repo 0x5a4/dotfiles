@@ -28,6 +28,7 @@ Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-crates'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'matze/vim-move'
+Plug 'svermeulen/vim-cutlass'
 "god this is so unnecessary
 if has('python3') && executable('discord')
   Plug 'vimsence/vimsence'
@@ -77,7 +78,6 @@ set smartcase
 set nohlsearch
 set hidden
 set foldenable
-set foldmethod=manual
 
 "random key mappings
 
@@ -104,6 +104,7 @@ nnoremap <Leader>qq :qa<CR>
 nnoremap <Leader>qw :wqa<CR>
 "i dont need this
 noremap Q <nop>
+nnoremap <F10> :set foldmethod=indent<CR>
 
 "buffer navigation
 nnoremap <silent> , :bnext<CR>
