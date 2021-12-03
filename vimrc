@@ -79,6 +79,9 @@ set nohlsearch
 set hidden
 set foldenable
 
+"undo preserve
+set undofile
+set undodir)~/.vim/undodir/
 "random key mappings
 
 "stop using them please

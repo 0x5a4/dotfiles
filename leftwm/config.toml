@@ -37,19 +37,19 @@ modifier = []
 
 [[keybind]]
 command = "Execute"
-value = "playerctl play-pause"
+value = "playerctl play-pause -p spotify"
 key = "XF86XK_AudioPlay"
 modifier = []
 
 [[keybind]]
 command = "Execute"
-value = "playerctl previous"
+value = "playerctl previous -p spotify"
 key = "XF86XK_AudioPrev"
 modifier = []
 
 [[keybind]]
 command = "Execute"
-value = "playerctl next"
+value = "playerctl next -p spotify"
 key = "XF86XK_AudioNext"
 modifier = []
 
