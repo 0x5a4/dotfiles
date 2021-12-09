@@ -76,6 +76,11 @@ command = "SoftReload"
 modifier = ["modkey", "Shift"]
 key = "r"
 
+[[keybind]]
+command = "HardReload"
+modifier = ["modkey", "Shift", "Alt"]
+key = "r"
+
 #[[keybind]]
 #command = "Execute"
 #value = "loginctl kill-session $XDG_SESSION_ID"
