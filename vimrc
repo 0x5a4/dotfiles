@@ -23,6 +23,7 @@ Plug 'mhinz/vim-crates'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'matze/vim-move'
 Plug 'svermeulen/vim-cutlass'
+Plug 'tpope/vim-commentary'
 "god this is so unnecessary
 if has('python3') && executable('discord')
   Plug 'vimsence/vimsence'
