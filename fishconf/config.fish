@@ -16,7 +16,6 @@ if status is-interactive
 
 	# aliases
   alias 'sdown'='systemctl poweroff'
-  alias 'sudo'='command sudo -v; command sudo'
   alias 'nmcu'='nodemcu-tool'
   alias 'fishconf'='$EDITOR ~/.config/fish/config.fish'
   alias 'cat'='bat'
@@ -24,6 +23,7 @@ if status is-interactive
 	alias 'll'='ls -l'
 	alias 'la'='ls -al'
 	alias 'lsblk'='command lsblk -f'
+	alias 'rm'='command rm -i' # never rm -rf $HOME again...
 	
 	#kitty ssh fix
 	if [ $TERM = 'xterm-kitty' ]
@@ -39,8 +39,12 @@ if status is-interactive
 		alias 'man'='batman'
 	end
 
+	# doas exists
+	if not command -v doas &> /dev/null
+		alias 'sudo'='command sudo -v; command sudo'
+	end	
+
 	#Disable Greeting
 	set fish_greeting
-
 end
 

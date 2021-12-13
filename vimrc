@@ -8,12 +8,6 @@ if empty(glob(s:data_dir.'/autoload/plug.vim'))
 endif
 
 "Plugins
-function! BuildYCM(info)
-  if a:info.status == 'installed' || a:info.force
-    execute '!'.s:data_dir.'/plugged/YouCompleteMe/install.py --rust-completer'
-  endif
-endfunction
-
 call plug#begin(s:data_dir.'/plugged')
 
 Plug 'vim-airline/vim-airline'
@@ -37,7 +31,7 @@ endif
 Plug 'sainnhe/sonokai', {'do':':colorscheme sonokai'}
 "Auto completion
 if has('python3') && executable('cmake')
-  Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
+  Plug 'ycm-core/YouCompleteMe'
 endif
 
 call plug#end()
