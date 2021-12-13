@@ -32,7 +32,7 @@ if status is-interactive
 	end
 
 	if command -v tutel &> /dev/null 
-		tutel init fish | source
+		tutel nav init fish | source
 	end
 
 	#man with color
