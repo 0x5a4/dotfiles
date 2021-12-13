@@ -24,6 +24,7 @@ if status is-interactive
 	alias 'la'='ls -al'
 	alias 'lsblk'='command lsblk -f'
 	alias 'rm'='command rm -i' # never rm -rf $HOME again...
+	alias ':q'='exit' # done that way to often
 	
 	#kitty ssh fix
 	if [ $TERM = 'xterm-kitty' ]
