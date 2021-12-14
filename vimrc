@@ -97,9 +97,6 @@ vnoremap ä }
 nnoremap <silent> nt :NERDTree<CR>
 "ctrl-u -> change word to capital letters
 inoremap <c-u> <esc>bveUea
-"utils for quitting
-nnoremap <Leader>qq :qa<CR>
-nnoremap <Leader>qw :wqa<CR>
 "i dont need this
 noremap Q <nop>
 nnoremap <F10> :set foldmethod=indent<CR>
