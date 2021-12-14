@@ -15,13 +15,14 @@ if status is-interactive
 	end
 
 	# aliases
-  alias 'sdown'='systemctl poweroff'
-  alias 'nmcu'='nodemcu-tool'
-  alias 'fishconf'='$EDITOR ~/.config/fish/config.fish'
-  alias 'cat'='bat'
-  alias 'gs'='git status'
+	alias 'sdown'='systemctl poweroff'
+	alias 'nmcu'='nodemcu-tool'
+	alias 'fishconf'='$EDITOR ~/.config/fish/config.fish'
+	alias 'cat'='bat'
+	alias 'gs'='git status'
+	alias 'ls'='command ls -h'
 	alias 'll'='ls -l'
-	alias 'la'='ls -al'
+	alias 'la'='ls -Al'
 	alias 'lsblk'='command lsblk -f'
 	alias ':q'='exit' # done that way to often
 	function rm # never rm -rf $HOME again...
