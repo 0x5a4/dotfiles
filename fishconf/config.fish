@@ -20,11 +20,13 @@ if status is-interactive
 	alias 'fishconf'='$EDITOR ~/.config/fish/config.fish'
 	alias 'cat'='bat'
 	alias 'gs'='git status'
-	alias 'ls'='command ls -h'
 	alias 'll'='ls -l'
 	alias 'la'='ls -Al'
 	alias 'lsblk'='command lsblk -f'
 	alias ':q'='exit' # done that way to often
+	function ls
+		command ls -h
+	end
 	function rm # never rm -rf $HOME again...
 		command rm -iv $argv
 	end
