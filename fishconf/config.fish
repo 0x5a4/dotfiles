@@ -1,5 +1,5 @@
 #ENVIRONMENT VARIABLES
-set EDITOR nvim
+set -x EDITOR nvim
 
 if status is-interactive
 	# vim all the way
@@ -24,12 +24,6 @@ if status is-interactive
 	alias 'la'='ls -Al'
 	alias 'lsblk'='command lsblk -f'
 	alias ':q'='exit' # done that way to often
-	function ls
-		command ls -h
-	end
-	function rm # never rm -rf $HOME again...
-		command rm -iv $argv
-	end
 	
 	#kitty ssh fix
 	if [ $TERM = 'xterm-kitty' ]
