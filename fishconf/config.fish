@@ -5,8 +5,12 @@ if status is-interactive
 	# vim all the way
 	fish_vi_key_bindings
 
+	if contains "linux" $TERM
+		set -x LINUXTERM
+	end
+
 	# Commands to run in interactive sessions can go here
-	if command -v starship &> /dev/null && not contains "linux" $TERM
+	if command -v starship &> /dev/null && not set -q LINUXTERM
 		starship init fish | source
 	end
 
