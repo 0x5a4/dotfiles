@@ -29,7 +29,7 @@ if has('python3') && executable('discord')
   Plug 'vimsence/vimsence'
 endif
 "Colorscheme
-Plug 'sainnhe/sonokai', {'do':':colorscheme sonokai'}
+Plug 'sainnhe/sonokai', {'do': ':colorscheme sonokai'}
 "Auto completion
 if has('python3') && executable('cmake')
   Plug 'ycm-core/YouCompleteMe'

@@ -6,7 +6,7 @@ if status is-interactive
 	fish_vi_key_bindings
 
 	if contains "linux" $TERM
-		set -x LINUXTERM
+		set -x LINUXTERM LINUX
 	end
 
 	# Commands to run in interactive sessions can go here
