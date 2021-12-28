@@ -58,6 +58,10 @@ if has('nvim')
   let g:vimsence_small_text = 'NeoVim'   
   let g:vimsence_small_image = 'neovim'  
 endif
+
+"vim-move interferes with my .tmux.conf
+let g:move_key_modifier = 'C'
+
 "fix my tabs
 set tabstop=2 shiftwidth=2 expandtab
 
