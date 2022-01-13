@@ -1,0 +1,58 @@
+# Imap settings {{{
+set imap_user = "$IMAP_USER"
+set imap_pass = "$IMAP_PASSWD"
+unset imap_passive
+
+#}}}
+
+# Smpt settings {{{
+set smtp_url = "smtps://$IMAP_USER@$SMTP_SERVER"
+set smtp_pass = "$IMAP_PASSWD"
+set from = "$IMAP_USER"
+set use_from = yes
+
+#}}}
+
+# Folders {{{
+set folder = "$IMAP_FOLDER"
+set spoolfile = "+INBOX"
+set postponed = "+Drafts"
+set record = "+Sent"
+set trash = "+Trash"
+
+#}}}
+
+# Sidebar {{{
+set sidebar_visible
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+set imap_check_subscribed
+bind index,pager B sidebar-toggle-visible
+
+# }}}
+
+# Index {{{
+set index_format = "%4C %Z %{%b %d} %-30.30L (%?l?%4l&%4c?) %s"
+#}}}
+
+# Alias Managment {{{
+set alias_file = "~/.muttalias"
+set sort_alias = alias
+set reverse_alias = yes
+source $alias_file
+
+#}}}
+
+set header_cache = "~/.cache/neomutt/"
+set message_cachedir = "~/.cache/neomutt/"
+set mail_check = 120
+set ssl_force_tls = yes
+set pager_stop=yes
+
+# Colors {{{
+color indicator cyan default
+color sidebar_indicator red default
+color error red default
+color normal white default
+# }}}
+
