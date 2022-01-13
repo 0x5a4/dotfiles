@@ -1,3 +1,3 @@
 function ls
-  command ls -h --color $argv
+  command ls -lh --color --hyperlink=auto $argv 
 end

@@ -4,6 +4,10 @@ set -x EDITOR nvim
 if status is-interactive
 	# vim all the way
 	fish_vi_key_bindings
+	set fish_cursor_default block
+	set fish_cursor_insert block
+	set fish_cursor_replace_one underscore
+	set fish_cursor_visual block
 
 	if contains "linux" $TERM
 		set -x LINUXTERM LINUX
@@ -24,7 +28,6 @@ if status is-interactive
 	alias 'fishconf'='$EDITOR ~/.config/fish/config.fish'
 	alias 'cat'='bat'
 	alias 'gs'='git status'
-	alias 'll'='ls -l'
 	alias 'la'='ls -Al'
 	alias 'lsblk'='command lsblk -f'
 	alias ':q'='exit' # done that way to often
