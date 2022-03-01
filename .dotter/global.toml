@@ -1,0 +1,31 @@
+[helpers]
+
+[shell]
+depends = ["gitconfig", "fish"]
+
+[shell.files]
+".tmux.conf" = { target = "~/.tmux.conf", type = "symbolic" }
+vimrc = { target = "~/.vimrc", type = "symbolic" }
+nvim = "~/.config/nvim"
+neomutt = { target = "~/.config/neomutt", type = "symbolic", if = '(is_executable "neomutt")' }
+"starship.toml" = { target = "~/.config/starship.toml", type = "symbolic", if = '(is_executable "starship")' }
+
+[graphical.files]
+"kitty.conf" = { target = "~/.config/kitty/kitty.conf", type = "symbolic", if = '(eq terminal "kitty")' }
+"leftwm.config.toml" = { target = "~/.config/leftwm/config.toml", type = "template", if = '(eq wm.name "leftwm")' }
+
+[graphical.variables]
+terminal = "kitty"
+terminal_args = ""
+
+[fish.files]
+"fish/config.fish" = "~/.config/fish/config.fish"
+"fish/functions" = "~/.config/fish/functions"
+"fish/conf.d" = "~/.config/fish/conf.d"
+
+[gitconfig.files]
+".gitconfig" = "~/.gitconfig"
+
+[gitconfig.variables]
+git_username = "InvalidName662"
+git_email = "54070204+InvalidName662@users.noreply.github.com"

@@ -2,6 +2,7 @@
 set imap_user = "$IMAP_USER"
 set imap_pass = "$IMAP_PASSWD"
 unset imap_passive
+bind index "^" imap-fetch-mail
 
 #}}}
 
@@ -28,6 +29,9 @@ set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 set mail_check_stats
 set imap_check_subscribed
 bind index,pager B sidebar-toggle-visible
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
 
 # }}}
 
@@ -45,13 +49,18 @@ source $alias_file
 
 set header_cache = "~/.cache/neomutt/"
 set message_cachedir = "~/.cache/neomutt/"
+set mailcap_path = "~/.config/neomutt/mailcap"
+auto_view text/html
 set mail_check = 120
 set ssl_force_tls = yes
 set pager_stop=yes
 
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
 # Colors {{{
 color indicator cyan default
-color sidebar_indicator red default
+color sidebar_new bold red white
 color error red default
 color normal white default
 # }}}

@@ -74,7 +74,7 @@ let g:move_key_modifier = 'C'
 nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
 
 "NERDTree
-nnoremap <silent> <leader>nt :NERDTree<CR>
+nnoremap <silent> <leader>n :NERDTree<CR>
 
 "Vim tmux navigator
 let g:tmux_navigator_no_mappings = 1
@@ -89,7 +89,7 @@ nnoremap <silent> <A-,> :TmuxNavigatePrevious<CR>
 
 "Variables {{{
 "fix my tabs
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=4 shiftwidth=4 expandtab
 
 "colorscheme
 silent! colorscheme sonokai
@@ -103,6 +103,7 @@ set smartcase
 set nohlsearch 
 set hidden
 set scrolloff=10
+set splitright
 
 "folding
 set foldenable
@@ -114,6 +115,8 @@ set undodir=~/.vim/undodir/
 "}}}
 
 "Keybinds {{{
+noremap B be
+noremap ° ^
 
 "stop using them please
 noremap <Up> <nop>
@@ -149,6 +152,6 @@ xnoremap X D
 
 "Random {{{
 "For emails
-au BufRead /tmp/mutt-* set tw=72
+au BufRead /tmp/neomutt-* set tw=72
 "}}}
 

@@ -1,0 +1,14 @@
+includes = []
+packages = ["shell", "graphical"]
+
+[files]
+
+[variables]
+wm = "leftwm"
+wm_modkey = "Mod4"
+terminal = "kitty"
+terminal_args = "-1"
+
+[variables.wm]
+name = "leftwm"
+modkey = "Mod4"

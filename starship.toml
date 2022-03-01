@@ -1,3 +1,4 @@
+# vim:ft=toml
 add_newline = false
 
 [shell]
