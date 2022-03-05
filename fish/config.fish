@@ -23,14 +23,17 @@ if status is-interactive
 	end
 
 	# aliases
-	alias 'sdown'='systemctl poweroff'
-	alias 'nmcu'='nodemcu-tool'
+	alias 'sdown'='shutdown -h now'
+	alias 'nmcu'='nodemcu-tool' # will propably never use it again but this stays
 	alias 'fishconf'='$EDITOR ~/.config/fish/config.fish'
 	alias 'cat'='bat'
-	alias 'gs'='git status'
 	alias 'la'='ls -A'
 	alias 'lsblk'='command lsblk -f'
 	alias ':q'='exit' # done that way to often
+
+	# git shorts
+	alias 'gs'='git status'
+	alias 'gp'='git push'
 	
 	#kitty ssh fix
 	if [ $TERM = 'xterm-kitty' ]
