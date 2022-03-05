@@ -20,7 +20,6 @@ terminal_args = ""
 [fish.files]
 "fish/config.fish" = "~/.config/fish/config.fish"
 "fish/functions" = "~/.config/fish/functions"
-"fish/conf.d" = "~/.config/fish/conf.d"
 
 [gitconfig.files]
 ".gitconfig" = "~/.gitconfig"
