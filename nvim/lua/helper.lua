@@ -71,7 +71,7 @@ end
 function S.set(fn)
     local id = string.format('%p', fn)
     S.__au[id] = fn
-    return string.format('lua require("au").exec("%s")', id)
+    return string.format('lua require("helper").autocmd.exec("%s")', id)
 end
 
 function S.group(grp, cmds)
