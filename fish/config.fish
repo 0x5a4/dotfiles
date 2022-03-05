@@ -49,11 +49,6 @@ if status is-interactive
 		alias 'man'='batman'
 	end
 
-	# doas exists
-	if not command -v doas &> /dev/null
-		alias 'sudo'='command sudo -v; command sudo'
-	end	
-
 	#Disable Greeting
 	set fish_greeting
 end
