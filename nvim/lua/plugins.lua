@@ -60,7 +60,7 @@ require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'arkav/lualine-lsp-progress'
   use 'sainnhe/sonokai'
-  use 'vimsence/vimsence'
+  use 'andweeb/presence.nvim'
   use 'glepnir/dashboard-nvim'
 
   if PACKER_BOOTSTRAP then

@@ -26,9 +26,8 @@ lualine.setup {
 -- Fzf
 vim.cmd[[let $FZF_DEFAULT_OPTS='--layout=reverse']]
 
--- Vimsence
-config.vimsence_small_text = 'NeoVim'
-config.vimsence_small_image = 'neovim'
+-- presence.nvim aka unnessecary discord rich presence
+require('presence'):setup {}
 
 -- Vim Move
 config.move_key_modifier = 'C'
