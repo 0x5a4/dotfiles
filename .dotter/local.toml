@@ -7,7 +7,7 @@ packages = ["shell", "graphical"]
 wm = "leftwm"
 wm_modkey = "Mod4"
 terminal = "kitty"
-terminal_args = "-1"
+terminal_args = "-1 -e tmux"
 
 [variables.wm]
 name = "leftwm"

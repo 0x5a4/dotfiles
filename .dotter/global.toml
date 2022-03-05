@@ -5,8 +5,7 @@ depends = ["gitconfig", "fish"]
 
 [shell.files]
 ".tmux.conf" = { target = "~/.tmux.conf", type = "symbolic" }
-vimrc = { target = "~/.vimrc", type = "symbolic" }
-nvim = "~/.config/nvim"
+nvim = { target = "~/.config/nvim", type = "symbolic" }
 neomutt = { target = "~/.config/neomutt", type = "symbolic", if = '(is_executable "neomutt")' }
 "starship.toml" = { target = "~/.config/starship.toml", type = "symbolic", if = '(is_executable "starship")' }
 
