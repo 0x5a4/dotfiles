@@ -37,7 +37,7 @@ require('packer').startup(function(use)
   if fn.executable('fzf') then
     use {
       'junegunn/fzf.vim',
-      requires = { 'junegunn/fzf' , run = "./install --bin" };
+      requires = { 'junegunn/fzf', run = "./install --bin" };
     }
   end
   use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
@@ -53,12 +53,12 @@ require('packer').startup(function(use)
     end
   }
   use 'tpope/vim-repeat'
-  use 'tpope/vim-fugitive'
   use 'jghauser/mkdir.nvim'
   use 'svermeulen/vim-cutlass'
 
   -- Misc
-  use "vim-airline/vim-airline"
+  use 'nvim-lualine/lualine.nvim'
+  use 'arkav/lualine-lsp-progress'
   use 'sainnhe/sonokai'
   use 'vimsence/vimsence'
   use 'glepnir/dashboard-nvim'

@@ -59,8 +59,8 @@ cmp.setup({
     mapping = {
         ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item()),
         ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item()),
-        ['<C-J>'] = cmp.mapping(cmp.mapping.scroll_docs(4)),
-        ['<C-K>'] = cmp.mapping(cmp.mapping.scroll_docs(-4)),
+        ['<C-ü>'] = cmp.mapping(cmp.mapping.scroll_docs(4)),
+        ['<C-ä>'] = cmp.mapping(cmp.mapping.scroll_docs(-4)),
         ['<C-Space>'] = function()
             if cmp.visible() then
                 cmp.confirm()

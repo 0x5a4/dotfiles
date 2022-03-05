@@ -1,8 +1,30 @@
 local h = require('helper')
 local config = {}
 
--- Airline
-config.airline_theme = 'sonokai'
+-- Lualine
+local lualine = require('lualine')
+lualine.setup {
+    sections = {
+        lualine_a = {'mode'},
+        lualine_b = {
+            'branch',
+            'diff',
+            {
+                'diagnostics',
+                sources = { 'nvim_lsp' },
+                sections = { 'error', 'warn', 'info' },
+             }
+        },
+        lualine_c = {'filename', 'lsp_progress'},
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_y = {'progress'},
+        lualine_z = {'location'}
+    },
+    extensions = {'fzf'}
+}
+
+-- Fzf
+vim.cmd[[let $FZF_DEFAULT_OPTS='--layout=reverse']]
 
 -- Vimsence
 config.vimsence_small_text = 'NeoVim'
