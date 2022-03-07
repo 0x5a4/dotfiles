@@ -5,6 +5,7 @@ opt.undofile = true
 opt.wildmenu = true
 opt.wildignore = "*/.git/,*/Cargo.lock,*/pubspec.lock"
 opt.splitright = true
+opt.signcolumn = "number"
 
 -- Tabs
 opt.expandtab = true
