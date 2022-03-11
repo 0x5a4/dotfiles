@@ -61,8 +61,3 @@ config.AutoPairs = {
 }
 
 h.glet(config)
-
-h.autocmd.BufRead = {
-    "Cargo.toml",
-    function() vim.api.nvim_call_function("crates#toggle", {}) end
-}

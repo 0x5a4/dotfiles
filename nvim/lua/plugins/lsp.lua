@@ -39,14 +39,6 @@ lsp.on_server_ready(function(server)
     vim.cmd[[do User LspAttachBuffers]]
 end)
 
---Completion popup
-vim.diagnostic.config({
-    virtual_text = true,
-    signs = false,
-    float = { border = "single" },
-    update_in_insert = true,
-})
-
 -- Completion
 local cmp = require('cmp')
 
