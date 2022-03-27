@@ -8,7 +8,7 @@ h.glet({
 })
 
 ts.setup {
-    ensure_installed = {"rust", "lua", "bash", "fish", "python", "toml", "yaml", "vim", "json" },
+    ensure_installed = {"rust", "lua", "bash", "fish", "python", "toml", "yaml", "vim", "json", "java" },
     rainbow = {
         enable = true,
     },

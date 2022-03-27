@@ -33,7 +33,7 @@ if command -v thefuck &> /dev/null
 end
 
 # aliases
-alias 'sdown'='shutdown -h now'
+alias 'sdown'='halt'
 alias 'nmcu'='nodemcu-tool' # will propably never use it again but this stays
 alias 'fishconf'='$EDITOR ~/.config/fish/config.fish'
 alias 'cat'='bat'

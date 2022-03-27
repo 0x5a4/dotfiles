@@ -25,6 +25,8 @@ require('packer').startup(function(use)
   use 'elkowar/yuck.vim'
   use 'mhinz/vim-crates'
   use 'fladson/vim-kitty'
+  use 'elkowar/yuck.vim'
+  use 'gentoo/gentoo-syntax'
 
   -- Text Manipulation
   use 'machakann/vim-sandwich'

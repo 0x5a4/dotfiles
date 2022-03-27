@@ -9,7 +9,6 @@ scratchpad = []
 disable_current_tag_swap = true
 focus_behaviour = "Driven"
 focus_new_windows = true
-
 #Screenshot
 [[keybind]]
 command = "Execute"
@@ -57,13 +56,13 @@ modifier = []
 #rofi
 [[keybind]]
 command = "Execute"
-value = "rofi -show drun"
+value = "{{apps.launcher}} {{apps.launcher_args}}"
 modifier = ["Alt"]
 key = "space"
 
 [[keybind]]
 command = "Execute"
-value = "{{terminal}} {{terminal_args}}"
+value = "{{apps.terminal}} {{apps.terminal_args}}"
 modifier = ["Control", "Alt"]
 key = "t"
 

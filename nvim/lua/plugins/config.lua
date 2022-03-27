@@ -48,16 +48,4 @@ config.dashboard_custom_shortcut = {
     ["book_marks"] = 'SPC f b',
 }
 
---AutoPairs
-config.AutoPairs = {
-    ["("] = ")",
-    ["{"] = "}",
-    ["["] = "]",
-    ["<"] = ">",
-    ["'"] = "'",
-    ['"'] = '"',
-    ["`"] = "`",
-    ["```"] = "```",
-}
-
 h.glet(config)

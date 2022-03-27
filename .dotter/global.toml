@@ -10,12 +10,15 @@ neomutt = { target = "~/.config/neomutt", type = "symbolic", if = '(is_executabl
 "starship.toml" = { target = "~/.config/starship.toml", type = "symbolic", if = '(is_executable "starship")' }
 
 [graphical.files]
-"kitty.conf" = { target = "~/.config/kitty/kitty.conf", type = "symbolic", if = '(eq terminal "kitty")' }
+"kitty.conf" = { target = "~/.config/kitty/kitty.conf", type = "template", if = '(eq apps.terminal "kitty")' }
 "leftwm.config.toml" = { target = "~/.config/leftwm/config.toml", type = "template", if = '(eq wm.name "leftwm")' }
+"sxhkdrc.bspwm" = { target = "~/.config/sxhkd/sxhkdrc", type = "template", if = '(eq wm.name "bspwm")' }
+"picom.conf" = { target = "~/.config/picom/picom.conf", type = "symbolic", if = '(is_executable "picom")'}
 
 [graphical.variables]
 terminal = "kitty"
 terminal_args = ""
+font = "Noto Sans"
 
 [fish.files]
 "fish/config.fish" = "~/.config/fish/config.fish"
@@ -24,6 +27,8 @@ terminal_args = ""
 [gitconfig.files]
 ".gitconfig" = "~/.gitconfig"
 
-[gitconfig.variables]
-git_username = "InvalidName662"
-git_email = "54070204+InvalidName662@users.noreply.github.com"
+[gitconfig.variables.git]
+username = "InvalidName662"
+email = "54070204+InvalidName662@users.noreply.github.com"
+doCommitSigning = false
+gpgkey = "None" 
