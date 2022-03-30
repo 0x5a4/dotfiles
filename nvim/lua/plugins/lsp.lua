@@ -1,12 +1,3 @@
-local h = require("helper")
-
-h.nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-h.nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-h.nnoremap("gu", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>")
-h.nnoremap("<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-h.nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-h.nnoremap("<C-F>", "<cmd>lua vim.lsp.buf.formatting()<CR>")
-
 local cap = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local lsp = require("nvim-lsp-installer")
@@ -51,8 +42,8 @@ cmp.setup({
     mapping = {
         ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item()),
         ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item()),
-        ['<C-ü>'] = cmp.mapping(cmp.mapping.scroll_docs(4)),
-        ['<C-ä>'] = cmp.mapping(cmp.mapping.scroll_docs(-4)),
+        ['<C-w>'] = cmp.mapping(cmp.mapping.scroll_docs(4)),
+        ['<C-s>'] = cmp.mapping(cmp.mapping.scroll_docs(-4)),
         ['<C-Space>'] = function()
             if cmp.visible() then
                 cmp.confirm()

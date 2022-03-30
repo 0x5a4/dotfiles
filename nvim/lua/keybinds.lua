@@ -2,6 +2,7 @@ local h = require("helper")
 vim.api.nvim_set_var("mapleader", " ")
 
 -- Navigation
+h.nnoremap("<leader>q", ":qa<CR>")
 h.noremap("B", "be")
 h.noremap("H", "^")
 h.noremap("L", "$")
@@ -27,6 +28,14 @@ h.nnoremap("XX", "dd")
 h.xnoremap("X", "d")
 h.nnoremap("+", "~")
 h.nnoremap("Q", "@") --@ sucks
+
+--LSP
+h.nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+h.nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+h.nnoremap("gu", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>")
+h.nnoremap("<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+h.nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+h.nnoremap("<C-F>", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 
 -- Buffers
 h.nnoremap("<leader>l", ":bn<CR>")
