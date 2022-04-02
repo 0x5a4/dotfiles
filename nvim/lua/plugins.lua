@@ -18,6 +18,7 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/cmp-path'
   use 'simrat39/rust-tools.nvim'
   use 'folke/lua-dev.nvim'
   use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"}

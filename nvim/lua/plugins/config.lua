@@ -34,6 +34,11 @@ require('gitsigns').setup {
     linehl = false,
 }
 
+--auto-session
+require('auto-session').setup {
+    log_level = 'error'
+}
+
 -- Fzf
 vim.cmd[[let $FZF_DEFAULT_OPTS='--layout=reverse']]
 
