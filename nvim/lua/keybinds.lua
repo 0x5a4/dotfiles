@@ -2,7 +2,7 @@ local h = require("helper")
 vim.api.nvim_set_var("mapleader", " ")
 
 -- Navigation
-h.nnoremap("<leader>q", ":qa<CR>")
+h.nnoremap("<leader>q", ":wqa<CR>")
 h.noremap("B", "be")
 h.noremap("H", "^")
 h.noremap("L", "$")
@@ -38,6 +38,7 @@ h.nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 h.nnoremap("<C-f>", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 
 h.nnoremap("<leader>g", "<cmd>Gitsigns toggle_linehl<CR>")
+h.nnoremap("<leader>u", "<cmd>UrlView<CR>")
 
 -- Buffers
 h.nnoremap("<leader>l", ":bn<CR>")

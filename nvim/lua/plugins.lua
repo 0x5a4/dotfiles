@@ -62,6 +62,8 @@ require('packer').startup(function(use)
   use 'glepnir/dashboard-nvim'
   use 'p00f/nvim-ts-rainbow'
   use 'rmagatti/auto-session'
+  use 'stevearc/dressing.nvim'
+  use 'axieax/urlview.nvim'
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
