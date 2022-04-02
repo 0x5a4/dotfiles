@@ -26,11 +26,6 @@ require('packer').startup(function(use)
   use 'fladson/vim-kitty'
   use 'elkowar/yuck.vim'
   use 'gentoo/gentoo-syntax'
-  use {
-    "rcarriga/vim-ultest",
-    requires = {"vim-test/vim-test"},
-    run = ":UpdateRemotePlugins"
-  }
 
   -- Text Manipulation
   use 'machakann/vim-sandwich'
