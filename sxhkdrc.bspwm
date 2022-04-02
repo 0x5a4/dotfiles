@@ -5,7 +5,7 @@
 
 # terminal emulator
 {{wm.modkey}} + t
-	{{terminal}} {{terminal_args}}
+	{{apps.terminal}} {{apps.terminal_args}}
 
 # program launcher
 {{wm.alt}} + @space

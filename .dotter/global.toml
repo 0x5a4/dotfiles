@@ -15,10 +15,11 @@ neomutt = { target = "~/.config/neomutt", type = "symbolic", if = '(is_executabl
 "sxhkdrc.bspwm" = { target = "~/.config/sxhkd/sxhkdrc", type = "template", if = '(eq wm.name "bspwm")' }
 "picom.conf" = { target = "~/.config/picom/picom.conf", type = "symbolic", if = '(is_executable "picom")'}
 
-[graphical.variables]
+[graphical.variables.apps]
 terminal = "kitty"
 terminal_args = ""
 font = "Noto Sans"
+font_size = "10"
 
 [fish.files]
 "fish/config.fish" = "~/.config/fish/config.fish"

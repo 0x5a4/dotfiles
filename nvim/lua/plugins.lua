@@ -22,7 +22,6 @@ require('packer').startup(function(use)
   use 'folke/lua-dev.nvim'
   use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"}
   use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'elkowar/yuck.vim'
   use 'mhinz/vim-crates'
   use 'fladson/vim-kitty'
   use 'elkowar/yuck.vim'
@@ -50,9 +49,6 @@ require('packer').startup(function(use)
     requires = {
       'nvim-lua/plenary.nvim'
     },
-    config = function()
-      require('gitsigns').setup()
-    end
   }
   use 'tpope/vim-repeat'
   use 'jghauser/mkdir.nvim'
@@ -64,13 +60,15 @@ require('packer').startup(function(use)
   use 'sainnhe/sonokai'
   use 'andweeb/presence.nvim'
   use 'glepnir/dashboard-nvim'
+  use 'p00f/nvim-ts-rainbow'
+  use 'rmagatti/auto-session'
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
-end)
 
-require("plugins.lsp")
-require("plugins.config")
-require("plugins.treesitter")
-require("plugins.dashboard")
+  require("plugins.lsp")
+  require("plugins.config")
+  require("plugins.treesitter")
+  require("plugins.dashboard")
+end)

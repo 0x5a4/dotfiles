@@ -35,7 +35,9 @@ h.nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 h.nnoremap("gu", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>")
 h.nnoremap("<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 h.nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-h.nnoremap("<C-F>", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+h.nnoremap("<C-f>", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+
+h.nnoremap("<leader>g", "<cmd>Gitsigns toggle_linehl<CR>")
 
 -- Buffers
 h.nnoremap("<leader>l", ":bn<CR>")

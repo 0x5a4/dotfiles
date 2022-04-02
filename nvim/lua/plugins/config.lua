@@ -2,8 +2,7 @@ local h = require('helper')
 local config = {}
 
 -- Lualine
-local lualine = require('lualine')
-lualine.setup {
+require('lualine') .setup {
     sections = {
         lualine_a = {'mode'},
         lualine_b = {
@@ -16,11 +15,18 @@ lualine.setup {
              }
         },
         lualine_c = {'filename', 'lsp_progress'},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_x = {require('auto-session-library').current_session_name, 'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
     },
     extensions = {'fzf'}
+}
+
+--Gitsigns
+require('gitsigns').setup {
+    signcolumn = false,
+    numhl = true,
+    linehl = false,
 }
 
 -- Fzf
