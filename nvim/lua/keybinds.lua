@@ -13,15 +13,6 @@ h.noremap("<A-k>", ":TmuxNavigateUp<CR>")
 h.noremap("<A-,>", ":TmuxNavigatePrevious<CR>")
 h.map("n", "<C-p>", "(len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached').\"<CR>\"", { expr = true, noremap = true })
 
-h.map("n", "<leader>ss", "<cmd><C-u>SessionSave<CR>", h.default_ops)
-h.map("n", "<leader>sl", "<cmd><C-u>SessionLoad<CR>", h.default_ops)
-h.nnoremap("<leader>fh", "<cmd>DashboardFindHistory<CR>")
-h.nnoremap("<leader>tc", "<cmd>DashboardChangeColorscheme<CR>")
-h.nnoremap("<leader>fa", "<cmd>DashboardFindWord<CR>")
-h.nnoremap("<leader>fb", "<cmd>DashboardJumpMark<CR>")
-h.nnoremap("<leader>cn", "<cmd>DashboardNewFile<CR>")
-h.nnoremap("<leader>d", "<cmd>Dashboard<CR>")
-
 -- Text Manipulation
 h.nnoremap("X", "d")
 h.nnoremap("XX", "dd")
@@ -37,8 +28,9 @@ h.nnoremap("<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 h.nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 h.nnoremap("<C-f>", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 
-h.nnoremap("<leader>g", "<cmd>Gitsigns toggle_linehl<CR>")
+h.nnoremap("<leader>gs", "<cmd>Gitsigns toggle_linehl<CR>")
 h.nnoremap("<leader>u", "<cmd>UrlView<CR>")
+h.nnoremap("<leader>t", "<cmd>Ultest<CR>")
 
 -- Buffers
 h.nnoremap("<leader>l", ":bn<CR>")

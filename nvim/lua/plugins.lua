@@ -26,6 +26,11 @@ require('packer').startup(function(use)
   use 'fladson/vim-kitty'
   use 'elkowar/yuck.vim'
   use 'gentoo/gentoo-syntax'
+  use {
+    "rcarriga/vim-ultest",
+    requires = {"vim-test/vim-test"},
+    run = ":UpdateRemotePlugins"
+  }
 
   -- Text Manipulation
   use 'machakann/vim-sandwich'
@@ -35,13 +40,12 @@ require('packer').startup(function(use)
   use 'tpope/vim-commentary'
 
   -- Navigation
-  if fn.executable('fzf') then
-    use {
-      'junegunn/fzf.vim',
-      requires = { 'junegunn/fzf', run = "./install --bin" };
-    }
-  end
+  use {
+    'junegunn/fzf.vim',
+    requires = { 'junegunn/fzf', run = "./install --bin" };
+  }
   use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
+  use 'abecodes/tabout.nvim'
 
   -- Util
   use {
@@ -53,13 +57,10 @@ require('packer').startup(function(use)
   use 'tpope/vim-repeat'
   use 'jghauser/mkdir.nvim'
   use 'svermeulen/vim-cutlass'
-
-  -- Misc
   use 'nvim-lualine/lualine.nvim'
   use 'arkav/lualine-lsp-progress'
   use 'sainnhe/sonokai'
   use 'andweeb/presence.nvim'
-  use 'glepnir/dashboard-nvim'
   use 'p00f/nvim-ts-rainbow'
   use 'rmagatti/auto-session'
   use 'stevearc/dressing.nvim'
@@ -69,8 +70,9 @@ require('packer').startup(function(use)
     require('packer').sync()
   end
 
-  require("plugins.lsp")
-  require("plugins.config")
-  require("plugins.treesitter")
-  require("plugins.dashboard")
 end)
+
+require("plugins.lsp")
+require("plugins.config")
+require("plugins.treesitter")
+require("plugins.dashboard")
