@@ -27,6 +27,12 @@ require('packer').startup(function(use)
   use 'fladson/vim-kitty'
   use 'elkowar/yuck.vim'
   use 'gentoo/gentoo-syntax'
+  use {
+    'lewis6991/spellsitter.nvim',
+    config = function()
+      require('spellsitter').setup()
+    end
+  }
 
   -- Text Manipulation
   use 'machakann/vim-sandwich'
