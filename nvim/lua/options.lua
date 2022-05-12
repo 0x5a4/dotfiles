@@ -6,7 +6,7 @@ opt.wildmenu = true
 opt.wildignore = "*/.git/,*/Cargo.lock,*/pubspec.lock"
 opt.splitright = true
 opt.signcolumn = "yes"
-opt.spell = true
+opt.laststatus = 3
 
 -- Tabs
 opt.expandtab = true

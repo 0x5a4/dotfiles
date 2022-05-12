@@ -8,6 +8,7 @@ depends = ["gitconfig", "fish"]
 nvim = { target = "~/.config/nvim", type = "symbolic" }
 neomutt = { target = "~/.config/neomutt", type = "symbolic", if = '(is_executable "neomutt")' }
 "starship.toml" = { target = "~/.config/starship.toml", type = "symbolic", if = '(is_executable "starship")' }
+"khal.toml" = { target = "~/.config/khal/config", type = "symbolic", if = '(is_executable "khal")' }
 
 [graphical.files]
 "kitty.conf" = { target = "~/.config/kitty/kitty.conf", type = "template", if = '(eq apps.terminal "kitty")' }

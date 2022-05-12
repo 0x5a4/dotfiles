@@ -16,7 +16,7 @@ require('lualine') .setup {
         },
         lualine_c = {'filename', 'lsp_progress'},
         lualine_x = {
-            require('auto-session-library').current_session_name,
+            -- require('auto-session-library').current_session_name,
             'encoding',
             'fileformat',
             'filetype'
@@ -24,7 +24,10 @@ require('lualine') .setup {
         lualine_y = {'progress'},
         lualine_z = {'location'}
     },
-    extensions = {'fzf'}
+    extensions = {'fzf'},
+    options = {
+        globalstatus = true,
+    }
 }
 
 --Gitsigns
@@ -32,11 +35,6 @@ require('gitsigns').setup {
     signcolumn = false,
     numhl = true,
     linehl = false,
-}
-
---auto-session
-require('auto-session').setup {
-    log_level = 'error'
 }
 
 -- Fzf

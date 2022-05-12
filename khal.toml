@@ -1,0 +1,23 @@
+[calendars]
+
+[[personal]]
+path = "~/.calendars/personal"
+color = dark magenta
+priority = 20
+
+[[work]]
+path = "~/.calendars/work"
+color = dark red
+priority = 99
+
+[default]
+default_calendar = "personal"
+timedelta = 7d
+
+[locale]
+local_timezone = Europe/Berlin
+default_timezone = Europe/Berlin
+
+
+[view]
+dynamic_days = false

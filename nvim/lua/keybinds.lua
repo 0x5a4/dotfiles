@@ -40,6 +40,9 @@ h.nnoremap("<leader>c", ":cclose<CR>")
 -- Quick saving
 h.nnoremap("<leader>w", ":wa<CR>")
 
+-- Spelling
+h.nnoremap("<leader>s", ":set spell!<CR>")
+
 -- Stop using the f*cking arrow keys pleeeease
 h.noremap(h.up, h.nop)
 h.noremap(h.down, h.nop)

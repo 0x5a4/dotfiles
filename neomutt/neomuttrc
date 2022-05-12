@@ -11,6 +11,7 @@ set smtp_url = "smtps://$IMAP_USER@$SMTP_SERVER"
 set smtp_pass = "$IMAP_PASSWD"
 set from = "$IMAP_USER"
 set use_from = yes
+set smtp_authenticators="login"
 
 #}}}
 
@@ -54,6 +55,9 @@ auto_view text/html
 set mail_check = 120
 set ssl_force_tls = yes
 set pager_stop=yes
+set edit_headers
+set reverse_name
+set beep_new
 
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"

@@ -33,6 +33,8 @@ require('packer').startup(function(use)
       require('spellsitter').setup()
     end
   }
+  use 'jghauser/follow-md-links.nvim'
+  use 'iamcco/markdown-preview.nvim'
 
   -- Text Manipulation
   use 'machakann/vim-sandwich'
@@ -64,7 +66,8 @@ require('packer').startup(function(use)
   use 'sainnhe/sonokai'
   use 'andweeb/presence.nvim'
   use 'p00f/nvim-ts-rainbow'
-  use 'rmagatti/auto-session'
+  -- messed with lsp so disable for the time being
+  -- use 'rmagatti/auto-session'
   use 'stevearc/dressing.nvim'
   use 'axieax/urlview.nvim'
 
