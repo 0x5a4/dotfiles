@@ -1,0 +1,26 @@
+# vim:ft=zsh
+
+alias sudo="sudo -v; sudo "
+alias sudoedit="sudo -v; sudoedit"
+
+# Force use of alternatives
+alias cat="bat"
+alias ccat="cat"
+
+#Fixed flags
+alias ls="ls -lh --color=always"
+alias la="ls -A"
+alias lsblk="command lsblk -f"
+alias rm="rm -Iv"
+
+#Git Shortcuts
+alias gs="git status"
+alias gp="git push"
+alias gaa="git add --all"
+alias gcm="git commit -m"
+
+#Kitty ssh fix
+if [ $TERM = 'xterm-kitty' ]; then
+    alias ssh="kitty +kitten ssh"
+fi
+

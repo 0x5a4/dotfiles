@@ -1,0 +1,16 @@
+#PLUGIN CONFIGURATION
+ZSH_HIGHTLIGHT_HIGHLIGHTERS=(main brackets)
+typeset -A ZSH_HIGHTLIGHT_STYLES
+ZSH_HIGHTLIGHT_STYLES[command]='fg=blue'
+
+#Source other config
+source $ZDOTDIR/zalias
+source $ZDOTDIR/zplugins
+
+bindkey -v
+autoload -U compinit; compinit
+
+#Init Starship
+eval "$(starship init zsh)"
+
+

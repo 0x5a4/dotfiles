@@ -1,7 +1,7 @@
 [helpers]
 
 [shell]
-depends = ["gitconfig", "fish"]
+depends = ["gitconfig", "fish", "zsh"]
 
 [shell.files]
 ".tmux.conf" = { target = "~/.tmux.conf", type = "symbolic" }
@@ -25,6 +25,12 @@ font_size = "10"
 [fish.files]
 "fish/config.fish" = "~/.config/fish/config.fish"
 "fish/functions" = "~/.config/fish/functions"
+
+[zsh.files]
+".zshenv" = "~/.zshenv"
+"zsh/zshrc" = "~/.config/zsh/.zshrc"
+"zsh/zplugins" = "~/.config/zsh/zplugins"
+"zsh/zalias" = "~/.config/zsh/zalias"
 
 [gitconfig.files]
 ".gitconfig" = "~/.gitconfig"
