@@ -12,7 +12,7 @@ priority = 99
 
 [default]
 default_calendar = "personal"
-timedelta = 7d
+timedelta = 14d
 
 [locale]
 local_timezone = Europe/Berlin
