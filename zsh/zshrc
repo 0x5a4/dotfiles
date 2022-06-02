@@ -13,4 +13,6 @@ autoload -U compinit; compinit
 #Init Starship
 eval "$(starship init zsh)"
 
+#Init Zoxide
+eval "$(zoxide init zsh)"
 
