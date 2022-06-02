@@ -1,7 +1,7 @@
 [helpers]
 
 [shell]
-depends = ["gitconfig", "fish", "zsh"]
+depends = ["gitconfig", "fish"]
 
 [shell.files]
 ".tmux.conf" = { target = "~/.tmux.conf", type = "symbolic" }
@@ -36,7 +36,7 @@ font_size = "10"
 ".gitconfig" = "~/.gitconfig"
 
 [gitconfig.variables.git]
-username = "InvalidName662"
-email = "54070204+InvalidName662@users.noreply.github.com"
+username = "0x5a4"
+email = "54070204+0x5a4@users.noreply.github.com"
 doCommitSigning = false
 gpgkey = "None" 
