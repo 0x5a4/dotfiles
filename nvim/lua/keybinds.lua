@@ -1,6 +1,11 @@
 local h = require("helper")
 vim.api.nvim_set_var("mapleader", " ")
 
+--Normal mode
+h.map("x", "kj", "<esc>", h.default_ops)
+h.map("i", "kj", "<esc>", h.default_ops)
+h.map("x", "<esc>", h.nop, h.default_ops)
+h.map("i", "<esc>", h.nop, h.default_ops)
 -- Navigation
 h.nnoremap("<leader>q", ":wqa<CR>")
 h.noremap("B", "be")

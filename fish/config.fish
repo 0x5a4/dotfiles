@@ -1,8 +1,6 @@
 #Disable Greeting
 set fish_greeting
 
-#ENVIRONMENT VARIABLES
-set -x EDITOR nvim
 
 #interactive mode only
 if status is-interactive
@@ -13,13 +11,10 @@ if status is-interactive
 	set fish_cursor_replace_one underscore
 	set fish_cursor_visual block
 
-	if contains "linux" $TERM
-		set -x LINUXTERM LINUX
-	end
-
 	# Commands to run in interactive sessions can go here
-	if command -v starship &> /dev/null && not set -q LINUXTERM
-		starship init fish | source
+	starship init fish | source
+	if [ command -v zoxide ] &> /dev/null
+		zoxide init fish | source
 	end
 end
 
@@ -28,15 +23,9 @@ if [ $TERM = 'xterm-kitty' ]
 		alias 'ssh'='kitty +kitten ssh'
 end
 
-if command -v thefuck &> /dev/null
-	thefuck --alias | source
-end
-
 # aliases
-alias 'sdown'='halt'
-alias 'nmcu'='nodemcu-tool' # will propably never use it again but this stays
-alias 'fishconf'='$EDITOR ~/.config/fish/config.fish'
 alias 'cat'='bat'
+alias 'ccat'='command cat'
 alias 'la'='ls -A'
 alias 'lsblk'='command lsblk -f'
 alias ':q'='exit' # done that way to often
@@ -44,14 +33,6 @@ alias ':q'='exit' # done that way to often
 # git shorts
 alias 'gs'='git status'
 alias 'gp'='git push'
-
-if command -v tutel &> /dev/null 
-	tutel nav init fish | source
-end
-
-#man with color
-if command -v batman &> /dev/null 
-	alias 'man'='batman'
-end
-
-
+alias 'ga'='git add'
+alias 'gaa'='git add --all'
+alias 'gcm'='git commit -m'
