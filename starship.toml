@@ -10,3 +10,8 @@ symbol = "🔴"
 format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
 map_symbol = true
 disabled = false
+
+[character]
+success_symbol = "[](bold green) "
+error_symbol = "[](bold red) "
+vicmd_symbol = "[](bold green) "
