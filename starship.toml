@@ -17,4 +17,4 @@ error_symbol = "[](bold red) "
 vicmd_symbol = "[](bold green) "
 
 [jobs]
-symbol = ""
+symbol = "⏰"
