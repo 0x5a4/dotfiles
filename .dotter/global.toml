@@ -19,7 +19,7 @@ neomutt = { target = "~/.config/neomutt", type = "symbolic", if = '(is_executabl
 [graphical.variables.apps]
 terminal = "kitty"
 terminal_args = ""
-font = "Noto Sans"
+font = "Noto Sans Mono SemiCondensed Medium"
 font_size = "10"
 
 [fish.files]
