@@ -42,6 +42,7 @@ require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator'
   use 'jiangmiao/auto-pairs'
   use 'tpope/vim-commentary'
+  use 'rmagatti/alternate-toggler'
 
   -- Navigation
   use {

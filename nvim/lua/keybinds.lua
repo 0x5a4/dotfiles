@@ -6,6 +6,7 @@ h.map("x", "kj", "<esc>", h.default_ops)
 h.map("i", "kj", "<esc>", h.default_ops)
 h.map("x", "<esc>", h.nop, h.default_ops)
 h.map("i", "<esc>", h.nop, h.default_ops)
+
 -- Navigation
 h.nnoremap("<leader>q", ":wqa<CR>")
 h.noremap("B", "be")
@@ -24,6 +25,7 @@ h.nnoremap("XX", "dd")
 h.xnoremap("X", "d")
 h.nnoremap("+", "~")
 h.nnoremap("Q", "@") --@ sucks
+h.nnoremap("<leader>ta", "<cmd>ToggleAlternate<CR>")
 
 --LSP
 h.nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
@@ -35,7 +37,6 @@ h.nnoremap("<C-f>", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 
 h.nnoremap("<leader>gs", "<cmd>Gitsigns toggle_linehl<CR>")
 h.nnoremap("<leader>u", "<cmd>UrlView<CR>")
-h.nnoremap("<leader>t", "<cmd>Ultest<CR>")
 
 -- Buffers
 h.nnoremap("<leader>l", ":bn<CR>")
