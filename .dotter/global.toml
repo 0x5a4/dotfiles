@@ -14,7 +14,7 @@ neomutt = { target = "~/.config/neomutt", type = "symbolic", if = '(is_executabl
 "kitty.conf" = { target = "~/.config/kitty/kitty.conf", type = "template", if = '(eq apps.terminal "kitty")' }
 "leftwm.config.toml" = { target = "~/.config/leftwm/config.toml", type = "template", if = '(eq wm.name "leftwm")' }
 "sxhkdrc.bspwm" = { target = "~/.config/sxhkd/sxhkdrc", type = "template", if = '(eq wm.name "bspwm")' }
-"picom.conf" = { target = "~/.config/picom/picom.conf", type = "symbolic", if = '(is_executable "picom")'}
+"picom.conf" = { target = "~/.config/picom.conf", type = "symbolic", if = '(is_executable "picom")'}
 
 [graphical.variables.apps]
 terminal = "kitty"
