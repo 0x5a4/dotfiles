@@ -34,7 +34,11 @@ require('packer').startup(function(use)
     end
   }
   use 'jghauser/follow-md-links.nvim'
-  use 'iamcco/markdown-preview.nvim'
+  use({
+      "iamcco/markdown-preview.nvim",
+      run = function() vim.fn["mkdp#util#install"]() end,
+  })
+
 
   -- Text Manipulation
   use 'machakann/vim-sandwich'

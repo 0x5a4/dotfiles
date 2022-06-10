@@ -38,6 +38,10 @@ h.nnoremap("<C-f>", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 h.nnoremap("<leader>gs", "<cmd>Gitsigns toggle_linehl<CR>")
 h.nnoremap("<leader>u", "<cmd>UrlView<CR>")
 
+--Markdown
+h.map("n", "<leader>md", "<Plug>MarkdownPreviewToggle")
+h.map("x", "<leader>md", "<Plug>MarkdownPreviewToggle")
+
 -- Buffers
 h.nnoremap("<leader>l", ":bn<CR>")
 h.nnoremap("<leader>h", ":bp<CR>")
@@ -63,4 +67,3 @@ h.nnoremap("ü", "{")
 h.vnoremap("ü", "{")
 h.nnoremap("ä", "}")
 h.vnoremap("ä", "}")
-

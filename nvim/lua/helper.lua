@@ -39,7 +39,7 @@ function T.xnoremap(bind, to)
 end
 
 function T.map(mode, bind, to, opts)
-	return vim.api.nvim_set_keymap(mode, bind, to, opts)
+	return vim.keymap.set(mode, bind, to, opts)
 end
 
 return T
