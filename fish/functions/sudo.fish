@@ -19,29 +19,51 @@ function sudo
     set -l sudov
     set -l commandv
 
+    # Seperate sudo flags from the command
     for i in (seq 1 (count $argv))
         set -l arg $argv[$i]
 
         set -l flag_matches (string match -r $flag_regex -- $arg)
         set -l arg_matches (string match -r $arg_regex -- $arg)
-        
-        echo isflag: (test (count $flag_matches) -ne 0) or "no"
 
         if set -q __force_push_sudov
             set -e __force_push_sudov
             set -a sudov $arg
-        elseif test (count $flag_matches) -ne 0
-            echo ITS A FLAG
+        else if test (count $flag_matches) -ne 0
             set -a sudov $arg
-        elseif test (count $arg_matches) -ne 0
+        else if test (count $arg_matches) -ne 0
             set -a sudov $arg
             set __force_push_sudov
         else 
-            set -a command $argv[$i..2]
+            set -a commandv $argv[$i..-1]
             break
         end
     end
+     
+    # Copy commandv to command
+    set -l command $commandv
 
-    echo "sudov: $sudov"
-    echo "command: $command"
+    # Resolve function
+    if test (count $commandv) -ne 0
+        set -l __func $commandv[1]
+
+        if functions $__func > /dev/null
+            # Create tempfile
+            set tmpfile (mktemp fish.XXXXXX -p /tmp)
+            chmod g+rw $tmpfile 
+            functions $__func | tee $tmpfile > /dev/null
+
+            # Modify command
+            set command fish -c "source $tmpfile; $__func $commandv[2..-1]"
+        end
+    end
+
+    # Call sudo
+    command sudo $sudov $command
+    
+    # Delete tempfile
+    if set -q tmpfile
+        rm $tmpfile 2&> /dev/null
+        set -e tmpfile
+    end
 end
