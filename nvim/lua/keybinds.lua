@@ -45,7 +45,7 @@ h.map("x", "<leader>md", "<Plug>MarkdownPreviewToggle")
 -- Buffers
 h.nnoremap("<leader>l", ":bn<CR>")
 h.nnoremap("<leader>h", ":bp<CR>")
-h.nnoremap("<leader>c", ":cclose<CR>")
+h.nnoremap("<leader>c", ":bd<CR>")
 
 -- Quick saving
 h.nnoremap("<leader>w", ":wa<CR>")

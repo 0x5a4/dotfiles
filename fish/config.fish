@@ -29,6 +29,7 @@ alias 'ccat'='command cat'
 alias 'la'='ls -A'
 alias 'lsblk'='command lsblk -f'
 alias ':q'='exit' # done that way to often
+alias 'mkdirp'='mkdir -p'
 
 # git shorts
 alias 'gs'='git status'
