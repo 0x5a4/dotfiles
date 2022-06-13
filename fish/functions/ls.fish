@@ -1,3 +1,3 @@
 function ls
-  gls -l $argv 
+  command ls -h --color --hyperlink=auto -l $argv
 end

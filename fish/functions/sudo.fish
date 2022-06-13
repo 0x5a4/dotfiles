@@ -54,16 +54,10 @@ function sudo
             functions $__func | tee $tmpfile > /dev/null
 
             # Modify command
-            set command fish -c "source $tmpfile; $__func $commandv[2..-1]"
+            set command fish -c "source $tmpfile; rm $tmpfile; $__func $commandv[2..-1]"
         end
     end
 
     # Call sudo
     command sudo $sudov $command
-    
-    # Delete tempfile
-    if set -q tmpfile
-        rm $tmpfile 2&> /dev/null
-        set -e tmpfile
-    end
 end
