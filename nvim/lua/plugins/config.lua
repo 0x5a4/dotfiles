@@ -50,4 +50,17 @@ config.move_key_modifier = 'C'
 config.tmux_navigator_no_mappings = 1
 config.tmux_navigator_save_on_switch = 2
 
+--vim-crates
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+    pattern = { "Cargo.toml" },
+    callback = function()
+        vim.cmd([[
+            highlight clear Crates
+            highlight link Crates InfoFloat
+        ]])
+        vim.cmd([[call crates#toggle()]])
+    end
+})
+
+
 h.glet(config)

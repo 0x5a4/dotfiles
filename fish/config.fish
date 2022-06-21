@@ -13,7 +13,7 @@ if status is-interactive
 
 	# Commands to run in interactive sessions can go here
 	starship init fish | source
-	if [ command -v zoxide ] &> /dev/null
+	if command -v zoxide &> /dev/null
 		zoxide init fish | source
 	end
 end
