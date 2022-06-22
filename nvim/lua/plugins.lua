@@ -1,8 +1,11 @@
 -- bootstrap packer
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  PACKER_BOOTSTRAP = fn.system {
+    'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+    install_path
+  }
 end
 
 vim.cmd [[packadd packer.nvim]]
@@ -21,7 +24,10 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'simrat39/rust-tools.nvim'
   use 'folke/lua-dev.nvim'
-  use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"}
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ":TSUpdate"
+  }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'mhinz/vim-crates'
   use 'fladson/vim-kitty'
@@ -34,10 +40,10 @@ require('packer').startup(function(use)
     end
   }
   use 'jghauser/follow-md-links.nvim'
-  use({
-      "iamcco/markdown-preview.nvim",
-      run = function() vim.fn["mkdp#util#install"]() end,
-  })
+  use {
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  }
 
 
   -- Text Manipulation
@@ -71,10 +77,9 @@ require('packer').startup(function(use)
   use 'sainnhe/sonokai'
   use 'andweeb/presence.nvim'
   use 'p00f/nvim-ts-rainbow'
-  -- messed with lsp so disable for the time being
-  -- use 'rmagatti/auto-session'
   use 'stevearc/dressing.nvim'
   use 'axieax/urlview.nvim'
+  use "numToStr/FTerm.nvim"
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
@@ -85,4 +90,3 @@ end)
 require("plugins.lsp")
 require("plugins.config")
 require("plugins.treesitter")
-require("plugins.dashboard")

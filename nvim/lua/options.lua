@@ -27,5 +27,16 @@ opt.hlsearch = false
 opt.foldenable = true
 opt.foldmethod = "marker"
 
+--Autocommands
+
 -- for emails
-vim.cmd [[au BufRead /tmp/neomutt-* set tw=72]]
+vim.api.nvim_create_autocmd("BufRead", {
+    pattern = "/tmp/neomutt-*",
+    command = "set tw=72"
+})
+
+--ASM Filetype
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+    pattern = "*.asm",
+    command = "set ft=asm"
+})

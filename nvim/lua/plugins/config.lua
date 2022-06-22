@@ -2,9 +2,9 @@ local h = require('helper')
 local config = {}
 
 -- Lualine
-require('lualine') .setup {
+require('lualine').setup {
     sections = {
-        lualine_a = {'mode'},
+        lualine_a = { 'mode' },
         lualine_b = {
             'branch',
             'diff',
@@ -12,19 +12,18 @@ require('lualine') .setup {
                 'diagnostics',
                 sources = { 'nvim_lsp' },
                 sections = { 'error', 'warn', 'info' },
-             }
+            }
         },
-        lualine_c = {'filename', 'lsp_progress'},
+        lualine_c = { 'filename', 'lsp_progress' },
         lualine_x = {
-            -- require('auto-session-library').current_session_name,
             'encoding',
             'fileformat',
             'filetype'
         },
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' }
     },
-    extensions = {'fzf'},
+    extensions = { 'fzf' },
     options = {
         globalstatus = true,
     }
@@ -38,13 +37,14 @@ require('gitsigns').setup {
 }
 
 -- Fzf
-vim.cmd[[let $FZF_DEFAULT_OPTS='--layout=reverse']]
+vim.cmd [[let $FZF_DEFAULT_OPTS='--layout=reverse']]
 
 -- presence.nvim aka unnessecary discord rich presence
 require('presence'):setup {}
 
 -- Vim Move
 config.move_key_modifier = 'C'
+config.move_key_modifier_visualmode = 'C'
 
 -- Tmux
 config.tmux_navigator_no_mappings = 1
@@ -62,5 +62,11 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     end
 })
 
+--FTerm
+require('FTerm').setup({
+    border = 'rounded'
+})
+vim.keymap.set('n', '<A-t>', '<CMD>lua require("FTerm").toggle()<CR>')
+vim.keymap.set('t', '<A-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 
 h.glet(config)
