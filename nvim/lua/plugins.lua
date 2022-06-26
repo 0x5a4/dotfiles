@@ -11,13 +11,19 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 require('packer').startup(function(use)
+
+  local configmap = require("config")
+
   use 'wbthomason/packer.nvim'
 
   --Language Integration
   use 'sheerun/vim-polyglot'
   use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
-  use 'hrsh7th/nvim-cmp'
+  use {
+    'williamboman/nvim-lsp-installer',
+    config = configmap["lspconfig"]
+  }
+  use { 'hrsh7th/nvim-cmp', config = configmap["nvim-cmp"] }
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/cmp-vsnip'
@@ -26,18 +32,20 @@ require('packer').startup(function(use)
   use 'folke/lua-dev.nvim'
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ":TSUpdate"
+    run = ":TSUpdate",
+    config = configmap["treesitter"]
   }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'mhinz/vim-crates'
+  use {
+    'mhinz/vim-crates',
+    config = configmap["vim-crates"]
+  }
   use 'fladson/vim-kitty'
   use 'elkowar/yuck.vim'
   use 'gentoo/gentoo-syntax'
   use {
     'lewis6991/spellsitter.nvim',
-    config = function()
-      require('spellsitter').setup()
-    end
+    config = configmap["spellsitter"]
   }
   use 'jghauser/follow-md-links.nvim'
   use {
@@ -45,11 +53,10 @@ require('packer').startup(function(use)
     run = function() vim.fn["mkdp#util#install"]() end,
   }
 
-
   -- Text Manipulation
   use 'machakann/vim-sandwich'
-  use 'matze/vim-move'
-  use 'christoomey/vim-tmux-navigator'
+  use { 'matze/vim-move', config = configmap["vim-move"] }
+  use { 'christoomey/vim-tmux-navigator', config = configmap["vim-tmux"] }
   use 'jiangmiao/auto-pairs'
   use 'tpope/vim-commentary'
   use 'rmagatti/alternate-toggler'
@@ -60,7 +67,7 @@ require('packer').startup(function(use)
     requires = { 'junegunn/fzf', run = "./install --bin" };
   }
   use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
-  use 'abecodes/tabout.nvim'
+  use 'folke/todo-comments.nvim'
 
   -- Util
   use {
@@ -72,21 +79,16 @@ require('packer').startup(function(use)
   use 'tpope/vim-repeat'
   use 'jghauser/mkdir.nvim'
   use 'svermeulen/vim-cutlass'
-  use 'nvim-lualine/lualine.nvim'
+  use { 'nvim-lualine/lualine.nvim', config = configmap["lualine"] }
   use 'arkav/lualine-lsp-progress'
   use 'sainnhe/sonokai'
-  use 'andweeb/presence.nvim'
   use 'p00f/nvim-ts-rainbow'
-  use 'stevearc/dressing.nvim'
+  use 'stevearc/dressing.nvim' --better looking vim.ui interfaces
   use 'axieax/urlview.nvim'
-  use "numToStr/FTerm.nvim"
+  use { 'numToStr/FTerm.nvim', config = configmap["fterm"] }
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
 
 end)
-
-require("plugins.lsp")
-require("plugins.config")
-require("plugins.treesitter")

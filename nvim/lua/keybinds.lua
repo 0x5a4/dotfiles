@@ -1,10 +1,42 @@
-local h = require("helper")
+local h = {}
+h.nop = "<nop>"
+h.up = "<Up>"
+h.down = "<Down>"
+h.right = "<Right>"
+h.left = "<Left>"
+h.default_ops = { noremap = true, silent = true }
+
+-- Key Mapping
+function h.nnoremap(bind, to)
+	return vim.api.nvim_set_keymap("n", bind, to, h.default_ops)
+end
+
+function h.noremap(bind, to)
+	return vim.api.nvim_set_keymap("", bind, to, h.default_ops)
+end
+
+function h.inoremap(bind, to)
+	return vim.api.nvim_set_keymap("i", bind, to, h.default_ops)
+end
+
+function h.vnoremap(bind, to)
+	return vim.api.nvim_set_keymap("v", bind, to, h.default_ops)
+end
+
+function h.xnoremap(bind, to)
+	return vim.api.nvim_set_keymap("x", bind, to, h.default_ops)
+end
+
+function h.map(mode, bind, to, opts)
+	return vim.keymap.set(mode, bind, to, opts)
+end
+
 vim.api.nvim_set_var("mapleader", " ")
 
 --Really stupid, but otherwise FTerm breaks
 vim.keymap.set('n', '<leader>q', function()
-    vim.cmd("wa")
-    vim.cmd("qa")
+	vim.cmd("wa")
+	vim.cmd("qa")
 end)
 
 --Normal mode
@@ -22,7 +54,8 @@ h.noremap("<A-h>", ":TmuxNavigateLeft<CR>")
 h.noremap("<A-j>", ":TmuxNavigateDown<CR>")
 h.noremap("<A-k>", ":TmuxNavigateUp<CR>")
 h.noremap("<A-,>", ":TmuxNavigatePrevious<CR>")
-h.map("n", "<C-p>", "(len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached').\"<CR>\"", { expr = true, noremap = true })
+h.map("n", "<C-p>", "(len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached').\"<CR>\""
+	, { expr = true, noremap = true })
 
 -- Text Manipulation
 h.nnoremap("X", "d")

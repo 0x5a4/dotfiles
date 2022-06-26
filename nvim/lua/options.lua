@@ -35,8 +35,14 @@ vim.api.nvim_create_autocmd("BufRead", {
     command = "set tw=72"
 })
 
---ASM Filetype
+-- ASM filetype
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     pattern = "*.asm",
     command = "set ft=asm"
+})
+
+-- auto recompile packer
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+    pattern = "plugins.lua",
+    command = "source <afile> | PackerCompile"
 })
