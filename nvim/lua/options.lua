@@ -1,6 +1,7 @@
 local opt = vim.opt
 
 opt.number = true
+opt.relativenumber = true
 opt.undofile = true
 opt.wildmenu = true
 opt.wildignore = "*/.git/,*/Cargo.lock,*/pubspec.lock"
