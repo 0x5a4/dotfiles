@@ -1,6 +1,6 @@
 local configmap = {}
 
---Gitsigns
+-- gitsigns
 configmap["gitsigns"] = function()
     require('gitsigns').setup {
         signcolumn = false,
@@ -9,22 +9,19 @@ configmap["gitsigns"] = function()
     }
 end
 
--- Fzf
-vim.cmd [[let $FZF_DEFAULT_OPTS='--layout=reverse']]
-
--- Vim Move
+-- vim move
 configmap["vim-move"] = function()
     vim.g.move_key_modifier = 'C'
     vim.g.move_key_modifier_visualmode = 'C'
 end
 
--- Tmux
+-- tmux
 configmap["vim-tmux"] = function()
     vim.g.tmux_navigator_no_mappings = 1
     vim.g.tmux_navigator_save_on_switch = 2
 end
 
---vim-crates
+-- vim-crates
 configmap["vim-crates"] = function()
     vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
         pattern = { "Cargo.toml" },
@@ -38,7 +35,7 @@ configmap["vim-crates"] = function()
     })
 end
 
---FTerm
+-- fterm
 configmap["fterm"] = function()
     require('FTerm').setup({
         border = 'rounded'
@@ -47,21 +44,21 @@ configmap["fterm"] = function()
     vim.keymap.set('t', '<A-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 end
 
---Spellsitter
+-- spellsitter
 configmap["spellsitter"] = function()
     require('spellsitter').setup()
 end
 
---Tabout
-configmap["tabout"] = function()
-    require('tabout').setup {
-        completion = true
-    }
+-- todo-comments
+configmap["todo-comments"] = function()
+    require("todo-comments").setup {}
 end
 
 configmap["treesitter"] = require("plugins.treesitter")
 configmap["lspconfig"] = require("plugins.lsp")
 configmap["nvim-cmp"] = require("plugins.nvimcmp")
 configmap["lualine"] = require("plugins.lualine")
+configmap["telescope"] = require("plugins.telescope")
+configmap["hydra"] = require("plugins.hydra")
 
 return configmap

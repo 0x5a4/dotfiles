@@ -26,7 +26,7 @@ end
 # aliases
 alias 'cat'='bat'
 alias 'ccat'='command cat'
-alias 'la'='command ls -h --color --hyperlink=auto -l'
+alias 'la'='command ls -h --color --hyperlink=auto -l -a'
 alias 'lsblk'='command lsblk -f'
 alias ':q'='exit' # done that way to often
 alias 'mkdirp'='mkdir -p'

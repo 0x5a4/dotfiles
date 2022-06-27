@@ -54,7 +54,7 @@ function sudo
             functions $__func | tee $tmpfile > /dev/null
 
             # Modify command
-            set command fish -c "source $tmpfile; rm $tmpfile; $__func $commandv[2..-1]"
+            set command fish -c "source $tmpfile; rm $tmpfile &> /dev/null; $__func $commandv[2..-1]"
         end
     end
 

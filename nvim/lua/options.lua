@@ -43,6 +43,6 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 
 -- auto recompile packer
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-    pattern = "plugins.lua",
+    pattern = "/*/nvim/*/*",
     command = "source <afile> | PackerCompile"
 })

@@ -43,10 +43,7 @@ require('packer').startup(function(use)
   use 'fladson/vim-kitty'
   use 'elkowar/yuck.vim'
   use 'gentoo/gentoo-syntax'
-  use {
-    'lewis6991/spellsitter.nvim',
-    config = configmap["spellsitter"]
-  }
+  use { 'lewis6991/spellsitter.nvim', config = configmap["spellsitter"] }
   use 'jghauser/follow-md-links.nvim'
   use {
     "iamcco/markdown-preview.nvim",
@@ -63,11 +60,17 @@ require('packer').startup(function(use)
 
   -- Navigation
   use {
-    'junegunn/fzf.vim',
-    requires = { 'junegunn/fzf', run = "./install --bin" };
+    'nvim-telescope/telescope.nvim',
+    requires = { { 'nvim-lua/plenary.nvim' } },
+    config = configmap["telescope"]
   }
-  use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
-  use 'folke/todo-comments.nvim'
+  use('crispgm/telescope-heading.nvim')
+  use {
+    'folke/todo-comments.nvim',
+    requires = { { 'nvim-lua/plenary.nvim' } },
+    config = configmap["todo-comments"],
+  }
+  use { 'anuvyklack/hydra.nvim', config = configmap["hydra"] }
 
   -- Util
   use {
@@ -75,17 +78,19 @@ require('packer').startup(function(use)
     requires = {
       'nvim-lua/plenary.nvim'
     },
+    config = configmap["gitsigns"],
   }
   use 'tpope/vim-repeat'
   use 'jghauser/mkdir.nvim'
   use 'svermeulen/vim-cutlass'
   use { 'nvim-lualine/lualine.nvim', config = configmap["lualine"] }
   use 'arkav/lualine-lsp-progress'
-  use 'sainnhe/sonokai'
   use 'p00f/nvim-ts-rainbow'
   use 'stevearc/dressing.nvim' --better looking vim.ui interfaces
   use 'axieax/urlview.nvim'
   use { 'numToStr/FTerm.nvim', config = configmap["fterm"] }
+
+  use { 'sainnhe/sonokai', config = function() vim.cmd("colorscheme sonokai") end }
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
