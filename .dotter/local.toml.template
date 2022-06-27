@@ -1,0 +1,21 @@
+includes = []
+packages = ["shell", "graphical"]
+
+[files]
+
+[variables.apps]
+font_size = "10"
+terminal_args = "-1 -e tmux"
+terminal = "kitty"
+launcher = "rofi"
+launcher_args = "-show drun"
+browser = "librewolf"
+
+[variables.wm]
+name = "bspwm"
+alt = "alt"
+modkey = "super"
+
+[variables.git]
+doCommitSigning = false
+gpgkey = ""
