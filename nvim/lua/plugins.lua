@@ -89,6 +89,10 @@ require('packer').startup(function(use)
   use 'stevearc/dressing.nvim' --better looking vim.ui interfaces
   use 'axieax/urlview.nvim'
   use { 'numToStr/FTerm.nvim', config = configmap["fterm"] }
+  use 'jbyuki/venn.nvim'
+  use { 'norcalli/nvim-colorizer.lua', config = configmap["colorizer"] }
+  use 'nyngwang/NeoNoName.lua'
+  use { 'max397574/better-escape.nvim', config = configmap["better-escape"] }
 
   use { 'sainnhe/sonokai', config = function() vim.cmd("colorscheme sonokai") end }
 

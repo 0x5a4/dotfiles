@@ -17,7 +17,11 @@ return function()
             { '<', '2<c-w><', { desc = 'decrease width' } },
             { '+', '<c-w>+', { desc = 'increase height' } },
             { '-', '<c-w>-', { desc = 'decrease height' } },
-            { '=', '<c-w>=', { desc = 'equalize', exit = true } },
+
+            { 'h', '<c-w>h', },
+            { 'j', '<c-w>j', },
+            { 'k', '<c-w>k', },
+            { 'l', '<c-w>l', },
 
             -- Exit
             { 'q', nil, { exit = true } }

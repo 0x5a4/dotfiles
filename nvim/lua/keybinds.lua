@@ -37,9 +37,7 @@ end)
 
 --Normal mode
 vim.api.nvim_set_keymap("x", "kj", "<esc>", h.default_ops)
-vim.api.nvim_set_keymap("i", "kj", "<esc>", h.default_ops)
 vim.api.nvim_set_keymap("x", "<esc>", h.nop, h.default_ops)
-vim.api.nvim_set_keymap("i", "<esc>", h.nop, h.default_ops)
 
 -- Navigation
 h.noremap("B", "be")
@@ -91,7 +89,8 @@ vim.api.nvim_set_keymap("x", "<leader>md", "<Plug>MarkdownPreviewToggle", h.defa
 -- Buffers
 h.nnoremap("<leader>l", ":bn<CR>")
 h.nnoremap("<leader>h", ":bp<CR>")
-h.nnoremap("<leader>c", ":bd<CR>")
+h.nnoremap("<leader>C", ":bd<CR>")
+h.nnoremap("<leader>c", "<cmd>NeoNoName<CR>")
 
 -- Quick saving
 h.nnoremap("<leader>w", ":wa<CR>")
@@ -108,6 +107,29 @@ h.inoremap(h.up, h.nop)
 h.inoremap(h.down, h.nop)
 h.inoremap(h.right, h.nop)
 h.inoremap(h.left, h.nop)
+
+-- Venn
+function _G.Toggle_venn()
+	local venn_enabled = vim.inspect(vim.b.venn_enabled)
+	if venn_enabled == "nil" then
+		vim.b.venn_enabled = true
+		vim.cmd [[setlocal ve=all]]
+		-- draw a line on HJKL keystokes
+		vim.api.nvim_buf_set_keymap(0, "n", "J", "<C-v>j:VBox<CR>", { noremap = true })
+		vim.api.nvim_buf_set_keymap(0, "n", "K", "<C-v>k:VBox<CR>", { noremap = true })
+		vim.api.nvim_buf_set_keymap(0, "n", "L", "<C-v>l:VBox<CR>", { noremap = true })
+		vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", { noremap = true })
+		-- draw a box by pressing "f" with visual selection
+		vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", { noremap = true })
+	else
+		vim.cmd [[setlocal ve=]]
+		vim.cmd [[mapclear <buffer>]]
+		vim.b.venn_enabled = nil
+	end
+end
+
+-- toggle keymappings for venn using <leader>v
+vim.api.nvim_set_keymap('n', '<leader>v', ":lua Toggle_venn()<CR>", { noremap = true, silent = true})
 
 h.nnoremap("ü", "{")
 h.vnoremap("ü", "{")

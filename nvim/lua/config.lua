@@ -54,6 +54,20 @@ configmap["todo-comments"] = function()
     require("todo-comments").setup {}
 end
 
+-- nvim-colorizer
+configmap["colorizer"] = function()
+    require("colorizer").setup {}
+end
+
+-- better-escape
+configmap["better-escape"] = function()
+    require("better_escape").setup {
+        mapping = { "kj" },
+        timeout = 500,
+        clear_empty_lines = true,
+    }
+end
+
 configmap["treesitter"] = require("plugins.treesitter")
 configmap["lspconfig"] = require("plugins.lsp")
 configmap["nvim-cmp"] = require("plugins.nvimcmp")
