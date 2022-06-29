@@ -48,3 +48,9 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     pattern = "/*/nvim/*/*",
     command = "source <afile> | PackerCompile"
 })
+
+-- automatically activate spelling in MARKDOWN
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+    pattern = "*.md",
+    command = "set spell"
+})
