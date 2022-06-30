@@ -51,14 +51,14 @@ require('packer').startup(function(use)
   }
 
   -- Text Manipulation
-  use 'machakann/vim-sandwich'
+  use 'tpope/vim-surround'
   use { 'matze/vim-move', config = configmap["vim-move"] }
-  use { 'christoomey/vim-tmux-navigator', config = configmap["vim-tmux"] }
   use 'jiangmiao/auto-pairs'
   use 'tpope/vim-commentary'
   use 'rmagatti/alternate-toggler'
 
   -- Navigation
+  use { 'christoomey/vim-tmux-navigator', config = configmap["vim-tmux"] }
   use {
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
@@ -71,6 +71,13 @@ require('packer').startup(function(use)
     config = configmap["todo-comments"],
   }
   use { 'anuvyklack/hydra.nvim', config = configmap["hydra"] }
+  use {
+    'ggandor/leap.nvim',
+    config = function()
+      require("leap").set_default_keymaps()
+    end
+  }
+  use 'wellle/targets.vim'
 
   -- Util
   use {
@@ -83,8 +90,6 @@ require('packer').startup(function(use)
   use 'tpope/vim-repeat'
   use 'jghauser/mkdir.nvim'
   use 'svermeulen/vim-cutlass'
-  use { 'nvim-lualine/lualine.nvim', config = configmap["lualine"] }
-  use 'arkav/lualine-lsp-progress'
   use 'p00f/nvim-ts-rainbow'
   use 'stevearc/dressing.nvim' --better looking vim.ui interfaces
   use 'axieax/urlview.nvim'
@@ -95,6 +100,8 @@ require('packer').startup(function(use)
   use { 'max397574/better-escape.nvim', config = configmap["better-escape"] }
 
   use { 'sainnhe/sonokai', config = function() vim.cmd("colorscheme sonokai") end }
+  use { 'nvim-lualine/lualine.nvim', config = configmap["lualine"] }
+  use 'arkav/lualine-lsp-progress'
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
