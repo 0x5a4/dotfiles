@@ -59,7 +59,7 @@ vim.api.nvim_set_keymap("n", "<C-p>", "", {
 })
 h.nnoremap("<leader>d", "<cmd>Telescope lsp_document_symbols<CR>")
 h.nnoremap("<leader>s", "<cmd>Telescope spell_suggest<CR>")
-h.nnoremap("<leader>gd", "<cmd>Telescope diagnostics<CR>")
+h.nnoremap("<leader>e", "<cmd>Telescope diagnostics<CR>")
 h.nnoremap("<leader>t", "<cmd>TodoTelescope<CR>")
 h.nnoremap("<leader>gh", "<cmd>Telescope heading<CR>")
 
