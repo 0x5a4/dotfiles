@@ -49,6 +49,9 @@ h.noremap("<A-j>", ":TmuxNavigateDown<CR>")
 h.noremap("<A-k>", ":TmuxNavigateUp<CR>")
 h.noremap("<A-,>", ":TmuxNavigatePrevious<CR>")
 
+-- ugdb
+h.nnoremap("<leader>b", "<cmd>UGDBBreakpoint<CR>")
+
 -- Telescope
 vim.api.nvim_set_keymap("n", "<C-p>", "", {
 	noremap = true,

@@ -49,6 +49,7 @@ require('packer').startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   }
+  use 'ftilde/vim-ugdb'
 
   -- Text Manipulation
   use 'tpope/vim-surround'
