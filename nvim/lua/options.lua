@@ -8,6 +8,7 @@ opt.wildignore = "*/.git/,*/Cargo.lock,*/pubspec.lock"
 opt.splitright = true
 opt.signcolumn = "yes"
 opt.laststatus = 3
+opt.timeoutlen = 500
 
 -- Tabs
 opt.expandtab = true
