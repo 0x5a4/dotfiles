@@ -6,11 +6,23 @@ if fn.empty(fn.glob(install_path)) > 0 then
     'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
     install_path
   }
+  vim.cmd [[packadd packer.nvim]]
 end
 
-vim.cmd [[packadd packer.nvim]]
+local packer = require("packer")
 
-require('packer').startup(function(use)
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+    working_sym = ''
+  }
+}
+
+
+-- Install plugins
+packer.startup(function(use)
 
   local configmap = require("config")
 
@@ -97,7 +109,7 @@ require('packer').startup(function(use)
   use { 'numToStr/FTerm.nvim', config = configmap["fterm"] }
   use 'jbyuki/venn.nvim'
   use { 'norcalli/nvim-colorizer.lua', config = configmap["colorizer"] }
-  use 'nyngwang/NeoNoName.lua'
+  use 'moll/vim-bbye'
   use { 'max397574/better-escape.nvim', config = configmap["better-escape"] }
 
   use { 'sainnhe/sonokai', config = function() vim.cmd("colorscheme sonokai") end }

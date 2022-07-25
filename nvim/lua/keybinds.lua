@@ -93,7 +93,7 @@ vim.api.nvim_set_keymap("x", "<leader>md", "<Plug>MarkdownPreviewToggle", h.defa
 h.nnoremap("<leader>l", ":bn<CR>")
 h.nnoremap("<leader>h", ":bp<CR>")
 h.nnoremap("<leader>C", ":bd<CR>")
-h.nnoremap("<leader>c", "<cmd>NeoNoName<CR>")
+h.nnoremap("<leader>c", "<cmd>Bdelete<CR>")
 
 -- Quick saving
 h.nnoremap("<leader>w", ":wa<CR>")
