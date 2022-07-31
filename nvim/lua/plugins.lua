@@ -116,6 +116,7 @@ packer.startup(function(use)
   use { 'nvim-lualine/lualine.nvim', config = configmap["lualine"] }
   use { 'j-hui/fidget.nvim', config = configmap["fidget"] }
   use 'stevearc/dressing.nvim' --better looking vim.ui interfaces
+  use { 'h-hg/numbers.nvim', config = function() require("numbers").setup {} end }
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
