@@ -11,7 +11,7 @@ return function()
                     sections = { 'error', 'warn', 'info' },
                 }
             },
-            lualine_c = { 'filename', 'lsp_progress' },
+            lualine_c = { 'filename' },
             lualine_x = {
                 'encoding',
                 'fileformat',

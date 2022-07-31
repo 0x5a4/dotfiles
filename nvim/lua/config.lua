@@ -59,6 +59,11 @@ configmap["colorizer"] = function()
     require("colorizer").setup {}
 end
 
+-- fidget
+configmap["fidget"] = function() 
+    require("fidget").setup {}
+end
+
 -- better-escape
 configmap["better-escape"] = function()
     require("better_escape").setup {

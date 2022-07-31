@@ -114,7 +114,7 @@ packer.startup(function(use)
   -- Aesthetics
   use { 'sainnhe/sonokai', config = function() vim.cmd("colorscheme sonokai") end }
   use { 'nvim-lualine/lualine.nvim', config = configmap["lualine"] }
-  use 'arkav/lualine-lsp-progress'
+  use { 'j-hui/fidget.nvim', config = configmap["fidget"] }
   use 'stevearc/dressing.nvim' --better looking vim.ui interfaces
 
   if PACKER_BOOTSTRAP then
