@@ -60,8 +60,20 @@ configmap["colorizer"] = function()
 end
 
 -- fidget
-configmap["fidget"] = function() 
+configmap["fidget"] = function()
     require("fidget").setup {}
+end
+
+-- persisted
+configmap["persisted"] = function()
+    require("persisted.nvim").setup {
+        autoload = true,
+        autosave = true,
+        allowed_dirs = {
+            "~/.dotfiles",
+            "~/src"
+        }
+    }
 end
 
 -- better-escape

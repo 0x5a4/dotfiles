@@ -110,6 +110,7 @@ packer.startup(function(use)
   use { 'norcalli/nvim-colorizer.lua', config = configmap["colorizer"] }
   use 'moll/vim-bbye'
   use { 'max397574/better-escape.nvim', config = configmap["better-escape"] }
+  use { 'olimorris/persisted.nvim', config = configmap["persisted"] }
 
   -- Aesthetics
   use { 'sainnhe/sonokai', config = function() vim.cmd("colorscheme sonokai") end }
