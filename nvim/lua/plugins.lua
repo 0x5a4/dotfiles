@@ -28,9 +28,20 @@ packer.startup(function(use)
 
   use 'wbthomason/packer.nvim'
 
-  --Language Integration
+  -- Syntax Highlighting
   use 'sheerun/vim-polyglot'
   use 'neovim/nvim-lspconfig'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ":TSUpdate",
+    config = configmap["treesitter"]
+  }
+  use 'fladson/vim-kitty'
+  use 'elkowar/yuck.vim'
+  use 'gentoo/gentoo-syntax'
+  use 'p00f/nvim-ts-rainbow'
+
+  -- Completion
   use {
     'williamboman/nvim-lsp-installer',
     config = configmap["lspconfig"]
@@ -42,25 +53,14 @@ packer.startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'simrat39/rust-tools.nvim'
   use 'folke/lua-dev.nvim'
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ":TSUpdate",
-    config = configmap["treesitter"]
-  }
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use {
-    'mhinz/vim-crates',
-    config = configmap["vim-crates"]
-  }
-  use 'fladson/vim-kitty'
-  use 'elkowar/yuck.vim'
-  use 'gentoo/gentoo-syntax'
+  use { 'mhinz/vim-crates', config = configmap["vim-crates"] }
+
   use { 'lewis6991/spellsitter.nvim', config = configmap["spellsitter"] }
-  use 'jghauser/follow-md-links.nvim'
   use {
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   }
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'ftilde/vim-ugdb'
 
   -- Text Manipulation
@@ -69,6 +69,8 @@ packer.startup(function(use)
   use 'jiangmiao/auto-pairs'
   use 'tpope/vim-commentary'
   use 'rmagatti/alternate-toggler'
+  use 'jbyuki/venn.nvim' -- Fancy graphdrawing
+  use 'svermeulen/vim-cutlass'
 
   -- Navigation
   use { 'christoomey/vim-tmux-navigator', config = configmap["vim-tmux"] }
@@ -84,6 +86,7 @@ packer.startup(function(use)
     config = configmap["todo-comments"],
   }
   use { 'anuvyklack/hydra.nvim', config = configmap["hydra"] }
+  use 'jghauser/follow-md-links.nvim'
   use {
     'ggandor/leap.nvim',
     config = function()
@@ -102,19 +105,17 @@ packer.startup(function(use)
   }
   use 'tpope/vim-repeat'
   use 'jghauser/mkdir.nvim'
-  use 'svermeulen/vim-cutlass'
-  use 'p00f/nvim-ts-rainbow'
-  use 'stevearc/dressing.nvim' --better looking vim.ui interfaces
   use 'axieax/urlview.nvim'
   use { 'numToStr/FTerm.nvim', config = configmap["fterm"] }
-  use 'jbyuki/venn.nvim'
   use { 'norcalli/nvim-colorizer.lua', config = configmap["colorizer"] }
   use 'moll/vim-bbye'
   use { 'max397574/better-escape.nvim', config = configmap["better-escape"] }
 
+  -- Aesthetics
   use { 'sainnhe/sonokai', config = function() vim.cmd("colorscheme sonokai") end }
   use { 'nvim-lualine/lualine.nvim', config = configmap["lualine"] }
   use 'arkav/lualine-lsp-progress'
+  use 'stevearc/dressing.nvim' --better looking vim.ui interfaces
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
