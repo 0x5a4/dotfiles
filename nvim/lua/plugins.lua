@@ -94,6 +94,7 @@ packer.startup(function(use)
     end
   }
   use 'wellle/targets.vim'
+  use { 'gbprod/stay-in-place.nvim', config = function() require("stay-in-place").setup {} end }
 
   -- Util
   use {
