@@ -66,7 +66,7 @@ end
 
 -- persisted
 configmap["persisted"] = function()
-    require("persisted.nvim").setup {
+    require("persisted").setup {
         autoload = true,
         autosave = true,
         allowed_dirs = {
