@@ -64,18 +64,6 @@ configmap["fidget"] = function()
     require("fidget").setup {}
 end
 
--- persisted
-configmap["persisted"] = function()
-    require("persisted").setup {
-        autoload = true,
-        autosave = true,
-        allowed_dirs = {
-            "~/.dotfiles",
-            "~/src"
-        }
-    }
-end
-
 -- better-escape
 configmap["better-escape"] = function()
     require("better_escape").setup {
