@@ -64,11 +64,6 @@ configmap["fidget"] = function()
     require("fidget").setup {}
 end
 
--- smart-pairs
-configmap["smart-pairs"] = function()
-    require("pairs"):setup {}
-end
-
 -- better-escape
 configmap["better-escape"] = function()
     require("better_escape").setup {

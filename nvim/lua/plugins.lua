@@ -66,7 +66,7 @@ packer.startup(function(use)
   -- Text Manipulation
   use 'tpope/vim-surround'
   use { 'matze/vim-move', config = configmap["vim-move"] }
-  use { 'ZhiyuanLck/smart-pairs', event = 'InsertEnter', config = configmap["smart-pairs"] }
+  use 'jiangmiao/auto-pairs'
   use 'tpope/vim-commentary'
   use 'rmagatti/alternate-toggler'
   use 'jbyuki/venn.nvim' -- Fancy graphdrawing
