@@ -48,6 +48,7 @@ h.noremap("<A-h>", ":TmuxNavigateLeft<CR>")
 h.noremap("<A-j>", ":TmuxNavigateDown<CR>")
 h.noremap("<A-k>", ":TmuxNavigateUp<CR>")
 h.noremap("<A-,>", ":TmuxNavigatePrevious<CR>")
+h.nnoremap("<leader>h", ":FSHere<CR>")
 
 -- ugdb
 h.nnoremap("<leader>b", "<cmd>UGDBBreakpoint<CR>")
@@ -64,7 +65,7 @@ h.nnoremap("gs", "<cmd>Telescope lsp_document_symbols<CR>")
 h.nnoremap("<leader>s", "<cmd>Telescope spell_suggest<CR>")
 h.nnoremap("<leader>e", "<cmd>Telescope diagnostics<CR>")
 h.nnoremap("<leader>t", "<cmd>TodoTelescope<CR>")
-h.nnoremap("<leader>gh", "<cmd>Telescope heading<CR>")
+h.nnoremap("<leader>gd", "<cmd>Telescope heading<CR>")
 h.nnoremap("<leader>gc", "<cmd>Telescope git_commits<CR>")
 h.nnoremap("<leader>gf", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
 

@@ -95,6 +95,7 @@ packer.startup(function(use)
   }
   use 'wellle/targets.vim'
   use { 'gbprod/stay-in-place.nvim', config = function() require("stay-in-place").setup {} end }
+  use 'derekwyatt/vim-fswitch'
 
   -- Util
   use {
