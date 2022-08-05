@@ -60,11 +60,13 @@ vim.api.nvim_set_keymap("n", "<C-p>", "", {
 		if not ok then require("telescope.builtin").find_files({}) end
 	end,
 })
-h.nnoremap("<leader>d", "<cmd>Telescope lsp_document_symbols<CR>")
+h.nnoremap("gs", "<cmd>Telescope lsp_document_symbols<CR>")
 h.nnoremap("<leader>s", "<cmd>Telescope spell_suggest<CR>")
 h.nnoremap("<leader>e", "<cmd>Telescope diagnostics<CR>")
 h.nnoremap("<leader>t", "<cmd>TodoTelescope<CR>")
 h.nnoremap("<leader>gh", "<cmd>Telescope heading<CR>")
+h.nnoremap("<leader>gc", "<cmd>Telescope git_commits<CR>")
+h.nnoremap("<leader>gf", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
 
 -- Text Manipulation
 h.nnoremap("X", "d")
@@ -77,7 +79,6 @@ h.nnoremap("<leader>+", "<cmd>ToggleAlternate<CR>")
 --LSP
 h.nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 h.nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-h.nnoremap("gu", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>")
 h.nnoremap("<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 h.nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 h.nnoremap("<C-f>", "<cmd>lua vim.lsp.buf.formatting()<CR>")
