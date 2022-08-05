@@ -28,4 +28,7 @@ return function()
 
     -- JDT
     lspconfig.jdtls.setup{}
+
+    -- clangd
+    lspconfig.clangd.setup{}
 end
