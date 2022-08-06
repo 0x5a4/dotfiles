@@ -7,6 +7,9 @@
 {{wm.modkey}} + t
 	{{apps.terminal}} {{apps.terminal_args}}
 
+{{wm.modkey}} + shift + t
+	{{apps.terminal}}
+
 # program launcher
 {{wm.alt}} + @space
 	{{apps.launcher}} {{apps.launcher_args}}
