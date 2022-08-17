@@ -9,12 +9,41 @@ scratchpad = []
 disable_current_tag_swap = true
 focus_behaviour = "Driven"
 focus_new_windows = true
-#Screenshot
+
+# Screenshot
 [[keybind]]
 command = "Execute"
 value = "flameshot gui"
 key = "Print"
 modifier = []
+
+# Browser
+[[keybind]]
+command = "Execute"
+value = "{{apps.browser}}"
+modifier = ["modkey"]
+key = "w"
+
+# Launcher
+[[keybind]]
+command = "Execute"
+value = "{{apps.launcher}} {{apps.launcher_args}}"
+modifier = ["Alt"]
+key = "space"
+
+# Terminal
+[[keybind]]
+command = "Execute"
+value = "{{apps.terminal}} {{apps.terminal_args}}"
+modifier = ["modkey"]
+key = "t"
+
+# Shutdown
+[[keybind]]
+command = "Execute"
+value = "{{apps.shutdown}}"
+modifier = ["modkey"]
+key = "s"
 
 #Window sizing
 [[keybind]]
@@ -53,18 +82,6 @@ value = "playerctl next -p spotify"
 key = "XF86XK_AudioNext"
 modifier = []
 
-#rofi
-[[keybind]]
-command = "Execute"
-value = "{{apps.launcher}} {{apps.launcher_args}}"
-modifier = ["Alt"]
-key = "space"
-
-[[keybind]]
-command = "Execute"
-value = "{{apps.terminal}} {{apps.terminal_args}}"
-modifier = ["Control", "Alt"]
-key = "t"
 
 [[keybind]]
 command = "CloseWindow"
