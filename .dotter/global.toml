@@ -4,16 +4,18 @@
 depends = ["gitconfig", "fish"]
 
 [shell.files]
-".tmux.conf" = { target = "~/.tmux.conf", type = "symbolic" }
+tmux = "~/.config/tmux"
 nvim = { target = "~/.config/nvim", type = "symbolic" }
 neomutt = { target = "~/.config/neomutt", type = "symbolic", if = '(is_executable "neomutt")' }
 "starship.toml" = { target = "~/.config/starship.toml", type = "symbolic", if = '(is_executable "starship")' }
 "khal.toml" = { target = "~/.config/khal/config", type = "symbolic", if = '(is_executable "khal")' }
 
 [graphical.files]
-"kitty.conf" = { target = "~/.config/kitty/kitty.conf", type = "template", if = '(eq apps.terminal "kitty")' }
-"leftwm.config.toml" = { target = "~/.config/leftwm/config.toml", type = "template", if = '(eq wm.name "leftwm")' }
+# Window Manager Config
+"leftwm.toml" = { target = "~/.config/leftwm/config.toml", type = "template", if = '(eq wm.name "leftwm")' }
 "sxhkdrc.bspwm" = { target = "~/.config/sxhkd/sxhkdrc", type = "template", if = '(eq wm.name "bspwm")' }
+# Other
+"kitty.conf" = { target = "~/.config/kitty/kitty.conf", type = "template", if = '(eq apps.terminal "kitty")' }
 "picom.conf" = { target = "~/.config/picom.conf", type = "symbolic", if = '(is_executable "picom")'}
 
 [graphical.variables.apps]
@@ -38,5 +40,3 @@ font_size = "10"
 [gitconfig.variables.git]
 username = "0x5a4"
 email = "54070204+0x5a4@users.noreply.github.com"
-doCommitSigning = false
-gpgkey = "None" 

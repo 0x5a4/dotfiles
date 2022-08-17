@@ -1,9 +1,6 @@
 [user]
 	name = {{git.username}}
 	email = {{git.email}}
-	{{#if git.doCommitSigning}}
-	signingkey = {{git.gpgkey}}
-	{{/if}}
 
 [advice]
     addEmptyPathspec = false

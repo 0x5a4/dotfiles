@@ -15,7 +15,3 @@ browser = "librewolf"
 name = "bspwm"
 alt = "alt"
 modkey = "super"
-
-[variables.git]
-doCommitSigning = false
-gpgkey = ""
