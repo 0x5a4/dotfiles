@@ -17,11 +17,6 @@ if status is-interactive
 	end
 end
 
-#kitty ssh fix
-if [ $TERM = 'xterm-kitty' ]
-		alias 'ssh'='kitty +kitten ssh'
-end
-
 # aliases
 alias 'cat'='bat'
 alias 'ccat'='command cat'
