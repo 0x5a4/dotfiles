@@ -98,6 +98,14 @@ packer.startup(function(use)
   use 'derekwyatt/vim-fswitch'
 
   -- Util
+  use 'tpope/vim-repeat'
+  use 'jghauser/mkdir.nvim'
+  use 'axieax/urlview.nvim'
+  use { 'numToStr/FTerm.nvim', config = configmap["fterm"] }
+  use 'moll/vim-bbye'
+  use { 'max397574/better-escape.nvim', config = configmap["better-escape"] }
+
+  -- Git(Hub)
   use {
     'lewis6991/gitsigns.nvim',
     requires = {
@@ -105,13 +113,15 @@ packer.startup(function(use)
     },
     config = configmap["gitsigns"],
   }
-  use 'tpope/vim-repeat'
-  use 'jghauser/mkdir.nvim'
-  use 'axieax/urlview.nvim'
-  use { 'numToStr/FTerm.nvim', config = configmap["fterm"] }
-  use { 'norcalli/nvim-colorizer.lua', config = configmap["colorizer"] }
-  use 'moll/vim-bbye'
-  use { 'max397574/better-escape.nvim', config = configmap["better-escape"] }
+  use {
+    'pwntester/octo.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = configmap["octo"]
+  }
 
   -- Aesthetics
   use { 'sainnhe/sonokai', config = function() vim.cmd("colorscheme sonokai") end }
@@ -119,7 +129,9 @@ packer.startup(function(use)
   use { 'j-hui/fidget.nvim', config = configmap["fidget"] }
   use 'stevearc/dressing.nvim' --better looking vim.ui interfaces
   use { 'h-hg/numbers.nvim', config = function() require("numbers").setup {} end }
-
+  use { 'norcalli/nvim-colorizer.lua', config = configmap["colorizer"] }
+  use 'kyazdani42/nvim-web-devicons'
+  
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end

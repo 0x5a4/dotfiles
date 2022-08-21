@@ -73,6 +73,12 @@ configmap["better-escape"] = function()
     }
 end
 
+-- octo
+configmap["octo"] = function()
+    require("octo").setup {}
+
+end
+
 configmap["treesitter"] = require("plugins.treesitter")
 configmap["lspconfig"] = require("plugins.lsp")
 configmap["nvim-cmp"] = require("plugins.nvimcmp")
