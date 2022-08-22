@@ -1,16 +1,16 @@
-[helpers]
-
 [shell]
-depends = ["gitconfig", "fish"]
+depends = ["fish"]
 
 [shell.files]
-tmux = "~/.config/tmux"
 nvim = { target = "~/.config/nvim", type = "symbolic" }
-neomutt = { target = "~/.config/neomutt", type = "symbolic", if = '(is_executable "neomutt")' }
+tmux = "~/.config/tmux"
 "starship.toml" = { target = "~/.config/starship.toml", type = "symbolic", if = '(is_executable "starship")' }
+
+[org.files]
+neomutt = { target = "~/.config/neomutt", type = "symbolic", if = '(is_executable "neomutt")' }
 "khal.toml" = { target = "~/.config/khal/config", type = "symbolic", if = '(is_executable "khal")' }
 
-[graphical.files]
+[X.files]
 # Window Manager Config
 "leftwm.toml" = { target = "~/.config/leftwm/config.toml", type = "template", if = '(eq wm.name "leftwm")' }
 "sxhkdrc.bspwm" = { target = "~/.config/sxhkd/sxhkdrc", type = "template", if = '(eq wm.name "bspwm")' }
@@ -18,7 +18,7 @@ neomutt = { target = "~/.config/neomutt", type = "symbolic", if = '(is_executabl
 "kitty.conf" = { target = "~/.config/kitty/kitty.conf", type = "template", if = '(eq apps.terminal "kitty")' }
 "picom.conf" = { target = "~/.config/picom.conf", type = "symbolic", if = '(is_executable "picom")'}
 
-[graphical.variables.apps]
+[X.variables.apps]
 terminal = "kitty"
 terminal_args = ""
 font = "Noto Sans Mono SemiCondensed Medium"
@@ -34,9 +34,9 @@ font_size = "10"
 "zsh/zplugins" = "~/.config/zsh/zplugins"
 "zsh/zalias" = "~/.config/zsh/zalias"
 
-[gitconfig.files]
+[git.files]
 ".gitconfig" = "~/.gitconfig"
 
-[gitconfig.variables.git]
+[git.variables.git]
 username = "0x5a4"
 email = "54070204+0x5a4@users.noreply.github.com"
