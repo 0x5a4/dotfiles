@@ -3,7 +3,7 @@ return function()
     local lspconfig = require("lspconfig");
 
     -- rust tools
-    require("rust-tools").setup{
+    require("rust-tools").setup {
         server = {
             standalone = false,
             settings = {
@@ -17,18 +17,24 @@ return function()
     }
 
     -- lua dev
-    local luadev = require("lua-dev").setup{}
-    lspconfig.sumneko_lua.setup(luadev)
+    local current_path = vim.fn.getcwd()
+    local is_nvim_dev = current_path:find("dotfiles")
+    if is_nvim_dev then
+        local luadev = require("lua-dev").setup {}
+        lspconfig.sumneko_lua.setup(luadev)
+    else
+        lspconfig.sumneko_lua.setup({})
+    end
 
     -- bashls
-    lspconfig.bashls.setup{}
+    lspconfig.bashls.setup {}
 
     -- Marksman(Markdown)
-    lspconfig.marksman.setup{}
+    lspconfig.marksman.setup {}
 
     -- JDT
-    lspconfig.jdtls.setup{}
+    lspconfig.jdtls.setup {}
 
     -- clangd
-    lspconfig.clangd.setup{}
+    lspconfig.clangd.setup {}
 end
