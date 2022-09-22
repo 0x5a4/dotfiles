@@ -37,4 +37,7 @@ return function()
 
     -- clangd
     lspconfig.clangd.setup {}
+
+    -- ltex
+    lspconfig.ltex.setup {}
 end
