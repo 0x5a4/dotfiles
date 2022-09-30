@@ -45,6 +45,9 @@ XF86AudioLowerVolume
 XF86AudioRaiseVolume
 	amixer sset Master 5%+
 
+{{wm.modkey}} + {_, shift} + b
+	xbacklight -{inc,dec} 10
+
 #
 # bspwm hotkeys
 #
