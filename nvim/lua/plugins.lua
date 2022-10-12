@@ -49,6 +49,7 @@ packer.startup(function(use)
   use { 'hrsh7th/nvim-cmp', config = configmap["nvim-cmp"] }
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/vim-vsnip'
+  use 'stevearc/vim-vscode-snippets'
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/cmp-path'
   use 'simrat39/rust-tools.nvim'
@@ -60,6 +61,7 @@ packer.startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   }
+  use { 'xuhdev/vim-latex-live-preview', config = configmap["latex-preview"]}
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'ftilde/vim-ugdb'
 
