@@ -90,8 +90,11 @@ h.nnoremap("<leader>og", "<cmd>Gitsigns toggle_linehl<CR>")
 h.nnoremap("<leader>u", "<cmd>UrlView<CR>")
 
 --Markdown
-vim.api.nvim_set_keymap("n", "<leader>md", "<Plug>MarkdownPreviewToggle", h.default_ops)
-vim.api.nvim_set_keymap("x", "<leader>md", "<Plug>MarkdownPreviewToggle", h.default_ops)
+vim.api.nvim_set_keymap("n", "<leader>vm", "<Plug>MarkdownPreviewToggle", h.default_ops)
+vim.api.nvim_set_keymap("x", "<leader>vm", "<Plug>MarkdownPreviewToggle", h.default_ops)
+
+--LateX
+h.nnoremap("<leader>vt", ":LLPStartPreview<CR>")
 
 -- Buffers
 h.nnoremap("<leader>l", ":bn<CR>")
@@ -136,4 +139,4 @@ function _G.Toggle_venn()
 end
 
 -- toggle keymappings for venn using <leader>v
-vim.api.nvim_set_keymap('n', '<leader>v', ":lua Toggle_venn()<CR>", { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>ov', ":lua Toggle_venn()<CR>", { noremap = true, silent = true})
