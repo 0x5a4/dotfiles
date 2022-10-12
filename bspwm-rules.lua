@@ -51,6 +51,8 @@ elseif command == "spotify" then --SPOTIFY
 elseif string.sub(class, 1, string.len("Minecraft")) == "Minecraft" then -- MINECRAFT
     result.desktop = "IV"
     result.state = "fullscreen"
+elseif class == "Zathura" then
+    result.state = "tiled"
 end
 
 -- Abort if no option was set
