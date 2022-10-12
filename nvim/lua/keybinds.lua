@@ -76,6 +76,8 @@ h.xnoremap("X", "d")
 h.nnoremap("+", "~")
 h.nnoremap("Q", "@") --@ sucks
 h.nnoremap("<leader>+", "<cmd>ToggleAlternate<CR>")
+h.nnoremap("<leader>p", '"+p')
+h.nnoremap("<leader>y", '"+y')
 
 --LSP
 h.nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
