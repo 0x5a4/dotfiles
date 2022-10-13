@@ -81,6 +81,7 @@ end
 -- vim-latex-live-preview
 configmap["latex-preview"] = function()
     vim.g.livepreview_previewer = 'zathura'
+    vim.g.livepreview_cursorhold_recompile = 0
 end
 
 configmap["treesitter"] = require("plugins.treesitter")
