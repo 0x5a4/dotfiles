@@ -53,6 +53,8 @@ elseif string.sub(class, 1, string.len("Minecraft")) == "Minecraft" then -- MINE
     result.state = "fullscreen"
 elseif class == "Zathura" then
     result.state = "tiled"
+    result.focus = "off"
+    result.follow = "off"
 end
 
 -- Abort if no option was set
