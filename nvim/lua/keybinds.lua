@@ -84,7 +84,7 @@ h.nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 h.nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 h.nnoremap("<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 h.nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-h.nnoremap("<C-f>", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+h.nnoremap("<C-f>", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>")
 
 h.nnoremap("<leader>og", "<cmd>Gitsigns toggle_linehl<CR>")
 h.nnoremap("<leader>u", "<cmd>UrlView<CR>")
