@@ -39,5 +39,11 @@ return function()
     lspconfig.clangd.setup {}
 
     -- ltex
-    lspconfig.ltex.setup {}
+    -- lspconfig.ltex.setup {
+    --     settings = {
+    --         ltex = {
+    --             language = "en-US"
+    --         }
+    --     }
+    -- }
 end
