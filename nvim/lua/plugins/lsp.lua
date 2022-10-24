@@ -17,14 +17,8 @@ return function()
     }
 
     -- lua dev
-    local current_path = vim.fn.getcwd()
-    local is_nvim_dev = current_path:find("dotfiles")
-    if is_nvim_dev then
-        local luadev = require("lua-dev").setup {}
-        lspconfig.sumneko_lua.setup(luadev)
-    else
-        lspconfig.sumneko_lua.setup({})
-    end
+    require("neodev").setup {}
+    lspconfig.sumneko_lua.setup {}
 
     -- bashls
     lspconfig.bashls.setup {}

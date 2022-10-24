@@ -53,7 +53,7 @@ packer.startup(function(use)
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/cmp-path'
   use 'simrat39/rust-tools.nvim'
-  use 'folke/lua-dev.nvim'
+  use 'folke/neodev.nvim'
   use { 'mhinz/vim-crates', config = configmap["vim-crates"] }
 
   use { 'lewis6991/spellsitter.nvim', config = configmap["spellsitter"] }
