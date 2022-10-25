@@ -4,6 +4,7 @@ depends = ["fish"]
 [shell.files]
 nvim = { target = "~/.config/nvim", type = "symbolic" }
 tmux = "~/.config/tmux"
+bashrc = "~/.bashrc"
 "starship.toml" = { target = "~/.config/starship.toml", type = "symbolic", if = '(is_executable "starship")' }
 
 [org.files]
@@ -30,7 +31,7 @@ font_size = "10"
 "fish/functions" = "~/.config/fish/functions"
 
 [zsh.files]
-".zshenv" = "~/.zshenv"
+"zshenv" = "~/.zshenv"
 "zsh/zshrc" = "~/.config/zsh/.zshrc"
 "zsh/zplugins" = "~/.config/zsh/zplugins"
 "zsh/zalias" = "~/.config/zsh/zalias"
