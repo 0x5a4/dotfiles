@@ -2,6 +2,10 @@
 	name = {{git.username}}
 	email = {{git.email}}
 
+[alias]
+	exec = "!exec "
+	root = rev-parse --show-toplevel
+    
 [advice]
     addEmptyPathspec = false
 
@@ -26,3 +30,4 @@
 
 [diff]
     colorMoved = default
+    
