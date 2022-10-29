@@ -37,7 +37,7 @@ font_size = "10"
 "zsh/zalias" = "~/.config/zsh/zalias"
 
 [git.files]
-".gitconfig" = "~/.gitconfig"
+gitconfig = "~/.gitconfig"
 
 [git.variables.git]
 username = "0x5a4"
