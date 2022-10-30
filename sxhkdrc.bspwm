@@ -14,7 +14,7 @@
 {{wm.alt}} + @space
 	{{apps.launcher}} {{apps.launcher_args}}
 
-{{wm.modkey}} + alt + {s, r, d}
+{{wm.modkey}} + alt + {s, a, d}
 	loginctl {poweroff, reboot, lock-session}
 
 # browser
