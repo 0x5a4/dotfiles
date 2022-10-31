@@ -12,6 +12,7 @@ These are my dotfiles, managed using [dotter](https://github.com/SuperCuber/dott
 - khal
 - git
 - starship
+- zathura
 - bash (just as a wrapper for fish though)
 - picom
 - leftwm (inactive)
