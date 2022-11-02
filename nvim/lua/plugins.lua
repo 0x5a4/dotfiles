@@ -61,7 +61,7 @@ packer.startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   }
-  use { 'xuhdev/vim-latex-live-preview', config = configmap["latex-preview"]}
+  use { 'xuhdev/vim-latex-live-preview', config = configmap["latex-preview"] }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'ftilde/vim-ugdb'
 
@@ -102,7 +102,7 @@ packer.startup(function(use)
   -- Util
   use 'tpope/vim-repeat'
   use 'jghauser/mkdir.nvim'
-  use 'axieax/urlview.nvim'
+  use { 'axieax/urlview.nvim', config = configmap["urlview"] }
   use { 'numToStr/FTerm.nvim', config = configmap["fterm"] }
   use 'moll/vim-bbye'
   use { 'max397574/better-escape.nvim', config = configmap["better-escape"] }
@@ -133,7 +133,7 @@ packer.startup(function(use)
   use { 'h-hg/numbers.nvim', config = function() require("numbers").setup {} end }
   use { 'norcalli/nvim-colorizer.lua', config = configmap["colorizer"] }
   use 'kyazdani42/nvim-web-devicons'
-  
+
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end

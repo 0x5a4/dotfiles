@@ -18,4 +18,3 @@ eval "$(zoxide init bash)"
 
 # Prompt
 eval "$(starship init bash)"
-
