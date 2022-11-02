@@ -20,6 +20,7 @@ neomutt = { target = "~/.config/neomutt", type = "symbolic", if = '(is_executabl
 "kitty.conf" = { target = "~/.config/kitty/kitty.conf", type = "template", if = '(eq apps.terminal "kitty")' }
 "picom.conf" = { target = "~/.config/picom.conf", type = "symbolic", if = '(is_executable "picom")'}
 zathurarc = "~/.config/zathura/zathurarc"
+ideavimrc = "~/.ideavimrc"
 
 [X.variables.apps]
 terminal = "kitty"

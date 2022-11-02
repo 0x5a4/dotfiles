@@ -1,0 +1,71 @@
+let mapleader = " "
+
+" Options
+set number
+set relativnumber
+set undofile
+set wildmenu
+set wildignore="*/.git/,*/Cargo.lock,*/pubspec.lock"
+set splitright
+set signcolumn="yes"
+set timeoutlen=500
+
+set expandtab
+set shiftround
+set tabstop=4
+set shiftwidth=4
+
+set scrolloff=10
+set nolazyredraw
+set autoread
+set incsearch
+set clipboard+=unnamed
+
+set ignorecase
+set smartcase
+set nohlsearch
+set foldenable
+set foldmethod="marker"
+
+"This is MAPNESS! No. THIS. IS. SPARTA.
+nnoremap <Space> <nop>
+
+xnoremap kj <esc>
+xnoremap <esc> <nop>
+inoremap kj <esc>
+inoremap <esc> <nop>
+
+"Navigation
+noremap <Left> <nop>
+noremap <Right> <nop>
+noremap <Up> <nop>
+noremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+noremap H ^
+noremap L $
+noremap B be
+
+nnoremap + ~
+nnoremap Q @
+
+"Buffers
+nnoremap <leader>h <cmd>bprev<CR>
+nnoremap <leader>l <cmd>bnext<CR>
+nnoremap <leader>c <cmd>bd<CR>
+
+"Quick saving
+nnoremap <leader>w <cmd>wa<CR>
+nnoremap <leader>q <cmd>wqa<CR>
+
+"https://jb.gg/abva4t
+nnoremap gd <Action>(GotoTypeDeclaration)
+nnoremap gi <Action>(GotoImplementation)
+nnoremap <leader>b <Action>(ToggleLineBreakpoint)
+nnoremap <leader>rn <Action>(RenameElement)
+nnoremap <C-k> <Action>(EditorUp)
+nnoremap <C-j> <Action>(EditorDown)
+nnoremap <C-f> <Action>(ReformatCode)
+nnoremap <C-p> <Action>(GotoFile)
