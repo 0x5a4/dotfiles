@@ -2,9 +2,6 @@ if not command -v emerge 2&> /dev/null
     return
 end
 
-# emerge
-alias emerge='command emerge --verbose $argv'
-
 # equery
 alias eq='command equery $argv'
 alias eqb='command equery belongs $argv'
