@@ -48,7 +48,7 @@ h.noremap("<A-h>", ":TmuxNavigateLeft<CR>")
 h.noremap("<A-j>", ":TmuxNavigateDown<CR>")
 h.noremap("<A-k>", ":TmuxNavigateUp<CR>")
 h.noremap("<A-,>", ":TmuxNavigatePrevious<CR>")
-h.nnoremap("<leader>h", ":FSHere<CR>")
+-- h.nnoremap("<leader>h", ":FSHere<CR>")
 
 -- ugdb
 h.nnoremap("<leader>b", "<cmd>UGDBBreakpoint<CR>")

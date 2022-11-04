@@ -102,7 +102,7 @@ packer.startup(function(use)
   -- Util
   use 'tpope/vim-repeat'
   use 'jghauser/mkdir.nvim'
-  use 'axieax/urlview.nvim'
+  use { 'axieax/urlview.nvim', config = configmap["urlview"] }
   use { 'numToStr/FTerm.nvim', config = configmap["fterm"] }
   use 'moll/vim-bbye'
   use { 'max397574/better-escape.nvim', config = configmap["better-escape"] }

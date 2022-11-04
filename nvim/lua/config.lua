@@ -84,6 +84,11 @@ configmap["latex-preview"] = function()
     vim.g.livepreview_cursorhold_recompile = 3
 end
 
+-- url view
+configmap["urlview"] = function ()
+    require("urlview").setup{}
+end
+
 configmap["treesitter"] = require("plugins.treesitter")
 configmap["lspconfig"] = require("plugins.lsp")
 configmap["nvim-cmp"] = require("plugins.nvimcmp")
