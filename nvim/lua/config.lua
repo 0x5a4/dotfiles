@@ -80,8 +80,20 @@ configmap["latex-preview"] = function()
 end
 
 -- url view
-configmap["urlview"] = function ()
-    require("urlview").setup{}
+configmap["urlview"] = function()
+    require("urlview").setup {}
+end
+
+-- mason
+configmap["mason"] = function()
+    require("mason").setup {}
+end
+
+-- mason-lspconfig
+configmap["mason-lsp"] = function()
+    require("mason-lspconfig").setup {
+        automatic_installation = true,
+    }
 end
 
 configmap["treesitter"] = require("plugins.treesitter")

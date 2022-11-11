@@ -1,5 +1,4 @@
 return function()
-    require("nvim-lsp-installer").setup {}
     local lspconfig = require("lspconfig");
 
     -- rust tools
@@ -34,4 +33,7 @@ return function()
 
     -- ltex
     lspconfig.texlab.setup {}
+
+    -- zls
+    lspconfig.zls.setup {}
 end

@@ -30,7 +30,6 @@ packer.startup(function(use)
 
   -- Syntax Highlighting
   use 'sheerun/vim-polyglot'
-  use 'neovim/nvim-lspconfig'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ":TSUpdate",
@@ -40,12 +39,12 @@ packer.startup(function(use)
   use 'elkowar/yuck.vim'
   use 'gentoo/gentoo-syntax'
   use 'p00f/nvim-ts-rainbow'
+  use { 'lewis6991/spellsitter.nvim', config = configmap["spellsitter"] }
 
   -- Completion
-  use {
-    'williamboman/nvim-lsp-installer',
-    config = configmap["lspconfig"]
-  }
+  use { 'williamboman/mason.nvim', config = configmap["mason"] }
+  use { 'williamboman/mason-lspconfig.nvim', config = configmap["mason-lsp"]}
+  use { 'neovim/nvim-lspconfig', config = configmap["lspconfig"] }
   use { 'hrsh7th/nvim-cmp', config = configmap["nvim-cmp"] }
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/vim-vsnip'
@@ -54,16 +53,16 @@ packer.startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'simrat39/rust-tools.nvim'
   use 'folke/neodev.nvim'
-  use { 'mhinz/vim-crates', config = configmap["vim-crates"] }
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
 
-  use { 'lewis6991/spellsitter.nvim', config = configmap["spellsitter"] }
+  -- Dev Util
+  use { 'xuhdev/vim-latex-live-preview', config = configmap["latex-preview"] }
+  use { 'mhinz/vim-crates', config = configmap["vim-crates"] }
+  use 'ftilde/vim-ugdb'
   use {
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   }
-  use { 'xuhdev/vim-latex-live-preview', config = configmap["latex-preview"] }
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'ftilde/vim-ugdb'
 
   -- Text Manipulation
   use 'tpope/vim-surround'
@@ -107,7 +106,7 @@ packer.startup(function(use)
   use 'moll/vim-bbye'
   use { 'max397574/better-escape.nvim', config = configmap["better-escape"] }
 
-  -- Git(Hub)
+  -- Git
   use {
     'lewis6991/gitsigns.nvim',
     requires = {
