@@ -73,11 +73,6 @@ configmap["better-escape"] = function()
     }
 end
 
--- octo
-configmap["octo"] = function()
-    require("octo").setup {}
-end
-
 -- vim-latex-live-preview
 configmap["latex-preview"] = function()
     vim.g.livepreview_previewer = 'zathura'

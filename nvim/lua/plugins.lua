@@ -115,15 +115,6 @@ packer.startup(function(use)
     },
     config = configmap["gitsigns"],
   }
-  use {
-    'pwntester/octo.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim',
-      'kyazdani42/nvim-web-devicons',
-    },
-    config = configmap["octo"]
-  }
 
   -- Aesthetics
   use { 'sainnhe/sonokai', config = function() vim.cmd("colorscheme sonokai") end }
