@@ -95,7 +95,7 @@ h.nnoremap("<leader>vu", "<cmd>UrlView<CR>")
 
 -- Preview Stuff
 h.nnoremap("<leader>vt", ":LLPStartPreview<CR>") -- LaTeX
-h.nnoremap("<leader>vt", "<Plug>MarkdownPreviewToggle") -- Markdown
+h.nnoremap("<leader>vm", "<Plug>MarkdownPreviewToggle") -- Markdown
 
 -- Buffers
 h.nnoremap("<leader>l", ":bn<CR>")
