@@ -35,6 +35,9 @@ vim.keymap.set('n', '<leader>q', function()
 	vim.cmd("qa")
 end)
 
+-- Quick saving
+h.nnoremap("<leader>w", ":wa<CR>")
+
 --Normal mode
 vim.api.nvim_set_keymap("x", "kj", "<esc>", h.default_ops)
 vim.api.nvim_set_keymap("x", "<esc>", h.nop, h.default_ops)
@@ -54,6 +57,14 @@ h.noremap("<A-,>", ":TmuxNavigatePrevious<CR>")
 h.nnoremap("<leader>b", "<cmd>UGDBBreakpoint<CR>")
 
 -- Telescope
+h.nnoremap("<leader>s", "<cmd>Telescope spell_suggest<CR>")
+h.nnoremap("<leader>e", "<cmd>Telescope diagnostics<CR>")
+h.nnoremap("gs", "<cmd>Telescope lsp_document_symbols<CR>")
+h.nnoremap("<leader>t", "<cmd>TodoTelescope<CR>")
+h.nnoremap("<leader>gd", "<cmd>Telescope heading<CR>")
+h.nnoremap("<leader>gc", "<cmd>Telescope git_commits<CR>")
+h.nnoremap("<leader>gf", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
+h.nnoremap("<C-M-p>", "<cmd>Telescope find_files<CR>")
 vim.api.nvim_set_keymap("n", "<C-p>", "", {
 	noremap = true,
 	callback = function()
@@ -61,13 +72,6 @@ vim.api.nvim_set_keymap("n", "<C-p>", "", {
 		if not ok then require("telescope.builtin").find_files({}) end
 	end,
 })
-h.nnoremap("gs", "<cmd>Telescope lsp_document_symbols<CR>")
-h.nnoremap("<leader>s", "<cmd>Telescope spell_suggest<CR>")
-h.nnoremap("<leader>e", "<cmd>Telescope diagnostics<CR>")
-h.nnoremap("<leader>t", "<cmd>TodoTelescope<CR>")
-h.nnoremap("<leader>gd", "<cmd>Telescope heading<CR>")
-h.nnoremap("<leader>gc", "<cmd>Telescope git_commits<CR>")
-h.nnoremap("<leader>gf", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
 
 -- Text Manipulation
 h.nnoremap("X", "d")
@@ -83,27 +87,21 @@ h.nnoremap("<leader>y", '"+y')
 h.nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 h.nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 h.nnoremap("<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-h.nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+h.nnoremap("<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
 h.nnoremap("<C-f>", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>")
 
 h.nnoremap("<leader>og", "<cmd>Gitsigns toggle_linehl<CR>")
-h.nnoremap("<leader>u", "<cmd>UrlView<CR>")
+h.nnoremap("<leader>vu", "<cmd>UrlView<CR>")
 
---Markdown
-vim.api.nvim_set_keymap("n", "<leader>vm", "<Plug>MarkdownPreviewToggle", h.default_ops)
-vim.api.nvim_set_keymap("x", "<leader>vm", "<Plug>MarkdownPreviewToggle", h.default_ops)
-
---LateX
-h.nnoremap("<leader>vt", ":LLPStartPreview<CR>")
+-- Preview Stuff
+h.nnoremap("<leader>vt", ":LLPStartPreview<CR>") -- LaTeX
+h.nnoremap("<leader>vt", "<Plug>MarkdownPreviewToggle") -- Markdown
 
 -- Buffers
 h.nnoremap("<leader>l", ":bn<CR>")
 h.nnoremap("<leader>h", ":bp<CR>")
 h.nnoremap("<leader>C", ":bd<CR>")
 h.nnoremap("<leader>c", "<cmd>Bdelete<CR>")
-
--- Quick saving
-h.nnoremap("<leader>w", ":wa<CR>")
 
 -- Spelling
 h.nnoremap("<leader>os", ":set spell!<CR>")
@@ -138,5 +136,5 @@ function _G.Toggle_venn()
 	end
 end
 
--- toggle keymappings for venn using <leader>v
-vim.api.nvim_set_keymap('n', '<leader>ov', ":lua Toggle_venn()<CR>", { noremap = true, silent = true})
+-- toggle keymappings
+vim.api.nvim_set_keymap('n', '<leader>ov', ":lua Toggle_venn()<CR>", { noremap = true, silent = true })
