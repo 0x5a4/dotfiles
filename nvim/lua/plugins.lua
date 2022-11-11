@@ -29,7 +29,6 @@ packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Syntax Highlighting
-  use 'sheerun/vim-polyglot'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ":TSUpdate",
@@ -53,7 +52,6 @@ packer.startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'simrat39/rust-tools.nvim'
   use 'folke/neodev.nvim'
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
 
   -- Dev Util
   use { 'xuhdev/vim-latex-live-preview', config = configmap["latex-preview"] }
@@ -67,7 +65,7 @@ packer.startup(function(use)
   -- Text Manipulation
   use 'tpope/vim-surround'
   use { 'matze/vim-move', config = configmap["vim-move"] }
-  use 'jiangmiao/auto-pairs'
+  use 'm4xshen/autoclose.nvim'
   use 'tpope/vim-commentary'
   use 'rmagatti/alternate-toggler'
   use 'jbyuki/venn.nvim' -- Fancy graphdrawing

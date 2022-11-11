@@ -6,23 +6,39 @@ return function()
     vim.g.foldexpr = "nvim_treesitter#foldexpr()"
 
     ts.setup {
-        ensure_installed = { "rust", "lua", "bash", "fish", "python", "toml", "yaml", "vim", "json", "java" },
+        -- Hopefully anything i might come across in the near future
+        ensure_installed = {
+            "rust",
+            "lua",
+            "bash",
+            "fish",
+            "python",
+            "toml",
+            "yaml",
+            "vim",
+            "json",
+            "java",
+            "c",
+            "cmake",
+            "cpp",
+            "diff",
+            "dockerfile",
+            "gitattributes",
+            "lalrpop",
+            "kotlin",
+            "latex",
+            "make",
+            "markdown",
+            "zig"
+        },
+        highlight = {
+            enable = true,
+        },
+        indent = {
+            true
+        },
         rainbow = {
             enable = true,
         },
-        textobjects = {
-            select = {
-                enable = true,
-                lookahead = true,
-                keymaps = {
-                    ["af"] = "@function.outer",
-                    ["if"] = "@function.inner",
-                    ["ac"] = "@class.outer",
-                    ["ic"] = "@class.inner",
-                    ["ab"] = "@block.outer",
-                    ["ib"] = "@block.inner",
-                }
-            }
-        }
     }
 end
