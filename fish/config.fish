@@ -25,7 +25,6 @@ alias 'mkdirp'='mkdir -p'
 
 # git shorts
 alias 'gs'='git status'
-alias 'gp'='git push'
 alias 'ga'='git add'
 alias 'gaa'='git add --all'
 alias 'gcm'='git commit -m'
