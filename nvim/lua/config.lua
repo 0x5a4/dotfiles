@@ -73,6 +73,11 @@ configmap["better-escape"] = function()
     }
 end
 
+-- auto pairs
+configmap["autopairs"] = function()
+    require("nvim-autopairs").setup {}
+end
+
 -- vim-latex-live-preview
 configmap["latex-preview"] = function()
     vim.g.livepreview_previewer = 'zathura'
