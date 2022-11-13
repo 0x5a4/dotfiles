@@ -2,12 +2,12 @@ let mapleader = " "
 
 " Options
 set number
-set relativnumber
+set relativenumber
 set undofile
 set wildmenu
-set wildignore="*/.git/,*/Cargo.lock,*/pubspec.lock"
+set wildignore=*/.git/,*/Cargo.lock,*/pubspec.lock
 set splitright
-set signcolumn="yes"
+set signcolumn=yes
 set timeoutlen=500
 
 set expandtab
@@ -25,7 +25,7 @@ set ignorecase
 set smartcase
 set nohlsearch
 set foldenable
-set foldmethod="marker"
+set foldmethod=marker
 
 "This is MAPNESS! No. THIS. IS. SPARTA.
 nnoremap <Space> <nop>
@@ -52,20 +52,20 @@ nnoremap + ~
 nnoremap Q @
 
 "Buffers
-nnoremap <leader>h <cmd>bprev<CR>
-nnoremap <leader>l <cmd>bnext<CR>
-nnoremap <leader>c <cmd>bd<CR>
+nnoremap <leader>h :bprev<CR>
+nnoremap <leader>l :bnext<CR>
+nnoremap <leader>c :bd<CR>
 
 "Quick saving
-nnoremap <leader>w <cmd>wa<CR>
-nnoremap <leader>q <cmd>wqa<CR>
+nnoremap <leader>w :wa<CR>
+nnoremap <leader>q :wqa<CR>
 
 "https://jb.gg/abva4t
-nnoremap gd <Action>(GotoTypeDeclaration)
-nnoremap gi <Action>(GotoImplementation)
-nnoremap <leader>b <Action>(ToggleLineBreakpoint)
-nnoremap <leader>rn <Action>(RenameElement)
-nnoremap <C-k> <Action>(EditorUp)
-nnoremap <C-j> <Action>(EditorDown)
-nnoremap <C-f> <Action>(ReformatCode)
-nnoremap <C-p> <Action>(GotoFile)
+nmap gd <Action>(GotoTypeDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap <leader>b <Action>(ToggleLineBreakpoint)
+nmap <leader>rn <Action>(RenameElement)
+nmap <C-k> <Action>(EditorUp)
+nmap <C-j> <Action>(EditorDown)
+nmap <C-f> <Action>(ReformatCode)
+nmap <C-p> <Action>(GotoFile)
