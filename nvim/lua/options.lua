@@ -31,6 +31,9 @@ opt.hlsearch = false
 opt.foldenable = true
 opt.foldmethod = "marker"
 
+-- Variables
+vim.g.tex_flavor = "latex"
+
 --Autocommands
 
 -- for emails

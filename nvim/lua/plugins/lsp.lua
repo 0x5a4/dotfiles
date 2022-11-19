@@ -33,7 +33,6 @@ return function()
 
     -- ltex
     lspconfig.texlab.setup {}
-    
 
     -- zls
     lspconfig.zls.setup {}
