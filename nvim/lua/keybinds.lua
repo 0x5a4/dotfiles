@@ -106,6 +106,10 @@ h.nnoremap("<leader>c", "<cmd>Bdelete<CR>")
 -- Spelling
 h.nnoremap("<leader>os", ":set spell!<CR>")
 
+-- Cellular Automaton
+h.nnoremap("<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")
+h.nnoremap("<leader>fuck", "<cmd>CellularAutomaton game_of_life<CR>")
+
 -- Stop using the f*cking arrow keys pleeeease
 h.noremap(h.up, h.nop)
 h.noremap(h.down, h.nop)

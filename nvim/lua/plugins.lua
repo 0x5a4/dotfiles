@@ -121,6 +121,7 @@ packer.startup(function(use)
     use { 'h-hg/numbers.nvim', config = function() require("numbers").setup {} end }
     use { 'norcalli/nvim-colorizer.lua', config = configmap["colorizer"] }
     use 'kyazdani42/nvim-web-devicons'
+    use 'eandrju/cellular-automaton.nvim'
 
     if PACKER_BOOTSTRAP then
         require('packer').sync()
