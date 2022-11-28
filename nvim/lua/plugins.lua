@@ -54,7 +54,7 @@ packer.startup(function(use)
     use 'folke/neodev.nvim'
 
     -- Dev Util
-    use { 'xuhdev/vim-latex-live-preview', config = configmap["latex-preview"] }
+    use { 'xuhdev/vim-latex-live-preview', config = configmap["latex-preview"], ft = { 'plaintex', 'tex' } }
     use { 'mhinz/vim-crates', config = configmap["vim-crates"] }
     use 'ftilde/vim-ugdb'
     use {
