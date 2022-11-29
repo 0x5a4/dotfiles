@@ -15,5 +15,6 @@ These are my dotfiles, managed using [dotter](https://github.com/SuperCuber/dott
 - zathura
 - bash (just as a wrapper for fish though)
 - picom
+- idea vim plugin
 - leftwm (inactive)
 - zsh (inactive)

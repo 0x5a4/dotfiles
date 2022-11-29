@@ -123,6 +123,7 @@ packer.startup(function(use)
     use { 'norcalli/nvim-colorizer.lua', config = configmap["colorizer"] }
     use 'kyazdani42/nvim-web-devicons'
     use 'eandrju/cellular-automaton.nvim'
+    use 'tamton-aquib/duck.nvim'
 
     if PACKER_BOOTSTRAP then
         require('packer').sync()
