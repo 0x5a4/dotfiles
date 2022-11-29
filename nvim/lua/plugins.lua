@@ -55,11 +55,12 @@ packer.startup(function(use)
 
     -- Dev Util
     use { 'xuhdev/vim-latex-live-preview', config = configmap["latex-preview"], ft = { 'plaintex', 'tex' } }
-    use { 'mhinz/vim-crates', config = configmap["vim-crates"] }
-    use 'ftilde/vim-ugdb'
+    use { 'mhinz/vim-crates', config = configmap["vim-crates"], ft = { 'toml' } }
+    use { 'ftilde/vim-ugdb', ft = { 'c', 'cpp', 'rust', 'zig' } }
     use {
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
+        ft = { 'markdown' }
     }
 
     -- Text Manipulation
@@ -85,7 +86,7 @@ packer.startup(function(use)
         config = configmap["todo-comments"],
     }
     use { 'anuvyklack/hydra.nvim', config = configmap["hydra"] }
-    use 'jghauser/follow-md-links.nvim'
+    use { 'jghauser/follow-md-links.nvim', ft = { 'markdown' } }
     use {
         'ggandor/leap.nvim',
         config = function()
