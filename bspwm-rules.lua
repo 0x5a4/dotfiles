@@ -37,7 +37,7 @@ local check_property = function(property)
 end
 
 --Match windows
-if class == "Steam" or class == "PolyMC" or class == "MultiMC" then -- LAUNCHERS
+if class == "Steam" or class == "PrismLauncher" or class == "MultiMC" then -- LAUNCHERS
     result.desktop = "V"
 elseif check_property("STEAM_GAME") then -- STEAM GAMES
     result.desktop = "IV"
