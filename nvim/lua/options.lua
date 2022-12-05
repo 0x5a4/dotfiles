@@ -59,3 +59,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     pattern = "*.md",
     command = "set spell"
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, { pattern = "zig", callback = function()
+    vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
+end })
