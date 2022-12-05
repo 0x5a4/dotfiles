@@ -31,13 +31,16 @@ packer.startup(function(use)
     -- Syntax Highlighting
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = ":TSUpdate",
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
         config = configmap["treesitter"]
     }
     use 'fladson/vim-kitty'
     use 'elkowar/yuck.vim'
     use 'gentoo/gentoo-syntax'
-    use 'p00f/nvim-ts-rainbow'
+    use { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' }
     use { 'lewis6991/spellsitter.nvim', config = configmap["spellsitter"] }
 
     -- Completion
@@ -76,7 +79,7 @@ packer.startup(function(use)
     use { 'christoomey/vim-tmux-navigator', config = configmap["vim-tmux"] }
     use {
         'nvim-telescope/telescope.nvim',
-        requires = { { 'nvim-lua/plenary.nvim' } },
+        requires = { 'nvim-lua/plenary.nvim' },
         config = configmap["telescope"]
     }
     use('crispgm/telescope-heading.nvim')
