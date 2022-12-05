@@ -1,32 +1,50 @@
+# Packages
+[all]
+depends = ["shell", "org", "X"]
+
 [shell]
-depends = ["fish"]
+depends = ["fish", "neovim", "tmux", "bash", "starship", "git"]
 
-[shell.files]
+[org]
+depends = ["neomutt", "khal"]
+
+[X]
+depends = ["bspwm", "kitty", "zathura", "picom"]
+
+# Files
+[neovim.files]
 nvim = { target = "~/.config/nvim", type = "symbolic" }
+
+[tmux.files]
 tmux = "~/.config/tmux"
+
+[bash.files]
 bashrc = "~/.bashrc"
-"starship.toml" = { target = "~/.config/starship.toml", type = "symbolic", if = '(is_executable "starship")' }
 
-[org.files]
-neomutt = { target = "~/.config/neomutt", type = "symbolic", if = '(is_executable "neomutt")' }
-"khal.toml" = { target = "~/.config/khal/config", type = "symbolic", if = '(is_executable "khal")' }
+[starship.files]
+"starship.toml" = "~/.config/starship.toml"
 
-[X.files]
-# Window Manager Config
-"leftwm.toml" = { target = "~/.config/leftwm/config.toml", type = "template", if = '(eq wm.name "leftwm")' }
-"sxhkdrc.bspwm" = { target = "~/.config/sxhkd/sxhkdrc", type = "template", if = '(eq wm.name "bspwm")' }
-"bspwm-rules.lua" = { target = "~/.config/bspwm/bspwm-rules.lua", type = "template", if = '(eq wm.name "bspwm")' }
-# Other
-"kitty.conf" = { target = "~/.config/kitty/kitty.conf", type = "template", if = '(eq apps.terminal "kitty")' }
-"picom.conf" = { target = "~/.config/picom.conf", type = "symbolic", if = '(is_executable "picom")'}
+[neomutt.files]
+neomutt = { target = "~/.config/neomutt", type = "symbolic" }
+
+[khal.files]
+"khal.toml" = "~/.config/khal/config"
+
+[kitty.files]
+"kitty.conf" = "~/.config/kitty/kitty.conf"
+
+[bspwm.files]
+"bspwm-rules.lua" = { target = "~/.config/bspwm/bspwm-rules.lua", type = "template" }
+"sxhkdrc.bspwm" = { target = "~/.config/sxhkd/sxhkdrc", type = "template" }
+
+[zathura.files]
 zathurarc = "~/.config/zathura/zathurarc"
-ideavimrc = "~/.ideavimrc"
 
-[X.variables.apps]
-terminal = "kitty"
-terminal_args = ""
-font = "Noto Sans Mono SemiCondensed Medium"
-font_size = "10"
+[picom.files]
+"picom.conf" = "~/.config/picom.conf"
+
+[idea.files]
+ideavimrc = "~/.ideavimrc"
 
 [fish.files]
 "fish/config.fish" = "~/.config/fish/config.fish"
@@ -41,7 +59,3 @@ font_size = "10"
 
 [git.files]
 gitconfig = "~/.gitconfig"
-
-[git.variables.git]
-username = "0x5a4"
-email = "54070204+0x5a4@users.noreply.github.com"

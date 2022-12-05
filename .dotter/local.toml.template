@@ -1,17 +1,16 @@
+#vim:ft=toml
 includes = []
-packages = ["shell", "graphical"]
-
-[files]
+packages = []
 
 [variables.apps]
 font_size = "10"
+font = "Noto Sans Mono SemiCondensed Medium"
 terminal_args = "-1 -e tmux"
 terminal = "kitty"
 launcher = "rofi"
 launcher_args = "-show drun"
 browser = "librewolf"
 
-[variables.wm]
-name = "bspwm"
-alt = "alt"
-modkey = "super"
+[git.variables.git]
+username = "0x5a4"
+email = "54070204+0x5a4@users.noreply.github.com"
