@@ -34,6 +34,7 @@ opt.foldmethod = "marker"
 
 -- Variables
 vim.g.tex_flavor = "latex"
+vim.g.zig_fmt_autosave = 0
 
 --Autocommands
 

@@ -64,6 +64,7 @@ packer.startup(function(use)
         run = function() vim.fn["mkdp#util#install"]() end,
         ft = { 'markdown' }
     }
+    use 'ziglang/zig.vim'
 
     -- Text Manipulation
     use 'tpope/vim-surround'

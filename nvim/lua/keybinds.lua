@@ -45,6 +45,8 @@ vim.api.nvim_set_keymap("x", "<esc>", h.nop, h.default_ops)
 -- Navigation
 h.noremap("B", "be")
 h.noremap("H", "^")
+h.noremap("J", "gg")
+h.noremap("J", "G")
 h.noremap("L", "$")
 h.noremap("<A-l>", ":TmuxNavigateRight<CR>")
 h.noremap("<A-h>", ":TmuxNavigateLeft<CR>")
@@ -52,6 +54,8 @@ h.noremap("<A-j>", ":TmuxNavigateDown<CR>")
 h.noremap("<A-k>", ":TmuxNavigateUp<CR>")
 h.noremap("<A-,>", ":TmuxNavigatePrevious<CR>")
 -- h.nnoremap("<leader>h", ":FSHere<CR>")
+
+h.nnoremap("<leader>j", "J")
 
 -- ugdb
 h.nnoremap("<leader>b", "<cmd>UGDBBreakpoint<CR>")
