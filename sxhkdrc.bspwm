@@ -14,8 +14,11 @@ super + shift + t
 alt + @space
 	{{apps.launcher}} {{apps.launcher_args}}
 
-super + alt + {_, shift} + s
+super + shift + {s, a}
 	loginctl {poweroff, reboot}
+
+super + alt + s
+    rofi -e "fick dich luca"
 
 super + alt + d
     loginctl lock-session

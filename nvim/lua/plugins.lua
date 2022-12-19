@@ -26,6 +26,7 @@ packer.startup(function(use)
     local configmap = require("config")
 
     use 'wbthomason/packer.nvim'
+    use { 'lewis6991/impatient.nvim', config = function() require("impatient").enable_profile() end }
 
     -- Syntax Highlighting
     use {
@@ -56,7 +57,7 @@ packer.startup(function(use)
     use 'folke/neodev.nvim'
 
     -- Dev Util
-    use { 'xuhdev/vim-latex-live-preview', config = configmap["latex-preview"]}
+    use { 'xuhdev/vim-latex-live-preview', config = configmap["latex-preview"] }
     use { 'mhinz/vim-crates', config = configmap["vim-crates"], ft = { 'toml' } }
     use { 'ftilde/vim-ugdb', ft = { 'c', 'cpp', 'rust', 'zig' } }
     use {

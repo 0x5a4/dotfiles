@@ -8,7 +8,7 @@ Arthurs Neovim Cheat Sheet
 1. Text Navigation
 H - Zeilenanfang
 L - Zeilenende
-K - Dateianfang
+K - Dateianfang BITTE FIXEN
 J - Dateiende
 s - die beiden nächsten charaktere werden im aktuellen view gesucht.
     sollten sie nur einmal vorkommen springt man sofort dorthin ansonsten
