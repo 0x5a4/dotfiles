@@ -45,7 +45,7 @@ vim.api.nvim_set_keymap("x", "<esc>", h.nop, h.default_ops)
 -- Navigation
 h.noremap("B", "be")
 h.noremap("H", "^")
-h.noremap("J", "gg")
+h.noremap("K", "gg")
 h.noremap("J", "G")
 h.noremap("L", "$")
 h.noremap("<A-l>", ":TmuxNavigateRight<CR>")
