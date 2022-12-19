@@ -128,6 +128,7 @@ packer.startup(function(use)
     use 'kyazdani42/nvim-web-devicons'
     use 'eandrju/cellular-automaton.nvim'
     use 'tamton-aquib/duck.nvim'
+    use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons', config = configmap["bufferline"]}
 
     if PACKER_BOOTSTRAP then
         require('packer').sync()

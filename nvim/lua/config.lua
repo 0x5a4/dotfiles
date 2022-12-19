@@ -101,6 +101,11 @@ configmap["mason-lsp"] = function()
     }
 end
 
+-- bufferline
+configmap["bufferline"] = function ()
+   require("bufferline").setup{}
+end
+
 configmap["treesitter"] = require("plugins.treesitter")
 configmap["lspconfig"] = require("plugins.lsp")
 configmap["nvim-cmp"] = require("plugins.nvimcmp")
