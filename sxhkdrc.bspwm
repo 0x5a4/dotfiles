@@ -11,7 +11,7 @@ super + shift + t
 	{{apps.terminal}}
 
 # program launcher
-alt + @space
+super + @space
 	{{apps.launcher}} {{apps.launcher_args}}
 
 super + shift + {s, a}

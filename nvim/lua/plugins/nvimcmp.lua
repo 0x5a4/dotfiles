@@ -26,6 +26,7 @@ return function()
             { name = 'nvim_lsp' },
             { name = 'vsnip' },
             { name = 'path' },
+            { name = "crates" },
         }),
     }
 
@@ -37,7 +38,6 @@ return function()
                 plaintex = false,
             }
         }
-
     )
 
 end

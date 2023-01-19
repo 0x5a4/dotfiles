@@ -58,7 +58,14 @@ packer.startup(function(use)
 
     -- Dev Util
     use { 'xuhdev/vim-latex-live-preview', config = configmap["latex-preview"] }
-    use { 'mhinz/vim-crates', config = configmap["vim-crates"], ft = { 'toml' } }
+    use {
+        'saecki/crates.nvim',
+        tag = 'v0.3.0',
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            require('crates').setup()
+        end,
+    }
     use { 'ftilde/vim-ugdb', ft = { 'c', 'cpp', 'rust', 'zig' } }
     use {
         "iamcco/markdown-preview.nvim",
@@ -66,6 +73,7 @@ packer.startup(function(use)
         ft = { 'markdown' }
     }
     use 'ziglang/zig.vim'
+    use { 'RaafatTurki/hex.nvim', config = function() require("hex").setup() end }
 
     -- Text Manipulation
     use 'tpope/vim-surround'
@@ -108,6 +116,7 @@ packer.startup(function(use)
     use { 'numToStr/FTerm.nvim', config = configmap["fterm"] }
     use 'moll/vim-bbye'
     use { 'max397574/better-escape.nvim', config = configmap["better-escape"] }
+    use 'tpope/vim-vinegar'
 
     -- Git
     use {
@@ -128,7 +137,11 @@ packer.startup(function(use)
     use 'kyazdani42/nvim-web-devicons'
     use 'eandrju/cellular-automaton.nvim'
     use 'tamton-aquib/duck.nvim'
-    use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons', config = configmap["bufferline"]}
+    use { 'akinsho/bufferline.nvim',
+        tag = "v3.*",
+        requires = 'nvim-tree/nvim-web-devicons',
+        config = configmap["bufferline"],
+    }
 
     if PACKER_BOOTSTRAP then
         require('packer').sync()
