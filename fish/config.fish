@@ -9,7 +9,10 @@ if status is-interactive
 	set fish_cursor_visual block
 
 	# Commands to run in interactive sessions can go here
-	starship init fish | source
+    if command -v starship &> /dev/null
+        starship init fish | source
+    end
+end
 	if command -v zoxide &> /dev/null
 		zoxide init fish | source
 	end
