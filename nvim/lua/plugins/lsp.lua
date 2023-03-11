@@ -17,7 +17,7 @@ return function()
 
     -- lua dev
     require("neodev").setup {}
-    lspconfig.sumneko_lua.setup {}
+    lspconfig.lua_ls.setup {}
 
     -- bashls
     lspconfig.bashls.setup {}
