@@ -5,6 +5,7 @@
 [alias]
 	exec = "!exec "
 	root = rev-parse --show-toplevel
+    log1 = log --oneline
     
 [advice]
     addEmptyPathspec = false

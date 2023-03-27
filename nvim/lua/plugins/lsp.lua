@@ -36,4 +36,7 @@ return function()
 
     -- zls
     lspconfig.zls.setup {}
+
+    -- csslsp
+    lspconfig.cssls.setup {}
 end

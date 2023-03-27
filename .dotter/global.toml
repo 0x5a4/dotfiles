@@ -1,6 +1,6 @@
 # Packages
 [all]
-depends = ["shell", "org", "X"]
+depends = ["shell", "org", "X", "wayland"]
 
 [shell]
 depends = ["fish", "neovim", "tmux", "bash", "starship", "git"]
@@ -10,6 +10,9 @@ depends = ["neomutt", "khal"]
 
 [X]
 depends = ["bspwm", "kitty", "zathura", "picom"]
+
+[wayland]
+depends = ["hyprland", "kitty", "zathura"]
 
 # Files
 [neovim.files]
@@ -59,3 +62,6 @@ ideavimrc = "~/.ideavimrc"
 
 [git.files]
 gitconfig = "~/.gitconfig"
+
+[hyprland.files]
+hyprland = "~/.config/hypr"

@@ -2,18 +2,19 @@
 These are my dotfiles, managed using [dotter](https://github.com/SuperCuber/dotter). 
 
 ### Software configured in here:
+- hyprland
+- bspwm
 - fish
+- bash (just as a wrapper for fish though)
 - neovim
 - tmux
 - kitty
-- bspwm
 - sxhkd
 - neomutt
 - khal
 - git
 - starship
 - zathura
-- bash (just as a wrapper for fish though)
 - picom
 - idea vim plugin
 - zsh (inactive)

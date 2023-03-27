@@ -14,7 +14,7 @@ alias sudo="sudo -v; sudo "
 alias cat="bat"
 alias ccat="command cat"
 
-eval "$(zoxide init bash)"
+command -v zoxide && eval "$(zoxide init bash)"
 
 # Prompt
-eval "$(starship init bash)"
+command -v starship && eval "$(starship init bash)"
