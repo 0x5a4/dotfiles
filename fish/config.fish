@@ -25,6 +25,7 @@ alias 'la'='command ls -h --color --hyperlink=auto -l -A --sort extension'
 alias 'lsblk'='command lsblk -f'
 alias ':q'='exit' # done that way to often
 alias 'mkdirp'='mkdir -p'
+alias 'tt'='tutel'
 
 # git shorts
 alias 'gs'='git status'

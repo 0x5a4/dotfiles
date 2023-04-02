@@ -61,9 +61,10 @@ h.nnoremap("<leader>j", "J")
 h.nnoremap("<leader>b", "<cmd>UGDBBreakpoint<CR>")
 
 -- Telescope
+h.nnoremap("gs", "<cmd>Telescope lsp_document_symbols<CR>")
+h.nnoremap("gi", "<cmd>Telescope lsp_incoming_calls<CR>")
 h.nnoremap("<leader>s", "<cmd>Telescope spell_suggest<CR>")
 h.nnoremap("<leader>e", "<cmd>Telescope diagnostics<CR>")
-h.nnoremap("gs", "<cmd>Telescope lsp_document_symbols<CR>")
 h.nnoremap("<leader>t", "<cmd>TodoTelescope<CR>")
 h.nnoremap("<leader>gd", "<cmd>Telescope heading<CR>")
 h.nnoremap("<leader>gc", "<cmd>Telescope git_commits<CR>")
@@ -89,7 +90,6 @@ h.nnoremap("<leader>y", '"+y')
 
 --LSP
 h.nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-h.nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 h.nnoremap("<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 h.nnoremap("<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
 h.nnoremap("<C-f>", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>")
