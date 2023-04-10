@@ -18,3 +18,7 @@ alias eqm='command equery meta'
 alias eqs='command equery size'
 alias equ='command equery uses'
 alias eqw='command equery which'
+
+# eix
+alias eixi='command eix --installed'
+alias eixo='command eix --installed-from-overlay'

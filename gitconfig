@@ -6,6 +6,7 @@
 	exec = "!exec "
 	root = rev-parse --show-toplevel
     log1 = log --oneline
+    cdiff = diff --cached
     
 [advice]
     addEmptyPathspec = false

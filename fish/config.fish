@@ -21,7 +21,8 @@ end
 # aliases
 alias 'cat'='bat'
 alias 'ccat'='command cat'
-alias 'la'='command ls -h --color --hyperlink=auto -l -A --sort extension'
+alias 'l'='ls'
+alias 'la'='ls -A'
 alias 'lsblk'='command lsblk -f'
 alias ':q'='exit' # done that way to often
 alias 'mkdirp'='mkdir -p'
@@ -29,7 +30,9 @@ alias 'tt'='tutel'
 
 # git shorts
 alias 'gs'='git status'
+alias 'gd'='git diff'
 alias 'ga'='git add'
+alias 'gl'='git log --oneline'
 alias 'gaa'='git add --all'
 alias 'gcm'='git commit -m'
 
