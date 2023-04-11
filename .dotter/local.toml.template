@@ -7,6 +7,7 @@ font_size = "10"
 font = "Noto Sans Mono SemiCondensed Medium"
 terminal_args = "-1 -e tmux"
 terminal = "kitty"
+
 launcher = "rofi"
 launcher_args = "-show drun"
 browser = "librewolf"

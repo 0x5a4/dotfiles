@@ -102,8 +102,10 @@ configmap["mason-lsp"] = function()
 end
 
 -- bufferline
-configmap["bufferline"] = function ()
-   require("bufferline").setup{}
+configmap["bufferline"] = function()
+    require("bufferline").setup {
+        options = { show_close_icon = false, show_buffer_close_icons = false }
+    }
 end
 
 configmap["treesitter"] = require("plugins.treesitter")

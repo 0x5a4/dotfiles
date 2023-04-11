@@ -140,7 +140,7 @@ packer.startup(function(use)
     use 'tamton-aquib/duck.nvim'
     use { 'akinsho/bufferline.nvim',
         tag = "v3.*",
-        requires = 'nvim-tree/nvim-web-devicons',
+        requires = 'kyazdani42/nvim-web-devicons',
         config = configmap["bufferline"],
     }
 
