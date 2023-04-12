@@ -6,6 +6,7 @@ packages = []
 font_size = "10"
 font = "Noto Sans Mono SemiCondensed Medium"
 terminal_args = "-1 -e tmux"
+terminal_special_args = ""
 terminal = "kitty"
 
 launcher = "rofi"
