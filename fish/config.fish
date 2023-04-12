@@ -16,6 +16,11 @@ if status is-interactive
 	if command -v zoxide &> /dev/null
 		zoxide init fish | source
 	end
+
+    if command -v fzf &> /dev/null
+        source /usr/share/fzf/key-bindings.fish
+        fzf_key_bindings
+    end
 end
 
 # aliases
