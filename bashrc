@@ -1,5 +1,6 @@
 # Test for an interactive shell.
 if [[ $- != *i* ]] ; then
+# returns something
 	return
 fi
 
