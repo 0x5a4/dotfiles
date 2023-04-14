@@ -18,3 +18,6 @@ command -v zoxide &> /dev/null && eval "$(zoxide init bash)"
 
 # Prompt
 command -v starship &> /dev/null && eval "$(starship init bash)"
+
+# fzf
+command -v fzf &> /dev/null && source /usr/share/fzf/key-bindings.bash
