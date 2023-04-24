@@ -53,7 +53,7 @@ packer.startup(function(use)
     use 'rafamadriz/friendly-snippets'
     use { 'williamboman/mason.nvim', config = configmap["mason"] }
     use { 'williamboman/mason-lspconfig.nvim', config = configmap["mason-lsp"] }
-    use { 'neovim/nvim-lspconfig', config = configmap["lspconfig"] }
+    use { 'neovim/nvim-lspconfig'}
     use 'simrat39/rust-tools.nvim'
     use 'folke/neodev.nvim'
 
