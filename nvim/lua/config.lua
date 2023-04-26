@@ -44,11 +44,6 @@ configmap["fterm"] = function()
     vim.keymap.set('t', '<A-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 end
 
--- spellsitter
-configmap["spellsitter"] = function()
-    require('spellsitter').setup()
-end
-
 -- todo-comments
 configmap["todo-comments"] = function()
     require("todo-comments").setup {}
@@ -99,7 +94,7 @@ configmap["mason-lsp"] = function()
     require("mason-lspconfig").setup {
         automatic_installation = true,
     }
-    require("plugins.lsp")
+    require("plugins.lsp")()
 end
 
 -- bufferline

@@ -42,7 +42,6 @@ packer.startup(function(use)
     use 'gentoo/gentoo-syntax'
     use 'theRealCarneiro/hyprland-vim-syntax'
     use { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' }
-    use { 'lewis6991/spellsitter.nvim', config = configmap["spellsitter"] }
 
     -- Completion
     use { 'hrsh7th/nvim-cmp', config = configmap["nvim-cmp"] }
