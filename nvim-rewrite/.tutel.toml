@@ -1,0 +1,21 @@
+name = 'nvim-rewrite'
+
+[[tasks]]
+desc = 'plugin loader '
+completed = false
+index = 0
+
+[[tasks]]
+desc = 'keybinds'
+completed = false
+index = 1
+
+[[tasks]]
+desc = 'lsp'
+completed = false
+index = 2
+
+[[tasks]]
+desc = 'treesitter'
+completed = false
+index = 3
