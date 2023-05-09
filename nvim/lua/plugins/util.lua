@@ -56,6 +56,42 @@ return {
             vim.g.tmux_navigator_no_mappings = 1
             vim.g.tmux_navigator_save_on_switch = 2
         end
+    },
+    --todo
+    {
+        "folke/todo-comments.nvim",
+        dependencies = "nvim-lua/plenary.nvim",
+        config = true
+    },
+    {
+        "ggandor/leap.nvim",
+        config = function()
+            require("leap").set_default_keymaps()
+        end
+    },
+    {
+        "gbprod/stay-in-place.nvim",
+        config = true
+    },
+    {
+        "axieax/urlview.nvim",
+        config = true
+    },
+    {
+        "numToStr/FTerm.nvim",
+        lazy = true,
+        opts = {
+            border = 'rounded'
+        }
+    },
+    {
+        "lewis6991/gitsigns.nvim",
+        dependencies = "nvim-lua/plenary.nvim",
+        opts = {
+            signcolumn = false,
+            numhl = true,
+            linehl = false,
+        }
     }
 }
 

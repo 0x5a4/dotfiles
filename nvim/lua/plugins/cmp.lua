@@ -53,8 +53,11 @@ return {
         dependencies = "hrsh7th/vim-vsnip"
     },
     "rafamadriz/friendly-snippets",
-
-    -- this... does not belong here
-    "simrat39/rust-tools.nvim",
-    "folke/neodev.nvim",
+    {
+        "saecki/crates.nvim",
+        tag = 'v0.3.0',
+        dependencies =  "nvim-lua/plenary.nvim",
+        config = true,
+        event = "BufEnter Crates.toml",
+    }
 }

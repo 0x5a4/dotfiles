@@ -10,27 +10,34 @@ return {
             ts.setup {
                 -- Hopefully anything i might come across in the near future
                 ensure_installed = {
-                    "rust",
-                    "lua",
                     "bash",
-                    "fish",
-                    "python",
-                    "toml",
-                    "yaml",
-                    "vim",
-                    "json",
-                    "java",
                     "c",
                     "cmake",
                     "cpp",
+                    "css",
                     "diff",
                     "dockerfile",
+                    "fish",
                     "gitattributes",
-                    "lalrpop",
+                    "gitcommit",
+                    "git_config",
+                    "gitignore",
+                    "git_rebase",
+                    "html",
+                    "ini",
+                    "java",
+                    "json",
                     "kotlin",
                     "latex",
+                    "lua",
                     "make",
                     "markdown",
+                    "meson",
+                    "python",
+                    "rust",
+                    "toml",
+                    "vim",
+                    "yaml",
                     "zig"
                 },
                 highlight = {
@@ -47,9 +54,14 @@ return {
     },
     
     "p00f/nvim-ts-rainbow",
-    "fladson/vim-kitty",
-    "elkowar/yuck.vim",
+    {
+        "fladson/vim-kitty",
+        ft = "kitty"
+    },
     "gentoo/gentoo-syntax",
     "theRealCarneiro/hyprland-vim-syntax",
-    "zig-lang/zig.vim"
+    {
+        "zig-lang/zig.vim",
+        ft = "zig"
+    }
 }
