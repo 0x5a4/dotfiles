@@ -64,6 +64,9 @@ nnoremap("<leader>t", "<cmd>TodoTelescope<CR>")
 nnoremap("<leader>gd", "<cmd>Telescope heading<CR>")
 nnoremap("<leader>gc", "<cmd>Telescope git_commits<CR>")
 nnoremap("<leader>gf", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
+nnoremap("<leader>/", "<cmd>Telescope live_grep<CR>")
+nnoremap("<leader>u", "<cmd>Telescope undo")
+nnoremap("<leader>vl", "<cmd>Telescope software-licenses find")
 nnoremap("<C-M-p>", "<cmd>Telescope find_files<CR>")
 vim.api.nvim_set_keymap("n", "<C-p>", "", {
     noremap = true,
@@ -84,17 +87,17 @@ nnoremap("<leader>p", '"+p')
 nnoremap("<leader>y", '"+y')
 
 --LSP
--- h.nnoremap("<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
--- h.nnoremap("<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
--- h.nnoremap("<C-f>", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>")
+nnoremap("<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+nnoremap("<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
+nnoremap("<C-f>", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>")
 
--- h.nnoremap("<leader>og", "<cmd>Gitsigns toggle_linehl<CR>")
--- h.nnoremap("<leader>vu", "<cmd>UrlView<CR>")
--- h.nnoremap("<leader>oh", "<cmd>HexToggle<CR>")
+nnoremap("<leader>og", "<cmd>Gitsigns toggle_linehl<CR>")
+nnoremap("<leader>vu", "<cmd>UrlView<CR>")
+nnoremap("<leader>oh", "<cmd>HexToggle<CR>")
 
 -- Preview Stuff
 nnoremap("<leader>vt", ":LLPStartPreview<CR>") -- LaTeX
--- h.nnoremap("<leader>vm", "<Plug>MarkdownPreviewToggle") -- Markdown
+nnoremap("<leader>vm", "<Plug>MarkdownPreviewToggle") -- Markdown
 
 -- Buffers
 nnoremap("<leader>l", ":bn<CR>")
@@ -134,24 +137,24 @@ vim.keymap.set('n', '<A-t>', '<CMD>lua require("FTerm").toggle()<CR>')
 vim.keymap.set('t', '<A-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 
 -- Venn
--- function _G.Toggle_venn()
---     local venn_enabled = vim.inspect(vim.b.venn_enabled)
---     if venn_enabled == "nil" then
---         vim.b.venn_enabled = true
---         vim.cmd [[setlocal ve=all]]
---         -- draw a line on HJKL keystokes
---         vim.api.nvim_buf_set_keymap(0, "n", "J", "<C-v>j:VBox<CR>", { noremap = true })
---         vim.api.nvim_buf_set_keymap(0, "n", "K", "<C-v>k:VBox<CR>", { noremap = true })
---         vim.api.nvim_buf_set_keymap(0, "n", "L", "<C-v>l:VBox<CR>", { noremap = true })
---         vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", { noremap = true })
---         -- draw a box by pressing "f" with visual selection
---         vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", { noremap = true })
---     else
---         vim.cmd [[setlocal ve=]]
---         vim.cmd [[mapclear <buffer>]]
---         vim.b.venn_enabled = nil
---     end
--- end
+function _G.Toggle_venn()
+    local venn_enabled = vim.inspect(vim.b.venn_enabled)
+    if venn_enabled == "nil" then
+        vim.b.venn_enabled = true
+        vim.cmd [[setlocal ve=all]]
+        -- draw a line on HJKL keystokes
+        vim.api.nvim_buf_set_keymap(0, "n", "J", "<C-v>j:VBox<CR>", { noremap = true })
+        vim.api.nvim_buf_set_keymap(0, "n", "K", "<C-v>k:VBox<CR>", { noremap = true })
+        vim.api.nvim_buf_set_keymap(0, "n", "L", "<C-v>l:VBox<CR>", { noremap = true })
+        vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", { noremap = true })
+        -- draw a box by pressing "f" with visual selection
+        vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", { noremap = true })
+    else
+        vim.cmd [[setlocal ve=]]
+        vim.cmd [[mapclear <buffer>]]
+        vim.b.venn_enabled = nil
+    end
+end
 
--- toggle keymappings
--- vim.api.nvim_set_keymap('n', '<leader>ov', ":lua Toggle_venn()<CR>", { noremap = true, silent = true })
+--toggle keymappings
+vim.api.nvim_set_keymap('n', '<leader>ov', ":lua Toggle_venn()<CR>", { noremap = true, silent = true })

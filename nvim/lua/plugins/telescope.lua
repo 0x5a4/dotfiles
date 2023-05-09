@@ -1,11 +1,20 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
-        dependencies = "nvim-lua/plenary.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "crispgm/telescope-heading.nvim",
+            "debugloop/telescope-undo.nvim",
+            "chip/telescope-software-licenses.nvim",
+        },
+        cmd = "Telescope",
+        tag = "0.1.1",
         config = function()
             local telescope = require("telescope")
-            
+
             telescope.load_extension("heading")
+            telescope.load_extension("undo")
+            telescope.load_extension("software-licenses")
 
             telescope.setup {
                 defaults = {
@@ -30,6 +39,6 @@ return {
                 }
             }
         end
-    }, 
+    },
     "crispgm/telescope-heading.nvim"
 }
