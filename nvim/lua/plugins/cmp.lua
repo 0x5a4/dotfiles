@@ -58,6 +58,6 @@ return {
         tag = 'v0.3.0',
         dependencies =  "nvim-lua/plenary.nvim",
         config = true,
-        event = "BufEnter Crates.toml",
+        event = "BufEnter Cargo.toml",
     }
 }

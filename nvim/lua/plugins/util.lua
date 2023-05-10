@@ -4,19 +4,19 @@ return {
     "tpope/vim-surround",
     "tpope/vim-commentary",
     {
-        "moll/vim-bbye", 
+        "moll/vim-bbye",
         cmd = "Bdelete"
     },
     "wellle/targets.vim",
     "jbyuki/venn.nvim",
     "svermeulen/vim-cutlass",
     "jghauser/mkdir.nvim",
-    
+
     {
         "rmagatti/alternate-toggler",
         cmd = "ToggleAlternate"
     },
-   
+
     {
         "max397574/better-escape.nvim",
         opts = {
@@ -94,4 +94,3 @@ return {
         }
     }
 }
-

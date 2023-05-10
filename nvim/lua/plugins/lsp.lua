@@ -18,7 +18,7 @@ return {
             }
 
             local lspconfig = require("lspconfig")
-            
+
             -- rust tools
             require("rust-tools").setup {
                 server = {
