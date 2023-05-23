@@ -89,6 +89,7 @@ nnoremap("<leader>y", '"+y')
 --LSP
 nnoremap("<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 nnoremap("<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
+nnoremap("<C-q>", "<cmd>lua vim.lsp.buf.hover()<CR>")
 nnoremap("<C-f>", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>")
 
 nnoremap("<leader>og", "<cmd>Gitsigns toggle_linehl<CR>")
