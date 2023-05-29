@@ -85,6 +85,8 @@ nnoremap("Q", "@") --@ sucks
 nnoremap("<leader>+", "<cmd>ToggleAlternate<CR>")
 nnoremap("<leader>p", '"+p')
 nnoremap("<leader>y", '"+y')
+nnoremap("go", "<cmd>call append(line('.'), repeat([''], v:count1))<CR>")
+nnoremap("gO", "<cmd>call append(line('.')-1, repeat([''], v:count1))<CR>")
 
 --LSP
 nnoremap("<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
