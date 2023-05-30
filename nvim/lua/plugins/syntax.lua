@@ -5,8 +5,8 @@ return {
             require("nvim-treesitter.install").update({ with_sync = true })
         end,
         config = function()
-           local ts = require("nvim-treesitter.configs") 
-           
+            local ts = require("nvim-treesitter.configs")
+
             ts.setup {
                 -- Hopefully anything i might come across in the near future
                 ensure_installed = {
@@ -52,7 +52,7 @@ return {
             }
         end
     },
-    
+
     "p00f/nvim-ts-rainbow",
     {
         "fladson/vim-kitty",

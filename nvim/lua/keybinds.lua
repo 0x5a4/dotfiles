@@ -67,6 +67,7 @@ nnoremap("<leader>gf", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
 nnoremap("<leader>/", "<cmd>Telescope live_grep<CR>")
 nnoremap("<leader>u", "<cmd>Telescope undo<CR>")
 nnoremap("<leader>vl", "<cmd>Telescope software-licenses find<CR>")
+nnoremap("<leader>ve", "<cmd>Telescope emoji<CR>")
 nnoremap("<C-M-p>", "<cmd>Telescope find_files<CR>")
 vim.api.nvim_set_keymap("n", "<C-p>", "", {
     noremap = true,

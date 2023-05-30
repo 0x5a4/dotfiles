@@ -1,11 +1,13 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
-        dependencies = {
+        dependencies = { -- PLUGINS ARE HERE, TAKE A CLOSER LOOK
             "nvim-lua/plenary.nvim",
             "crispgm/telescope-heading.nvim",
             "debugloop/telescope-undo.nvim",
             "chip/telescope-software-licenses.nvim",
+            "crispgm/telescope-heading.nvim",
+            "xiyaowong/telescope-emoji.nvim"
         },
         cmd = "Telescope",
         tag = "0.1.1",
@@ -15,6 +17,7 @@ return {
             telescope.load_extension("heading")
             telescope.load_extension("undo")
             telescope.load_extension("software-licenses")
+            telescope.load_extension("emoji")
 
             telescope.setup {
                 defaults = {
@@ -40,5 +43,4 @@ return {
             }
         end
     },
-    "crispgm/telescope-heading.nvim"
 }
