@@ -24,7 +24,12 @@ if status is-interactive
 end
 
 # aliases
-alias 'cat'='bat'
+if command -v bat &> /dev/null
+    alias 'cat'='bat'
+else if command -v batcat &> /dev/null # fuck you debian, fuck you
+    alias 'cat'='batcat'
+end
+    
 alias 'ccat'='command cat'
 alias 'l'='ls'
 alias 'la'='ls -A'
