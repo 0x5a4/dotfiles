@@ -1,3 +1,3 @@
 function ls
-  command ls -h --color --hyperlink=auto --sort extension -l $argv
+  command ls -lh --classify --color --hyperlink=auto --sort extension $argv
 end
