@@ -68,7 +68,18 @@ nnoremap("<leader>/", "<cmd>Telescope live_grep<CR>")
 nnoremap("<leader>u", "<cmd>Telescope undo<CR>")
 nnoremap("<leader>vl", "<cmd>Telescope software-licenses find<CR>")
 nnoremap("<leader>ve", "<cmd>Telescope emoji<CR>")
-nnoremap("<C-M-p>", "<cmd>Telescope find_files<CR>")
+
+vim.api.nvim_set_keymap("n", "<C-M-p>", "", {
+    noremap = true,
+    callback = function()
+        require("telescope.builtin").find_files({
+            hidden = true,
+            no_ignore = true,
+            no_parent_ignore = true,
+        })
+    end
+})
+
 vim.api.nvim_set_keymap("n", "<C-p>", "", {
     noremap = true,
     callback = function()

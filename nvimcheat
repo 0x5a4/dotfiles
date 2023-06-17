@@ -1,4 +1,4 @@
-Arthurs Neovim Cheat Sheet
+Neovim Cheat Sheet für verlorene Gobis
 
 !! <leader> steht für space. !!
 !! <C-p> steht für CONTROl p, etc !!
@@ -8,8 +8,6 @@ Arthurs Neovim Cheat Sheet
 1. Text Navigation
 H - Zeilenanfang
 L - Zeilenende
-K - Dateianfang BITTE FIXEN
-J - Dateiende
 s - die beiden nächsten charaktere werden im aktuellen view gesucht.
     sollten sie nur einmal vorkommen springt man sofort dorthin ansonsten
     taucht ein weiterer charakter neben diesen auf und beim drücken springt ihr dann dahin. 
@@ -28,7 +26,7 @@ S - so wie s nur in die andere richtung
 <leader>C - schließt den aktuellen buffer. wenn es der letzte ist schließt sich der split/neovim
 <C-p> - sucht nach dateien im aktuellen verzeichnis/git repo und öffnet sie im neuen buffer
         (navigation mit <C-j>, <C-k>)
-<C-A-p> - so wie <C-p> ignoriert aber git
+<C-A-p> - so wie <C-p> zeigt aber alle dateien(auch hidden und durch gitignore ignorierte)
 <A-h> - geht zum Split nach links
 <A-l> - geht zum Split nach rechts
 <A-j> - geht zum Split nach unten
@@ -42,8 +40,8 @@ X - cut selected line
 XX - cut current line
 + - toggled von upper auf lowercase und andersrum
 <leader>+ - toggled z.B. true auf false etc
-<leader>p - fügt aus dem system clipboard ein(braucht ggf xclip)
-<leader>y - kopiert ins system clipboard (braucht ggf xclip)
+<leader>p - fügt aus dem system clipboard ein(braucht ggf xclip/wl-paste)
+<leader>y - kopiert ins system clipboard (braucht ggf xclip/wl-copy)
 ys - kann ein text object mit sachen(z.B.) klammern umrunden
 cs - ändert sachen drumherum (cs$% macht aus $test$ %test%)
 ds - entfernt sachen drumherum
@@ -55,17 +53,17 @@ gcc - kommentiert die akutelle Zeile (gc macht das auf auswahl oder text object)
 <leader>e - zeigt euch alle fehler im aktuellen project
 gs - zeigt alle definitionen im buffer (funktionen, variablen)
 gd - springt zur definition unter dem cursor (z.B. zur deklaration einer funktion die ihr grade aufruft)
-<C-Space> - code action (auch hier navigiert ihr vorschläge mit <C-j> und <C-k>)
-<C-f> - formatiert euren code
-<leader>r - benennt variablen, funktionen unter eurem cursor um und ändert alle verwendungen
+<C-Space> - code action (auch hier vorschläge mit <C-j> und <C-k> navigieren)
+<C-f> - formatiert aktuelles sourcefile
+<leader>r - benennt variablen, funktionen unterm cursor um und ändert alle verwendungen
 <leader>og - toggled detailiertes anzeigen von git änderungen
-<leader>vu - zeigt alle urls im buffer und lässt euch diese öffnen
+<leader>vu - zeigt alle urls im buffer und erlaubt das öffnen dieser
 <leader>vm - öffnet ein live markdown preview im browser
 <leader>vt - öffnet ein live latex preview(benötigt zathura)
 <leader>gd - listet headings im buffer(nützlich für tex)
-<leader>os - unterstreicht euch schreibfehler
-<leader>s - spell suggestions für das wort unter dem cursor
-<leader>t - zeigt euch alle TODO/NOTE comments in eurem projekt an
+<leader>os - toggle spellchecking
+<leader>s - spell suggestions für das wort unterm cursor
+<leader>t - zeigt alle TODO/NOTE comments im projekt an
 
 5. Fun
 <leader>fml - fuck my life
