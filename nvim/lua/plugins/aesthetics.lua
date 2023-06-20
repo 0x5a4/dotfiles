@@ -3,7 +3,7 @@ return {
         "sainnhe/sonokai",
         lazy = false,
         priority = 1000,
-        config = function() 
+        config = function()
             vim.cmd([[colorscheme sonokai]])
         end,
     },
@@ -35,16 +35,16 @@ return {
             }
         },
     },
-    
+
     {
         "stevearc/dressing.nvim",
-        config = true 
+        config = true
     },
     {
         "h-hg/numbers.nvim",
         config = true
     },
-    "kyazdani42/nvim-web-devicons", 
+    "kyazdani42/nvim-web-devicons",
     {
         "eandrju/cellular-automaton.nvim",
         lazy = true,
@@ -54,7 +54,7 @@ return {
         "tamton-aquib/duck.nvim",
         lazy = true
     },
-    { 
+    {
         "akinsho/bufferline.nvim",
         version = "*",
         dependencies = "kyazdani42/nvim-web-devicons",
@@ -67,6 +67,7 @@ return {
     },
     {
         "j-hui/fidget.nvim",
-        config = true
+        config = true,
+        tag = "legacy"
     }
 }
