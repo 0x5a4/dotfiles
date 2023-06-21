@@ -17,7 +17,7 @@ s - die beiden nächsten charaktere werden im aktuellen view gesucht.
     !!
 
 S - so wie s nur in die andere richtung
-<leader>gf - durchsucht den buffer nach text und zeigt euch alles in einer liste
+<leader>7 - durchsucht den buffer nach text und zeigt euch alles in einer liste
 
 2. Buffer/Window Navigation (Wenn man mehrere Dateien gleichzeitig auf hat)
 <leader>h - previous buffer
@@ -51,7 +51,7 @@ gcc - kommentiert die akutelle Zeile (gc macht das auf auswahl oder text object)
 
 4. IDE artige dinge
 <leader>e - zeigt euch alle fehler im aktuellen project
-gs - zeigt alle definitionen im buffer (funktionen, variablen)
+<leader>gs - zeigt alle definitionen im buffer (funktionen, variablen)
 gd - springt zur definition unter dem cursor (z.B. zur deklaration einer funktion die ihr grade aufruft)
 <C-Space> - code action (auch hier vorschläge mit <C-j> und <C-k> navigieren)
 <C-f> - formatiert aktuelles sourcefile
@@ -64,6 +64,7 @@ gd - springt zur definition unter dem cursor (z.B. zur deklaration einer funktio
 <leader>os - toggle spellchecking
 <leader>s - spell suggestions für das wort unterm cursor
 <leader>t - zeigt alle TODO/NOTE comments im projekt an
+<leader>gf - suche im aktuellen projekt(benötigt ripgrep)
 
 5. Fun
 <leader>fml - fuck my life
