@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 -- automatically activate spelling in MARKDOWN
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     pattern = "*.md",
-    command = "set spell"
+    command = "setlocal spell"
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, { pattern = "zig", callback = function()
