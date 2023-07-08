@@ -54,6 +54,13 @@ return {
 
             -- zls
             lspconfig.zls.setup {}
+
+            -- you're a jedi harry 
+            -- no wait...
+            lspconfig.jedi_language_server.setup {}
+
+            -- ruff ruff ruff
+            lspconfig.ruff_lsp.setup {}
         end,
     }
 }
