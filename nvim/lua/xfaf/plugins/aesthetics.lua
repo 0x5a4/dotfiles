@@ -1,10 +1,10 @@
 return {
     {
-        "sainnhe/sonokai",
+        "Mofiqul/dracula.nvim",
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd([[colorscheme sonokai]])
+            vim.cmd([[colorscheme dracula]])
         end,
     },
     {
@@ -32,13 +32,15 @@ return {
             },
             options = {
                 globalstatus = true,
+                theme = 'dracula-nvim'
             }
         },
     },
 
     {
         "stevearc/dressing.nvim",
-        config = true
+        config = true,
+        event = "VeryLazy"
     },
     {
         "h-hg/numbers.nvim",
@@ -47,12 +49,28 @@ return {
     "kyazdani42/nvim-web-devicons",
     {
         "eandrju/cellular-automaton.nvim",
-        lazy = true,
+        keys = {
+            { "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>" },
+        },
         cmd = "CellularAutomaton"
     },
     {
         "tamton-aquib/duck.nvim",
-        lazy = true
+        keys = {
+            { "<leader>dc", "<cmd>lua require('duck').cook()<CR>" },
+            {
+                "<leader>dd",
+                "",
+                callback = function()
+                    local filetype = vim.bo.filetype;
+                    local d_u_c_k = {
+                        rust = "🦀",
+                        zig = "🦎",
+                    }
+                    require("duck").hatch(d_u_c_k[filetype] or "🦆")
+                end
+            }
+        },
     },
     {
         "akinsho/bufferline.nvim",
@@ -68,6 +86,7 @@ return {
     {
         "j-hui/fidget.nvim",
         config = true,
-        tag = "legacy"
+        tag = "legacy",
+        event = "VeryLazy"
     }
 }

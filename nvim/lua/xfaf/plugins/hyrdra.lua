@@ -17,8 +17,8 @@ return {
                 -- Resize
                 { '>', '2<c-w>>', { desc = 'increase width' } },
                 { '<', '2<c-w><', { desc = 'decrease width' } },
-                { '+', '<c-w>+', { desc = 'increase height' } },
-                { '-', '<c-w>-', { desc = 'decrease height' } },
+                { '+', '<c-w>+',  { desc = 'increase height' } },
+                { '-', '<c-w>-',  { desc = 'decrease height' } },
 
                 { 'h', '<c-w>h', },
                 { 'j', '<c-w>j', },
@@ -26,9 +26,8 @@ return {
                 { 'l', '<c-w>l', },
 
                 -- Exit
-                { 'q', nil, { exit = true } }
+                { 'q', nil,       { exit = true } }
             }
         }
     end
 }
-
