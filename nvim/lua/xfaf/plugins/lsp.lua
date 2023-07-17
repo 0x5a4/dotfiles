@@ -20,7 +20,6 @@ return {
                     -- Nix
                     formatting.alejandra,
                     -- Python
-                    diagnostics.mypy,
                     diagnostics.ruff,
                     formatting.black,
                     -- TOML
@@ -79,7 +78,6 @@ return {
                 "marksman",
                 -- Python
                 "black",
-                "mypy",
                 "pyright",
                 "ruff",
                 -- Rust
