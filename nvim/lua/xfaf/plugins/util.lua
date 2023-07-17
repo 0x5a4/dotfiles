@@ -79,10 +79,10 @@ return {
     },
     {
         "folke/todo-comments.nvim",
+        event = "User File",
         keys = {
             { "<leader>t", "<cmd>TodoTelescope<CR>" },
         },
-        lazy = false,
         dependencies = "nvim-lua/plenary.nvim",
         config = true
     },
@@ -128,7 +128,7 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         dependencies = "nvim-lua/plenary.nvim",
-        lazy = false,
+        event = "User GitFile",
         keys = {
             { "<leader>og", "<cmd>Gitsigns toggle_linehl<CR>" }
         },

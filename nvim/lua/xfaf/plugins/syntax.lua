@@ -1,6 +1,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        event = "User File",
         dependencies = {
             "p00f/nvim-ts-rainbow",
         },

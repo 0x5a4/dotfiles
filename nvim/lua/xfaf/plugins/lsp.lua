@@ -94,6 +94,7 @@ return {
     },
     {
         "williamboman/mason-lspconfig.nvim",
+        event = "User File",
         dependencies = {
             "neovim/nvim-lspconfig",
             "williamboman/mason.nvim"
@@ -102,6 +103,7 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
+        event = "User File",
         config = function()
             vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
             vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
