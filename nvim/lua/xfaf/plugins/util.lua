@@ -26,6 +26,7 @@ return {
     },
     {
         "max397574/better-escape.nvim",
+        event = "InsertEnter",
         opts = {
             mapping = { "kj" },
             timeout = 500,
@@ -41,7 +42,8 @@ return {
     },
     {
         "windwp/nvim-autopairs",
-        config = true
+        event = "InsertEnter",
+        config = true,
     },
     {
         "xuhdev/vim-latex-live-preview",
@@ -100,7 +102,7 @@ return {
     },
     {
         "gbprod/stay-in-place.nvim",
-        config = true
+        config = true,
     },
     {
         "axieax/urlview.nvim",

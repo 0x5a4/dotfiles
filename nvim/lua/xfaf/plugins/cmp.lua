@@ -1,11 +1,24 @@
 return {
     {
         "hrsh7th/nvim-cmp",
+        event = "InsertEnter",
         dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-nvim-lua",
-            "saadparwaiz1/cmp_luasnip"
+            {
+                "hrsh7th/cmp-nvim-lsp",
+                lazy = true,
+            },
+            {
+                "hrsh7th/cmp-path",
+                lazy = true,
+            },
+            {
+                "hrsh7th/cmp-nvim-lua",
+                lazy = true,
+            },
+            {
+                "saadparwaiz1/cmp_luasnip",
+                lazy = true
+            }
         },
         config = function()
             local cmp = require("cmp")
@@ -114,11 +127,11 @@ return {
     },
     {
         "L3MON4D3/LuaSnip",
-
+        lazy = true,
+        dependencies = "rafamadriz/friendly-snippets",
     },
 
     -- cmp sources
-    "rafamadriz/friendly-snippets",
     {
         "saecki/crates.nvim",
         tag = 'v0.3.0',
