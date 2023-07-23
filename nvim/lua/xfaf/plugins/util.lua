@@ -120,12 +120,6 @@ return {
         }
     },
     {
-        'willothy/flatten.nvim',
-        config = true,
-        lazy = false,
-        priority = 1001,
-    },
-    {
         "lewis6991/gitsigns.nvim",
         dependencies = "nvim-lua/plenary.nvim",
         event = "User GitFile",
