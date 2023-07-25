@@ -46,7 +46,11 @@ return {
         "h-hg/numbers.nvim",
         config = true
     },
-    "kyazdani42/nvim-web-devicons",
+    {
+        "kyazdani42/nvim-web-devicons",
+        config = true,
+        event = "VeryLazy"
+    },
     {
         "eandrju/cellular-automaton.nvim",
         keys = {
