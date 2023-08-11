@@ -142,15 +142,18 @@ return {
     },
     {
         "chrisgrieser/nvim-spider",
-        opts = {
-            skipInsignificantPunctuation = true,
-        },
         keys = {
             { "w",  "<cmd>lua require('spider').motion('w')<CR>",  mode = { "n", "o", "x" } },
             { "e",  "<cmd>lua require('spider').motion('e')<CR>",  mode = { "n", "o", "x" } },
             { "b",  "<cmd>lua require('spider').motion('b')<CR>",  mode = { "n", "o", "x" } },
             { "ge", "<cmd>lua require('spider').motion('ge')<CR>", mode = { "n", "o", "x" } },
         }
+    },
+    {
+        "gorbit99/codewindow.nvim",
+        config = true,
+        keys = {
+            { "<leader>vc", "<cmd>lua require('codewindow').toggle_minimap()<CR>"},
+        }
     }
-
 }
