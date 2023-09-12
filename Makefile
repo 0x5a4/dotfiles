@@ -8,7 +8,7 @@ AUTO_FILES=ideavimrc
 # list of files living inside config that should have their target auto generated
 AUTO_CONFIG_FILES=mako fish nvim kitty zathura rofi
 # list of everything else. only used for the help
-OTHERFILES=bash starship tmux hyprland picom git
+OTHERFILES=bash starship tmux hyprland picom git zsh
 
 # The directory where the Makefile actually lives
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
@@ -82,6 +82,9 @@ picom: init
 
 git: init
 	$(COMMAND) gitconfig gitignore
+
+zsh: init
+	$(COMMAND) zshenv config/zsh
 
 # management targets
 unmake: init
