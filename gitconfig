@@ -1,7 +1,7 @@
 # vim:set filetype=gitconfig:
 [user]
-	name = {{git.username}}
-	email = {{git.email}}
+	name = "0x5a4"
+	email = "54070204+0x5a4@users.noreply.github.com"
 
 [alias]
 	exec = "!exec "

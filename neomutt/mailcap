@@ -1,3 +1,0 @@
-text/html; w3m -I %{charset} -T text/html; copiousoutput;
-application/*; xdg-open %s &> /dev/null &;
-image/*; ~/.config/neomutt/muttimage.sh %s ; copiousoutput
