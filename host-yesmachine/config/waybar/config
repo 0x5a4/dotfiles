@@ -1,0 +1,69 @@
+[
+    {
+        "output": "DP-1",
+        "layer": "top",
+        "position": "top",
+        "mode": "dock",
+        "exclusive": true,
+        "passtrough": false,
+        "height": 32,
+        "modules-left": [
+            "clock"
+        ],
+        "modules-right": [
+            "user"
+        ],
+        "include": [
+            "~/.config/waybar/shared-modules.json"
+        ],
+        "user": {
+            "format": "🐢 up {work_H}:{work_M}"
+        }
+    },
+    {
+        "output": "HDMI-A-1",
+        "layer": "top",
+        "position": "top",
+        "mode": "dock",
+        "exclusive": true,
+        "passtrough": false,
+        "height": 32,
+        "modules-right": [
+            "hyprland/workspaces",
+            "hyprland/submap",
+            "memory",
+            "cpu"
+        ],
+        "modules-left": [
+            "clock"
+        ],
+        "include": [
+            "~/.config/waybar/shared-modules.json"
+        ],
+        "hyprland/workspaces": {
+            "all-outputs": true,
+            "format": "{name}",
+            "sort-by-number": true
+        },
+        "hyprland/submap": {
+            "tooltip": false,
+            "on-click": "hyprctl dispatch submap reset"
+        },
+        "cpu": {
+            "interval": 5,
+            "format": "",
+            "states": {
+                "medium": 20,
+                "high": 60
+            }
+        },
+        "memory": {
+            "interval": 10,
+            "format": "",
+            "states": {
+                "medium": 40,
+                "high": 80
+            }
+        }
+    }
+]
