@@ -1,2 +1,2 @@
 SYMLINK_DIRS="config/fish/functions"
-EXCLUDES="Makefile README.md nvimcheat"
+EXCLUDES="Makefile README.md nvimcheat *.inc"
