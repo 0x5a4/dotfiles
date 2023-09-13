@@ -6,7 +6,7 @@ endif
 # list of files that should have their target auto generated
 AUTO_FILES=ideavimrc
 # list of files living inside config that should have their target auto generated
-AUTO_CONFIG_FILES=mako fish nvim kitty zathura rofi waybar
+AUTO_CONFIG_FILES=mako fish nvim kitty zathura rofi waybar swayidle
 # list of everything else. only used for the help
 OTHERFILES=bash starship tmux hyprland picom git zsh
 
@@ -57,7 +57,7 @@ targets:
 	echo "$$HELPFOOTER"
 
 # groups
-wayland: hyprland kitty mako rofi
+wayland: hyprland kitty mako rofi waybar swayidle
 shell: fish starship bash tmux nvim git
 x11: bspwm sxhkd kitty picom rofi
 	
