@@ -1,5 +1,8 @@
 #!/bin/bash
 
+[ $(command -v mako) ] || exit
+[ $(command -v inotifywait) ] || exit
+
 CONFIG_FILES="$HOME/.config/mako/config"
 
 while true; do

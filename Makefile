@@ -35,9 +35,9 @@ x11: picom rofi
 include $(shell find $(root_folder) -name *.inc)
 
 define HELPMESSAGE
-management-targets:
-  init     - link rcm config
-  unmake   - remove all links
+init     - link rcm config
+scripts  - install .local/bin scripts
+unmake   - remove all links
 
 sets:
   shell    - install all files for a shell workflow
@@ -65,6 +65,9 @@ unmake: init $(UNMAKE_HELPERS)
 	rcdn $(COMMON_FLAGS)	
 	echo "NOTE: To properly clean up you still need to remove some files by hand, e.g. tmux/neovim plugins"
 
-init: ~/.rcrc
+scripts: 
+	$(COMMAND) local/bin
+
+init: ~/.rcrc scripts
 ~/.rcrc: 
 	ln -s "$(ROOT_DIR)/rcrc" ~/.rcrc
