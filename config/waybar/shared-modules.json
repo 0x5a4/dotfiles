@@ -1,0 +1,44 @@
+{
+    "clock": {
+        "format": "{: %R   %d/%m}"
+    },
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "format": "{name}",
+        "sort-by-number": true
+    },
+    "hyprland/submap": {
+        "tooltip": false,
+        "on-click": "hyprctl dispatch submap reset"
+    },
+    "cpu": {
+        "interval": 5,
+        "format": "",
+        "states": {
+            "medium": 20,
+            "high": 60
+        }
+    },
+    "memory": {
+        "interval": 10,
+        "format": "",
+        "states": {
+            "medium": 40,
+            "high": 80
+        }
+    },
+    "wireplumber": {
+        "tooltip": false,
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 <span strikethrough='true'>{volume}%</span>",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "states": {
+            "high": 80
+        }
+    }
+}

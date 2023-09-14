@@ -17,6 +17,7 @@ window#waybar {
 #workspaces,
 #submap,
 #user,
+#wireplumber,
 #clock {
     background: @background-darker;
     padding: 0px 10px;
@@ -27,7 +28,6 @@ window#waybar {
 
 #cpu,
 #memory,
-#submap,
 #workspaces button{
     color: @selection;
     border: none;
@@ -55,7 +55,9 @@ window#waybar {
 }
 
 #user,
-#clock {
+#clock,
+#submap,
+#wireplumber {
     color: @green;
     border-radius: 10px;
     margin-left: 5px;
@@ -71,9 +73,14 @@ window#waybar {
     color: @orange;
 }
 
-#memory.medium,
+#memory.high,
+#wireplumber.high,
 #cpu.high {
     color: @red;
+}
+
+#wireplumber.muted {
+    color: @selection
 }
 
 #memory {

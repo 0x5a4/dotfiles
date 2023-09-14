@@ -1,5 +1,6 @@
 [
     {
+        "_vimft": "# vim:set filetype=json:",
         "output": "DP-1",
         "layer": "top",
         "position": "top",
@@ -11,6 +12,7 @@
             "clock"
         ],
         "modules-right": [
+            "wireplumber",
             "user"
         ],
         "include": [
@@ -29,8 +31,8 @@
         "passtrough": false,
         "height": 32,
         "modules-right": [
-            "hyprland/workspaces",
             "hyprland/submap",
+            "hyprland/workspaces",
             "memory",
             "cpu"
         ],
@@ -39,31 +41,6 @@
         ],
         "include": [
             "~/.config/waybar/shared-modules.json"
-        ],
-        "hyprland/workspaces": {
-            "all-outputs": true,
-            "format": "{name}",
-            "sort-by-number": true
-        },
-        "hyprland/submap": {
-            "tooltip": false,
-            "on-click": "hyprctl dispatch submap reset"
-        },
-        "cpu": {
-            "interval": 5,
-            "format": "",
-            "states": {
-                "medium": 20,
-                "high": 60
-            }
-        },
-        "memory": {
-            "interval": 10,
-            "format": "",
-            "states": {
-                "medium": 40,
-                "high": 80
-            }
-        }
+        ]
     }
 ]
