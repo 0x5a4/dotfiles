@@ -7,10 +7,8 @@ CONFIG_FILES="${CONFIG_DIR}/config ${CONFIG_DIR}/shared-modules.json ${CONFIG_DI
 
 trap "killall waybar" EXIT
 
-echo "Watching ${CONFIG_FILES}"
-
 while true; do
-    waybar &
-    inotifywait -e create,modify $CONFIG_FILES
+    exec waybar
+    inotifywait -e create,modify ${CONFIG_FILES}
     killall waybar
 done
