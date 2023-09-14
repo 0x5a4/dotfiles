@@ -2,6 +2,15 @@ default-timeout=5000
 output=HDMI-A-1
 width=400
 
+[mode=do-not-disturb urgency=low]
+invisible=1
+
+[mode=do-not-disturb urgency=normal]
+invisible=1
+
+[mode=shut-up]
+invisible=1
+
 # colorscheme
 background-color=#282a36
 text-color=#f8f8f2
