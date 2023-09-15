@@ -5,7 +5,7 @@ TARGET_LIST+=$(AUTO_FILES)
 TARGET_LIST+=bash zsh
 
 bash: init
-	$(COMMAND) bashrc
+	$(COMMAND) bashrc bash_profile
 
 zsh: init
 	$(COMMAND) zshenv config/zsh
