@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if (( $# == 0 )); then
+    echo "usage: mako-query-mode <mode>"
+    exit
+fi
+
+makoctl mode | grep --quiet "^$@\$"
