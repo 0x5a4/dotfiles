@@ -18,6 +18,7 @@ window#waybar {
 #submap,
 #user,
 #wireplumber,
+#custom-mako,
 #clock {
     background: @background-darker;
     padding: 0px 10px;
@@ -27,6 +28,8 @@ window#waybar {
 }
 
 #cpu,
+#wireplumber,
+#custom-mako,
 #memory,
 #workspaces button{
     color: @selection;
@@ -56,13 +59,13 @@ window#waybar {
 
 #user,
 #clock,
-#submap,
-#wireplumber {
+#submap {
     color: @green;
     border-radius: 10px;
     margin-left: 5px;
 }
 
+#wireplumber,
 #cpu {
     border-radius: 0px 10px 10px 0px;
     margin-right: 5px;
@@ -83,6 +86,12 @@ window#waybar {
     color: @selection
 }
 
+#custom-mako,
+#wireplumber {
+    color: @green
+}
+
+#custom-mako,
 #memory {
     border-radius: 10px 0px 0px 10px;
 }

@@ -40,5 +40,12 @@
         "states": {
             "high": 80
         }
+    },
+    "custom/mako": {
+        "tooltip": false,
+        "exec": "~/.config/waybar/scripts/mako.sh",
+        "on-click": "mako-toggle-mode do-not-disturb && makoctl mode -r shut-up &> /dev/null",
+        "on-click-right": "mako-toggle-mode shut-up && makoctl mode -r do-not-disturb &> /dev/null",
+        "restart-interval": 1
     }
 }
