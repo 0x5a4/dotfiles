@@ -31,8 +31,6 @@ else if command -v batcat &> /dev/null # fuck you debian, fuck you
 end
     
 alias 'ccat'='command cat'
-alias 'l'='ls'
-alias 'la'='ls -A'
 alias 'lsblk'='command lsblk -f'
 alias ':q'='exit' # done that way to often
 alias 'mkdirp'='mkdir -p'
