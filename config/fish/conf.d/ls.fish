@@ -9,7 +9,7 @@ if command -v eza &> /dev/null
     alias 'ltree'='tree -l'
     alias 'gtree'='tree -l --git-ignore'
 else
-    alias 'ls'='command ls -lh --classify=auto --color=auto --hyperlink=auto --sort extension'
+    alias 'ls'='command ls -h --classify=auto --color=auto --hyperlink=auto --sort extension'
 end
 
 alias 'l'='ls -l'
