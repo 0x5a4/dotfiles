@@ -1,9 +1,11 @@
-if command -v eza &> /dev/null
+if command -v exa -v eza &> /dev/null 
+    set -l exaimpl $(command -v exa || command -v eza)
+    
     # -F show classify symbols
     # -M mount details
     # -n use numeric user/group ids
     # -o octal permissions
-    alias 'ls'='command eza -FMno --no-user --color=auto --hyperlink --sort extension --git --git-repos-no-status --group-directories-first --icons'
+    alias 'ls'="$exaimpl -FMno --no-user --color=auto --hyperlink --sort extension --git --git-repos-no-status --group-directories-first --icons"
     alias 'gls'='ls -l --git-ignore'
     alias 'tree'='ls --tree'
     alias 'ltree'='tree -l'
