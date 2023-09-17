@@ -1,4 +1,5 @@
 #!/bin/bash
 cd $1
 current_path="$(git rev-parse --show-toplevel 2> /dev/null || pwd)"
-echo $current_path | rev | cut -d"/" -f1-2 | rev
+trim_home="$(echo ${current_path} | sed "s?/home/$(whoami)\+?~?")"
+echo ${trim_home} | rev | cut -d/ -f1-2 | rev
