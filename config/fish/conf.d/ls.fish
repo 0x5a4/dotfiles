@@ -1,6 +1,6 @@
 set -l shared_opts -F --sort extension 
 
-set -l exaopts -n --no-user --group --group-directories-first --git --icons
+set -l exaopts -n --no-user --group-directories-first --git --icons
 set -l ezaopts -Mo --hyperlink --git-repos-no-status
 
 set -l opts $shared_opts
