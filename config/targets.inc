@@ -1,5 +1,5 @@
 # vim:set filetype=make:
-AUTO_FILES:=mako fish nvim kitty zathura rofi waybar swayidle
+AUTO_FILES:=mako fish nvim kitty zathura rofi waybar swayidle bspwm sxhkd
 
 TARGET_LIST+=$(AUTO_FILES)
 TARGET_LIST+=starship tmux hyprland picom git

@@ -29,7 +29,7 @@ endif
 # groups
 wayland: hyprland kitty mako rofi waybar swayidle
 shell: fish starship bash tmux nvim git
-x11: picom rofi
+x11: picom rofi bspwm sxhkd
 	
 # find my children
 include $(shell find $(root_folder) -name *.inc)
