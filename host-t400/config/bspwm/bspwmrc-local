@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# MISC SETTINGS
+feh --bg-scale "${CONFIGDIR}/background.png" --no-fehbg
+xsetroot -xcf /usr/share/cursors/xorg-x11/Adwaita/left_ptr 16
+
+# AUTOSTART
+autostart() {
+    pgrep -x $1 > /dev/null || $@ &
+}
+autostart sxhkd
+autostart polybar primary -q -c $HOME/.config/polybar/config.ini 
+autostart xautolock -time 5 -locker $HOME/.local/bin/lockme.sh -cornerdelay 1 -cornerredelay 10 -corners 0+0- -detectsleep
+autostart xss-lock -- xautolock -locknow
