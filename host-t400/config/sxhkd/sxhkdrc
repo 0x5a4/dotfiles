@@ -5,10 +5,10 @@
 
 # terminal emulator
 super + t
-	st -e tmux
+	cd && st -e tmux
 
 super + shift + t
-	st
+	cd && st
 
 # program launcher
 super + @space
