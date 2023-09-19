@@ -37,4 +37,4 @@ if set -q exa_available
 end
 
 alias 'l'='ls -l'
-alias 'la'='ls -A'
+alias 'la'='ls -a'
