@@ -65,6 +65,8 @@ return {
                 -- C/C++
                 "clangd",
                 "clang-format",
+                -- Haskell
+                "hls",
                 -- Java
                 "jdtls",
                 -- JSON
