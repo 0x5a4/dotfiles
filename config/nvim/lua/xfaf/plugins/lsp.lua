@@ -134,6 +134,9 @@ return {
             -- C/C++
             lspconfig.clangd.setup({})
 
+            -- Haskell
+            lspconfig.hls.setup({})
+
             -- Java
             lspconfig.jdtls.setup({})
 
