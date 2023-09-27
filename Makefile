@@ -28,7 +28,7 @@ endif
 
 # groups
 wayland: hyprland kitty mako rofi waybar swayidle
-shell: fish starship bash tmux nvim git
+shell: fish starship bash tmux nvim git btop
 x11: picom rofi bspwm sxhkd
 	
 # find my children
