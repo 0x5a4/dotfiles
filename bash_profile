@@ -1,4 +1,5 @@
-PATH=${PATH}:~/.local/bin:~/.cargo/bin
+# needs to be prepended, otherwise rustup's toolchains get ignored and shit like that
+PATH=~/.local/bin:~/.cargo/bin:${PATH}
 
 # if these are missing everything dies
 export XDG_CONFIG_HOME="$HOME/.config"
