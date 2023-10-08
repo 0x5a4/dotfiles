@@ -5,7 +5,7 @@ GAME_CLASSES=(
     "Stardew Valley"
     "Minecraft\*? 1.[0-9|.]*"
     "FTB Skies"
-    "?:Enigmatica 2: Expert \- Extended"
+    "Enigmatica 2: Expert \- Extended"
 
 )
 
