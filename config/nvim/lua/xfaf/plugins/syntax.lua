@@ -13,6 +13,7 @@ return {
                 "bash",
                 "c",
                 "cmake",
+                "clojure",
                 "cpp",
                 "css",
                 "diff",

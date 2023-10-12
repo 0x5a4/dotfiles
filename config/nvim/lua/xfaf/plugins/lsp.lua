@@ -1,11 +1,12 @@
 return {
     {
-        "jose-elias-alvarez/null-ls.nvim",
+        "nvimtools/none-ls.nvim",
         event = "VeryLazy",
         config = function()
             local null_ls = require("null-ls");
             local diagnostics = null_ls.builtins.diagnostics
             local formatting = null_ls.builtins.formatting
+            local code_actions = null_ls.builtins.code_actions
 
             null_ls.setup({
                 sources = {
@@ -13,11 +14,16 @@ return {
                     formatting.beautysh,
                     -- C/C++
                     formatting.clang_format,
+                    -- Dockerfile
+                    diagnostics.hadolint,
+                    -- Fish
+                    diagnostics.fish,
                     -- JSON
                     formatting.fixjson,
                     -- Markdown
                     formatting.cbfmt,
                     -- Nix
+                    code_actions.statix,
                     formatting.alejandra,
                     -- Python
                     diagnostics.ruff,
@@ -65,10 +71,14 @@ return {
                 -- C/C++
                 "clangd",
                 "clang-format",
+                -- Dockerfile
+                "hadolint",
                 -- Haskell
                 "hls",
                 -- Java
                 "jdtls",
+                -- Javascript/Typescript
+                "typescript-language-server",
                 -- JSON
                 "fixjson",
                 -- LaTeX
@@ -139,6 +149,9 @@ return {
 
             -- Java
             lspconfig.jdtls.setup({})
+
+            -- Javascript/Typescript
+            lspconfig.tsserver.setup({})
 
             -- LaTeX
             lspconfig.texlab.setup({})
