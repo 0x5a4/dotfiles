@@ -10,7 +10,7 @@ return {
             "xiyaowong/telescope-emoji.nvim"
         },
         cmd = "Telescope",
-        tag = "0.1.1",
+        tag = "0.1.4",
         keys = {
             { "gi",         "<cmd>Telescope lsp_incoming_calls<CR>" },
             { "gd",         "<cmd>Telescope lsp_definitions<CR>" },
@@ -61,7 +61,7 @@ return {
                         ["<C-q>"] = "close",
                     },
                     n = {
-                        ["q"] = close,
+                        ["q"] = "close",
                     }
                 }
             },
