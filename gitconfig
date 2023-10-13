@@ -6,6 +6,7 @@
 [alias]
 	exec = "!exec "
     make = "!exec make"
+    whoops = commit --amend --no-edit
 	root = rev-parse --show-toplevel
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     cdiff = diff --cached

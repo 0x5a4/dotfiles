@@ -1,8 +1,9 @@
 function make -w make
 
     # preserve original PWD
-    pushd $PWD
-    set -x GNU_MAKE_EXEC_DIR "$PWD"
+    set -l original $(pwd -P)
+    pushd $original
+    set -x GNU_MAKE_EXEC_DIR "$original"
 
     # if GNU_MAKE_ROOT_DIR is set, move there
     if set -q GNU_MAKE_ROOT_DIR
