@@ -4,10 +4,12 @@ These are my dotfiles, managed using `rcm`(also a Makefile)
 ## Usage
 Run `make <target>`.  
 Or maybe run `make PRETEND=1 <target>` first.  
-If you no longer like something run `make unmake` or `make UNMAKE=1 target`.  
+If you no longer like something run `make unmake` to remove everything or `make UNMAKE=1 <target>` to remove a specific target.
 
 ## Software list
 - bash
+- bspwm
+- btop
 - fish
 - git
 - hyprland
@@ -16,9 +18,11 @@ If you no longer like something run `make unmake` or `make UNMAKE=1 target`.
 - mako
 - neovim
 - picom
+- polybar
 - rofi
 - starship
 - swayidle
+- sxhkd
 - tmux
 - waybar
 - zathura
