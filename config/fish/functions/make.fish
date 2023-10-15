@@ -1,19 +1,18 @@
 function make -w make
 
-    # preserve original PWD
-    set -l original $(pwd -P)
-    pushd $original
-    set -x GNU_MAKE_EXEC_DIR "$original"
+    set -l makeargs $argv
 
-    # if GNU_MAKE_ROOT_DIR is set, move there
+    # if GNU_MAKE_ROOT_DIR is set, execute the makefile located there
     if set -q GNU_MAKE_ROOT_DIR
-        cd $GNU_MAKE_ROOT_DIR
+        set -l makefiles "Makefile" "makefile" "GNUMakefile"
+
+        for makefile in $makefiles
+            if test -e "$GNU_MAKE_ROOT_DIR/$makefile"
+                set -a makeargs -sf "$GNU_MAKE_ROOT_DIR/$makefile"
+            end
+        end
     end
 
     # execute order 66
-    command make $argv
-
-    # cleanup our garbage
-    set -e GNU_MAKE_EXEC_DIR
-    popd
+    command make $makeargs
 end
