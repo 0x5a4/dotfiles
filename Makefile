@@ -1,8 +1,5 @@
 .ONESHELL:
 .DEFAULT_GOAL:=targets
-ifndef VERBOSE
-.SILENT:
-endif
 
 # used for generating the help
 TARGET_LIST:=
@@ -57,13 +54,13 @@ export HELPMESSAGE
 export HELPFOOTER
 
 targets help:
-	echo "$$HELPMESSAGE"
-	echo "$(sort $(TARGET_LIST))" | tr ' ' '\n' | sed -e 's/^/  /' 
-	echo "$$HELPFOOTER"
+	@echo "$$HELPMESSAGE"
+	@echo "$(sort $(TARGET_LIST))" | tr ' ' '\n' | sed -e 's/^/  /' 
+	@echo "$$HELPFOOTER"
 
 unmake: init $(UNMAKE_HELPERS)
 	rcdn $(COMMON_FLAGS)	
-	echo "NOTE: To properly clean up you still need to remove some files by hand, e.g. tmux/neovim plugins"
+	@echo "NOTE: To properly clean up you still need to remove some files by hand, e.g. tmux/neovim plugins"
 
 scripts: 
 	$(COMMAND) local/bin
