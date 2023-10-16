@@ -71,6 +71,8 @@ return {
                 -- C/C++
                 "clangd",
                 "clang-format",
+                -- Clojure
+                "clojure-lsp",
                 -- Dockerfile
                 "hadolint",
                 -- Haskell
@@ -143,6 +145,9 @@ return {
 
             -- C/C++
             lspconfig.clangd.setup({})
+
+            -- Clojure
+            lspconfig.clojure_lsp.setup({})
 
             -- Haskell
             lspconfig.hls.setup({})

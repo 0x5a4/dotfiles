@@ -155,5 +155,10 @@ return {
         keys = {
             { "<leader>vc", "<cmd>lua require('codewindow').toggle_minimap()<CR>"},
         }
+    },
+    {
+        "julienvincent/nvim-paredit",
+        ft = {"clojure"},
+        config = true,
     }
 }
