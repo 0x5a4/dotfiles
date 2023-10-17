@@ -153,12 +153,12 @@ return {
         "gorbit99/codewindow.nvim",
         config = true,
         keys = {
-            { "<leader>vc", "<cmd>lua require('codewindow').toggle_minimap()<CR>"},
+            { "<leader>vc", "<cmd>lua require('codewindow').toggle_minimap()<CR>" },
         }
     },
     {
         "julienvincent/nvim-paredit",
-        ft = {"clojure"},
+        ft = { "clojure" },
         config = true,
     }
 }
