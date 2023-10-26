@@ -22,14 +22,9 @@ if status is-interactive
         fzf_key_bindings
     end
 end
-
-# aliases
-if command -v bat &> /dev/null
-    alias 'cat'='bat'
-else if command -v batcat &> /dev/null # fuck you debian, fuck you
-    alias 'cat'='batcat'
-end
     
+# aliases
+alias 'cat'='bat'
 alias 'ccat'='command cat'
 alias 'lsblk'='command lsblk -f'
 alias ':q'='exit' # done that way to often
