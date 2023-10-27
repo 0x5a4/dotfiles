@@ -160,5 +160,30 @@ return {
         "julienvincent/nvim-paredit",
         ft = { "clojure" },
         config = true,
+    },
+    {
+        "mizlan/iswap.nvim",
+        cmd = {
+            "ISwap",
+            "ISwapWith",
+            "ISwapWithLeft",
+            "ISwapWithRight",
+            "ISwapNode",
+            "ISwapNodeWith",
+            "ISwapNodeWithLeft",
+            "ISwapNodeWithRight",
+            "IMove",
+            "IMoveWith",
+            "IMoveWithLeft",
+            "IMoveWithRight",
+            "IMoveNode",
+            "IMoveNodeWith",
+            "IMoveNodeWithLeft",
+            "IMoveNodeWithRight",
+        },
+        keys = {
+            { "<leader>a", "<cmd>ISwapWith<CR>" },
+            { "<leader>A", "<cmd>ISwap<CR>" },
+        }
     }
 }
