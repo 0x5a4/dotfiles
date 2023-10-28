@@ -7,7 +7,7 @@ return {
             "debugloop/telescope-undo.nvim",
             "chip/telescope-software-licenses.nvim",
             "crispgm/telescope-heading.nvim",
-            "xiyaowong/telescope-emoji.nvim"
+            "nvim-telescope/telescope-symbols.nvim",
         },
         cmd = "Telescope",
         tag = "0.1.4",
@@ -23,7 +23,7 @@ return {
             { "<leader>7",  "<cmd>Telescope live_grep<CR>" },
             { "<leader>u",  "<cmd>Telescope undo<CR>" },
             { "<leader>vl", "<cmd>Telescope software-licenses find<CR>" },
-            { "<leader>ve", "<cmd>Telescope emoji<CR>" },
+            { "<leader>ve", "<cmd>Telescope symbols<CR>" },
             {
                 "<C-M-p>",
                 "",
@@ -69,7 +69,7 @@ return {
                 spell_suggest = {
                     theme = "cursor",
                 }
-            }
+            },
         },
         config = function(_, opts)
             local telescope = require("telescope")
@@ -77,7 +77,6 @@ return {
             telescope.load_extension("heading")
             telescope.load_extension("undo")
             telescope.load_extension("software-licenses")
-            telescope.load_extension("emoji")
 
             telescope.setup(opts)
         end
