@@ -185,5 +185,6 @@ return {
             { "<leader>a", "<cmd>ISwapWith<CR>" },
             { "<leader>A", "<cmd>ISwap<CR>" },
         }
-    }
+    },
+    "ckarnell/Antonys-macro-repeater"
 }
