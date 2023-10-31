@@ -4,7 +4,8 @@ These are my dotfiles, managed using `rcm`(also a Makefile)
 ## Usage
 Run `make <target>`.  
 Or maybe run `make PRETEND=1 <target>` first.  
-If you no longer like something run `make unmake` to remove everything or `make UNMAKE=1 <target>` to remove a specific target.
+If you find out that all of this has been hacked together by me at 3 am, run `make unmake`.
+If you dislike a particular hack, run `make UNMAKE=1 <target>`.
 
 ## Software list
 - bash
