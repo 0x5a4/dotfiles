@@ -24,9 +24,9 @@ ifdef PRETEND
 endif
 
 # groups
-wayland: hyprland kitty mako rofi waybar swayidle
+wayland: hyprland kitty mako rofi waybar swayidle scripts
 shell: fish starship bash tmux nvim git btop
-x11: picom rofi bspwm sxhkd
+x11: picom rofi bspwm sxhkd scripts
 	
 # find my children
 include $(shell find $(root_folder) -name *.inc)
@@ -65,6 +65,6 @@ unmake: init $(UNMAKE_HELPERS)
 scripts: 
 	$(COMMAND) local/bin
 
-init: ~/.rcrc scripts
+init: ~/.rcrc
 ~/.rcrc: 
 	ln -s "$(ROOT_DIR)/rcrc" ~/.rcrc
