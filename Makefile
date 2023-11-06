@@ -60,7 +60,12 @@ targets help:
 
 unmake: init $(UNMAKE_HELPERS)
 	rcdn $(COMMON_FLAGS)	
-	@echo "NOTE: To properly clean up you still need to remove some files by hand, e.g. tmux/neovim plugins"
+	@echo "NOTE: To properly clean up you still need to remove some files by hand"
+	@echo "paths that possibly need cleaning:"
+	@echo "  ~/.config/fish/plugins: $$(([ -d ~/.config/fish/plugins ] && echo exists) || echo doesnt exist)"
+	@echo "  ~/.config/tmux/plugins: $$(([ -d ~/.config/tmux/plugins ] && echo exists) || echo doesnt exist)"
+	@echo "  ~/.local/share/nvim/lazy: $$(([ -d ~/.local/share/nvim/lazy ] && echo exists) || echo doesnt exist)"
+	@echo "  ~/.local/share/nvim/mason: $$(([ -d ~/.local/share/nvim/mason ] && echo exists) || echo doesnt exist)"
 
 scripts: 
 	$(COMMAND) local/bin

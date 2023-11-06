@@ -1,6 +1,18 @@
 #Disable Greeting
 set fish_greeting
 
+#                   XXXXXXXXXXXXX
+#                   X My entire X
+#                   X system    X
+#                   XXXXXXXXXXXXX
+#                    |      XXX
+# XDG_CONFIG_HOME -> |      XXX
+#                   ------------
+set -x XDG_CONFIG_HOME "$HOME/.config"
+set -x XDG_CACHE_HOME "$HOME/.cache"
+set -x XDG_DATA_HOME "$HOME/.local/share"
+set -x XDG_STATE_HOME "$HOME/.local/state"
+
 #interactive mode only
 if status is-interactive
 	set fish_cursor_default block
@@ -22,6 +34,14 @@ if status is-interactive
         fzf_key_bindings
     end
 end
+
+set fisher_path "$XDG_CONFIG_HOME/fish/plugins"
+set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..]
+set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..]
+
+for file in $fisher_path/conf.d/*.fish
+    source $file
+end
     
 # aliases
 alias 'cat'='bat'
@@ -39,14 +59,3 @@ alias 'gl'='git log --oneline'
 alias 'gaa'='git add --all'
 alias 'gcm'='git commit -m'
 
-#                   XXXXXXXXXXXXX
-#                   X My entire X
-#                   X system    X
-#                   XXXXXXXXXXXXX
-#                    |      XXX
-# XDG_CONFIG_HOME -> |      XXX
-#                   ------------
-set -x XDG_CONFIG_HOME "$HOME/.config"
-set -x XDG_CACHE_HOME "$HOME/.cache"
-set -x XDG_DATA_HOME "$HOME/.local/share"
-set -x XDG_STATE_HOME "$HOME/.local/state"
