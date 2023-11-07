@@ -77,31 +77,3 @@ inoremap(up, nop)
 inoremap(down, nop)
 inoremap(right, nop)
 inoremap(left, nop)
-
--- FTerm
-vim.keymap.set('n', '<A-t>', '<CMD>lua require("FTerm").toggle()<CR>')
-vim.keymap.set('t', '<A-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
-
---toggle keymappings
-vim.api.nvim_set_keymap("n", "<leader>ov", "", {
-    noremap = true,
-    silent = true,
-    callback = function()
-        local venn_enabled = vim.inspect(vim.b.venn_enabled)
-        if venn_enabled == "nil" then
-            vim.b.venn_enabled = true
-            vim.cmd [[setlocal ve=all]]
-            -- draw a line on HJKL keystokes
-            vim.api.nvim_buf_set_keymap(0, "n", "J", "<C-v>j:VBox<CR>", { noremap = true })
-            vim.api.nvim_buf_set_keymap(0, "n", "K", "<C-v>k:VBox<CR>", { noremap = true })
-            vim.api.nvim_buf_set_keymap(0, "n", "L", "<C-v>l:VBox<CR>", { noremap = true })
-            vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", { noremap = true })
-            -- draw a box by pressing "f" with visual selection
-            vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", { noremap = true })
-        else
-            vim.cmd [[setlocal ve=]]
-            vim.cmd [[mapclear <buffer>]]
-            vim.b.venn_enabled = nil
-        end
-    end,
-})
