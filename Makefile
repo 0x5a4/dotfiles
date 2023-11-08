@@ -14,12 +14,16 @@ ifdef HOSTNAME
 endif
 
 COMMAND:=rcup $(COMMON_FLAGS)
+# if set, run additional install steps
+INSTALL:=yes
 
 ifdef UNMAKE
+	undefine INSTALL
 	COMMAND:=rcdn $(COMMON_FLAGS)
 endif
 
 ifdef PRETEND
+	undefine INSTALL
 	COMMAND:=lsrc $(COMMON_FLAGS)
 endif
 

@@ -10,18 +10,18 @@ starship: init
 TMUX_PLUGINS:=$(XDG_CONFIG_HOME)/tmux/plugins
 tmux: init
 	$(COMMAND) config/tmux
-ifndef UNMAKE
-ifndef PRETEND
+ifdef INSTALL
 	[ -d "$(TMUX_PLUGINS)/tpm" ] || git clone "https://github.com/tmux-plugins/tpm" "$(TMUX_PLUGINS)/tpm"
-endif
+else
+	@echo "would install tpm"
 endif
 
 fish: init
 	$(COMMAND) config/fish
-ifndef UNMAKE
-ifndef PRETEND
+ifdef INSTALL
 	fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher update"
-endif
+else
+	@echo "would install fisher"
 endif
 
 hyprland: init
