@@ -11,13 +11,17 @@ TMUX_PLUGINS:=$(XDG_CONFIG_HOME)/tmux/plugins
 tmux: init
 	$(COMMAND) config/tmux
 ifndef UNMAKE
+ifndef PRETEND
 	[ -d "$(TMUX_PLUGINS)/tpm" ] || git clone "https://github.com/tmux-plugins/tpm" "$(TMUX_PLUGINS)/tpm"
+endif
 endif
 
 fish: init
 	$(COMMAND) config/fish
 ifndef UNMAKE
+ifndef PRETEND
 	fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher update"
+endif
 endif
 
 hyprland: init
