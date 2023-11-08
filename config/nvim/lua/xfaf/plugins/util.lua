@@ -59,10 +59,10 @@ return {
     {
         "matze/vim-move",
         keys = {
-            "<C-h>",
-            "<C-j>",
-            "<C-k>",
-            "<C-l>",
+            { "<C-h>", nil, mode = { "n", "x", "o" } },
+            { "<C-j>", nil, mode = { "n", "x", "o" } },
+            { "<C-k>", nil, mode = { "n", "x", "o" } },
+            { "<C-l>", nil, mode = { "n", "x", "o" } },
         },
         init = function()
             vim.g.move_key_modifier = "C"
