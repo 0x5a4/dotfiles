@@ -7,7 +7,7 @@ set -l shared_opts -F --sort extension
 set -l show_all_opt -A
 
 set -l exaopts -n --no-user --group-directories-first --git --icons
-set -l ezaopts -Mo --hyperlink --git-repos-no-status
+set -l ezaopts -Mo --hyperlink --git-repos-no-status --color-scale=size
 
 set -l opts $shared_opts
 
