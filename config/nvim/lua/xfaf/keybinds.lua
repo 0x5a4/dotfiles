@@ -51,6 +51,7 @@ nnoremap("+", "~")
 nnoremap("Q", "@") --@ sucks
 nnoremap("<leader>p", '"+p')
 nnoremap("<leader>y", '"+y')
+xnoremap("<leader>y", '"+y')
 nnoremap("go", "<cmd>call append(line('.'), repeat([''], v:count1))<CR>")
 nnoremap("gO", "<cmd>call append(line('.')-1, repeat([''], v:count1))<CR>")
 
