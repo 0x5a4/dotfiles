@@ -1,5 +1,4 @@
-if command -v emerge 2&> /dev/null
-    # equery
+if command -v equery 2&> /dev/null
     alias eq='command equery'
     alias eqb='command equery belongs'
     alias eqc='command equery changes'
@@ -15,8 +14,9 @@ if command -v emerge 2&> /dev/null
     alias eqs='command equery size'
     alias equ='command equery uses'
     alias eqw='command equery which'
+end
 
-    # eix
+if command -v eix 2&> /dev/null
     alias eixi='command eix --installed'
     alias eixo='command eix --installed-from-overlay'
 end
