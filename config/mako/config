@@ -2,14 +2,19 @@ default-timeout=5000
 output=HDMI-A-1
 width=400
 
+[urgency=high]
+layer=overlay
+default-timeout=0
+ignore-timeout=true
+
 [mode=do-not-disturb urgency=low]
-invisible=1
+invisible=true
 
 [mode=do-not-disturb urgency=normal]
-invisible=1
+invisible=true
 
 [mode=shut-up]
-invisible=1
+invisible=true
 
 # colorscheme
 background-color=#282a36
