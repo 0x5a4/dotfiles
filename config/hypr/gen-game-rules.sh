@@ -6,6 +6,7 @@ GAME_CLASSES=(
     "Minecraft\*? 1.[0-9|.]*"
     "FTB Skies"
     "Enigmatica 2: Expert \- Extended"
+    "hl_linux"
 
 )
 
