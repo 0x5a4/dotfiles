@@ -131,7 +131,7 @@ return {
     },
     {
         'lcheylus/overlength.nvim',
-        config = {
+        opts = {
             textwidth_mode = 1,
             default_overlength = 100,
         },

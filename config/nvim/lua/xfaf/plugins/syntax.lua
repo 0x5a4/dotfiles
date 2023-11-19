@@ -12,8 +12,8 @@ return {
             ensure_installed = {
                 "bash",
                 "c",
-                "cmake",
                 "clojure",
+                "cmake",
                 "cpp",
                 "css",
                 "diff",
@@ -40,6 +40,7 @@ return {
                 "ninja",
                 "nix",
                 "python",
+                "regex",
                 "rust",
                 "scss",
                 "sql",
