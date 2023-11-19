@@ -136,4 +136,14 @@ return {
             default_overlength = 100,
         },
     },
+    {
+        "rmagatti/auto-session",
+        opts = {
+            auto_session_allowed_dirs = {
+                "~/src/*",
+                "~/tmp/*",
+                "~/.dotfiles"
+            }
+        }
+    }
 }

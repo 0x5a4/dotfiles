@@ -9,6 +9,7 @@ return {
     },
     {
         "nvim-lualine/lualine.nvim",
+        event = "VeryLazy",
         opts = {
             sections = {
                 lualine_a = { 'mode' },
@@ -21,7 +22,12 @@ return {
                         sections = { 'error', 'warn', 'info' },
                     }
                 },
-                lualine_c = { 'filename' },
+                lualine_c = { function()
+                    local success, result = pcall(function()
+                        return require("auto-session.lib").current_session_name()
+                    end)
+                    return success and result or ""
+                end, "filename" },
                 lualine_x = {
                     'encoding',
                     'fileformat',
