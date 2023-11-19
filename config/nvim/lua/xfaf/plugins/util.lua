@@ -119,4 +119,11 @@ return {
             { "<leader>vc", "<cmd>lua require('codewindow').toggle_minimap()<CR>" },
         }
     },
+    {
+        'lcheylus/overlength.nvim',
+        config = {
+            textwidth_mode = 1,
+            default_overlength = 100,
+        },
+    },
 }
