@@ -177,4 +177,19 @@ return {
             lspconfig.zls.setup({})
         end
     },
+    {
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        keys = {
+            {
+                "<leader>ol",
+                function()
+                    require("lsp_lines").toggle()
+                end,
+            },
+        },
+        config = function()
+            require("lsp_lines").setup({})
+            vim.diagnostic.config({ virtual_lines = { only_current_line = true } })
+        end,
+    }
 }
