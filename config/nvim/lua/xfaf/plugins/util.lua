@@ -142,7 +142,6 @@ return {
             auto_session_allowed_dirs = {
                 "~/src/*",
                 "~/tmp/*",
-                "~/.dotfiles"
             }
         }
     }
