@@ -1,6 +1,6 @@
 return {
     "anuvyklack/hydra.nvim",
-    event = "VeryLazy",
+    keys = { "<c-w>" },
     config = function()
         local Hydra = require('hydra')
 
@@ -11,10 +11,6 @@ return {
                 timeout = 4000,
             },
             heads = {
-                -- Split
-                { 'v', '<c-w>v' },
-                { 's', '<c-w>s' },
-
                 -- Resize
                 { '>', '2<c-w>>', { desc = 'increase width' } },
                 { '<', '2<c-w><', { desc = 'decrease width' } },

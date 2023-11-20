@@ -1,7 +1,10 @@
 return {
     "ckarnell/Antonys-macro-repeater",
     "tpope/vim-repeat",
-    "jghauser/mkdir.nvim",
+    {
+        "jghauser/mkdir.nvim",
+        event = "BufWritePre",
+    },
     {
         "famiu/bufdelete.nvim",
         keys = {
