@@ -76,8 +76,16 @@ return {
                     local d_u_c_k = {
                         rust = "🦀",
                         zig = "🦎",
+                        lua = "🌚",
                     }
-                    require("duck").hatch(d_u_c_k[filetype] or "🦆")
+
+                    local icon = d_u_c_k[filetype] or "🦆";
+
+                    if math.random(5) == 1 then
+                        icon = "ඞ";
+                    end
+
+                    require("duck").hatch(icon, 5)
                 end
             }
         },
