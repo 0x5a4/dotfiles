@@ -150,5 +150,9 @@ return {
                 load_on_setup = false,
             }
         },
-    }
+    },
+    {
+        "seandewar/nvimesweeper",
+        cmd = "Nvimesweeper",
+    },
 }
