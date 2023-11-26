@@ -20,8 +20,6 @@ return {
                     diagnostics.fish,
                     -- JSON
                     formatting.fixjson,
-                    -- Markdown
-                    formatting.cbfmt,
                     -- Nix
                     code_actions.statix,
                     formatting.alejandra,
@@ -30,6 +28,8 @@ return {
                     formatting.black,
                     -- TOML
                     formatting.taplo,
+                    -- All of that Web dev shit (also markdown)
+                    formatting.prettierd
                 },
                 border = "rounded",
                 on_attach = function(client, bufnr)
@@ -88,7 +88,6 @@ return {
                 -- Lua
                 "lua-language-server",
                 -- Markdown
-                "cbfmt",
                 "marksman",
                 -- Python
                 "black",
@@ -100,6 +99,8 @@ return {
                 "taplo",
                 -- Zig
                 "zls",
+                -- All of that webdev shit
+                "prettierd"
             }
         },
         event = "VeryLazy"
