@@ -18,8 +18,6 @@ return {
                     diagnostics.hadolint,
                     -- Fish
                     diagnostics.fish,
-                    -- JSON
-                    formatting.fixjson,
                     -- Nix
                     code_actions.statix,
                     formatting.alejandra,
@@ -75,14 +73,10 @@ return {
                 "clojure-lsp",
                 -- Dockerfile
                 "hadolint",
-                -- Haskell
-                "hls",
                 -- Java
                 "jdtls",
                 -- Javascript/Typescript
                 "typescript-language-server",
-                -- JSON
-                "fixjson",
                 -- LaTeX
                 "texlab",
                 -- Lua
