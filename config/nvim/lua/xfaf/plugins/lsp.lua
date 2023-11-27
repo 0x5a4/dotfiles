@@ -71,6 +71,8 @@ return {
                 "clang-format",
                 -- Clojure
                 "clojure-lsp",
+                -- HTML
+                "html-lsp",
                 -- Dockerfile
                 "hadolint",
                 -- Java
@@ -146,6 +148,13 @@ return {
 
             -- Haskell
             lspconfig.hls.setup({})
+
+            -- HTML
+            lspconfig.html.setup({
+                format = {
+                    enable = false,
+                },
+            })
 
             -- Java
             lspconfig.jdtls.setup({})
