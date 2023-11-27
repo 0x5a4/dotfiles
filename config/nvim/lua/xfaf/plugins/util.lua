@@ -140,18 +140,6 @@ return {
         },
     },
     {
-        "rmagatti/auto-session",
-        opts = {
-            auto_session_allowed_dirs = {
-                "~/src/*",
-                "~/tmp/*",
-            },
-            session_lens = {
-                load_on_setup = false,
-            }
-        },
-    },
-    {
         "seandewar/nvimesweeper",
         cmd = "Nvimesweeper",
     },
