@@ -2,9 +2,6 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         event = "User File",
-        dependencies = {
-            "p00f/nvim-ts-rainbow",
-        },
         build = function()
             require("nvim-treesitter.install").update({ with_sync = true })
         end,
@@ -55,9 +52,6 @@ return {
             },
             indent = {
                 true
-            },
-            rainbow = {
-                enable = true,
             },
         },
         main = "nvim-treesitter.configs",
