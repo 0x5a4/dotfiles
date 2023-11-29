@@ -42,6 +42,11 @@ set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_funct
 for file in $fisher_path/conf.d/*.fish
     source $file
 end
+
+# remove gitnow binds
+for keys in \es \ee \ce \em \ec \ed \ep \eu \el \ef \eh
+    bind --user -e $keys
+end
     
 # aliases
 alias 'cat'='bat'
