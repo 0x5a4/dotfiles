@@ -12,6 +12,7 @@
             "clock"
         ],
         "modules-right": [
+            "network",
             "custom/mako",
             "wireplumber",
             "user"
