@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 GAME_CLASSES=(
     "steam_app_[0-9]*"

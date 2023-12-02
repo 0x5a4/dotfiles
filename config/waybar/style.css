@@ -1,17 +1,64 @@
 @import url("./colors.css");
 * {
-    border: none;
-    border-radius: 0;
-    font-family: Cartograph CF Nerd Font, monospace;
-    font-weight: bold;
-    font-size: 14px;
-    min-height: 0;
+  border: none;
+  border-radius: 0;
+  font-family:
+    Cartograph CF Nerd Font,
+    monospace;
+  font-weight: bold;
+  font-size: 14px;
+  min-height: 0;
+}
+
+/* no states */
+#clock,
+#user,
+#submap,
+#custom-mako,
+#wireplumber,
+#network,
+#battery {
+  color: @green;
+}
+
+/* standalone rounded */
+#user,
+#clock,
+#battery,
+#workspaces,
+#network,
+#submap {
+  border: 1px solid #181825;
+  border-radius: 10px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+/* left rounded */
+#custom-mako,
+#memory {
+  border-left: 1px solid #181825;
+  border-top: 1px solid #181825;
+  border-bottom: 1px solid #181825;
+  border-radius: 10px 0px 0px 10px;
+  margin-left: 4px;
+}
+
+/* right rounded */
+#wireplumber,
+#cpu {
+  border-right: 1px solid #181825;
+  border-top: 1px solid #181825;
+  border-bottom: 1px solid #181825;
+  border-radius: 0px 10px 10px 0px;
+  margin-right: 4px;
 }
 
 window#waybar {
-    background: 0;
+  background: 0;
 }
 
+/* shared */
 #cpu,
 #memory,
 #workspaces,
@@ -19,79 +66,53 @@ window#waybar {
 #user,
 #wireplumber,
 #custom-mako,
+#battery,
+#network,
 #clock {
-    background: @background-darker;
-    padding: 0px 10px;
-    margin: 0px 0px;
-    margin-top: 5px;
-    border: 1px solid #181825;
+  background: @background-darker;
+  padding: 0px 10px;
+  margin-top: 5px;
 }
 
 #cpu,
-#wireplumber,
-#custom-mako,
 #memory,
-#workspaces button{
-    color: @selection;
-    border: none;
+#workspaces button {
+  color: @selection;
+  border: none;
 }
 
 #submap,
 #workspaces {
-    border-radius: 10px;
-    margin-right: 5px;
+  border-radius: 10px;
 }
 
 #workspaces button {
-    background: @background-darker;
+  background: @background-darker;
 }
 
 #workspaces button:hover {
-    box-shadow: inherit;
-    text-shadow: inherit;   
-    background: @background-darker;
-    border: @background-darker;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  background: @background-darker;
+  border: @background-darker;
 }
 
 #workspaces button.active {
-    color: @red
-}
-
-#user,
-#clock,
-#submap {
-    color: @green;
-    border-radius: 10px;
-    margin-left: 5px;
-}
-
-#wireplumber,
-#cpu {
-    border-radius: 0px 10px 10px 0px;
-    margin-right: 5px;
+  color: @red;
 }
 
 #memory.medium,
 #cpu.medium {
-    color: @orange;
+  color: @orange;
 }
 
 #memory.high,
 #wireplumber.high,
+#battery.low,
 #cpu.high {
-    color: @red;
+  color: @red;
 }
 
 #wireplumber.muted {
-    color: @selection
-}
-
-#custom-mako,
-#wireplumber {
-    color: @green
-}
-
-#custom-mako,
-#memory {
-    border-radius: 10px 0px 0px 10px;
+  color: @selection;
 }

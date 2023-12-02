@@ -63,6 +63,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end
 })
 
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = "nix",
+    command = "setlocal sw=2",
+})
+
 local visual_event = vim.api.nvim_create_augroup("VisualEvent", {});
 
 vim.api.nvim_create_autocmd({ "ModeChanged" }, {

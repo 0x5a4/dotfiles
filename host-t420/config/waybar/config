@@ -1,0 +1,32 @@
+[
+    {
+        "_vimft": "# vim:set filetype=json:",
+        "output": "LVDS-1",
+        "layer": "top",
+        "position": "top",
+        "mode": "dock",
+        "exclusive": true,
+        "passtrough": false,
+        "height": 32,
+        "modules-left": [
+            "clock",
+            "hyprland/workspaces",
+            "memory",
+            "cpu",
+            "network",
+        ],
+        "modules-right": [
+            "hyprland/submap",
+            "battery",
+            "custom/mako",
+            "wireplumber",
+            "user"
+        ],
+        "include": [
+            "~/.config/waybar/shared-modules.json"
+        ],
+        "user": {
+            "format": "🐢 up {work_H}:{work_M}"
+        }
+    }
+]

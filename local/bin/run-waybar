@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 [ $(command -v waybar) ] || exit
 [ $(command -v inotifywait) ] || exec waybar
@@ -10,5 +10,6 @@ CONFIG_FILES="${CONFIG_DIR}/config ${CONFIG_DIR}/style.css ${CONFIG_DIR}/shared-
 
 while true; do
     inotifywait -e create,modify ${CONFIG_FILES}
-    killall -USR2 waybar
+    kill $(pidof waybar)
+    waybar
 done

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 [ $(command -v mako) ] || exit
 [ $(command -v inotifywait) ] || exit

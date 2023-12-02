@@ -1,6 +1,6 @@
 # Test for an interactive shell.
 if [[ $- != *i* ]] ; then
-	return
+    return
 fi
 
 # Auto-launch fish(not if __KEEP_BASH is set)
@@ -20,4 +20,10 @@ command -v zoxide &> /dev/null && eval "$(zoxide init bash)"
 command -v starship &> /dev/null && eval "$(starship init bash)"
 
 # fzf
-command -v fzf &> /dev/null && source /usr/share/fzf/key-bindings.bash
+if command -v fzf &> /dev/null; then
+    if command -v fzf-share &> /dev/null; then
+        source "$(fzf-share)/key-bindings.bash"
+    else
+        source /usr/share/fzf/key-bindings.bash
+    fi
+fi
