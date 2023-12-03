@@ -2,7 +2,7 @@
 AUTO_FILES:=mako nvim kitty zathura rofi waybar swayidle bspwm sxhkd btop polybar
 
 TARGET_LIST+=$(AUTO_FILES)
-TARGET_LIST+=starship tmux hyprland picom git
+TARGET_LIST+=starship tmux hyprland picom git fish
 
 starship: init
 	$(COMMAND) config/starship.toml

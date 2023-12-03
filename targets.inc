@@ -23,7 +23,7 @@ home-manager:
 ifdef INSTALL
 	home-manager switch --flake "${ROOT_DIR}/home-manager"
 else
-	@echo "nixos rebuild cant be dry-run/unmade"
+	@echo "home-manager cant be dry-run/unmade"
 endif
 
 $(AUTO_FILES): init
