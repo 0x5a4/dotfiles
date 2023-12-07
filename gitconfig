@@ -10,6 +10,7 @@
 	root = rev-parse --show-toplevel
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     cdiff = diff --cached
+    unstageall = restore -S '*'
     
 [advice]
     addEmptyPathspec = false
