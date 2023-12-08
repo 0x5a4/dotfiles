@@ -1,0 +1,9 @@
+keys:
+  - &t420 age1c24cxkhr88l07ltvv4sznzu33aetn393hvvctwmpgsxe6usprv0q4wckqq
+  - &fword age1n9e7ymdmcprdynwutygfvd6an2h9xcvpneehu9gcsd93vr0mvg5sqndy08
+creation_rules:
+  - path_regex: secrets/.*
+    key_groups:
+      - age:
+          - *t420
+          - *fword
