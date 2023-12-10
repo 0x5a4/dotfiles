@@ -34,6 +34,10 @@
       psk = "@GOBI_WLAN_PASSWORD@";
     };
 
+    "WLAN-135020" = {
+      psk = "@WLAN_135020_PASSWORD@";
+    };
+
     eduroam = let
       cacert = builtins.toFile "ca_cert.pam" "-----BEGIN CERTIFICATE-----
 MIIDwzCCAqugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBgjELMAkGA1UEBhMCREUx
