@@ -1,7 +1,7 @@
 [
     {
         "_vimft": "# vim:set filetype=json:",
-        "output": "LVDS-1",
+        "output": "eDP-1",
         "layer": "top",
         "position": "top",
         "exclusive": true,
@@ -13,6 +13,7 @@
             "memory",
             "cpu",
             "network",
+            "bluetooth",
         ],
         "modules-right": [
             "hyprland/submap",

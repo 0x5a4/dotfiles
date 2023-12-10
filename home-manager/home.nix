@@ -7,14 +7,15 @@
   home.homeDirectory = "/home/notuser";
   home.stateVersion = "23.11";
 
+  nixpkgs.config.allowUnfree = true;
+
   imports = [
     ./share/cmdline.nix
     ./share/browser.nix
+    ./share/apps.nix
   ];
 
   home.packages = [
-    pkgs.webcord-vencord
-
     pkgs.noto-fonts
     pkgs.noto-fonts-emoji
     (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})

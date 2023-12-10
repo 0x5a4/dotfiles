@@ -8,14 +8,14 @@
   programs.neovim.defaultEditor = true;
   programs.neovim.withPython3 = true;
   programs.neovim.viAlias = true;
-  
+
   home.packages = with pkgs; [
     fish
     gnumake
     rcm
-    
+
     alejandra
-    
+
     eza
     wget
     git
@@ -28,6 +28,10 @@
     direnv
     fzf
     rustup
+    duf
+    fd
+    ripgrep
+    speedtest-rs
 
     fastfetch
   ];

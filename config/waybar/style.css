@@ -17,6 +17,7 @@
 #custom-mako,
 #wireplumber,
 #network,
+#bluetooth,
 #battery {
   color: @green;
 }
@@ -27,6 +28,7 @@
 #battery,
 #workspaces,
 #network,
+#bluetooth,
 #submap {
   border: 1px solid #181825;
   border-radius: 10px;
@@ -68,6 +70,7 @@ window#waybar {
 #custom-mako,
 #battery,
 #network,
+#bluetooth,
 #clock {
   background: @background-darker;
   padding: 0px 10px;
@@ -115,4 +118,8 @@ window#waybar {
 
 #wireplumber.muted {
   color: @selection;
+}
+
+#bluetooth.disabled {
+    color: @selection
 }

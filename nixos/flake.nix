@@ -20,5 +20,14 @@
         sops-nix.nixosModules.sops
       ];
     };
+    
+    nixosConfigurations.fword = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./fword
+        nixos-hardware.nixosModules.framework-13th-gen-intel
+        sops-nix.nixosModules.sops
+      ];
+    };
   };
 }

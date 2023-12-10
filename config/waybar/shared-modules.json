@@ -49,13 +49,22 @@
     "format-charging": "󱐋 {capacity}% {icon}",
     "format-icons": ["", "", "", "", ""],
     "states": {
-        "low": 20
+      "low": 20
     }
   },
   "network": {
     "format": "{ifname}",
     "format-wifi": "{essid} ({signalStrength}%) ",
     "format-ethernet": " 󰈁 ",
-    "format-disconnected": "",
+    "format-disconnected": ""
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": " {num_connections} connected",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "bluetooth toggle"
   }
 }

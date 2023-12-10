@@ -15,7 +15,7 @@
 
   networking.wireless.networks = {
     HHUD-Y = {
-      psk = "@HHUD-Y_PASSWORD";
+      psk = "@HHUD_Y_PASSWORD";
     };
 
     UdoLandenberg = {
@@ -23,7 +23,7 @@
     };
 
     "Network_Mr.X" = {
-      psk = "@NETWORK_MR.X_PASSWORD";
+      psk = "@NETWORK_MR_X_PASSWORD@";
     };
 
     "chaosdorf access" = {

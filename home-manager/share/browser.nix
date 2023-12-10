@@ -57,36 +57,33 @@
             (define "github.com")
             (define "crates.io")
             (define "feddit.de")
+            (folder "tools" [
+              (defineNamed "craiyon" "craiyon.com")
+              (defineNamed "hex to dec" "www.rapidtables.com/convert/number/hex-to-decimal.html")
+              (defineNamed "goodname" "kampersanda.github.io/goodname")
+              (defineNamed "plotz" "www.plotz.co.uk")
+              (defineNamed "toml validator" "www.toml-lint.com")
+              (defineNamed "click" "clickclickclick.click/#4a955f9cf0bbe3854fa9ede6935d540c")
+            ])
+            (folder "uni" [
+              (defineNamed "ilias" "ilias.hhu.de/login.php?client_id=UniRZ&cmd=force_login&lang=de")
+              (defineNamed "lsf" "lsf.hhu.de")
+              (defineNamed "fscs" "fscs.hhu.de")
+              (defineNamed "inphima nextcloud" "nextcloud.inphima.de")
+              (defineNamed "mete" "metesecure.hhu-fscs.de")
+            ])
+            (folder "doc" [
+              (defineNamed "lua 5.4 reference" "www.lua.org/manual/5.4")
+              (defineNamed "zig langref" "ziglang.org/documentation/master")
+              (defineNamed "zig stdref" "ziglang.org/documentation/master/std")
+              (defineNamed "hyprland wiki" "wiki.hyprland.org")
+              (defineNamed "opencomputers" "ocdoc.cil.li")
+              (defineNamed "tomlref" "toml.io/en/v1.0.0")
+              (defineNamed "hugo" "gohugo.io/documentation")
+              (defineNamed "bootstrap" "getbootstrap.com/docs/")
+            ])
           ];
         }
-
-        (folder "tools" [
-          (defineNamed "craiyon" "craiyon.com")
-          (defineNamed "hex to dec" "www.rapidtables.com/convert/number/hex-to-decimal.html")
-          (defineNamed "goodname" "kampersanda.github.io/goodname")
-          (defineNamed "plotz" "www.plotz.co.uk")
-          (defineNamed "toml validator" "www.toml-lint.com")
-          (defineNamed "click" "clickclickclick.click/#4a955f9cf0bbe3854fa9ede6935d540c")
-        ])
-
-        (folder "uni" [
-          (defineNamed "ilias" "ilias.hhu.de/login.php?client_id=UniRZ&cmd=force_login&lang=de")
-          (defineNamed "lsf" "lsf.hhu.de")
-          (defineNamed "fscs" "fscs.hhu.de")
-          (defineNamed "inphima nextcloud" "nextcloud.inphima.de")
-          (defineNamed "mete" "metesecure.hhu-fscs.de")
-        ])
-
-        (folder "doc" [
-          (defineNamed "lua 5.4 reference" "www.lua.org/manual/5.4")
-          (defineNamed "zig langref" "ziglang.org/documentation/master")
-          (defineNamed "zig stdref" "ziglang.org/documentation/master/std")
-          (defineNamed "hyprland wiki" "wiki.hyprland.org")
-          (defineNamed "opencomputers" "ocdoc.cil.li")
-          (defineNamed "tomlref" "toml.io/en/v1.0.0")
-          (defineNamed "hugo" "gohugo.io/documentation")
-          (defineNamed "bootstrap" "getbootstrap.com/docs/")
-        ])
       ];
 
       search = {
@@ -104,7 +101,7 @@
           "Youtube" = define "yt" "www.youtube.com/favicon.ico" "";
           "Nix Packages" = define "nixpkg" "search.nixos.org/packages?query={searchTerms}" "nixos.wiki/favicon.png";
           "Nix Options" = define "nixopt" "search.nixos.org/options?query={searchTerms}" "nixos.wiki/favicon.png";
-          "Nix Wiki" = define "nixpkg" "nixos.wiki/index.php?search={searchTerms}" "nixos.wiki/favicon.png";
+          "Nix Wiki" = define "nixwiki" "nixos.wiki/index.php?search={searchTerms}" "nixos.wiki/favicon.png";
           "Crates.io" = define "crates" "crates.io/search?q={searchTerms}" "crates.io/favicon.ico";
           "Github" = define "gh" "github.com/search?q={searchTerns}&type=repositories" "github.com/favicon.ico";
           "Instant Gaming" = define "ig" "www.instant-gaming.com/en/search/?q={searchTerms}" "www.instant-gaming.com/favicon.ico";

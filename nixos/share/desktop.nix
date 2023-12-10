@@ -7,6 +7,8 @@
 
   environment.systemPackages = with pkgs; [
     wev
+    # backlight
+    ddcutil
     # media
     feh
     mpv
@@ -31,6 +33,14 @@
     inotify-tools
     # clipboard
     wl-clipboard
+    # polkit agent
+    polkit_gnome
+    # greeter
+    greetd.regreet
+    #gtk theme
+    dracula-theme
+    # media control
+    playerctl
   ];
 
   # enable pipewire
@@ -56,16 +66,63 @@
   # swaylock pam module
   security.pam.services.swaylock = {
     text = ''
+      auth sufficient pam_fprintd.so
       auth include login
     '';
   };
 
   # greetd
+  programs.regreet = {
+    enable = true;
+    settings = builtins.fromTOML ''
+      [background]
+      path = "/etc/greetd/background.jpg"
+      fit = "Fill"
+
+      [env]
+
+      [GTK]
+      cursor_theme_name = "Dracula"
+      font_name = "Cantarell 16"
+      icon_theme_name = "Dracula"
+      theme_name = "Dracula"
+    '';
+  };
+
   services.greetd = {
     enable = true;
     settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland --remember --power-shutdown 'systemctl poweroff' --power-reboot 'systemctl reboot'";
+      default_session = let
+        hyprlandConfig = builtins.toFile "hyprland.regreet.conf" ''
+          exec-once = regreet; hyprctl dispatch exit;
+          windowrulev2=fullscreen, title:^regreet$
+          animations {
+            enabled = no
+          }
+          misc {
+            disable_hyprland_logo = yes
+            disable_splash_rendering = yes
+          }
+        '';
+      in {
+        command = "${pkgs.hyprland}/bin/Hyprland --config ${hyprlandConfig}";
+      };
+    };
+  };
+
+  # authentication agent
+  systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = ["graphical-session.target"];
+      wants = ["graphical-session.target"];
+      after = ["graphical-session.target"];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
       };
     };
   };
