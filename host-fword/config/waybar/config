@@ -18,6 +18,7 @@
         "modules-right": [
             "hyprland/submap",
             "battery",
+            "backlight",
             "custom/mako",
             "wireplumber",
             "user"

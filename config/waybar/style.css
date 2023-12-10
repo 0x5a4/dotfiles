@@ -18,6 +18,7 @@
 #wireplumber,
 #network,
 #bluetooth,
+#backlight,
 #battery {
   color: @green;
 }
@@ -25,7 +26,6 @@
 /* standalone rounded */
 #user,
 #clock,
-#battery,
 #workspaces,
 #network,
 #bluetooth,
@@ -38,6 +38,7 @@
 
 /* left rounded */
 #custom-mako,
+#battery,
 #memory {
   border-left: 1px solid #181825;
   border-top: 1px solid #181825;
@@ -48,6 +49,7 @@
 
 /* right rounded */
 #wireplumber,
+#backlight,
 #cpu {
   border-right: 1px solid #181825;
   border-top: 1px solid #181825;
@@ -71,6 +73,7 @@ window#waybar {
 #battery,
 #network,
 #bluetooth,
+#backlight,
 #clock {
   background: @background-darker;
   padding: 0px 10px;
@@ -121,5 +124,5 @@ window#waybar {
 }
 
 #bluetooth.disabled {
-    color: @selection
+  color: @selection;
 }
