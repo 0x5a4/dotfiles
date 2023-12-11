@@ -15,7 +15,7 @@
 
   networking.wireless.networks = {
     HHUD-Y = {
-      psk = "@HHUD_Y_PASSWORD";
+      psk = "@HHUD_Y_PASSWORD@";
     };
 
     UdoLandenberg = {
