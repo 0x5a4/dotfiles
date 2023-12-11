@@ -41,6 +41,8 @@
     dracula-theme
     # media control
     playerctl
+    # backlight
+    acpilight
   ];
 
   # enable pipewire

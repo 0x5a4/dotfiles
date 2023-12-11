@@ -49,7 +49,7 @@
     isNormalUser = true;
     shell = pkgs.fish;
     description = "no";
-    extraGroups = ["wheel"];
+    extraGroups = ["wheel" "video"];
     packages = with pkgs; [];
   };
   users.defaultUserShell = pkgs.fish;
