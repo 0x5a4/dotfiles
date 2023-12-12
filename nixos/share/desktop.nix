@@ -7,8 +7,6 @@
 
   environment.systemPackages = with pkgs; [
     wev
-    # backlight
-    ddcutil
     # media
     feh
     mpv

@@ -3,19 +3,28 @@
   pkgs,
   ...
 }: {
-  # neovim
+  programs.fish.enable = true;
+
+  environment.shellAliases = {
+    ls = null;
+    ll = null;
+    l = null;
+  };
+
   programs.neovim.enable = true;
   programs.neovim.defaultEditor = true;
   programs.neovim.withPython3 = true;
   programs.neovim.viAlias = true;
 
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     fish
     gnumake
     rcm
 
     alejandra
+    marksman
 
+    acpi
     eza
     wget
     git
@@ -32,7 +41,10 @@
     fd
     ripgrep
     speedtest-rs
-
     fastfetch
+    nodejs_20
+    gcc
+    clang
+    sops
   ];
 }

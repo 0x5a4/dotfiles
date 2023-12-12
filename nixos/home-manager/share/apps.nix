@@ -5,7 +5,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    webcord-vencord
+    webcord
     spotify
     prismlauncher
   ];

@@ -10,7 +10,6 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ./share/cmdline.nix
     ./share/browser.nix
     ./share/apps.nix
   ];

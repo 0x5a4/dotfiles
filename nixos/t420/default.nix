@@ -12,6 +12,7 @@
     ./hardware-configuration.nix
     ../share/desktop.nix
     ../share/wifi.nix
+    ../share/cmdline.nix
   ];
 
   # Bootloader.
@@ -65,27 +66,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
-  programs.neovim.withPython3 = true;
-  programs.neovim.viAlias = true;
-
-  programs.fish.enable = true;
-
-  environment.shellAliases = {
-    ls = null;
-    ll = null;
-    l = null;
-  };
-
-  environment.systemPackages = with pkgs; [
-    alejandra
-    nodejs_20
-    gcc
-    clang
-    acpi
-  ];
 
   services.openssh.enable = true;
 
