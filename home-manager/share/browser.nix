@@ -8,7 +8,6 @@
     enable = true;
 
     policies = {
-      "DisplayMenuBar" = false;
       "DisableFormHistory" = true;
       "DisableFirefoxAccounts" = true;
       "NetworkPrediction" = false;
@@ -81,6 +80,10 @@
               (defineNamed "tomlref" "toml.io/en/v1.0.0")
               (defineNamed "hugo" "gohugo.io/documentation")
               (defineNamed "bootstrap" "getbootstrap.com/docs/")
+              (defineNamed "playwright" "playwright.dev/docs/")
+            ])
+            (folder "work" [
+              (defineNamed "moco" "recordbay.mocoapp.com")
             ])
           ];
         }
@@ -125,19 +128,15 @@
         "app.update.auto" = false;
         "beacon.enabled" = false;
         "breakpad.reportURL" = "";
-        "browser.bookmarks.addedImportButton" = true;
-        "browser.places.importBookmarksHTML" = false;
         "browser.aboutConfig.showWarning" = false;
         "browser.cache.offline.enable" = false;
         "browser.crashReports.unsubmittedCheck.autoSubmit" = false;
         "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
         "browser.crashReports.unsubmittedCheck.enabled" = false;
         "browser.disableResetPrompt" = true;
+        "browser.fixup.alternate.enabled" = false;
         "browser.newtab.preload" = false;
         "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
-        "browser.newtabpage.activity-stream.section.feeds.topsites" = false;
-        "browser.newtabpage.activity-stream.showSponsored" = false;
-        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.newtabpage.enhanced" = false;
         "browser.newtabpage.introShown" = true;
         "browser.safebrowsing.appRepURL" = "";
@@ -150,7 +149,7 @@
         "browser.safebrowsing.phishing.enabled" = false;
         "browser.selfsupport.url" = "";
         "browser.send_pings" = false;
-        "browser.sessionstore.privacy_level" = 2;
+        "browser.sessionstore.privacy_level" = 0;
         "browser.shell.checkDefaultBrowser" = false;
         "browser.startup.homepage_override.mstone" = "ignore";
         "browser.tabs.crashReporting.sendReport" = false;
@@ -170,7 +169,6 @@
         "dom.event.clipboardevents.enabled" = false;
         "dom.security.https_only_mode" = true;
         "dom.security.https_only_mode_ever_enabled" = true;
-        "dom.storage.enabled" = false;
         "dom.webaudio.enabled" = false;
         "experiments.activeExperiment" = false;
         "experiments.enabled" = false;
@@ -210,7 +208,6 @@
         "privacy.trackingprotection.pbmode.enabled" = true;
         "privacy.usercontext.about_newtab_segregation.enabled" = true;
         "security.ssl.disable_session_identifiers" = true;
-        "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored" = false;
         "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSite" = false;
         "signon.autofillForms" = false;
         "toolkit.telemetry.archive.enabled" = false;
@@ -231,6 +228,12 @@
         "webgl.disabled" = true;
         "webgl.renderer-string-override" = " ";
         "webgl.vendor-string-override" = " ";
+        "browser.bookmarks.addedImportButton" = true;
+        "browser.places.importBookmarksHTML" = false;
+        "browser.newtabpage.activity-stream.section.feeds.topsites" = false;
+        "browser.newtabpage.activity-stream.showSponsored" = false;
+        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+        "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored" = false;
         "privacy.sanitize.sanitizeOnShutdown" = true;
         "privacy.sanitize.pending" = [
           {
@@ -256,8 +259,13 @@
         i-dont-care-about-cookies
         privacy-possum
         clearurls
-        facebook-container
         return-youtube-dislikes
+        boring-rss
+        don-t-fuck-with-paste
+        enhanced-github
+        enhanced-h264ify
+        github-file-icons
+        multi-account-containers
       ];
     };
   };
