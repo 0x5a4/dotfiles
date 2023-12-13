@@ -80,7 +80,7 @@
               (defineNamed "tomlref" "toml.io/en/v1.0.0")
               (defineNamed "hugo" "gohugo.io/documentation")
               (defineNamed "bootstrap" "getbootstrap.com/docs/")
-              (defineNamed "playwright" "playwright.dev/docs/")
+              (defineNamed "playwright" "playwright.dev/docs/intro")
             ])
             (folder "work" [
               (defineNamed "moco" "recordbay.mocoapp.com")

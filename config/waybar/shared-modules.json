@@ -72,5 +72,8 @@
     "device": "intel_backlight",
     "format": "{percent}% {icon}",
     "format-icons": ["", ""]
+  },
+  "user": {
+    "format": "🐢 up {work_H}:{work_M}"
   }
 }

@@ -10,8 +10,8 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ./share/browser.nix
-    ./share/apps.nix
+    ./browser.nix
+    ./waybar.nix
   ];
 
   home.packages = [
@@ -56,6 +56,13 @@
       package = pkgs.dracula-theme;
       name = "Dracula";
     };
+  };
+
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      AddKeysToAgent yes
+    '';
   };
 
   programs.home-manager.enable = true;

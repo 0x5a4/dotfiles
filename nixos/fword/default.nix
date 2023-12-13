@@ -50,7 +50,7 @@
     isNormalUser = true;
     shell = pkgs.fish;
     description = "no";
-    extraGroups = ["wheel" "video"];
+    extraGroups = ["wheel" "video" "docker"];
     packages = with pkgs; [];
   };
   users.defaultUserShell = pkgs.fish;
@@ -83,6 +83,8 @@
   };
 
   services.thermald.enable = true;
+
+  virtualisation.docker.enable = true;
 
   services.openssh.enable = true;
   services.fwupd.enable = true;

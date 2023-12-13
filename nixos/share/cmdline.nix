@@ -44,7 +44,9 @@
     fastfetch
     nodejs_20
     gcc
+    python3
     clang
     sops
+    jq
   ];
 }

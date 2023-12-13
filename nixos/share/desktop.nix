@@ -5,6 +5,8 @@
 }: {
   programs.hyprland.enable = true;
 
+  programs.steam.enable = true;
+
   environment.systemPackages = with pkgs; [
     wev
     # media
@@ -41,6 +43,11 @@
     playerctl
     # backlight
     acpilight
+
+    webcord
+    spotify
+    prismlauncher
+    thunderbird
   ];
 
   # enable pipewire
