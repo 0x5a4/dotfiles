@@ -52,6 +52,14 @@
       "low": 20
     }
   },
+  "battery#standalone": {
+    "format": "{capacity}% {icon}",
+    "format-charging": "󱐋 {capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""],
+    "states": {
+      "low": 20
+    }
+  },
   "network": {
     "format": "{ifname}",
     "format-wifi": "{essid} ({signalStrength}%) ",
