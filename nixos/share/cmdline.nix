@@ -48,5 +48,8 @@
     clang
     sops
     jq
+    unzip
+    file
+    mdcat
   ];
 }
