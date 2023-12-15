@@ -48,6 +48,14 @@
     spotify
     prismlauncher
     thunderbird
+
+    (retroarch.override {
+      cores = with libretro; [
+        snes9x
+        vba-m
+        citra
+      ];
+    })
   ];
 
   # enable pipewire
