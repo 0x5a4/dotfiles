@@ -7,6 +7,7 @@ GAME_CLASSES=(
     "FTB Skies"
     "Enigmatica 2: Expert \- Extended"
     "hl_linux"
+    "Nomifactory.*"
 
 )
 
