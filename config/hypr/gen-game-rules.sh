@@ -8,6 +8,7 @@ GAME_CLASSES=(
     "Enigmatica 2: Expert \- Extended"
     "hl_linux"
     "Nomifactory.*"
+    "org.libretro.RetroArch"
 
 )
 
