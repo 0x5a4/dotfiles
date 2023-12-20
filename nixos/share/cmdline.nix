@@ -22,7 +22,7 @@
 
     alejandra
     lua-language-server
-     
+
     acpi
     eza
     wget
@@ -35,7 +35,6 @@
     psmisc
     direnv
     fzf
-    rustup
     duf
     fd
     ripgrep
