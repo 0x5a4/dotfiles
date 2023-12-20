@@ -18,12 +18,11 @@
 
   environment.systemPackages = with pkgs; [
     fish
-    gnumake
-    rcm
-
-    alejandra
     marksman
 
+    alejandra
+    lua-language-server
+     
     acpi
     eza
     wget
