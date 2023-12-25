@@ -14,7 +14,7 @@ zsh: init
 
 nixos:
 ifdef INSTALL
-	sudo nixos-rebuild --flake "$(ROOT_DIR)/nixos" switch
+	sudo nixos-rebuild --flake "$(ROOT_DIR)" switch
 else
 	@echo "nixos rebuild cant be dry-run/unmade"
 endif
