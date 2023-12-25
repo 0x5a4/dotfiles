@@ -70,9 +70,7 @@ return {
                             cmp.complete()
                         end
                     end,
-                    ["<CR>"] = cmp.mapping.confirm {
-                        select = true,
-                    },
+                    ["<CR>"] = cmp.mapping.confirm {},
                     -- Shamelessly stolen from the nvchad config
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
@@ -106,8 +104,8 @@ return {
                     })
                 },
                 sources = cmp.config.sources({
+                    { name = "luasnip", priority = 100 },
                     { name = "nvim_lsp" },
-                    { name = "luasnip" },
                     { name = "path" },
                     { name = "crates" },
                     { name = "nvim_lua" },
@@ -125,15 +123,6 @@ return {
             )
         end
     },
-    {
-        "L3MON4D3/LuaSnip",
-        lazy = true,
-        config = function ()
-            require("luasnip.loaders.from_vscode").lazy_load()
-        end,
-        dependencies = "rafamadriz/friendly-snippets",
-    },
-
     -- cmp sources
     {
         "saecki/crates.nvim",
