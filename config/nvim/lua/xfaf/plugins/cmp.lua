@@ -3,22 +3,15 @@ return {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
         dependencies = {
+            { "hrsh7th/cmp-nvim-lsp",     lazy = true, },
+            { "hrsh7th/cmp-path",         lazy = true, },
+            { "hrsh7th/cmp-nvim-lua",     lazy = true, },
+            { "saadparwaiz1/cmp_luasnip", lazy = true, },
             {
-                "hrsh7th/cmp-nvim-lsp",
+                "petertriho/cmp-git",
                 lazy = true,
+                opts = {}
             },
-            {
-                "hrsh7th/cmp-path",
-                lazy = true,
-            },
-            {
-                "hrsh7th/cmp-nvim-lua",
-                lazy = true,
-            },
-            {
-                "saadparwaiz1/cmp_luasnip",
-                lazy = true
-            }
         },
         config = function()
             local cmp = require("cmp")
@@ -71,6 +64,7 @@ return {
                         end
                     end,
                     ["<CR>"] = cmp.mapping.confirm {},
+                    ["<Esc>"] = cmp.mapping.abort {},
                 },
                 sources = cmp.config.sources({
                     { name = "luasnip", priority = 100 },
@@ -78,6 +72,7 @@ return {
                     { name = "path" },
                     { name = "crates" },
                     { name = "nvim_lua" },
+                    { name = "git" },
                 }),
             }
 
