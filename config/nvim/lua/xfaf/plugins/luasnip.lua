@@ -3,7 +3,7 @@ return {
     lazy = true,
     config = function()
         local luasnip = require("luasnip")
-        
+
         luasnip.config.set_config({
             region_check_events = { "InsertEnter", "CursorHold" }
         })
@@ -12,4 +12,28 @@ return {
         require("luasnip.loaders.from_vscode").lazy_load()
     end,
     dependencies = "rafamadriz/friendly-snippets",
+    keys = {
+        { "<Tab>",   function() require("luasnip").jump(1) end,  mode = { "i", "s" } },
+        { "<S-Tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+        {
+            "<C-E>",
+            function()
+                local luasnip = require("luasnip")
+                if luasnip.choice_active() then
+                    luasnip.change_choice(1)
+                end
+            end,
+            mode = { "i", "s" }
+        },
+        {
+            "<C-S-E>",
+            function()
+                local luasnip = require("luasnip")
+                if luasnip.choice_active() then
+                    luasnip.change_choice(-1)
+                end
+            end,
+            mode = { "i", "s" }
+        },
+    },
 }
