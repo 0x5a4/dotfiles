@@ -4,7 +4,7 @@ return {
     "svermeulen/vim-cutlass",
     {
         "tpope/vim-commentary",
-        keys = { { "gc", nil, mode = { "n", "x", "o"} } }
+        keys = { { "gc", nil, mode = { "n", "x", "o" } } }
     },
     {
         "julienvincent/nvim-paredit",
@@ -39,7 +39,21 @@ return {
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
-        config = true,
+        config = function()
+            local autopairs = require("nvim-autopairs")
+            local cond = require("nvim-autopairs.conds")
+            local rule = require("nvim-autopairs.rule")
+
+            autopairs.setup({})
+
+            -- dont automatically duble quote in lisps
+            autopairs.get_rules("'")[1].not_filetypes = { "scheme", "lisp", "clojure" }
+
+
+            autopairs.add_rules({
+                rule("$", "$", { "tex", "latex" })
+            })
+        end
     },
     {
         "matze/vim-move",
