@@ -45,6 +45,7 @@
     acpilight
 
     wob
+    batsignal
 
     webcord
     spotify
