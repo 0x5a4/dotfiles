@@ -101,7 +101,7 @@
           };
         in {
           "Ard Mediathek" = define "ard" "ardmediathek.de/suche/{searchTerms}" "";
-          "Youtube" = define "yt" "www.youtube.com/favicon.ico" "";
+          "Youtube" = define "yt" "www.youtube.com/results?search_query={searchTerms}" "www.youtube.com/favicon.ico";
           "Nix Packages" = define "nixpkg" "search.nixos.org/packages?query={searchTerms}" "nixos.wiki/favicon.png";
           "Nix Options" = define "nixopt" "search.nixos.org/options?query={searchTerms}" "nixos.wiki/favicon.png";
           "Nix Wiki" = define "nixwiki" "nixos.wiki/index.php?search={searchTerms}" "nixos.wiki/favicon.png";
