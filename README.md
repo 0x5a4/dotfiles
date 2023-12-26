@@ -31,6 +31,7 @@ If you dislike a particular hack, run `make UNMAKE=1 <target>`.
 - sxhkd
 - tmux
 - waybar
+- wob
 - zathura
 - zsh(very dead)
 

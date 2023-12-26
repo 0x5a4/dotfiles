@@ -28,7 +28,7 @@ ifdef PRETEND
 endif
 
 # groups
-wayland: hyprland kitty mako rofi waybar swayidle scripts
+wayland: hyprland kitty mako rofi waybar swayidle wob scripts
 shell: fish starship bash tmux nvim git btop
 x11: picom rofi bspwm sxhkd scripts
 	

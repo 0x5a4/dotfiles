@@ -44,6 +44,8 @@
     # backlight
     acpilight
 
+    wob
+
     webcord
     spotify
     prismlauncher
