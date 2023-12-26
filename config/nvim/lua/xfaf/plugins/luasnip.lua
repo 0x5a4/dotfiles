@@ -13,8 +13,6 @@ return {
     end,
     dependencies = "rafamadriz/friendly-snippets",
     keys = {
-        { "<Tab>",   function() require("luasnip").jump(1) end,  mode = { "i", "s" } },
-        { "<S-Tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
         {
             "<C-E>",
             function()

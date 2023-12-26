@@ -16,6 +16,7 @@ return {
         config = function()
             local cmp = require("cmp")
             local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+            local luasnip = require("luasnip")
 
             cmp.setup {
                 snippet = {
@@ -63,6 +64,20 @@ return {
                             cmp.complete()
                         end
                     end,
+                    ["<Tab>"] = cmp.mapping(function(fallback)
+                        if luasnip.expand_or_jumpable() then
+                            luasnip.expand_or_jump()
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+                    ["<S-Tab>"] = cmp.mapping(function(fallback)
+                        if luasnip.jumpable(-1) then
+                            luasnip.jump(-1)
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
                     ["<CR>"] = cmp.mapping.confirm {},
                     ["<Esc>"] = cmp.mapping.abort {},
                 },
