@@ -2,9 +2,16 @@ return {
     "tpope/vim-vinegar",
     {
         "stevearc/oil.nvim",
-        config = true,
+        lazy = false,
+        cmd = "Oil",
         keys = {
             { "-", "<cmd>Oil<CR>" }
+        },
+        opts = {
+            columns = {
+                "icon",
+                "size",
+            },
         }
     },
     {
