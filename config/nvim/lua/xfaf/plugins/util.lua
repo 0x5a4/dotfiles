@@ -135,13 +135,6 @@ return {
         }
     },
     {
-        'lcheylus/overlength.nvim',
-        opts = {
-            textwidth_mode = 1,
-            default_overlength = 100,
-        },
-    },
-    {
         "seandewar/nvimesweeper",
         cmd = "Nvimesweeper",
     },
