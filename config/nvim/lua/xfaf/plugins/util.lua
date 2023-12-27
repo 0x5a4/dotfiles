@@ -132,6 +132,7 @@ return {
     {
         "sudormrfbin/cheatsheet.nvim",
         cmd = { "Cheatsheet", "CheatsheetEdit" },
+        event = "BufReadPre cheatsheet.txt",
         opts = {
             bundled_cheatsheets = {
                 enabled = { "default" }
