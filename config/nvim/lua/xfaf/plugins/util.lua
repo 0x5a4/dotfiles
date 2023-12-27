@@ -69,23 +69,6 @@ return {
         }
     },
     {
-        "folke/todo-comments.nvim",
-        event = "User File",
-        keys = {
-            { "<leader>t", "<cmd>TodoTelescope<CR>" },
-        },
-        dependencies = "nvim-lua/plenary.nvim",
-        config = true
-    },
-    {
-        "axieax/urlview.nvim",
-        config = true,
-        keys = {
-            { "<leader>vu", "<cmd>UrlView<CR>" }
-        },
-        cmd = "UrlView"
-    },
-    {
         "numToStr/FTerm.nvim",
         lazy = true,
         keys = {
@@ -140,6 +123,22 @@ return {
     },
     {
         "tpope/vim-fireplace",
-        ft = "clojure"
+        ft = "clojure",
+        keys = {
+            { "<localleader>ee", "<cmd>Eval>"},
+            { "<localleader>ef", "<cmd>%Eval>"},
+        }
+    },
+    {
+        "sudormrfbin/cheatsheet.nvim",
+        cmd = { "Cheatsheet", "CheatsheetEdit" },
+        opts = {
+            bundled_cheatsheets = {
+                enabled = { "default" }
+            }
+        },
+        keys = {
+            { "<leader>?", "<cmd>Cheatsheet<CR>" }
+        }
     }
 }

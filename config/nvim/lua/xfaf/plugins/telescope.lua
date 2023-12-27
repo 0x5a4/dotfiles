@@ -4,7 +4,6 @@ return {
         dependencies = { -- PLUGINS ARE HERE, TAKE A CLOSER LOOK
             "nvim-lua/plenary.nvim",
             "crispgm/telescope-heading.nvim",
-            "debugloop/telescope-undo.nvim",
             "chip/telescope-software-licenses.nvim",
             "crispgm/telescope-heading.nvim",
             "nvim-telescope/telescope-symbols.nvim",
@@ -12,18 +11,17 @@ return {
         cmd = "Telescope",
         tag = "0.1.4",
         keys = {
-            { "gi",         "<cmd>Telescope lsp_incoming_calls<CR>" },
-            { "gd",         "<cmd>Telescope lsp_definitions<CR>" },
-            { "<leader>s",  "<cmd>Telescope lsp_document_symbols<CR>" },
-            { "<leader>e",  "<cmd>Telescope diagnostics<CR>" },
+            { "<leader>ts",  "<cmd>Telescope lsp_document_symbols<CR>" },
+            { "<leader>te",  "<cmd>Telescope diagnostics<CR>" },
             { "<leader>ts", "<cmd>Telescope spell_suggest<CR>" },
             { "<leader>td", "<cmd>Telescope heading<CR>" },
             { "<leader>tc", "<cmd>Telescope git_commits<CR>" },
             { "<leader>tf", "<cmd>Telescope current_buffer_fuzzy_find<CR>" },
-            { "<leader>7",  "<cmd>Telescope live_grep<CR>" },
-            { "<leader>u",  "<cmd>Telescope undo<CR>" },
-            { "<leader>vl", "<cmd>Telescope software-licenses find<CR>" },
-            { "<leader>ve", "<cmd>Telescope symbols<CR>" },
+            { "<leader>tg",  "<cmd>Telescope live_grep<CR>" },
+            { "<leader>tl", "<cmd>Telescope software-licenses find<CR>" },
+            { "<leader>tz", "<cmd>Telescope symbols<CR>" },
+            { "gi",         "<cmd>Telescope lsp_incoming_calls<CR>" },
+            { "gd",         "<cmd>Telescope lsp_definitions<CR>" },
             {
                 "<C-M-p>",
                 "",
@@ -75,10 +73,26 @@ return {
             local telescope = require("telescope")
 
             telescope.load_extension("heading")
-            telescope.load_extension("undo")
             telescope.load_extension("software-licenses")
 
             telescope.setup(opts)
         end
+    },
+    {
+        "folke/todo-comments.nvim",
+        event = "User File",
+        keys = {
+            { "<leader>tt", "<cmd>TodoTelescope<CR>" },
+        },
+        dependencies = "nvim-lua/plenary.nvim",
+        config = true
+    },
+    {
+        "axieax/urlview.nvim",
+        config = true,
+        keys = {
+            { "<leader>tu", "<cmd>UrlView<CR>" }
+        },
+        cmd = "UrlView"
     },
 }

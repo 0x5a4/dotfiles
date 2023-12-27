@@ -1,8 +1,5 @@
 return {
-    {
-        "tpope/vim-vinegar",
-        keys = { "-" }
-    },
+    "tpope/vim-vinegar",
     {
         "chrisgrieser/nvim-spider",
         keys = {

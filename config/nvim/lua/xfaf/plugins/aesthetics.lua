@@ -62,9 +62,9 @@ return {
     {
         "tamton-aquib/duck.nvim",
         keys = {
-            { "<leader>dc", "<cmd>lua require('duck').cook()<CR>" },
+            { "<leader>fc", "<cmd>lua require('duck').cook()<CR>" },
             {
-                "<leader>dd",
+                "<leader>fd",
                 "",
                 callback = function()
                     local filetype = vim.bo.filetype;

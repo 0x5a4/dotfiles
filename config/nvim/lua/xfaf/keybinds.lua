@@ -23,6 +23,7 @@ local function xnoremap(bind, to)
 end
 
 vim.api.nvim_set_var("mapleader", " ")
+vim.api.nvim_set_var("maplocalleader", ",")
 
 -- Really stupid, but otherwise FTerm breaks
 vim.keymap.set('n', '<leader>q', function()
