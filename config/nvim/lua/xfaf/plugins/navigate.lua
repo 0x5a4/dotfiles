@@ -1,6 +1,13 @@
 return {
     "tpope/vim-vinegar",
     {
+        "stevearc/oil.nvim",
+        config = true,
+        keys = {
+            { "-", "<cmd>Oil<CR>" }
+        }
+    },
+    {
         "chrisgrieser/nvim-spider",
         keys = {
             { "w",  "<cmd>lua require('spider').motion('w')<CR>",  mode = { "n", "o", "x" } },
