@@ -46,6 +46,7 @@
 
     wob
     batsignal
+    xdg-utils
 
     webcord
     spotify
@@ -54,9 +55,7 @@
 
     (retroarch.override {
       cores = with libretro; [
-        snes9x
-        vba-m
-        citra
+        mupen64plus
       ];
     })
   ];

@@ -49,5 +49,6 @@
     unzip
     file
     mdcat
+    xxd
   ];
 }
