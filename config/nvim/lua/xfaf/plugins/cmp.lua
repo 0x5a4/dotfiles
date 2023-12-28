@@ -88,6 +88,7 @@ return {
                     { name = "crates" },
                     { name = "nvim_lua" },
                     { name = "git" },
+                    { name = "neorg" },
                 }),
             }
 
