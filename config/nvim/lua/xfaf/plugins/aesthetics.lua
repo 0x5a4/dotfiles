@@ -107,5 +107,22 @@ return {
         config = function()
             vim.notify = require("notify")
         end
+    },
+    {
+        "folke/zen-mode.nvim",
+        opts = {
+            window = {
+                backdrop = 1,
+            },
+            plugins = {
+                tmux = {
+                    enabled = true,
+                }
+            }
+        },
+        cmd = "ZenMode",
+        keys = {
+            { "<leader>oz", "<cmd>ZenMode<CR>" },
+        },
     }
 }
