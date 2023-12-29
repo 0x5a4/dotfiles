@@ -124,5 +124,11 @@ return {
         keys = {
             { "<leader>oz", "<cmd>ZenMode<CR>" },
         },
+    },
+    {
+        "Aasim-A/scrollEOF.nvim",
+        opts = {
+            insert_mode = true,
+        },
     }
 }

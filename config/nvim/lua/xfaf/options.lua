@@ -23,7 +23,7 @@ opt.tabstop = 4
 -- Display
 opt.termguicolors = true
 opt.lazyredraw = false
-opt.scrolloff = 10
+opt.scrolloff = 15
 opt.autoread = true
 opt.virtualedit = "block"
 
