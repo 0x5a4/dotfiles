@@ -145,3 +145,4 @@ Play Minesweeper                         | :Nvimesweeper
 Make it rain                             | <leader>fml
 Summon a duck                            | <leader>fd
 Catch the duck                           | <leader>fc
+Activate Master Oogway mode              | <leader>oz
