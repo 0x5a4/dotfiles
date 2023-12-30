@@ -1,15 +1,16 @@
 return {
     {
         "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
+        event = { "InsertEnter", "CmdlineEnter" },
         dependencies = {
-            { "hrsh7th/cmp-nvim-lsp",     lazy = true, },
-            { "hrsh7th/cmp-path",         lazy = true, },
-            { "hrsh7th/cmp-nvim-lua",     lazy = true, },
-            { "saadparwaiz1/cmp_luasnip", lazy = true, },
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "hrsh7th/cmp-path" },
+            { "hrsh7th/cmp-nvim-lua" },
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-cmdline" },
+            { "saadparwaiz1/cmp_luasnip" },
             {
                 "petertriho/cmp-git",
-                lazy = true,
                 opts = {}
             },
         },
@@ -91,6 +92,74 @@ return {
                     { name = "neorg" },
                 }),
             }
+
+            local cmdline_mappings = {
+                ['<Tab>'] = {
+                    c = function()
+                        if cmp.visible() then
+                            cmp.select_next_item()
+                        else
+                            cmp.complete()
+                        end
+                    end,
+                },
+                ['<S-Tab>'] = {
+                    c = function()
+                        if cmp.visible() then
+                            cmp.select_prev_item()
+                        else
+                            cmp.complete()
+                        end
+                    end,
+                },
+                ['<C-j>'] = {
+                    c = function(fallback)
+                        if cmp.visible() then
+                            cmp.select_next_item()
+                        else
+                            fallback()
+                        end
+                    end,
+                },
+                ['<C-k>'] = {
+                    c = function(fallback)
+                        if cmp.visible() then
+                            cmp.select_prev_item()
+                        else
+                            fallback()
+                        end
+                    end,
+                },
+                ['<esc>'] = {
+                    c = cmp.mapping.abort(),
+                },
+                ['<CR>'] = {
+                    c = cmp.mapping.confirm({ select = false }),
+                }
+            }
+
+            -- `/` cmdline setup.
+            cmp.setup.cmdline('/', {
+                mapping = cmdline_mappings,
+                sources = {
+                    { name = 'buffer' }
+                }
+            })
+
+            -- `:` cmdline setup.
+            cmp.setup.cmdline(':', {
+                mapping = cmdline_mappings,
+                sources = cmp.config.sources({
+                    { name = 'path' }
+                }, {
+                    {
+                        name = 'cmdline',
+                        option = {
+                            ignore_cmds = { 'Man', '!' }
+                        }
+                    }
+                })
+            })
 
             cmp.event:on(
                 'confirm_done',
