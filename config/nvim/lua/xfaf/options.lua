@@ -38,8 +38,6 @@ opt.foldmethod = "marker"
 vim.g.tex_flavor = "latex"
 vim.g.zig_fmt_autosave = 0
 
---Autocommands
-
 -- for emails
 vim.api.nvim_create_autocmd("BufRead", {
     pattern = "/tmp/neomutt-*",
@@ -50,24 +48,6 @@ vim.api.nvim_create_autocmd("BufRead", {
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     pattern = "*.asm",
     command = "set ft=asm"
-})
-
--- automatically activate spelling in MARKDOWN
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-    pattern = "*.md",
-    command = "setlocal spell"
-})
-
-vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = "zig",
-    callback = function()
-        vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
-    end
-})
-
-vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = "nix",
-    command = "setlocal sw=2",
 })
 
 local visual_event = vim.api.nvim_create_augroup("VisualEvent", {});
