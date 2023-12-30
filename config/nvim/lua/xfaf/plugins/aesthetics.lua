@@ -110,23 +110,31 @@ return {
     },
     {
         "folke/zen-mode.nvim",
-        opts = {
-            window = {
-                backdrop = 1,
-            },
-            plugins = {
-                tmux = {
-                    enabled = true,
-                }
-            },
-            on_open = function()
-                require("oogway").sense_the_dragon_warrior()
-            end
-        },
         cmd = "ZenMode",
         keys = {
             { "<leader>oz", "<cmd>ZenMode<CR>" },
         },
+        config = function(opts)
+            require("zen-mode").setup({
+                window = {
+                    backdrop = 1,
+                },
+                plugins = {
+                    tmux = {
+                        enabled = true,
+                    }
+                },
+                on_open = function()
+                    require("oogway").sense_the_dragon_warrior()
+                end
+            })
+
+            vim.api.nvim_create_autocmd({ "VimLeave" }, {
+                callback = function()
+                    require("zen-mode").close()
+                end,
+            })
+        end,
     },
     {
         "Aasim-A/scrollEOF.nvim",
