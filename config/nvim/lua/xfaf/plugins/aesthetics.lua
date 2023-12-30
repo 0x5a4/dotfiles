@@ -118,7 +118,10 @@ return {
                 tmux = {
                     enabled = true,
                 }
-            }
+            },
+            on_open = function ()
+                require("oogway").sense_the_dragon_warrior()
+            end
         },
         cmd = "ZenMode",
         keys = {
@@ -130,5 +133,9 @@ return {
         opts = {
             insert_mode = true,
         },
+    },
+    {
+        "0x5a4/oogway.nvim",
+        cmd = { "Oogway" },
     }
 }
