@@ -61,6 +61,7 @@ return {
     },
     {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
+        lazy = true,
         opts = {
             ensure_installed = {
                 -- Bash
@@ -99,7 +100,6 @@ return {
                 "prettierd"
             }
         },
-        event = "VeryLazy"
     },
     {
         "williamboman/mason-lspconfig.nvim",
