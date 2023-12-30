@@ -44,12 +44,6 @@ vim.api.nvim_create_autocmd("BufRead", {
     command = "set tw=72"
 })
 
--- ASM filetype
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-    pattern = "*.asm",
-    command = "set ft=asm"
-})
-
 local visual_event = vim.api.nvim_create_augroup("VisualEvent", {});
 
 vim.api.nvim_create_autocmd({ "ModeChanged" }, {
