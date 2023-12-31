@@ -77,3 +77,7 @@ scripts:
 init: ~/.rcrc
 ~/.rcrc: 
 	ln -s "$(ROOT_DIR)/rcrc" ~/.rcrc
+
+.PHONY: robert
+robert:
+	cd $(ROOT_DIR) && git pull
