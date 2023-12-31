@@ -33,7 +33,7 @@ shell: fish starship bash tmux nvim git btop
 x11: picom rofi bspwm sxhkd scripts
 	
 # find my children
-include $(shell find $(root_folder) -name *.inc)
+include $(shell find $(ROOT_DIR) -name *.inc)
 
 define HELPMESSAGE
 init     - link rcm config
