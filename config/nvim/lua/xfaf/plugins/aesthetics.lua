@@ -145,6 +145,7 @@ return {
     {
         "0x5a4/oogway.nvim",
         cmd = { "Oogway" },
+        dev = true,
     },
     {
         "nvimdev/dashboard-nvim",

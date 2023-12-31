@@ -23,4 +23,11 @@ require("lazy").setup({
     install = {
         colorscheme = { "dracula" },
     },
+    dev = {
+        path = "~/src",
+        fallback = true,
+    },
+    change_detection = {
+        notify = false,
+    }
 })
