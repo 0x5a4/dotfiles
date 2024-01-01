@@ -100,7 +100,7 @@ return {
         "j-hui/fidget.nvim",
         config = true,
         tag = "legacy",
-        event = "VeryLazy"
+        event = "LspAttach",
     },
     {
         "rcarriga/nvim-notify",
