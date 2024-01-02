@@ -21,11 +21,12 @@ Go to split on the left                  | <A-h>
 Go to split below                        | <A-j>
 Go to split above                        | <A-k>
 Go to split on the right                 | <A-l>
-Jump in document                         | s{2 characters}
-Jump back in document                    | S{2 characters}
-Jump across windows                      | gs{2 characters}
 Jump to beginning of line                | H
 Jump to end of line                      | L
+Jump in document                         | s{searchString}
+Jump to treesitter nodes                 | S{label}
+Jump to line                             | gs{label}
+Remote operate                           | {operator}r{searchString}{text-object}
 
 ## surround
 Surround textobject                      | ys{text-object}{char}
