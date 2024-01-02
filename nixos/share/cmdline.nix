@@ -17,38 +17,35 @@
   programs.neovim.viAlias = true;
 
   environment.systemPackages = with pkgs; [
-    fish
-    marksman
-
-    alejandra
-    lua-language-server
-
     acpi
-    eza
-    wget
-    git
-    delta
     bat
-    tmux
-    starship
     btop
-    psmisc
+    delta
     direnv
-    fzf
     duf
-    fd
-    ripgrep
-    speedtest-rs
+    eza
     fastfetch
-    nodejs_20
-    gcc
-    python3
-    clang
-    sops
-    jq
-    unzip
+    fd
     file
+    fish
+    fzf
+    gcc
+    git
+    gnumake
+    jq
+    libclang
     mdcat
+    nodejs_20
+    psmisc
+    python3
+    rcm
+    ripgrep
+    sops
+    speedtest-rs
+    starship
+    tmux
+    unzip
+    wget
     xxd
   ];
 }

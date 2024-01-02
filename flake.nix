@@ -38,20 +38,6 @@
         home-manager.extraSpecialArgs = {inherit inputs;};
       }
     ];
-
-    devShell = flake-utils.lib.eachDefaultSystem (
-      system: let
-        pkgs = import nixpkgs {inherit system;};
-      in {
-        devShell = pkgs.mkShell {
-          nativeBuildInputs = with pkgs; [
-            gnumake
-            rcm
-            git
-          ];
-        };
-      }
-    );
   in {
     nixosConfigurations.t420 = nixpkgs.lib.nixosSystem {
       modules =
@@ -70,5 +56,5 @@
         ]
         ++ sharedModules;
     };
-  } // devShell;
+  };
 }
