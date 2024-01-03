@@ -32,7 +32,8 @@
     "format": "{icon} {volume}%",
     "format-muted": "󰝟 <span strikethrough='true'>{volume}%</span>",
     "format-icons": ["", "", ""],
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click": "wp-switch-output",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "states": {
       "high": 80
     }
@@ -73,7 +74,8 @@
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "bluetooth toggle"
+    "on-click": "rofi-bluetooth",
+    "on-click-right": "bluetooth toggle"
   },
   "backlight": {
     "tooltip": false,

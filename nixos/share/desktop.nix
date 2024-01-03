@@ -47,6 +47,7 @@
     wob
     batsignal
     xdg-utils
+    rofi-bluetooth
 
     webcord
     spotify
