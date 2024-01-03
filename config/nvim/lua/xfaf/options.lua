@@ -44,6 +44,23 @@ vim.api.nvim_create_autocmd("BufRead", {
     command = "set tw=72"
 })
 
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    group = vim.api.nvim_create_augroup("help_window_right", {}),
+    pattern = { "*.txt", "*.norg" },
+    callback = function()
+        local filename = vim.fn.expand("%:t")
+
+        if vim.o.filetype == "help" then
+            vim.cmd.wincmd("L")
+        elseif vim.fn.expand("%:p:h:t") == "doc" and
+            filename == "breaking-changes.norg" or
+            filename == "cheatsheet.norg" or
+            filename == "neorg.norg" then
+            vim.cmd.wincmd("L")
+        end
+    end
+})
+
 local visual_event = vim.api.nvim_create_augroup("VisualEvent", {});
 
 vim.api.nvim_create_autocmd({ "ModeChanged" }, {
@@ -72,14 +89,14 @@ vim.api.nvim_create_autocmd({ "ModeChanged" }, {
 local file_event = vim.api.nvim_create_augroup("UserFileEvents", {});
 
 local function runcmd(cmd, show_error)
-  if type(cmd) == "string" then cmd = { cmd } end
-  if vim.fn.has "win32" == 1 then cmd = vim.list_extend({ "cmd.exe", "/C" }, cmd) end
-  local result = vim.fn.system(cmd)
-  local success = vim.api.nvim_get_vvar "shell_error" == 0
-  if not success and (show_error == nil or show_error) then
-    vim.api.nvim_err_writeln(("Error running command %s\nError message:\n%s"):format(table.concat(cmd, " "), result))
-  end
-  return success and result:gsub("[\27\155][][()#;?%d]*[A-PRZcf-ntqry=><~]", "") or nil
+    if type(cmd) == "string" then cmd = { cmd } end
+    if vim.fn.has "win32" == 1 then cmd = vim.list_extend({ "cmd.exe", "/C" }, cmd) end
+    local result = vim.fn.system(cmd)
+    local success = vim.api.nvim_get_vvar "shell_error" == 0
+    if not success and (show_error == nil or show_error) then
+        vim.api.nvim_err_writeln(("Error running command %s\nError message:\n%s"):format(table.concat(cmd, " "), result))
+    end
+    return success and result:gsub("[\27\155][][()#;?%d]*[A-PRZcf-ntqry=><~]", "") or nil
 end
 
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePost" }, {
