@@ -8,7 +8,7 @@ List and checkout git commits            | <leader>tc
 List and insert software licenses        | <leader>tl
 Current buffer fuzzy find                | <leader>tf
 Full project search                      | <leader>tg
-Spellsuggestions for word under cursor   | <leader>ts
+Spellsuggestions for word under cursor   | <leader>tq
 List and open URLs in buffer             | <leader>tu
 Find files(respect gitignore)            | <C-p>
 Find files(all)                          | <C-M-p>

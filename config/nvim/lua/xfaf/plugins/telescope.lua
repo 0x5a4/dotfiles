@@ -13,7 +13,7 @@ return {
         keys = {
             { "<leader>ts",  "<cmd>Telescope lsp_document_symbols<CR>" },
             { "<leader>te",  "<cmd>Telescope diagnostics<CR>" },
-            { "<leader>ts", "<cmd>Telescope spell_suggest<CR>" },
+            { "<leader>tq", "<cmd>Telescope spell_suggest<CR>" },
             { "<leader>td", "<cmd>Telescope heading<CR>" },
             { "<leader>tc", "<cmd>Telescope git_commits<CR>" },
             { "<leader>tf", "<cmd>Telescope current_buffer_fuzzy_find<CR>" },
