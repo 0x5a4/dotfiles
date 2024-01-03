@@ -1,5 +1,5 @@
 return {
-    "anuvyklack/hydra.nvim",
+    "nvimtools/hydra.nvim",
     keys = { "<c-w>" },
     config = function()
         local Hydra = require('hydra')
