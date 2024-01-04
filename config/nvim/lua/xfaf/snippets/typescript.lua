@@ -24,7 +24,7 @@ return {
             expect({}.status()).toBe(200);
             expect({}.ok()).toBeTruthy();
 
-            const {} = await {}.json().data;
+            const {} = (await {}.json()).data;
         ]], {
             i(1, "query"),
             i(2),
