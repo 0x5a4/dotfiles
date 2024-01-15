@@ -56,7 +56,6 @@
 
     (retroarch.override {
       cores = with libretro; [
-        mupen64plus
       ];
     })
   ];

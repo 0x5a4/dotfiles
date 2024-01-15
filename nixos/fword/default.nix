@@ -13,6 +13,7 @@
     ../share/desktop.nix
     ../share/wifi.nix
     ../share/cmdline.nix
+    ../share/lsp.nix
   ];
 
   # Bootloader.
