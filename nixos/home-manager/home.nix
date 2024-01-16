@@ -50,6 +50,13 @@
     # EDITOR = "emacs";
   };
 
+  programs.rofi = {
+    enable = true;
+    package = pkgs.rofi-wayland;
+    plugins = [pkgs.rofi-calc];
+    theme = ../../config/rofi/style.rasi;
+  };
+
   gtk = {
     enable = true;
     theme = {

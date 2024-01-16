@@ -21,7 +21,7 @@
     mako
     libnotify
     # launcher
-    rofi-wayland
+    #rofi-wayland-unwrapped
     # locking and idle
     swayidle
     swaylock-effects
