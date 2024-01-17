@@ -17,6 +17,14 @@ COMMAND:=rcup $(COMMON_FLAGS)
 # if set, run additional install steps
 INSTALL:=yes
 
+ifdef unmake
+	UNMAKE:=1
+endif
+
+ifdef pretend
+	PRETEND:=1
+endif
+
 ifdef UNMAKE
 	undefine INSTALL
 	COMMAND:=rcdn $(COMMON_FLAGS)
