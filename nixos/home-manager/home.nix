@@ -12,6 +12,7 @@
   imports = [
     ./browser.nix
     ./waybar.nix
+    ./fish.nix
   ];
 
   home.packages = [
@@ -20,19 +21,21 @@
     (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+    ".config/swayidle/config".source = ../../config/swayidle/config;
+    ".config/btop/btop.conf".source = ../../config/btop/btop.conf;
+    ".config/kitty/kitty.conf".source = ../../config/kitty/kitty.conf;
+    ".config/mako/config".source = ../../config/mako/config;
+    ".config/starship".source = ../../config/starship.toml;
+    ".config/wob/wob.ini".source = ../../config/wob/wob.ini;
+    ".config/nvim" = {
+      source = ../../config/nvim;
+      recursive = true;
+    };
+    ".gitconfig".source = ../../gitconfig;
+    ".gitignore".source = ../../gitignore;
+    ".bash_profile".source = ../../bash_profile;
+    ".bashrc".source = ../../bashrc;
   };
 
   # Home Manager can also manage your environment variables through
