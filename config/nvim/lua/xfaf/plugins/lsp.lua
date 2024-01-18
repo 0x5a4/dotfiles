@@ -61,7 +61,13 @@ return {
     },
     {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
-        lazy = true,
+        cmd = {
+            "MasonToolsInstall",
+            "MasonToolsInstallSync",
+            "MasonToolsUpdate",
+            "MasonToolsUpdateSync",
+            "MasonToolsClean",
+        },
         opts = {
             ensure_installed = {
                 -- Bash
