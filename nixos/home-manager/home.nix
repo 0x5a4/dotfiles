@@ -13,6 +13,7 @@
     ./browser.nix
     ./waybar.nix
     ./fish.nix
+    ./hyprland.nix
   ];
 
   home.packages = [
