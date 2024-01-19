@@ -107,7 +107,7 @@
           "Nix Options" = define "nixopt" "search.nixos.org/options?query={searchTerms}" "nixos.wiki/favicon.png";
           "Nix Wiki" = define "nixwiki" "nixos.wiki/index.php?search={searchTerms}" "nixos.wiki/favicon.png";
           "Crates.io" = define "crates" "crates.io/search?q={searchTerms}" "crates.io/favicon.ico";
-          "Github" = define "gh" "github.com/search?q={searchTerns}&type=repositories" "github.com/favicon.ico";
+          "Github" = define "gh" "github.com/search?q={searchTerms}&type=repositories" "github.com/favicon.ico";
           "Instant Gaming" = define "ig" "www.instant-gaming.com/en/search/?q={searchTerms}" "www.instant-gaming.com/favicon.ico";
           "ProtonDB" = define "protondb" "www.protondb.com/search?q={searchTerms}" "www.protondb.com/favicon.ico";
           "Modrinth" = define "modrinth" "www.modrinth.com/mods?q={searchTerms}" "www.modrinth.com/favicon.ico";
