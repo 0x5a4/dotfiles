@@ -14,6 +14,7 @@
     ./waybar.nix
     ./fish.nix
     ./hyprland.nix
+    ./tmux.nix
   ];
 
   home.packages = [
@@ -27,7 +28,7 @@
     ".config/btop/btop.conf".source = ../../config/btop/btop.conf;
     ".config/kitty/kitty.conf".source = ../../config/kitty/kitty.conf;
     ".config/mako/config".source = ../../config/mako/config;
-    ".config/starship".source = ../../config/starship.toml;
+    ".config/starship.toml".source = ../../config/starship.toml;
     ".config/wob/wob.ini".source = ../../config/wob/wob.ini;
     ".config/nvim" = {
       source = ../../config/nvim;
@@ -37,6 +38,10 @@
     ".gitignore".source = ../../gitignore;
     ".bash_profile".source = ../../bash_profile;
     ".bashrc".source = ../../bashrc;
+    ".local/bin" = {
+      source = ../../local/bin;
+      recursive = true;
+    };
   };
 
   # Home Manager can also manage your environment variables through
