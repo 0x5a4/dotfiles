@@ -65,4 +65,9 @@ return {
             vim.g.tmux_navigator_save_on_switch = 2
         end
     },
+    {
+        "ethanholz/nvim-lastplace",
+        event = { "BufReadPre" },
+        config = true,
+    },
 }
