@@ -19,5 +19,12 @@ else
 	@echo "nixos rebuild cant be dry-run/unmade"
 endif
 
+nixup:
+ifdef INSTALL
+	nix flake update	
+else
+	@echo "cant dry-run/unmake nix flake update"
+endif
+
 $(AUTO_FILES): init
 	$(COMMAND) /$@
