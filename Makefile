@@ -88,4 +88,4 @@ init: ~/.rcrc
 
 .PHONY: robert
 robert:
-	cd $(ROOT_DIR) && git pull
+	cd $(ROOT_DIR) && git pull --rebase --autostash
