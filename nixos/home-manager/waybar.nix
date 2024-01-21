@@ -6,6 +6,12 @@
 }: let
   sharedModules = builtins.fromJSON (builtins.readFile ../../config/waybar/shared-modules.json);
 in {
+  home.file = {
+    ".config/waybar/colors.css".source = ../../config/waybar/colors.css;
+    ".config/waybar/style.css".source = ../../config/waybar/style.css;
+    ".config/waybar/scripts".source = ../../config/waybar/scripts;
+  };
+  
   programs.waybar = {
     enable = true;
     settings = {
