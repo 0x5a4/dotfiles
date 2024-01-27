@@ -147,16 +147,4 @@ return {
         cmd = { "Oogway" },
         dev = true,
     },
-    {
-        "nvimdev/dashboard-nvim",
-        config = function()
-            local oogway = require("oogway")
-            require("dashboard").setup({
-                config = {
-                    header = vim.fn.split(oogway.inspire_me(), "\n"),
-                    footer = { oogway.what_is_your_wisdom() },
-                }
-            })
-        end
-    }
 }
