@@ -125,8 +125,8 @@ return {
         "tpope/vim-fireplace",
         ft = "clojure",
         keys = {
-            { "<localleader>ee", "<cmd>Eval>"},
-            { "<localleader>ef", "<cmd>%Eval>"},
+            { "<localleader>ee", "<cmd>Eval<CR>"},
+            { "<localleader>ef", "<cmd>%Eval<CR>"},
         }
     },
     {
