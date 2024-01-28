@@ -26,6 +26,15 @@ return {
         })
     ),
     s(
+        "defmacro",
+        fmt([[
+            (defmacro {} [{}]
+                {})
+        ]], {
+            i(1), i(2), i(3)
+        })
+    ),
+    s(
         "if",
         fmt([[
             (if {}
