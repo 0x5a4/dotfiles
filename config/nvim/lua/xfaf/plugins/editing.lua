@@ -46,8 +46,9 @@ return {
 
             autopairs.setup({})
 
-            -- dont automatically duble quote in lisps
+            -- dont double quote lisps
             autopairs.get_rules("'")[1].not_filetypes = { "scheme", "lisp", "clojure" }
+            autopairs.get_rules("`")[1].not_filetypes = { "scheme", "lisp", "clojure" }
 
 
             autopairs.add_rules({
