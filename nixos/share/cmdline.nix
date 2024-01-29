@@ -47,5 +47,6 @@
     unzip
     wget
     xxd
+    leiningen
   ];
 }
