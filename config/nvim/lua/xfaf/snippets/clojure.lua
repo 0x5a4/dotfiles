@@ -35,6 +35,15 @@ return {
         })
     ),
     s(
+        "defmethod",
+        fmt([[
+            (defmethod {} {} [{}]
+                {})
+        ]], {
+            i(1), i(2), i(3), i(4)
+        })
+    ),
+    s(
         "if",
         fmt([[
             (if {}
