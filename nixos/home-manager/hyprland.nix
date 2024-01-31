@@ -14,7 +14,7 @@
       unbind = $mainMod, w
       bind = $mainMod, w, exec, firefox
 
-      exec-once = batsignal -bif90
+      exec-once = batsignal -bi
 
       $monitorName = eDP-1
 
@@ -42,6 +42,10 @@
       # monitor things
       misc {
           disable_hyprland_logo = yes # fixes random stripes from the anime gurl
+      }
+
+      general {
+          no_cursor_warps = false
       }
 
       submap = wallpaper
