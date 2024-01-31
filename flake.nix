@@ -17,6 +17,10 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -27,9 +31,11 @@
     sops-nix,
     home-manager,
     firefox-addons,
+    stylix,
   }: let
     sharedModules = [
       sops-nix.nixosModules.sops
+      stylix.nixosModules.stylix
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;

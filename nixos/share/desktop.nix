@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  stylix,
   ...
 }: {
   programs.hyprland.enable = true;
@@ -127,20 +128,12 @@
     };
   };
 
-  # authentication agent
-  systemd = {
-    user.services.polkit-gnome-authentication-agent-1 = {
-      description = "polkit-gnome-authentication-agent-1";
-      wantedBy = ["graphical-session.target"];
-      wants = ["graphical-session.target"];
-      after = ["graphical-session.target"];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-        Restart = "on-failure";
-        RestartSec = 1;
-        TimeoutStopSec = 10;
-      };
-    };
+  stylix.autoEnable = false;
+  stylix.image = pkgs.fetchurl {
+    url = "https://pbs.twimg.com/media/EDyxVvoXsAAE9Zg.png";
+    sha256 = "sha256-NRfish27NVTJtJ7+eEWPOhUBe8vGtuTw+Osj5AVgOmM=";
   };
+  stylix.homeManagerIntegration.autoImport = false;
+
+  stylix.targets.plymouth.enable = true;
 }

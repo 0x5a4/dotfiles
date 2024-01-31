@@ -26,5 +26,13 @@ else
 	@echo "cant dry-run/unmake nix flake update"
 endif
 
+nixboot:
+ifdef INSTALL
+	sudo nixos-rebuild boot --install-bootloader --flake .
+else
+	@echo "cant dry-run/unmake nix flake update"
+endif
+
+
 $(AUTO_FILES): init
 	$(COMMAND) /$@

@@ -16,6 +16,17 @@
     ../share/lsp.nix
   ];
 
+  nix.registry = {
+    nixpkgs.to = {
+      type = "path";
+      path = pkgs.path;
+    };
+  };
+
+  boot.kernelParams = ["quiet" "loglevel=3"];
+  boot.initrd.systemd.enable = true;
+  boot.plymouth.enable = true;
+
   # Bootloader.
   boot.loader.timeout = 1;
   boot.loader.systemd-boot.editor = false;
