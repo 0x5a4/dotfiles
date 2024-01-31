@@ -11,7 +11,7 @@ in {
     ".config/waybar/style.css".source = ../../config/waybar/style.css;
     ".config/waybar/scripts".source = ../../config/waybar/scripts;
   };
-  
+
   programs.waybar = {
     enable = true;
     settings = {
@@ -31,6 +31,7 @@ in {
           ];
           modules-right = [
             "hyprland/submap"
+            "idle_inhibitor"
             "battery"
             "backlight"
             "custom/mako"

@@ -12,6 +12,7 @@
             "clock"
         ],
         "modules-right": [
+            "idle_inhibitor",
             "network",
             "custom/mako",
             "wireplumber",
