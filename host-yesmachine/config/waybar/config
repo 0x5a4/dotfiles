@@ -36,6 +36,7 @@
         "modules-right": [
             "hyprland/submap",
             "hyprland/workspaces",
+            "idle_inhibitor",
             "memory",
             "cpu"
         ],
