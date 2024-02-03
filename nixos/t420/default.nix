@@ -16,7 +16,7 @@
   ];
 
   # Bootloader.
-  boot.loader.timeout = 1;
+  boot.loader.timeout = 0;
   boot.loader.systemd-boot.editor = false;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
