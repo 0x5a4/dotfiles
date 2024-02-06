@@ -12,27 +12,31 @@ bash: init
 zsh: init
 	$(COMMAND) zshenv config/zsh
 
-nixos:
-ifdef INSTALL
-	sudo nixos-rebuild --flake "$(ROOT_DIR)" switch
-else
-	@echo "nixos rebuild cant be dry-run/unmade"
-endif
 
-nixup:
 ifdef INSTALL
-	nix flake update	
-else
-	@echo "cant dry-run/unmake nix flake update"
-endif
+nixos:
+	sudo nixos-rebuild --flake "$(ROOT_DIR)" test
+
+nixactivate:
+	sudo nixos-rebuild --flake "${ROOT_DIR}" switch
 
 nixboot:
-ifdef INSTALL
 	sudo nixos-rebuild boot --install-bootloader --flake .
+	
 else
-	@echo "cant dry-run/unmake nix flake update"
+	
+ifdef PRETEND
+# pretend installation(same for every target)
+nixos nixcommit nixboot:
+	nixos-rebuild --flake "${ROOT_DIR}" dry-activate
+	
+else
+# unmaking is impossible ¯\_(ツ)_/¯
+nixos nixcommit nixboot:
+	@echo "cant unmake nixos"
+	
 endif
-
+endif
 
 $(AUTO_FILES): init
 	$(COMMAND) /$@
