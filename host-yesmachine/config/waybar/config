@@ -12,7 +12,7 @@
             "clock"
         ],
         "modules-right": [
-            "idle_inhibitor",
+            "custom/wlinhibit",
             "network",
             "custom/mako",
             "wireplumber",
@@ -36,7 +36,7 @@
         "modules-right": [
             "hyprland/submap",
             "hyprland/workspaces",
-            "idle_inhibitor",
+            "custom/wlinhibit",
             "memory",
             "cpu"
         ],

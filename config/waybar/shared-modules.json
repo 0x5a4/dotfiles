@@ -86,12 +86,11 @@
   "user": {
     "format": "🐢 up {work_H}:{work_M}"
   },
-  "idle_inhibitor": {
+  "custom/wlinhibit": {
     "tooltip": false,
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
+    "exec": "~/.config/waybar/scripts/wlinhibit.sh",
+    "return-type": "json",
+    "restart-interval": 3,
+    "on-click": "killall wlinhibit || wlinhibit"
   }
 }

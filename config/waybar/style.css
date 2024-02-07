@@ -20,7 +20,7 @@
 #bluetooth,
 #backlight,
 #battery.standalone,
-#idle_inhibitor,
+#custom-wlinhibit,
 #battery {
   color: @green;
 }
@@ -32,7 +32,7 @@
 #network,
 #bluetooth,
 #battery.standalone,
-#idle_inhibitor,
+#custom-wlinhibit,
 #submap {
   border: 1px solid #181825;
   border-radius: 10px;
@@ -79,7 +79,7 @@ window#waybar {
 #bluetooth,
 #backlight,
 #battery.standalone,
-#idle_inhibitor,
+#custom-wlinhibit,
 #clock {
   background: @background-darker;
   padding: 0px 10px;
@@ -128,6 +128,6 @@ window#waybar {
 
 #wireplumber.muted,
 #bluetooth.disabled,
-#idle_inhibitor.deactivated {
+#custom-wlinhibit.deactivated {
   color: @selection;
 }

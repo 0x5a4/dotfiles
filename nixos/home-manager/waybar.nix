@@ -31,7 +31,7 @@ in {
           ];
           modules-right = [
             "hyprland/submap"
-            "idle_inhibitor"
+            "custom/wlinhibit"
             "battery"
             "backlight"
             "custom/mako"
@@ -51,6 +51,7 @@ in {
           ];
           modules-right = [
             "hyprland/submap"
+            "custom/wlinhibit"
             "battery#standalone"
           ];
         }
