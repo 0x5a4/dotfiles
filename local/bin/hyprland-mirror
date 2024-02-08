@@ -27,4 +27,4 @@ hyprctl dispatch exec "\
 
 sleep 0.1
 
-hyprctl dispatch focusmonitor "${TARGET}"
+hyprctl dispatch workspace previous
