@@ -77,6 +77,7 @@
   programs.ssh = {
     enable = true;
     extraConfig = ''
+      IdentityFile ~/.ssh/key
       AddKeysToAgent yes
     '';
   };
