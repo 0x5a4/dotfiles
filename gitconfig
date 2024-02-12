@@ -2,6 +2,7 @@
 [user]
 	name = "0x5a4"
 	email = "54070204+0x5a4@users.noreply.github.com"
+    signingkey = "~/.ssh/key.pub"
 
 [alias]
 	exec = "!exec "
@@ -10,7 +11,9 @@
 	root = rev-parse --show-toplevel
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     cdiff = diff --cached
-    unstageall = restore -S '*'
+    res = restore -S '*'
+    scrap = restore '*'
+    fpush = push --force-with-lease
     
 [advice]
     addEmptyPathspec = false
@@ -38,3 +41,14 @@
 [diff]
     colorMoved = default
     
+[column]
+	ui = auto
+    
+[branch]
+	sort = -comitterdate
+    
+[gpg]
+	format = ssh
+
+[commit]
+    gpgSign = true
