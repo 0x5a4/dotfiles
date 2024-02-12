@@ -76,11 +76,13 @@
 
   programs.ssh = {
     enable = true;
+    addKeysToAgent = "yes";
     extraConfig = ''
       IdentityFile ~/.ssh/key
-      AddKeysToAgent yes
     '';
   };
+
+  services.ssh-agent.enable = true;
 
   programs.home-manager.enable = true;
 }

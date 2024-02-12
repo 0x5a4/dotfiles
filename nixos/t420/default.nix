@@ -62,7 +62,6 @@
     packages = with pkgs; [];
   };
   users.defaultUserShell = pkgs.fish;
-  programs.ssh.startAgent = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
