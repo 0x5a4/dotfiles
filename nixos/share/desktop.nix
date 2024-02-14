@@ -54,6 +54,7 @@
     spotify
     prismlauncher
     thunderbird
+    wl-mirror
 
     (retroarch.override {
       cores = with libretro; [
