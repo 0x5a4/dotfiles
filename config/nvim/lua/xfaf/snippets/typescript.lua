@@ -10,6 +10,16 @@ return {
         })
     ),
     s(
+        "test_describe",
+        fmt([[
+            test.describe("{}", () => {{
+                {}
+            }});
+        ]], {
+            i(1), i(2)
+        })
+    ),
+    s(
         "graphql_query",
         fmt([[
             const {} = {{
