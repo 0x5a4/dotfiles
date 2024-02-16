@@ -48,5 +48,6 @@
     wget
     xxd
     leiningen
+    cargo
   ];
 }
