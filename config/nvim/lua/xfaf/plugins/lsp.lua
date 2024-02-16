@@ -1,7 +1,7 @@
 return {
     {
         "nvimtools/none-ls.nvim",
-        event = "VeryLazy",
+        lazy = true,
         config = function()
             local null_ls = require("null-ls");
             local diagnostics = null_ls.builtins.diagnostics
@@ -118,6 +118,9 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
+        dependencies = {
+            "nvimtools/none-ls.nvim"
+        },
         event = "User File",
         config = function()
             vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
@@ -172,7 +175,21 @@ return {
             lspconfig.texlab.setup({})
 
             -- Lua
-            lspconfig.lua_ls.setup({})
+            lspconfig.lua_ls.setup({
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = {
+                                "vim",
+                                "s",
+                                "t",
+                                "i",
+                                "fmt",
+                            },
+                        },
+                    },
+                },
+            })
 
             -- Markdown
             lspconfig.marksman.setup({})
