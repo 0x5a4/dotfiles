@@ -119,7 +119,8 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            "nvimtools/none-ls.nvim"
+            "nvimtools/none-ls.nvim",
+            "ray-x/lsp_signature.nvim",
         },
         event = "User File",
         config = function()
@@ -218,5 +219,12 @@ return {
             require("lsp_lines").setup({})
             vim.diagnostic.config({ virtual_lines = { only_current_line = true } })
         end,
+    },
+    {
+        "ray-x/lsp_signature.nvim",
+        lazy = true,
+        opts = {
+            hint_prefix = "",
+        },
     }
 }
