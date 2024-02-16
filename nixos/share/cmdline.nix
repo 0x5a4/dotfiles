@@ -48,6 +48,6 @@
     wget
     xxd
     leiningen
-    cargo
+    rustup
   ];
 }
