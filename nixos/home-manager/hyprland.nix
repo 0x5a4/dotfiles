@@ -19,10 +19,12 @@
       $monitorName = eDP-1
       $fscsright = Dell Inc. DELL P2715Q V48W271PA8VL
       $fscsleft = Dell Inc. DELL P2715Q V48W271PA4BL
+      $fscsbeamer = Acer Technologies H6510BD JFZ110018401
 
       monitor = $monitorName, preferred, 0x0, 1.333333
       monitor = desc:$fscsright, preferred, 0x-1440, 1.5
       monitor = desc:$fscsleft, preferred, 0x-1440, 1.5
+      monitor = desc:$fscsbeamer, preferred, 0x-1080, 1
 
       # bind workspaces
       workspace = $monitorName, 1
