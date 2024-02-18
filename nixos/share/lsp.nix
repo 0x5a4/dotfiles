@@ -21,5 +21,6 @@
     pyright
     rust-analyzer
     zls
+    vscode-langservers-extracted
   ];
 }
