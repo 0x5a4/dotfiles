@@ -27,7 +27,9 @@ return {
                     -- TOML
                     formatting.taplo,
                     -- All of that Web dev shit (also markdown)
-                    formatting.prettierd
+                    null_ls.builtins.formatting.prettierd.with({
+                        disabled_filetypes = { "html" }, -- you fuck up hugo like no one else can
+                    }),
                 },
                 border = "rounded",
                 on_attach = function(client, bufnr)
