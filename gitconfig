@@ -7,7 +7,8 @@
 [alias]
 	exec = "!exec "
     make = "!exec make"
-    whoops = reset --soft HEAD~1
+    whoops = commit --amend --no-edit
+    fuckup = reset --soft HEAD~1
 	root = rev-parse --show-toplevel
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     cdiff = diff --cached
