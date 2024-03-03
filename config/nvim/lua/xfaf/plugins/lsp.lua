@@ -10,8 +10,6 @@ return {
 
             null_ls.setup({
                 sources = {
-                    -- Bash
-                    formatting.beautysh,
                     -- C/C++
                     formatting.clang_format,
                     -- Dockerfile
@@ -22,10 +20,7 @@ return {
                     code_actions.statix,
                     formatting.alejandra,
                     -- Python
-                    diagnostics.ruff,
                     formatting.black,
-                    -- TOML
-                    formatting.taplo,
                     -- All of that Web dev shit (also markdown)
                     null_ls.builtins.formatting.prettierd.with({
                         disabled_filetypes = { "html" }, -- you fuck up hugo like no one else can
