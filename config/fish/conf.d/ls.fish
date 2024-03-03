@@ -40,6 +40,8 @@ if set -q exa_available
     alias 'tree'='ls --tree'
     alias 'ltree'='tree -l'
     alias 'gtree'='tree -l --git-ignore'
+    alias 'tr33=tree --level=3'
+    alias 'tr22=tree --level=2'
 end
 
 alias 'l'='ls -l'
