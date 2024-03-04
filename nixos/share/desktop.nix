@@ -50,7 +50,7 @@
     xdg-utils
     rofi-bluetooth
 
-    webcord
+    vesktop
     spotify
     prismlauncher
     thunderbird
