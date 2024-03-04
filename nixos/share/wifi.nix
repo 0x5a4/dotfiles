@@ -38,6 +38,10 @@
       psk = "@WLAN_135020_PASSWORD@";
     };
 
+    "SportfreundeCore" = {
+      psk = "@SPORTFREUNDE_CORE_PASSWWORD@";
+    };
+
     eduroam = let
       cacert = builtins.toFile "ca_cert.pam" "-----BEGIN CERTIFICATE-----
 MIIDwzCCAqugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBgjELMAkGA1UEBhMCREUx
