@@ -2,6 +2,7 @@ return {
     {
         "nvimtools/none-ls.nvim",
         lazy = true,
+        cmd = { "NullLsLog" },
         config = function()
             local null_ls = require("null-ls");
             local diagnostics = null_ls.builtins.diagnostics
@@ -49,6 +50,7 @@ return {
     },
     {
         "williamboman/mason.nvim",
+        cmd = { "Mason", "MasonUpdate" },
         build = ":MasonUpdate", -- :MasonUpdate updates registry contents
         opts = {
             ui = {
@@ -119,6 +121,7 @@ return {
             "nvimtools/none-ls.nvim",
             "ray-x/lsp_signature.nvim",
         },
+        cmd = { "LspLog", "LspStart" },
         event = "User File",
         config = function()
             vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]

@@ -2,6 +2,10 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         event = "User File",
+        cmd = {
+            "TSUpdate",
+            "TSUpdateSync"
+        },
         build = function()
             require("nvim-treesitter.install").update({ with_sync = true })
         end,

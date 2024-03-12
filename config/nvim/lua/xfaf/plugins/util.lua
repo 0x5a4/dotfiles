@@ -57,7 +57,7 @@ return {
         keys = {
             { "<leader>vt", "<cmd>LLPStartPreview<CR>" },
         },
-        cmd = "LLPStartPreview"
+        cmd = { "LLPStartPreview" }
     },
     {
         "iamcco/markdown-preview.nvim",
@@ -125,8 +125,8 @@ return {
         "tpope/vim-fireplace",
         ft = "clojure",
         keys = {
-            { "<localleader>ee", "<cmd>Eval<CR>"},
-            { "<localleader>ef", "<cmd>%Eval<CR>"},
+            { "<localleader>ee", "<cmd>Eval<CR>" },
+            { "<localleader>ef", "<cmd>%Eval<CR>" },
         }
     },
     {
