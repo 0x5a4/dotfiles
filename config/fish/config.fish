@@ -77,8 +77,9 @@ alias 'mkdirp'='mkdir -p'
 alias 'tt'='tutel'
 
 # git shorts
-alias 'gs'='git status'
+alias 'gs'='git status -sb'
 alias 'gd'='git diff'
+alias 'gdc'='git diff --cached'
 alias 'ga'='git add'
 alias 'gl'='git lg'
 alias 'gaa'='git add --all'
