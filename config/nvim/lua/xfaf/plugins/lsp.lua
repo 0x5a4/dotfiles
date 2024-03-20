@@ -24,7 +24,7 @@ return {
                     formatting.black,
                     -- All of that Web dev shit (also markdown)
                     null_ls.builtins.formatting.prettierd.with({
-                        disabled_filetypes = { "html" }, -- you fuck up hugo like no one else can
+                        disabled_filetypes = { "html", "css" }, -- you fuck up hugo like no one else can
                     }),
                 },
                 border = "rounded",
