@@ -37,6 +37,6 @@ If you dislike a particular hack, run `make UNMAKE=1 <target>`.
 
 ### Notes on fish and bash
 
-`bash` [is configured to just be a wrapper for fish](https://wiki.gentoo.org/wiki/Fish#Fish_as_a_default_shell).  
-Scripts from `.local/bin` are still written in `bash` though, because a) "compatibility" and b) i need to learn bash
-very badly. `fish`'s functions are mostly used for more fancy aliases and silly things.
+when run in interactive mode `bash` will just replace itself with fish (see [this](https://wiki.gentoo.org/wiki/Fish#Fish_as_a_default_shell)).
+even though `fish` is my preferred shell, scripts from `local/bin` are still written in `bash` because of "compatibility".
+`fish`'s functions are mostly used for more fancy aliases and silly things.
