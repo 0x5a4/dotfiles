@@ -98,11 +98,24 @@
 
   virtualisation.docker.enable = true;
 
-  services.openssh.enable = true;
   services.fwupd.enable = true;
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
   system.stateVersion = "23.11";
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [80 8080 22];
+  };
+
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+  };
+
+  users.users.notuser.openssh.authorizedKeys.keys = [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDVGapwmgI9ZL7tf6YrcZP2T+rnmrnCgelOybl7yk60QvVhfc1ikOjagkXpXj28wX0JXMKS+1qiIJEz5SkSbhMl67wz2DXzxGx5Xe1WOZltsY7RAg4gbDh71cUxaeYB0J9geXr1HITDbcvb8r5VO910pB5bUtYGUzcWG2wY+brU4pq6rGc9IGjNuQ7kl3q4Rk4ZjUjI5VarBQrLlXWbn5COlhasvdnAd05zVN2J+868Jkxzy9DKjy6svPQqnzL40nP1oZYKQNmTxtsl+V+ScBXnZFjjxA7eoTbQ8M3kZS8FKu3V+Cn6of7BCV+kE4lMsXyhZLDKlyqwYjAkBsXYvAqGeovOH9bI2FX/iQBDOBQUlnBFxGXEZOpSs9/6EDF0V6mEw9mwkGrrXE5HnBjghuZtaWSmHRZZ/wL5gyKSmDOk0+vrUTWeldQ1Wj+l4qVPpRB5vBA6Riga7pEcqE8h7IgtqMiQXA+pSy2pVA1cRaRmJ57FMMuaLfLKDhgPLoRougVZF12aPdN13tuwy8H8Py0ARKPFY1P2GfmPzB0t1fEScfT1dgenSDCb0XJU//zvbOmf/AF0ZSAD2Y7LHcaXTDtOTblYPsm5FNmPvt4XW9mh8pweqIKh6xrkZa84yN8Jj7pIueXUMaXQjN/DzAm7M6uTTCzkRZmC7L3lSyN23oIjnw=="
+  ];
 }
