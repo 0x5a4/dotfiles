@@ -45,15 +45,6 @@
       }
     ];
   in {
-    nixosConfigurations.t420 = nixpkgs.lib.nixosSystem {
-      modules =
-        [
-          ./nixos/t420
-          nixos-hardware.nixosModules.lenovo-thinkpad-t420
-        ]
-        ++ sharedModules;
-    };
-
     nixosConfigurations.fword = nixpkgs.lib.nixosSystem {
       modules =
         [
