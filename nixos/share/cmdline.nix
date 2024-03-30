@@ -21,7 +21,6 @@
     bat
     btop
     delta
-    direnv
     duf
     eza
     fastfetch
