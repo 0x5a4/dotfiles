@@ -42,6 +42,14 @@
       psk = "@SPORTFREUNDE_CORE_PASSWWORD@";
     };
 
+    "FRITZ!Box 6660 Cable PT" = {
+      psk = "@AVA_WLAN_PASSWORD@";
+    };
+
+    "oh uff hallo gustavsob" = {
+      psk = "@OH_UFF_HALLO_GUSTAVSOB_PASSWORD@";
+    };
+
     eduroam = let
       cacert = builtins.toFile "ca_cert.pam" "-----BEGIN CERTIFICATE-----
 MIIDwzCCAqugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBgjELMAkGA1UEBhMCREUx
