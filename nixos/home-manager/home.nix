@@ -56,6 +56,7 @@
   #  /etc/profiles/per-user/notuser/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
+    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     # EDITOR = "emacs";
   };
 

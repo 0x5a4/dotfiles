@@ -48,5 +48,7 @@
     xxd
     leiningen
     rustup
+    pkg-config
+    openssl
   ];
 }
