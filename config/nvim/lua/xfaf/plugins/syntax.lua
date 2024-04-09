@@ -76,4 +76,5 @@ return {
         ft = "zig"
     },
     "phelipetls/vim-hugo",
+    "sevko/vim-nand2tetris-syntax"
 }
