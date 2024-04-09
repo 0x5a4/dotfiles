@@ -11,8 +11,6 @@ return {
 
             null_ls.setup({
                 sources = {
-                    -- C/C++
-                    formatting.clang_format,
                     -- Dockerfile
                     diagnostics.hadolint,
                     -- Fish
