@@ -31,6 +31,7 @@ return {
                 "java",
                 "javascript",
                 "json",
+                "just",
                 "kotlin",
                 "latex",
                 "lua",
