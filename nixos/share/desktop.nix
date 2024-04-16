@@ -56,6 +56,8 @@
     thunderbird
     wl-mirror
 
+    zathura
+
     (retroarch.override {
       cores = with libretro; [
       ];

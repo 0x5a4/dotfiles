@@ -50,5 +50,7 @@
     rustup
     pkg-config
     openssl
+    texliveFull
+    latexmk
   ];
 }

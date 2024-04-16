@@ -49,15 +49,13 @@ return {
         }
     },
     {
-        "xuhdev/vim-latex-live-preview",
+        "lervag/vimtex",
         init = function()
-            vim.g.livepreview_previewer = 'zathura'
-            vim.g.livepreview_cursorhold_recompile = 3
-        end,
-        keys = {
-            { "<leader>vt", "<cmd>LLPStartPreview<CR>" },
-        },
-        cmd = { "LLPStartPreview" }
+            vim.g.vimtex_view_method = "zathura"
+            vim.g.vimtex_quickfix_mode = 0
+            vim.opt.conceallevel = 1
+            vim.g.tex_conceal = "abdmg"
+        end
     },
     {
         "iamcco/markdown-preview.nvim",
