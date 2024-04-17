@@ -18,7 +18,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     spec = "xfaf.plugins",
     ui = {
-        border = "rounded"
+        border = "rounded",
+        backdrop = 100
     },
     install = {
         colorscheme = { "dracula" },
