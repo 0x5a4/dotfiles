@@ -51,6 +51,5 @@
     pkg-config
     openssl
     texliveFull
-    latexmk
   ];
 }
