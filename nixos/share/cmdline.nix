@@ -51,5 +51,6 @@
     pkg-config
     openssl
     texliveFull
+    just
   ];
 }
