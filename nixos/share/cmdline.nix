@@ -32,6 +32,7 @@
     git
     gnumake
     jq
+    clang-tools
     libclang
     mdcat
     nodejs_20
