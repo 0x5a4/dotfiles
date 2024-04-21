@@ -53,5 +53,6 @@
     openssl
     texliveFull
     just
+    man-pages-posix
   ];
 }
