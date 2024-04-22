@@ -34,6 +34,10 @@ opt.hlsearch = false
 opt.foldenable = true
 opt.foldmethod = "marker"
 
+-- Conceal
+opt.conceallevel = 1
+opt.concealcursor = "nc"
+
 -- Variables
 vim.g.tex_flavor = "latex"
 vim.g.zig_fmt_autosave = 0
