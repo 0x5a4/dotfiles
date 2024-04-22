@@ -55,7 +55,11 @@ return {
             vim.g.vimtex_quickfix_mode = 0
             vim.opt.conceallevel = 1
             vim.g.tex_conceal = "abdmg"
-        end
+        end,
+        lazy = false,
+        keys = {
+            { "<leader>vt", "<cmd>VimtexCompile<CR>" },
+        },
     },
     {
         "iamcco/markdown-preview.nvim",
