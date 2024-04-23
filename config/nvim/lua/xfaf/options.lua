@@ -36,7 +36,7 @@ opt.foldmethod = "marker"
 
 -- Conceal
 opt.conceallevel = 1
-opt.concealcursor = "nc"
+opt.concealcursor = "c"
 
 -- Variables
 vim.g.tex_flavor = "latex"
