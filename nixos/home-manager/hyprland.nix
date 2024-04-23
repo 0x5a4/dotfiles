@@ -29,16 +29,16 @@
       monitor = desc:$fscsbeamer, preferred, 0x-1080, 1
 
       # bind workspaces
-      workspace = $monitorName, 1
-      workspace = $monitorName, 2
-      workspace = $monitorName, 3
-      workspace = $monitorName, 4
-      workspace = $monitorName, 5
-      workspace = $monitorName, 6
-      workspace = $monitorName, 7
-      workspace = $monitorName, 8
-      workspace = $monitorName, 9
-      workspace = $displayPort, 10
+      workspace = 1, monitor:$monitorName, default:true
+      workspace = 2, monitor:$monitorName
+      workspace = 3, monitor:$monitorName
+      workspace = 4, monitor:$monitorName
+      workspace = 5, monitor:$monitorName
+      workspace = 6, monitor:$monitorName
+      workspace = 7, monitor:$monitorName
+      workspace = 8, monitor:$monitorName
+      workspace = 9, monitor:$monitorName
+      workspace = 10, monitor$displayPort, default:true
 
       submap = dpms
 
