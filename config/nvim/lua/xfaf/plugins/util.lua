@@ -154,4 +154,17 @@ return {
             { "<leader>?", "<cmd>Cheatsheet<CR>" }
         }
     },
+    {
+        "laytan/cloak.nvim",
+        cmd = { "CloakToggle", "CloakPreviewLine" },
+        event = { "BufReadPre .env*", "BufNewFile .env*" },
+        keys = {
+            { "<leader>oc", "<cmd>CloakToggle<CR>" },
+        },
+        config = {
+            enabled = true,
+            cloak_telescope = true,
+            cloak_length = 12,
+        }
+    }
 }
