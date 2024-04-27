@@ -134,10 +134,6 @@ return {
         }
     },
     {
-        "seandewar/nvimesweeper",
-        cmd = "Nvimesweeper",
-    },
-    {
         "tpope/vim-fireplace",
         ft = "clojure",
         keys = {

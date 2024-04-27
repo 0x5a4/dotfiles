@@ -142,7 +142,6 @@ Draw Line upwards                        | K
 Draw Line to the right                   | L
 
 ## fun
-Play Minesweeper                         | :Nvimesweeper
 Make it rain                             | <leader>fml
 Summon a duck                            | <leader>fd
 Catch the duck                           | <leader>fc
