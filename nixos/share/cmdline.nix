@@ -54,5 +54,6 @@
     texliveFull
     just
     man-pages-posix
+    zig_0_12
   ];
 }
