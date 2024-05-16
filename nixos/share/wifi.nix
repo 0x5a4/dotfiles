@@ -50,6 +50,10 @@
       psk = "@OH_UFF_HALLO_GUSTAVSOB_PASSWORD@";
     };
 
+    "LambdaAufDemEFeld" = {
+      psk = "@FSPHY_PASSWORD@";
+    };
+
     eduroam = let
       cacert = builtins.toFile "ca_cert.pam" "-----BEGIN CERTIFICATE-----
 MIIDwzCCAqugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBgjELMAkGA1UEBhMCREUx
@@ -85,6 +89,7 @@ BSeOE6Fuwg==
         phase2="auth=PAP"
         identity="@EDUROAM_IDENTITY@"
         anonymous_identity="eduroam@hhu.de"
+        group=CCMP TKIP
       '';
     };
   };
