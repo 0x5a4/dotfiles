@@ -44,7 +44,10 @@ return {
             local cond = require("nvim-autopairs.conds")
             local rule = require("nvim-autopairs.rule")
 
-            autopairs.setup({})
+            autopairs.setup({
+                enable_check_bracket_line = true,
+                ignored_next_char = "[%w%.]"
+            })
 
             -- dont double quote lisps
             autopairs.get_rules("'")[1].not_filetypes = { "scheme", "lisp", "clojure" }
