@@ -79,3 +79,14 @@ inoremap(up, nop)
 inoremap(down, nop)
 inoremap(right, nop)
 inoremap(left, nop)
+
+-- toggle mouse
+vim.api.nvim_set_keymap("n", "<leader>om", "", {
+    callback = function()
+        if #vim.opt.mouse:get() == 0 then
+            vim.opt.mouse = "a"
+        else
+            vim.opt.mouse = ""
+        end
+    end
+})

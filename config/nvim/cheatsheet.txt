@@ -27,6 +27,7 @@ Jump in document                         | s{searchString}
 Jump to treesitter nodes                 | S{label}
 Jump to line                             | gs{label}
 Remote operate                           | {operator}r{searchString}{text-object}
+Toggle mouse                             | <leader>om
 
 ## surround
 Surround textobject                      | ys{text-object}{char}
