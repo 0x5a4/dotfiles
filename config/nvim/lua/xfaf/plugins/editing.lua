@@ -79,4 +79,19 @@ return {
         },
         cmd = "ToggleAlternate"
     },
+    {
+        "m4xshen/smartcolumn.nvim",
+        opts = {
+            colorcolumn = "100",
+            scope = "window",
+            disabled_filetypes = {
+                "lazy",
+                "mason",
+                "help",
+                "checkhealth",
+                "TelescopePrompt",
+                "lspinfo",
+            }
+        },
+    },
 }
