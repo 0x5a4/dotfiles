@@ -11,13 +11,13 @@ return {
         cmd = "Telescope",
         tag = "0.1.4",
         keys = {
-            { "<leader>ts",  "<cmd>Telescope lsp_document_symbols<CR>" },
-            { "<leader>te",  "<cmd>Telescope diagnostics<CR>" },
+            { "<leader>ts", "<cmd>Telescope lsp_document_symbols<CR>" },
+            { "<leader>te", "<cmd>Telescope diagnostics<CR>" },
             { "<leader>tq", "<cmd>Telescope spell_suggest<CR>" },
             { "<leader>td", "<cmd>Telescope heading<CR>" },
             { "<leader>tc", "<cmd>Telescope git_commits<CR>" },
             { "<leader>tf", "<cmd>Telescope current_buffer_fuzzy_find<CR>" },
-            { "<leader>tg",  "<cmd>Telescope live_grep<CR>" },
+            { "<leader>tg", "<cmd>Telescope live_grep<CR>" },
             { "<leader>tl", "<cmd>Telescope software-licenses find<CR>" },
             { "<leader>tz", "<cmd>Telescope symbols<CR>" },
             { "gi",         "<cmd>Telescope lsp_incoming_calls<CR>" },
@@ -86,13 +86,5 @@ return {
         },
         dependencies = "nvim-lua/plenary.nvim",
         config = true
-    },
-    {
-        "axieax/urlview.nvim",
-        config = true,
-        keys = {
-            { "<leader>tu", "<cmd>UrlView<CR>" }
-        },
-        cmd = "UrlView"
     },
 }

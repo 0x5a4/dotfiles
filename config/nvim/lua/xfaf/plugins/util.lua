@@ -166,5 +166,20 @@ return {
             cloak_telescope = true,
             cloak_length = 12,
         }
-    }
+    },
+    {
+        "xiyaowong/link-visitor.nvim",
+        opts = {
+            skip_confirmation = true,
+        },
+        cmd = {
+            "VisitLinkInBuffer",
+            "VisitLinkUnderCursor",
+            "VisitLinkNearCursor",
+            "VisitLinkNearest", },
+        keys = {
+            { "<leader>tu", "<cmd>VisitLinkInBuffer<CR>" },
+            { "gu",         "<cmd>VisitLinkUnderCursor<CR>" }
+        },
+    },
 }
