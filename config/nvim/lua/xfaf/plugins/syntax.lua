@@ -74,7 +74,7 @@ return {
         ft = "kitty"
     },
     {
-        "zig-lang/zig.vim",
+        "ziglang/zig.vim",
         ft = "zig"
     },
     "phelipetls/vim-hugo",

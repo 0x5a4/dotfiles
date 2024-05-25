@@ -40,7 +40,6 @@ opt.concealcursor = "c"
 
 -- Variables
 vim.g.tex_flavor = "latex"
-vim.g.zig_fmt_autosave = 0
 
 -- for emails
 vim.api.nvim_create_autocmd("BufRead", {
