@@ -9,7 +9,6 @@ opt.splitright = true
 opt.signcolumn = "yes"
 opt.laststatus = 3
 opt.timeoutlen = 500
-opt.mouse = ""
 opt.swapfile = false
 opt.cursorline = true
 opt.cursorlineopt = "number"
