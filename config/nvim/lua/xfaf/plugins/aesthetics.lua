@@ -147,4 +147,11 @@ return {
         cmd = { "Oogway" },
         dev = true,
     },
+    {
+        'mcauley-penney/visual-whitespace.nvim',
+        event = "User VisualEnter",
+        opts = {
+            space_char = " ",
+        },
+    }
 }
