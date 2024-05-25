@@ -26,7 +26,7 @@ return {
                 "gitignore",
                 "git_rebase",
                 "html",
-                "html",
+                "hyprlang",
                 "ini",
                 "java",
                 "javascript",
@@ -38,16 +38,22 @@ return {
                 "markdown",
                 "markdown_inline",
                 "meson",
+                "nasm",
                 "ninja",
                 "nix",
+                "perl",
                 "python",
                 "regex",
                 "rust",
                 "scss",
                 "sql",
+                "ssh_config",
+                "tmux",
                 "toml",
                 "typescript",
                 "vim",
+                "vimdoc",
+                "xml",
                 "yaml",
                 "zig",
             },
@@ -66,10 +72,6 @@ return {
     {
         "fladson/vim-kitty",
         ft = "kitty"
-    },
-    {
-        "theRealCarneiro/hyprland-vim-syntax",
-        ft = "hypr"
     },
     {
         "zig-lang/zig.vim",
