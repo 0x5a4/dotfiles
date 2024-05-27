@@ -22,7 +22,8 @@ return {
                     formatting.black,
                     -- All of that Web dev shit (also markdown)
                     null_ls.builtins.formatting.prettierd.with({
-                        disabled_filetypes = { "html", "css" }, -- you fuck up hugo like no one else can
+                        -- you fuck up hugo like no one else can
+                        disabled_filetypes = { "html", "css" },
                     }),
                 },
                 border = "rounded",
@@ -207,5 +208,31 @@ return {
         opts = {
             hint_prefix = "",
         },
+    },
+    {
+        "stevearc/conform.nvim",
+        event = { "BufWritePre" },
+        cmd = { "ConformInfo" },
+        keys = {
+            {
+                "<C-f>",
+                function()
+                    require("conform").format({ async = true, lsp_fallback = true })
+                end,
+                mode = "",
+            },
+        },
+        -- Everything in opts will be passed to setup()
+        opts = {
+            -- Define your formatters
+            formatters_by_ft = {
+                lua = { "stylua" },
+                python = { "isort", "black" },
+                javascript = { { "prettierd", "prettier" } },
+            },
+        },
+        init = function()
+            vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+        end,
     }
 }
