@@ -75,7 +75,10 @@ return {
     },
     {
         "ziglang/zig.vim",
-        ft = "zig"
+        ft = "zig",
+        init = function()
+            vim.g.zig_fmt_parse_errors = 0
+        end
     },
     "phelipetls/vim-hugo",
     "sevko/vim-nand2tetris-syntax"
