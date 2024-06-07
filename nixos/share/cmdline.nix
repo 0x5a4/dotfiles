@@ -55,5 +55,6 @@
     just
     man-pages-posix
     zig_0_12
+    nix-output-monitor
   ];
 }
