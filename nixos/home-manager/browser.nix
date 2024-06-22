@@ -83,6 +83,7 @@
               (defineNamed "hugo" "gohugo.io/documentation")
               (defineNamed "bootstrap" "getbootstrap.com/docs/")
               (defineNamed "playwright" "playwright.dev/docs/intro")
+              (defineNamed "nixpkgs doc" "ryantm.github.io/nixpkgs/")
             ])
             (folder "work" [
               (defineNamed "moco" "recordbay.mocoapp.com")

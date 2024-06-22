@@ -161,7 +161,7 @@ return {
         keys = {
             { "<leader>oc", "<cmd>CloakToggle<CR>" },
         },
-        config = {
+        opts = {
             enabled = true,
             cloak_telescope = true,
             cloak_length = 12,

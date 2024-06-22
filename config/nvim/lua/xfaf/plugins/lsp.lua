@@ -71,8 +71,6 @@ return {
                 "texlab",
                 -- Lua
                 "lua-language-server",
-                -- Markdown
-                "marksman",
                 -- Python
                 "black",
                 "pyright",
@@ -174,8 +172,8 @@ return {
                 },
             })
 
-            -- Markdown
-            lspconfig.marksman.setup({})
+            -- Nix
+            lspconfig.nil_ls.setup({})
 
             -- Python
             lspconfig.pyright.setup({})

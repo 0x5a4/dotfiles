@@ -42,7 +42,7 @@
       psk = "@SPORTFREUNDE_CORE_PASSWWORD@";
     };
 
-    "FRITZ!Box 6660 Cable PT" = {
+    "Fritzbold" = {
       psk = "@AVA_WLAN_PASSWORD@";
     };
 

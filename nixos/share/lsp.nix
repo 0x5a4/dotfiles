@@ -17,10 +17,10 @@
     clojure-lsp
     texlab
     lua-language-server
-    marksman
     pyright
     rust-analyzer
     zls
     vscode-langservers-extracted
+    nil
   ];
 }
