@@ -119,6 +119,21 @@ return {
         }
     },
     {
+        'akinsho/git-conflict.nvim',
+        version = "*",
+        event = "User GitFile",
+        opts = {
+            default_mappings = false,
+        },
+        keys = {
+            { "<leader>gu",  "<cmd>GitConflictPrevConflict<CR>" },
+            { "<leader>gi",  "<cmd>GitConflictNextConflict<CR>" },
+            { "<leader>gzu",  "<cmd>GitConflictChooseOurs<CR>" },
+            { "<leader>gzi",  "<cmd>GitConflictChooseTheirs<CR>" },
+            { "<leader>gzt",  "<cmd>GitConflictChooseBoth<CR>" },
+        },
+    },
+    {
         "RaafatTurki/hex.nvim",
         keys = {
             { "<leader>oh", "<cmd>HexToggle<CR>" },
