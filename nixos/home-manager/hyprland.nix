@@ -52,8 +52,8 @@
           disable_hyprland_logo = yes # fixes random stripes from the anime gurl
       }
 
-      general {
-          no_cursor_warps = false
+      cursor {
+          no_warps = false
       }
 
       submap = wallpaper
