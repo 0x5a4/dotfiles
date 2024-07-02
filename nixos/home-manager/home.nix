@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -63,7 +64,17 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    plugins = [pkgs.rofi-calc];
+    plugins = let
+      rofi-calc-wayland =
+        pkgs.rofi-calc.overrideAttrs
+        (finalAttrs: previousAttrs: let
+          unRofiInputs = lib.lists.remove pkgs.rofi-unwrapped previousAttrs.buildInputs;
+        in {
+          buildInputs = unRofiInputs ++ [pkgs.rofi-wayland];
+        });
+    in [
+      rofi-calc-wayland
+    ];
     theme = ../../config/rofi/style.rasi;
   };
 
