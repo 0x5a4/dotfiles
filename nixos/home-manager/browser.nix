@@ -104,8 +104,7 @@
           };
         in {
           "Ard Mediathek" = define "ard" "ardmediathek.de/suche/{searchTerms}" "";
-          # HA. Its invidious!
-          "Youtube" = define "yt" "https://invidious.nerdvpn.de/search?q={searchTerms}" "www.youtube.com/favicon.ico";
+          "Youtube" = define "yt" "youtube.com/results?search_query={searchTerms}" "www.youtube.com/favicon.ico";
           "Nix Packages" = define "nixpkg" "search.nixos.org/packages?query={searchTerms}" "nixos.wiki/favicon.png";
           "Nix Options" = define "nixopt" "search.nixos.org/options?query={searchTerms}" "nixos.wiki/favicon.png";
           "Nix Wiki" = define "nixwiki" "nixos.wiki/index.php?search={searchTerms}" "nixos.wiki/favicon.png";
@@ -117,6 +116,7 @@
           "Arch" = define "arch" "wiki.archlinux.org/index.php?search={searchTerms}" "wiki.archlinux.org/favicon.ico";
           "Gentoo" = define "gentoo" "wiki.gentoo.org/index.php?search={searchTerms}" "wiki.gentoo.org/favicon.ico";
           "Portage" = define "portage" "packages.gentoo.org/packages/search?q={searchTerms}" "packages.gentoo.org/favicon.ico";
+          "Home Manager Options" = define "homeopt" "home-manager-options.extranix.com/?query={searchTerms}" "nixos.wiki/favicon.png";
           "Google".metaData.hidden = true;
           "Bing".metaData.hidden = true;
           "Amazon.de".metaData.hidden = true;
