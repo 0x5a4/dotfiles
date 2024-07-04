@@ -220,15 +220,7 @@ return {
                 mode = "",
             },
         },
-        -- Everything in opts will be passed to setup()
-        opts = {
-            -- Define your formatters
-            formatters_by_ft = {
-                lua = { "stylua" },
-                python = { "isort", "black" },
-                javascript = { { "prettierd", "prettier" } },
-            },
-        },
+        opts = {},
         init = function()
             vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
         end,
