@@ -55,6 +55,7 @@
     prismlauncher
     thunderbird
     wl-mirror
+    wlinhibit
 
     zathura
 
