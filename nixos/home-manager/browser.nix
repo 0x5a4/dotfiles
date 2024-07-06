@@ -186,7 +186,7 @@
         "extensions.webservice.discoverURL" = "";
         "media.autoplay.default" = 1;
         "media.autoplay.enabled" = false;
-        "media.eme.enabled" = false;
+        "media.eme.enabled" = true;
         "media.gmp-widevinecdm.enabled" = false;
         "media.navigator.enabled" = false;
         "media.peerconnection.enabled" = false;
@@ -253,24 +253,29 @@
             "options" = {};
           }
         ];
+        "extensions.autoDisableScopes" = 0;
       };
 
       extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
         bitwarden
-        ublock-origin
+        boring-rss
+        clearurls
         darkreader
         decentraleyes
-        i-dont-care-about-cookies
-        privacy-possum
-        clearurls
-        return-youtube-dislikes
-        boring-rss
         don-t-fuck-with-paste
         enhanced-github
         enhanced-h264ify
         github-file-icons
+        istilldontcareaboutcookies
+        modrinthify
         multi-account-containers
-        libredirect
+        no-pdf-download
+        privacy-possum
+        return-youtube-dislikes
+        skip-redirect
+        smart-referer
+        ublock-origin
+        user-agent-string-switcher
       ];
     };
   };
