@@ -272,7 +272,6 @@
         no-pdf-download
         privacy-possum
         return-youtube-dislikes
-        skip-redirect
         smart-referer
         ublock-origin
         user-agent-string-switcher
