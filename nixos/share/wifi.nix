@@ -54,6 +54,8 @@
       psk = "@FSPHY_PASSWORD@";
     };
 
+    "LAN1-Stover_Strand" = {};
+
     eduroam = let
       cacert = builtins.toFile "ca_cert.pam" "-----BEGIN CERTIFICATE-----
 MIIDwzCCAqugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBgjELMAkGA1UEBhMCREUx
