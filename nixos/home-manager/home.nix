@@ -92,6 +92,14 @@
     extraConfig = ''
       IdentityFile ~/.ssh/key
     '';
+    matchBlocks = {
+      teefax = {
+        host = "fscs-hhu.de";
+        extraOptions = {
+          ForwardAgent = "yes";
+        };
+      };
+    };
   };
 
   services.ssh-agent.enable = true;
