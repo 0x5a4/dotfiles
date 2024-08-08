@@ -9,7 +9,7 @@ GAME_CLASSES=(
     "hl_linux"
     "Nomifactory.*"
     "org.libretro.RetroArch"
-
+    "GT: New Horizons [0-9]*\.[0-9]*\.[0-9]*"
 )
 
 if (( $# == 0 )); then
