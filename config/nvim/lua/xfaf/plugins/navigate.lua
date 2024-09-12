@@ -1,5 +1,4 @@
 return {
-    "tpope/vim-vinegar",
     {
         "stevearc/oil.nvim",
         lazy = false,

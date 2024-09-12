@@ -1,0 +1,7 @@
+keys:
+  - &fword age1n9e7ymdmcprdynwutygfvd6an2h9xcvpneehu9gcsd93vr0mvg5sqndy08
+creation_rules:
+  - path_regex: host/secrets/.*
+    key_groups:
+      - age:
+          - *fword

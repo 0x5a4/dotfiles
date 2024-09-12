@@ -68,7 +68,6 @@ return {
     },
 
     -- random filetypes
-    "gentoo/gentoo-syntax",
     {
         "fladson/vim-kitty",
         ft = "kitty"

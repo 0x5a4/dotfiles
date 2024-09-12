@@ -1,0 +1,5 @@
+result
+
+# virtual machine things
+*.fd
+*.qcow2

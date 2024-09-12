@@ -31,71 +31,6 @@ return {
         end
     },
     {
-        "williamboman/mason.nvim",
-        cmd = { "Mason", "MasonUpdate" },
-        build = ":MasonUpdate", -- :MasonUpdate updates registry contents
-        opts = {
-            ui = {
-                border = "rounded"
-            }
-        },
-    },
-    {
-        "WhoIsSethDaniel/mason-tool-installer.nvim",
-        cmd = {
-            "MasonToolsInstall",
-            "MasonToolsInstallSync",
-            "MasonToolsUpdate",
-            "MasonToolsUpdateSync",
-            "MasonToolsClean",
-        },
-        opts = {
-            ensure_installed = {
-                -- Bash
-                "bash-language-server",
-                "beautysh",
-                -- C/C++
-                "clangd",
-                "clang-format",
-                -- Clojure
-                "clojure-lsp",
-                -- HTML
-                "html-lsp",
-                -- Dockerfile
-                "hadolint",
-                -- Java
-                "jdtls",
-                -- Javascript/Typescript
-                "typescript-language-server",
-                -- LaTeX
-                "texlab",
-                -- Lua
-                "lua-language-server",
-                -- Python
-                "black",
-                "pyright",
-                "ruff",
-                -- Rust
-                "rust-analyzer",
-                -- TOML
-                "taplo",
-                -- Zig
-                "zls",
-                -- All of that webdev shit
-                "prettierd"
-            }
-        },
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        event = "User File",
-        dependencies = {
-            "neovim/nvim-lspconfig",
-            "williamboman/mason.nvim"
-        },
-        config = true
-    },
-    {
         "neovim/nvim-lspconfig",
         dependencies = {
             "nvimtools/none-ls.nvim",
@@ -150,7 +85,7 @@ return {
             lspconfig.jdtls.setup({})
 
             -- Javascript/Typescript
-            lspconfig.tsserver.setup({})
+            lspconfig.ts_ls.setup({})
 
             -- LaTeX
             lspconfig.texlab.setup({})

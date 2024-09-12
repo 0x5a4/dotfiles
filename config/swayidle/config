@@ -1,4 +1,0 @@
-timeout 300 'swaylock -efFS --clock --effect-blur 20x3'
-timeout 360 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' 
-before-sleep 'playerctl pause; swaylock -efFS --clock --effect-blur 20x3'
-lock 'swaylock -efFS --clock --effect-blur 20x3'

@@ -1,2 +1,0 @@
-SYMLINK_DIRS="config/fish/functions config/nvim/lua"
-EXCLUDES="Makefile README.md nvimcheat *.inc"

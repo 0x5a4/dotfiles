@@ -1,57 +1,88 @@
 {
-  description = "0x5a4's dotfiles";
+  description = "0x5a4's nixos config. ein satz mit x, das war wohl nix";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    sops-nix = {
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+
+    nur.url = "github:nix-community/NUR";
+
+    hardware.url = "github:NixOS/nixos-hardware/master";
+
+    sops = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager = {
+
+    hm = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    betterfox.url = "github:HeitorAugustoLN/betterfox-nix";
   };
 
-  outputs = inputs @ {
+  outputs = {
     self,
     nixpkgs,
-    flake-utils,
-    nixos-hardware,
-    sops-nix,
     home-manager,
-    firefox-addons,
-    stylix,
-  }: let
-    sharedModules = [
-      sops-nix.nixosModules.sops
-      stylix.nixosModules.stylix
-      home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.notuser = import ./nixos/home-manager/home.nix;
-        home-manager.extraSpecialArgs = {inherit inputs;};
-      }
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    systems = [
+      "x86_64-linux"
+      "x86_64-darwin"
+      "aarch64-linux"
+      "aarch64-darwin"
     ];
-  in {
-    nixosConfigurations.fword = nixpkgs.lib.nixosSystem {
-      modules =
-        [
-          ./nixos/fword
-          nixos-hardware.nixosModules.framework-13th-gen-intel
-        ]
-        ++ sharedModules;
+
+    lib = nixpkgs.lib;
+
+    forAllSystems = lib.genAttrs systems;
+
+    mkSystem = hostname: {
+      "${hostname}" = lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./host/${hostname}];
+      };
     };
+
+    genSystems = hostnames:
+      builtins.foldl' lib.trivial.mergeAttrs {} (builtins.map mkSystem hostnames);
+  in {
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    overlays = import ./overlays.nix {inherit inputs;};
+
+    nixosModules.xfaf = import ./mod/nixos;
+    homeManagerModules.xfaf = import ./mod/home-manager;
+
+    nixosConfigurations = genSystems ["fword"];
+
+    devShells = forAllSystems (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      default = pkgs.mkShell {
+        nativeBuildInputs = with pkgs; [
+          sops
+          nixos-rebuild
+        ];
+      };
+    });
   };
 }

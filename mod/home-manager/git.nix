@@ -1,0 +1,72 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  options.xfaf.git.enable = lib.mkEnableOption "install 0x5a4s git config";
+
+  config = lib.mkIf config.xfaf.git.enable {
+    home.packages = [
+      pkgs.git-absorb
+    ];
+
+    programs.git = {
+      enable = true;
+
+      userName = "0x5a4";
+      userEmail = "54070204+0x5a4@users.noreply.github.com";
+
+      lfs.enable = true;
+
+      delta = {
+        enable = true;
+        options = {
+          navigate = true;
+          light = false;
+          line-numbers = true;
+          line-numbers-left-format = "{nm:>4} │";
+          colorMoved = "default";
+        };
+      };
+
+      attributes = [
+        "* text=auto"
+      ];
+
+      extraConfig = {
+        core = {
+          whitespace = "trailing-space,space-before-tab";
+          eol = "lf";
+        };
+        feature.manyFiles = true;
+        init.defaultBranch = "main";
+        column.ui = "auto";
+        merge.conflictstyle = "diff3";
+        diff.colorMoved = "default";
+        branch.sort = "-commiterdate";
+        advice.addEmptyPathspec = false;
+        user.signingkey = "~/.ssh/key.pub";
+        gpg.format = "ssh";
+        commit.gpgSign = true;
+      };
+
+      aliases = {
+        exec = "!exec ";
+        make = "!exec make ";
+        whoops = "commit --amend --no-edit";
+        fuckup = "reset --soft HEAD~1";
+        root = "rev-parse --show-toplevel";
+        lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+        fpush = "push --force-with-lease";
+      };
+    };
+
+    programs.gh = {
+      enable = true;
+      extensions = with pkgs; [
+        gh-markdown-preview
+      ];
+    };
+  };
+}
