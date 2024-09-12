@@ -17,7 +17,8 @@
   wayland,
   wayland-protocols,
   wayland-scanner,
-}: stdenv.mkDerivation (finalAttrs: {
+}:
+stdenv.mkDerivation (finalAttrs: {
   pname = "greetd-mini-wl-greeter";
   version = "0-unstable-2021-11-04";
 
@@ -44,9 +45,9 @@
 
   # https://github.com/philj56/greetd-mini-wl-greeter/issues/2
   mesonBuildType = "release";
-  
+
   buildInputs = [
-    meson 
+    meson
     ninja
     pkg-config
     scdoc

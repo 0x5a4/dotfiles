@@ -19,17 +19,17 @@
       description = "command used for running the browser";
       type = t.str;
     };
-    
+
     terminalCommand = lib.mkOption {
       description = "command used for running the terminal";
       type = t.str;
     };
-    
+
     launcherCommand = lib.mkOption {
       description = "command used for running the launcher";
       type = t.str;
     };
-  
+
     monitors = let
       monitorOpts = t.submodule {
         options = {

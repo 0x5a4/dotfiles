@@ -11,26 +11,27 @@
 
   config = let
     opts = config.xfaf.desktop.apps.rofi;
-  in lib.mkIf opts.enable {
-    stylix.targets.rofi.enable = false;
+  in
+    lib.mkIf opts.enable {
+      stylix.targets.rofi.enable = false;
 
-    xfaf.desktop.launcherCommand = lib.mkIf opts.makeDefault "rofi -show drun";
-    
-    programs.rofi = {
-      enable = true;
+      xfaf.desktop.launcherCommand = lib.mkIf opts.makeDefault "rofi -show drun";
 
-      package = pkgs.rofi-wayland;
+      programs.rofi = {
+        enable = true;
 
-      theme = ../../../config/rofi-theme.rasi;
+        package = pkgs.rofi-wayland;
 
-      plugins = with pkgs; [
-        rofi-calc-wayland
-      ];
+        theme = ../../../config/rofi-theme.rasi;
 
-      extraConfig = {
-        normalize-match = true;
-        show-icons = true;
+        plugins = with pkgs; [
+          rofi-calc-wayland
+        ];
+
+        extraConfig = {
+          normalize-match = true;
+          show-icons = true;
+        };
       };
     };
-  };
 }

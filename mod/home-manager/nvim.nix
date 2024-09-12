@@ -11,61 +11,62 @@
 
   config = let
     opts = config.xfaf.neovim;
-  in lib.mkIf opts.enable {
-    xdg.mimeApps = {
-      enable = true;
-      defaultApplications = lib.mkIf opts.makeDefault {
-        "text/plain" = "neovim.desktop";
-      };
-    };
-  
-    programs.neovim = {
-      enable = true;
-      defaultEditor = opts.makeDefault;
-      viAlias = true;
-      vimAlias = true;
-      withPython3 = true;
-    };
-
-    home.packages = with pkgs; [
-      # lsps
-      alejandra
-      beautysh
-      black
-      clang-tools
-      clojure-lsp
-      hadolint
-      lua-language-server
-      marksman
-      nil
-      nodePackages.bash-language-server
-      nodePackages.typescript-language-server
-      prettierd
-      pyright
-      ruff
-      rust-analyzer
-      taplo
-      texlab
-      vscode-langservers-extracted
-      zls
-      # other stuff
-      ripgrep
-      gcc
-      git # for lazy
-      # for tex preview
-      zathura
-      texliveFull
-    ];
-
-    home.file = {
-      ".config/nvim" = {
-        source = ../../config/nvim;
-        recursive = true;
+  in
+    lib.mkIf opts.enable {
+      xdg.mimeApps = {
+        enable = true;
+        defaultApplications = lib.mkIf opts.makeDefault {
+          "text/plain" = "neovim.desktop";
+        };
       };
 
-      ".config/zathura/zathurarc".text = ''
-        set render-loading false
-      '';
+      programs.neovim = {
+        enable = true;
+        defaultEditor = opts.makeDefault;
+        viAlias = true;
+        vimAlias = true;
+        withPython3 = true;
+      };
+
+      home.packages = with pkgs; [
+        # lsps
+        alejandra
+        beautysh
+        black
+        clang-tools
+        clojure-lsp
+        hadolint
+        lua-language-server
+        marksman
+        nil
+        nodePackages.bash-language-server
+        nodePackages.typescript-language-server
+        prettierd
+        pyright
+        ruff
+        rust-analyzer
+        taplo
+        texlab
+        vscode-langservers-extracted
+        zls
+        # other stuff
+        ripgrep
+        gcc
+        git # for lazy
+        # for tex preview
+        zathura
+        texliveFull
+      ];
+
+      home.file = {
+        ".config/nvim" = {
+          source = ../../config/nvim;
+          recursive = true;
+        };
+
+        ".config/zathura/zathurarc".text = ''
+          set render-loading false
+        '';
+      };
     };
-  };
 }
