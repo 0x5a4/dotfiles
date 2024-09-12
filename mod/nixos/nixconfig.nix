@@ -34,6 +34,7 @@
     nix = let
       flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
     in {
+      package = pkgs.nixVersions.latest;
       settings = {
         experimental-features = "nix-command flakes cgroups auto-allocate-uids";
         flake-registry = "";
