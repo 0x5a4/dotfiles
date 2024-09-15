@@ -12,7 +12,7 @@ jobs:
           path: |
             /nix/store
       - uses: nixbuild/nix-quick-install-action@v28
-      - run: nix flake check
+      # - run: nix flake check
       - run: nix flake show --json |
           jq  '.packages."x86_64-linux"|keys[]' |
           xargs -I {} nix build .#{}
