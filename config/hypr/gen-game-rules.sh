@@ -4,6 +4,7 @@ GAME_CLASSES=(
     "steam_app_[0-9]*"
     "Stardew Valley"
     "Minecraft\*? 1.[0-9|.]*"
+    "com.mojang.minecraft"
     "FTB Skies"
     "Enigmatica 2: Expert \- Extended"
     "hl_linux"

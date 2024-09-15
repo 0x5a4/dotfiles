@@ -1,6 +1,5 @@
 configuration {
 	normalize-match: true;
 	show-icons: true;
-	icon-theme: "Papirus";
 }
 @theme "style.rasi"
