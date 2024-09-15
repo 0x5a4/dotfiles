@@ -11,9 +11,7 @@ jobs:
         with:
           path: |
             /nix/store
-      - uses: cachix/install-nix-action@v27
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: nixbuild/nix-quick-install-action@v28
       - run: nix flake show --json |
           jq  '.packages."x86_64-linux"|keys[]' |
           xargs -I {} nix build .#{}
