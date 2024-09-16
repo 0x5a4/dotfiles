@@ -31,11 +31,11 @@
       networking.wireless = {
         enable = true;
         userControlled.enable = true;
-        environmentFile = /run/secrets/wifi;
+        secretsFile = config.sops.secrets.wifi.path;
 
         networks = let
           mkNetwork = ssid: pwdEnv: {
-            psk = "@${pwdEnv}@";
+            pskRaw = "ext:${pwdEnv}";
           };
         in
           lib.mkMerge [
