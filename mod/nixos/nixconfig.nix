@@ -47,12 +47,8 @@
     };
 
     programs.nh.enable = true;
-    programs.command-not-found.enable = false;
-    programs.nix-index = {
-      enable = true;
-      enableFishIntegration = true;
-      enableBashIntegration = true;
-    };
+    
+    programs.nix-index.enable = true;
 
     environment.systemPackages = with pkgs; [
       comma
