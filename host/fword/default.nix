@@ -65,7 +65,10 @@
   xfaf.services.wifi = {
     enable = true;
     secretsFile = ../secrets/wifi;
-    hhuEduroam = true;
+    hhuEduroam = {
+      enable = true;
+      identity = "bej86nug";
+    };
     networks = {
       "HHUD-Y" = "HHUDY";
       "UdoLandenberg" = "UDOLANDENBERG";
