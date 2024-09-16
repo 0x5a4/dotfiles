@@ -51,6 +51,8 @@
         user.signingkey = "~/.ssh/key.pub";
         gpg.format = "ssh";
         commit.gpgSign = true;
+        rebase.autoStash = true;
+        rebase.abbreviateCommands = true;
       };
 
       aliases = {
