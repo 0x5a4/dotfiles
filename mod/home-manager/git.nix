@@ -39,12 +39,14 @@
           whitespace = "trailing-space,space-before-tab";
           eol = "lf";
         };
+        pull.rebase = true; 
+        push.followTags = true;
+        push.autoSetupRemote = true;
         feature.manyFiles = true;
         init.defaultBranch = "main";
         column.ui = "auto";
         merge.conflictstyle = "diff3";
         diff.colorMoved = "default";
-        branch.sort = "-commiterdate";
         advice.addEmptyPathspec = false;
         user.signingkey = "~/.ssh/key.pub";
         gpg.format = "ssh";
