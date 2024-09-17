@@ -6,10 +6,18 @@
   in {
     rofi-calc-wayland =
       prev.rofi-calc.overrideAttrs
-      (finalAttrs: previousAttrs: let
-        unRofiInputs = prev.lib.lists.remove prev.rofi-unwrapped previousAttrs.buildInputs;
+      (finalAttrs: oldAttrs: let
+        unRofiInputs = prev.lib.lists.remove prev.rofi-unwrapped oldAttrs.buildInputs;
       in {
         buildInputs = unRofiInputs ++ [prev.rofi-wayland];
+      });
+
+    hyprland =
+      prev.hyprland.overrideAttrs
+      (finalAttrs: oldAttrs: {
+        patches =
+          (oldAttrs.patches or [])
+          ++ [./config/hyprland_splashes.patch];
       });
   };
 }
