@@ -150,7 +150,7 @@ return {
             lspconfig.jdtls.setup({})
 
             -- Javascript/Typescript
-            lspconfig.tsserver.setup({})
+            lspconfig.ts_ls.setup({})
 
             -- LaTeX
             lspconfig.texlab.setup({})
