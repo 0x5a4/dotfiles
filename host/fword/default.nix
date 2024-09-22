@@ -25,6 +25,7 @@
   boot.plymouth.enable = true;
   xfaf.bootconfig.enable = true;
   xfaf.nixconfig.enable = true;
+  xfaf.nixconfig.allowUnfree = true;
 
   sops.secrets = {
     fword-root = {
@@ -70,16 +71,24 @@
       identity = "bej86nug";
     };
     networks = {
-      "HHUD-Y" = "HHUDY";
-      "UdoLandenberg" = "UDOLANDENBERG";
+      HHUD-Y = "HHUDY";
+      UdoLandenberg = "UDOLANDENBERG";
       "chaosdorf access" = "CHAOSDORFACCESS";
-      "Vodafone-6F04" = "VODAFONE6F04";
-      "WLAN-135020" = "WLAN135020";
-      "SportfreundeCore" = "SPORTFREUNDECORE";
-      "Fritzbold" = "FRITZBOLD";
+      Vodafone-6F04 = "VODAFONE6F04";
+      WLAN-135020 = "WLAN135020";
+      SportfreundeCore = "SPORTFREUNDECORE";
+      Fritzbold = "FRITZBOLD";
       "oh uff hallo gustavsob" = "GUSTAVSOB";
-      "LambdaAufDemEFeld" = "PHYSIKWLAN";
+      LambdaAufDemEFeld = "PHYSIKWLAN";
       "Network_Mr.X" = "NETWORKMRX";
+      eduroam = {
+        auth = ''
+          key_mgmt=WPA-EAP
+          eap=PWD
+          identity="bej86nug@hhu.de"
+          password=ext:EDUROAM_PASSWORD
+        '';
+      };
     };
   };
 
