@@ -100,6 +100,8 @@ LSP rename symbol                        | <leader>r
 LSP hover action                         | <C-q>
 LSP format                               | <C-f>
 Toggle spellchecking                     | <leader>os
+Move selection(or line) up               | <C-k>
+Move selection(or line) down             | <C-j>
 
 ## paredit
 Splice Expression (remove brackets)      | <localleader>@
@@ -121,17 +123,18 @@ Jump to parent form's tail               | )
 
 ## git
 Git line highlighting                    | <leader>og
-Git line blame                           | <leader>ob
+Git blame                                | <leader>ob
 Show deleted diff                        | <leader>gx
-Diff current file                        | <leader>gd
-Jump to next hunk                        | <leader>gn
-Jump to previous hunk                    | <leader>gc
+Jump to next hunk                        | <leader>gj
+Jump to previous hunk                    | <leader>gk
 Stage hunk under cursor                  | <leader>g+
 Undo stage hunk                          | <leader>g#
 Stage whole file                         | <leader>gs
 Reset hunk under cursor(danger)          | <leader>grr
-Move selection(or line) up               | <C-k>
-Move selection(or line) down             | <C-j>
+Next conflict                            | <leader>gcj
+Previous conflict                        | <leader>gck
+Conflict choose ours                     | <leader>gco
+Conflict choose theirs                   | <leader>gct
 
 ## venn
 Toggle venn mode                         | <leader>ov
