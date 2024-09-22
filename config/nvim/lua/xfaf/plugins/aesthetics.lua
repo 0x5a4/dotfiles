@@ -109,43 +109,10 @@ return {
         end
     },
     {
-        "folke/zen-mode.nvim",
-        cmd = "ZenMode",
-        keys = {
-            { "<leader>oz", "<cmd>ZenMode<CR>" },
-        },
-        config = function(opts)
-            require("zen-mode").setup({
-                window = {
-                    backdrop = 1,
-                },
-                plugins = {
-                    tmux = {
-                        enabled = true,
-                    }
-                },
-                on_open = function()
-                    require("oogway").sense_the_dragon_warrior()
-                end
-            })
-
-            vim.api.nvim_create_autocmd({ "VimLeave" }, {
-                callback = function()
-                    require("zen-mode").close()
-                end,
-            })
-        end,
-    },
-    {
         "Aasim-A/scrollEOF.nvim",
         opts = {
             insert_mode = true,
         },
-    },
-    {
-        "0x5a4/oogway.nvim",
-        cmd = { "Oogway" },
-        dev = true,
     },
     {
         'mcauley-penney/visual-whitespace.nvim',

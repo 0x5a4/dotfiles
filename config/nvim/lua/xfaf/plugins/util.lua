@@ -132,13 +132,6 @@ return {
         config = true,
     },
     {
-        "gorbit99/codewindow.nvim",
-        config = true,
-        keys = {
-            { "<leader>vc", "<cmd>lua require('codewindow').toggle_minimap()<CR>" },
-        }
-    },
-    {
         "tpope/vim-fireplace",
         ft = "clojure",
         keys = {

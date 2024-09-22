@@ -4,8 +4,6 @@ return {
         dependencies = { -- PLUGINS ARE HERE, TAKE A CLOSER LOOK
             "nvim-lua/plenary.nvim",
             "crispgm/telescope-heading.nvim",
-            "chip/telescope-software-licenses.nvim",
-            "crispgm/telescope-heading.nvim",
             "nvim-telescope/telescope-symbols.nvim",
         },
         cmd = "Telescope",
@@ -18,7 +16,6 @@ return {
             { "<leader>tc", "<cmd>Telescope git_commits<CR>" },
             { "<leader>tf", "<cmd>Telescope current_buffer_fuzzy_find<CR>" },
             { "<leader>tg", "<cmd>Telescope live_grep<CR>" },
-            { "<leader>tl", "<cmd>Telescope software-licenses find<CR>" },
             { "<leader>tz", "<cmd>Telescope symbols<CR>" },
             { "gi",         "<cmd>Telescope lsp_incoming_calls<CR>" },
             { "gd",         "<cmd>Telescope lsp_definitions<CR>" },
@@ -73,7 +70,6 @@ return {
             local telescope = require("telescope")
 
             telescope.load_extension("heading")
-            telescope.load_extension("software-licenses")
 
             telescope.setup(opts)
         end
