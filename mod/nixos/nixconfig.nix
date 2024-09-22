@@ -6,6 +6,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    inputs.flake-programs-sqlite.nixosModules.programs-sqlite 
+  ];
+
   options.xfaf.nixconfig = {
     enable = lib.mkOption {
       description = "auto configure nix";
