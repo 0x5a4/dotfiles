@@ -76,6 +76,18 @@
       workspaces = [0];
       defaultWorkspace = 0;
     };
+    "DP-2" = {
+      workspaces = [0];
+      defaultWorkspace = 0;
+    };
+    "DP-3" = {
+      workspaces = [0];
+      defaultWorkspace = 0;
+    };
+    "DP-4" = {
+      workspaces = [0];
+      defaultWorkspace = 0;
+    };
   };
 
   home.sessionVariables = {

@@ -15,7 +15,7 @@
       fi
     '';
 
-    sharedModules = rec {
+    sharedModules = pkgs.writeText "waybar-modules.json" (builtins.toJSON rec {
       clock = {
         format = "  {:%R %d/%m}";
       };
@@ -95,7 +95,7 @@
         restart-interval = 3;
         on-click = "killall wlinhibit || ${pkgs.wlinhibit}/bin/wlinhibit";
       };
-    };
+    });
   in {
     stylix.targets.waybar.enable = false;
 
@@ -109,44 +109,46 @@
       style = ../../../config/waybar.css;
       settings =
         lib.mapAttrs (
-          name: value:
-            {
-              layer = "top";
-              position = "top";
-              output = name;
-              height = 32;
+          name: value: {
+            layer = "top";
+            position = "top";
+            output = name;
+            height = 32;
 
-              modules-left =
-                if value.primary
-                then [
-                  "clock"
-                  "hyprland/workspaces"
-                  "memory"
-                  "cpu"
-                  "network"
-                  "bluetooth"
-                ]
-                else [
-                  "clock"
-                ];
+            include = [
+              (builtins.toString sharedModules)
+            ];
 
-              modules-right =
-                if value.primary
-                then [
-                  "hyprland/submap"
-                  "custom/wlinhibit"
-                  "battery"
-                  "backlight"
-                  "wireplumber"
-                  "user"
-                ]
-                else [
-                  "hyprland/submap"
-                  "custom/wlinhibit"
-                  "battery#standalone"
-                ];
-            }
-            // sharedModules
+            modules-left =
+              if value.primary
+              then [
+                "clock"
+                "hyprland/workspaces"
+                "memory"
+                "cpu"
+                "network"
+                "bluetooth"
+              ]
+              else [
+                "clock"
+              ];
+
+            modules-right =
+              if value.primary
+              then [
+                "hyprland/submap"
+                "custom/wlinhibit"
+                "battery"
+                "backlight"
+                "wireplumber"
+                "user"
+              ]
+              else [
+                "hyprland/submap"
+                "custom/wlinhibit"
+                "battery#standalone"
+              ];
+          }
         )
         config.xfaf.desktop.monitors;
     };
