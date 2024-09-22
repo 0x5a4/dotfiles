@@ -58,7 +58,7 @@
     enable = true;
     cursor_warps = true;
   };
-  
+
   xfaf.desktop.wob.enable = true;
   xfaf.desktop.batsignal.enable = true;
   xfaf.desktop.mako.enable = true;

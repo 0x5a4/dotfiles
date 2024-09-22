@@ -39,7 +39,7 @@
           whitespace = "trailing-space,space-before-tab";
           eol = "lf";
         };
-        pull.rebase = true; 
+        pull.rebase = true;
         push.followTags = true;
         push.autoSetupRemote = true;
         feature.manyFiles = true;
