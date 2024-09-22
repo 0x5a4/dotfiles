@@ -2,7 +2,7 @@
   description = "0x5a4's nixos config. ein satz mit x, das war wohl nix";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nur.url = "github:nix-community/NUR";
 
