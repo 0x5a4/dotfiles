@@ -91,6 +91,8 @@
         overlays = [nix-on-droid.overlays.default];
       };
 
+      extraSpecialArgs = {inherit inputs outputs;};
+
       home-manager-path = home-manager.outPath;
     };
 

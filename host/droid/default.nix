@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   environment.etcBackupExtension = ".bak";
 
   environment.packages = with pkgs; [
@@ -41,6 +41,7 @@
     config = ./home.nix;
     backupFileExtension = "hm-bak";
     useGlobalPkgs = true;
+    extraSpecialArgs = {inherit inputs;};
   };
 
   user.shell = "${pkgs.fish}/bin/fish";
