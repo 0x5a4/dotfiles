@@ -97,6 +97,7 @@
   home.packages = with pkgs; [
     vesktop
     spotify
+    prismlauncher
     cargo
     rustc
     rustfmt
