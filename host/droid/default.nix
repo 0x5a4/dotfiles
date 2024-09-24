@@ -37,14 +37,13 @@
 
   time.timeZone = "Europe/Berlin";
 
-  # home-manager = {
-  #   config = ./home.nix;
-  #   backupFileExtension = "hm-bak";
-  #   useGlobalPkgs = true;
-  # };
+  home-manager = {
+    config = ./home.nix;
+    backupFileExtension = "hm-bak";
+    useGlobalPkgs = true;
+  };
 
   user.shell = "${pkgs.fish}/bin/fish";
 
-  # Read the changelog before changing this value
   system.stateVersion = "24.05";
 }
