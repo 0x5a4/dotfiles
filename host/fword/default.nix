@@ -84,9 +84,14 @@
       eduroam = {
         auth = ''
           key_mgmt=WPA-EAP
-          eap=PWD
-          identity="bej86nug@hhu.de"
+          pairwise=CCMP
+          eap=TTLS
           password=ext:EDUROAM_PASSWORD
+          altsubject_match="DNS:radius.hhu.de"
+          phase2="auth=PAP"
+          identity="bej86nug@hhu.de"
+          anonymous_identity="eduroam@hhu.de"
+          group=CCMP TKIP
         '';
       };
     };
