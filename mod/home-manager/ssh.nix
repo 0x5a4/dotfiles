@@ -16,9 +16,10 @@
       '';
       matchBlocks = {
         teefax = {
-          host = "fscs.hhu.de hhu-fscs.de";
+          hostname = "fscs.hhu.de";
+          forwardAgent = true;
           extraOptions = {
-            forwardAgent = "yes";
+            User = "tischgoblin";
           };
         };
       };
