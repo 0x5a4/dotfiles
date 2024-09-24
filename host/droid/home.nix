@@ -1,10 +1,12 @@
 {
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
     ../../mod/home-manager
+    inputs.stylix.homeManagerModules.stylix 
   ];
   
   xfaf.shell = {
