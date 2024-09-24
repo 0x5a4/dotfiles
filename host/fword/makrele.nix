@@ -2,10 +2,11 @@
   config,
   pkgs,
   lib,
+  outputs,
   ...
 }: {
   imports = [
-    ../../mod/home-manager # if accessed via output, infinite recursion occurs
+    outputs.homeModules.xfaf
   ];
 
   xfaf.shell = {

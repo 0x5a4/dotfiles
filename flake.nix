@@ -70,7 +70,7 @@
     overlays = import ./overlays.nix {inherit inputs;};
 
     nixosModules.xfaf = import ./mod/nixos;
-    homeManagerModules.xfaf = import ./mod/home-manager;
+    homeModules.xfaf = import ./mod/home-manager;
 
     nixosConfigurations = genSystems ["fword"];
 

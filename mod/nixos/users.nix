@@ -2,6 +2,7 @@
   lib,
   config,
   inputs,
+  outputs,
   ...
 }: {
   options.xfaf.users = let
@@ -44,7 +45,7 @@
     in {
       useGlobalPkgs = true;
       useUserPackages = true;
-      extraSpecialArgs = {inherit inputs;};
+      extraSpecialArgs = {inherit inputs outputs;};
       users =
         lib.attrsets.mapAttrs (
           name: value: {...}: {
