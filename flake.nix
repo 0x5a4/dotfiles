@@ -84,6 +84,7 @@
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
       modules = [
         ./host/droid
+        inputs.stylix.nixosModules.stylix
       ];
 
       pkgs = import nixpkgs {
