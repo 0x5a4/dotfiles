@@ -1,14 +1,9 @@
-{
-  lib,
-  pkgs,
-  inputs,
-  ...
-}: {
+{inputs, outputs, ...}: {
   imports = [
-    ../../mod/home-manager
-    inputs.stylix.homeManagerModules.stylix 
+    outputs.homeModules.xfaf
+    inputs.stylix.homeManagerModules.stylix
   ];
-  
+
   xfaf.shell = {
     enableAliases = true;
     installTools = true;

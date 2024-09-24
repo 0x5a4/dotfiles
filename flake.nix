@@ -82,9 +82,7 @@
     nixosConfigurations = genSystems ["fword"];
 
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-      modules = [
-        ./host/droid
-      ];
+      modules = [./host/droid];
 
       pkgs = import nixpkgs {
         system = "aarch64-linux";
