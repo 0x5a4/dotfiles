@@ -1,11 +1,21 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  # Backup etc files instead of failing to activate generation if a file already exists in /etc
+{pkgs, ...}: {
   environment.etcBackupExtension = ".bak";
+
+  environment.packages = with pkgs; [
+    nano
+
+    # Some common stuff that people expect to have
+    procps
+    killall
+    diffutils
+    findutils
+    utillinux
+    tzdata
+    hostname
+    man
+    gnugrep
+    gnused
+  ];
 
   android-integration = {
     termux-open.enable = true;
