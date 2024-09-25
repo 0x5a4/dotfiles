@@ -10,6 +10,7 @@
     extraLsps = lib.mkOption {
       description = "list of extra lsps to install";
       type = lib.types.listOf lib.types.package; 
+      default = [];
     };
   };
 
