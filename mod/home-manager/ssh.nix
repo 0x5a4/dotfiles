@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   ...
 }: {
@@ -10,6 +11,7 @@
 
     programs.ssh = {
       enable = true;
+      package = pkgs.openssh;
       addKeysToAgent = "yes";
       extraConfig = ''
         IdentityFile ~/.ssh/key

@@ -13,9 +13,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hm = {
+    home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
 
     stylix = {
@@ -40,6 +46,7 @@
     self,
     nixpkgs,
     home-manager,
+    nix-on-droid,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -73,6 +80,19 @@
     homeModules.xfaf = import ./mod/home-manager;
 
     nixosConfigurations = genSystems ["fword"];
+
+    nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+      modules = [./host/droid];
+
+      pkgs = import nixpkgs {
+        system = "aarch64-linux";
+        overlays = [nix-on-droid.overlays.default];
+      };
+
+      extraSpecialArgs = {inherit inputs outputs;};
+
+      home-manager-path = home-manager.outPath;
+    };
 
     devShells = forAllSystems (system: let
       pkgs = nixpkgs.legacyPackages.${system};
