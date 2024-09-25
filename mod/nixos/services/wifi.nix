@@ -13,14 +13,6 @@
       description = "path to the sops secret file used for passwords";
     };
 
-    hhuEduroam = {
-      enable = lib.mkEnableOption "configure hhu eduroam wifi";
-      identity = lib.mkOption {
-        type = t.str;
-        description = "identity to use for eduroam";
-      };
-    };
-
     networks = lib.mkOption {
       type = t.attrsOf (t.either t.str t.attrs);
       description = "map from network ssids to either their password env name or an attrset that will be used as is";
