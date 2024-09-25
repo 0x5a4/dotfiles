@@ -4,7 +4,6 @@
   environment.packages = with pkgs; [
     nano
 
-    # Some common stuff that people expect to have
     procps
     killall
     diffutils
@@ -31,9 +30,15 @@
     I officially diagnose you with a serious nix addiction!
   '';
 
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
+  terminal.font = "${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/NotoMonoNerdFontMono-Regular.ttf";
+
+  nix = {
+    package = pkgs.nixVersions.latest;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
 
   time.timeZone = "Europe/Berlin";
 
