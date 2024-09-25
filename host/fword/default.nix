@@ -105,12 +105,6 @@
 
   networking.hostName = "fword";
 
-  environment.shellAliases = {
-    ls = null;
-    ll = null;
-    l = null;
-  };
-
   environment.variables = {
     "NIXOS_OZONE_WL" = 1;
   };
