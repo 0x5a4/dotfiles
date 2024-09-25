@@ -7,6 +7,10 @@
   options.xfaf.neovim = {
     enable = lib.mkEnableOption "install 0x5a4s neovim config";
     makeDefault = lib.mkEnableOption "make neovim the default editor";
+    extraLsps = lib.mkOption {
+      description = "list of extra lsps to install";
+      type = lib.types.listOf lib.types.package; 
+    };
   };
 
   config = let
@@ -40,7 +44,6 @@
         marksman
         nil
         nodePackages.bash-language-server
-        nodePackages.typescript-language-server
         prettierd
         pyright
         ruff
@@ -56,7 +59,7 @@
         # for tex preview
         zathura
         texliveFull
-      ];
+      ] ++ opts.extraLsps;
 
       home.file = {
         ".config/nvim" = {
