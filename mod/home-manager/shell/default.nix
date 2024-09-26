@@ -40,6 +40,7 @@
         acpi
         bat
         duf
+        dust
         eza
         fastfetch
         fd
