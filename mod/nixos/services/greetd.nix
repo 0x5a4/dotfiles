@@ -34,7 +34,7 @@
             export XKB_DEFAULT_VARIANT=nodeadkeys
             export XKB_DEFAULT_OPTION=caps:escape
 
-            ${pkgs.cage}/bin/cage -s -- \
+            ${pkgs.cage}/bin/cage -s -m last -- \
               ${pkgs.greetd-mini-wl-greeter}/bin/greetd-mini-wl-greeter \
               --user ${opts.defaultUser} \
               --command ${opts.command} \
