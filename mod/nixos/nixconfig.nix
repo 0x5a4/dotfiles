@@ -46,7 +46,11 @@
       };
       channel.enable = opts.enableChannels;
 
-      registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+      registry =
+        (lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs)
+        // {
+          np.flake = flakeInputs.nixpkgs;
+        };
       nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
     };
 
