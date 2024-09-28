@@ -77,7 +77,7 @@
       "oh uff hallo gustavsob" = "GUSTAVSOB";
       LambdaAufDemEFeld = "PHYSIKWLAN";
       "Network_Mr.X" = "NETWORKMRX";
-      "FelixPhone" = "FELIXPHONE";
+      FelixPhone = "FELIXPHONE";
       eduroam = {
         auth = ''
           key_mgmt=WPA-EAP
@@ -107,7 +107,7 @@
   networking.hostName = "fword";
 
   environment.variables = {
-    "NIXOS_OZONE_WL" = 1;
+    NIXOS_OZONE_WL = 1;
   };
 
   programs.hyprland.enable = true;

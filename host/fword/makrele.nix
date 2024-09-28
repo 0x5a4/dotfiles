@@ -88,7 +88,7 @@
       };
     };
   in {
-    "eDP-1" = {
+    eDP-1 = {
       scale = 1.175;
       workspaces = lib.lists.range 1 9;
       defaultWorkspace = 1;
@@ -111,14 +111,14 @@
         };
       };
     };
-    "DP-1" = externalConfig;
-    "DP-2" = externalConfig;
-    "DP-3" = externalConfig;
-    "DP-4" = externalConfig;
+    DP-1 = externalConfig;
+    DP-2 = externalConfig;
+    DP-3 = externalConfig;
+    DP-4 = externalConfig;
   };
 
   home.sessionVariables = {
-    "FLAKE" = config.home.homeDirectory + "/.dotfiles";
+    FLAKE = config.home.homeDirectory + "/.dotfiles";
   };
 
   home.packages = with pkgs; [
