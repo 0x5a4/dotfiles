@@ -74,14 +74,42 @@
       workspaces = [0];
       defaultWorkspace = 0;
       wallpaper = config.stylix.image;
+      bar = {
+        enable = true;
+        modules.left = {
+          clock = true;
+          system-load = true;
+        };
+        modules.right = {
+          battery = true;
+          volume = true;
+          network = true;
+        };
+      };
     };
   in {
     "eDP-1" = {
       scale = 1.175;
-      primary = true;
       workspaces = lib.lists.range 1 9;
       defaultWorkspace = 1;
       wallpaper = config.stylix.image;
+      bar = {
+        enable = true;
+        modules.left = {
+          clock = true;
+          hyprland-workspaces = true;
+          system-load = true;
+          network = true;
+          bluetooth = true;
+        };
+        modules.right = {
+          uptime = true;
+          battery = true;
+          volume = true;
+          brightness = true;
+          idle-inhibit = true;
+        };
+      };
     };
     "DP-1" = externalConfig;
     "DP-2" = externalConfig;

@@ -7,7 +7,7 @@
   options.xfaf.desktop.waybar.enable = lib.mkEnableOption "install 0x5a4s waybar config";
 
   config = lib.mkIf config.xfaf.desktop.waybar.enable (let
-    wlinhibit-scipt = pkgs.writeScriptBin "wlinhibit.sh" ''
+    wlinhibit-script = pkgs.writeScriptBin "wlinhibit.sh" ''
       if pidof wlinhibit &> /dev/null; then
           echo '{"text":""}'
       else
@@ -15,7 +15,7 @@
       fi
     '';
 
-    sharedModules = pkgs.writeText "waybar-modules.json" (builtins.toJSON rec {
+    sharedModules = pkgs.writeText "waybar-modules.json" (builtins.toJSON {
       clock = {
         format = "  {:%R %d/%m}";
       };
@@ -63,7 +63,6 @@
           low = 20;
         };
       };
-      "battery#standalone" = battery;
       network = {
         format = "{ifname}";
         format-wifi = "{essid} ({signalStrength}%) ";
@@ -90,7 +89,7 @@
       };
       "custom/wlinhibit" = {
         tooltip = false;
-        exec = "${wlinhibit-scipt}/bin/wlinhibit.sh";
+        exec = "${wlinhibit-script}/bin/wlinhibit.sh";
         return-type = "json";
         restart-interval = 3;
         on-click = "killall wlinhibit || ${pkgs.wlinhibit}/bin/wlinhibit";
@@ -107,11 +106,26 @@
       enable = true;
       systemd.enable = true;
       style = ../../../config/waybar.css;
-      settings =
+      settings = let
+        # dont forget to flatten the result!
+        mkModuleList = cfg: [
+          (lib.optional cfg.uptime "user")
+          (lib.optional cfg.clock "clock")
+          (lib.optional cfg.hyprland-workspaces "hyprland/workspaces")
+          (lib.optionals cfg.system-load ["memory" "cpu"])
+          (lib.optional cfg.battery "battery")
+          (lib.optional cfg.idle-inhibit "custom/wlinhibit")
+          (lib.optional cfg.brightness "backlight")
+          (lib.optional cfg.volume "wireplumber")
+          (lib.optional cfg.network "network")
+          (lib.optional cfg.bluetooth "bluetooth")
+          (lib.optional cfg.hyprland-submap "hyprland/submap")
+        ];
+      in
         lib.mapAttrs (
           name: value: {
             layer = "top";
-            position = "top";
+            position = value.bar.position;
             output = name;
             height = 32;
 
@@ -119,38 +133,24 @@
               (builtins.toString sharedModules)
             ];
 
-            modules-left =
-              if value.primary
-              then [
-                "clock"
-                "hyprland/workspaces"
-                "memory"
-                "cpu"
-                "network"
-                "bluetooth"
-              ]
-              else [
-                "clock"
-              ];
+            modules-left = lib.pipe value.bar.modules.left [
+              mkModuleList
+              lib.flatten
+            ];
 
-            modules-right =
-              if value.primary
-              then [
-                "hyprland/submap"
-                "custom/wlinhibit"
-                "battery"
-                "backlight"
-                "wireplumber"
-                "user"
-              ]
-              else [
-                "hyprland/submap"
-                "custom/wlinhibit"
-                "battery#standalone"
-              ];
+            modules-center = lib.pipe value.bar.modules.center [
+              mkModuleList
+              lib.flatten
+            ];
+
+            modules-right = lib.pipe value.bar.modules.right [
+              mkModuleList
+              lib.reverseList
+              lib.flatten
+            ];
           }
         )
-        config.xfaf.desktop.monitors;
+        (lib.filterAttrs (_: v: v.bar.enable) config.xfaf.desktop.monitors);
     };
   });
 }

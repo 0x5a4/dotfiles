@@ -1,4 +1,8 @@
-{inputs, outputs, ...}: {
+{
+  inputs,
+  outputs,
+  ...
+}: {
   imports = [
     outputs.homeModules.xfaf
     inputs.stylix.homeManagerModules.stylix
@@ -18,6 +22,6 @@
     enable = true;
     makeDefault = true;
   };
-  
+
   home.stateVersion = "24.05";
 }

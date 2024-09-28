@@ -26,12 +26,10 @@
 #clock,
 #user,
 #submap,
-#custom-mako,
 #network,
 #bluetooth,
 #backlight,
 #wireplumber,
-#battery.standalone,
 #custom-wlinhibit,
 #battery {
   color: @green;
@@ -44,8 +42,9 @@
 #workspaces,
 #network,
 #bluetooth,
-#battery.standalone,
+#battery,
 #custom-wlinhibit,
+#backlight,
 #submap {
   border: 1px solid #181825;
   border-radius: 10px;
@@ -54,8 +53,6 @@
 }
 
 /* left rounded */
-#custom-mako,
-#battery,
 #memory {
   border-left: 1px solid #181825;
   border-top: 1px solid #181825;
@@ -65,7 +62,6 @@
 }
 
 /* right rounded */
-#backlight,
 #cpu {
   border-right: 1px solid #181825;
   border-top: 1px solid #181825;
@@ -90,7 +86,6 @@ window#waybar {
 #network,
 #bluetooth,
 #backlight,
-#battery.standalone,
 #custom-wlinhibit,
 #clock {
   background: @background-darker;
@@ -132,7 +127,6 @@ window#waybar {
 
 #memory.high,
 #wireplumber.high,
-#battery.standalone.low,
 #battery.low,
 #cpu.high {
   color: @red;

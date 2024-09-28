@@ -1,4 +1,9 @@
-{pkgs, inputs, outputs, ...}: {
+{
+  pkgs,
+  inputs,
+  outputs,
+  ...
+}: {
   environment.etcBackupExtension = ".bak";
 
   environment.packages = with pkgs; [
@@ -38,7 +43,6 @@
       experimental-features = nix-command flakes
     '';
   };
-
 
   time.timeZone = "Europe/Berlin";
 

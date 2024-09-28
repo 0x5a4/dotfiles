@@ -9,7 +9,7 @@
     makeDefault = lib.mkEnableOption "make neovim the default editor";
     extraLsps = lib.mkOption {
       description = "list of extra lsps to install";
-      type = lib.types.listOf lib.types.package; 
+      type = lib.types.listOf lib.types.package;
       default = [];
     };
   };
@@ -33,34 +33,36 @@
         withPython3 = true;
       };
 
-      home.packages = with pkgs; [
-        # lsps
-        alejandra
-        beautysh
-        black
-        clang-tools
-        clojure-lsp
-        hadolint
-        lua-language-server
-        marksman
-        nil
-        nodePackages.bash-language-server
-        prettierd
-        pyright
-        ruff
-        rust-analyzer
-        taplo
-        texlab
-        vscode-langservers-extracted
-        zls
-        # other stuff
-        ripgrep
-        gcc
-        git # for lazy
-        # for tex preview
-        zathura
-        texliveFull
-      ] ++ opts.extraLsps;
+      home.packages = with pkgs;
+        [
+          # lsps
+          alejandra
+          beautysh
+          black
+          clang-tools
+          clojure-lsp
+          hadolint
+          lua-language-server
+          marksman
+          nil
+          nodePackages.bash-language-server
+          prettierd
+          pyright
+          ruff
+          rust-analyzer
+          taplo
+          texlab
+          vscode-langservers-extracted
+          zls
+          # other stuff
+          ripgrep
+          gcc
+          git # for lazy
+          # for tex preview
+          zathura
+          texliveFull
+        ]
+        ++ opts.extraLsps;
 
       home.file = {
         ".config/nvim" = {

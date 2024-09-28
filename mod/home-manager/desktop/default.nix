@@ -59,7 +59,7 @@
 
           rotate = lib.mkOption {
             description = "rotation of this monitor in degrees";
-            type = t.int;
+            type = t.ints.between 0 360;
             default = 0;
           };
 
@@ -75,12 +75,40 @@
             default = null;
           };
 
-          primary = lib.mkEnableOption "whether this is the primary monitor";
-
           wallpaper = lib.mkOption {
             description = "wallpaper for this monitor";
             type = t.nullOr t.path;
             default = null;
+          };
+
+          bar = let
+            mkModuleOption = name: lib.mkEnableOption "enable the ${name} module";
+
+            moduleOpts = {
+              clock = mkModuleOption "clock";
+              hyprland-workspaces = mkModuleOption "hyprland workspaces";
+              hyprland-submap = mkModuleOption "hyprland submap";
+              system-load = mkModuleOption "system load";
+              battery = mkModuleOption "battery";
+              network = mkModuleOption "network";
+              bluetooth = mkModuleOption "bluetooth";
+              uptime = mkModuleOption "uptime";
+              idle-inhibit = mkModuleOption "idle inhibitor";
+              brightness = mkModuleOption "brightness";
+              volume = mkModuleOption "volume";
+            };
+          in {
+            enable = lib.mkEnableOption "enable a bar on this monitor";
+
+            position = lib.mkOption {
+              description = "position of this bar";
+              type = t.enum ["top" "left" "right" "bottom"];
+              default = "top";
+            };
+
+            modules.left = moduleOpts;
+            modules.center = moduleOpts;
+            modules.right = moduleOpts;
           };
         };
       };
