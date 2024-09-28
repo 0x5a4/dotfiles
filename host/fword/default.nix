@@ -77,6 +77,7 @@
       "oh uff hallo gustavsob" = "GUSTAVSOB";
       LambdaAufDemEFeld = "PHYSIKWLAN";
       "Network_Mr.X" = "NETWORKMRX";
+      "FelixPhone" = "FELIXPHONE";
       eduroam = {
         auth = ''
           key_mgmt=WPA-EAP
