@@ -26,9 +26,16 @@ in {
       xdg-desktop-portal-hyprland
     ];
 
-    services.hyprpaper = {
+    stylix.targets.hyprpaper.enable = lib.mkForce false;
+    services.hyprpaper = let
+      monitorsWithWallpaper = lib.filterAttrs (_: v: v.wallpaper != null) config.xfaf.desktop.monitors;
+    in {
       enable = true;
-      settings.splash = true;
+      settings = {
+        splash = true;
+        preload = lib.unique (lib.mapAttrsToList (_: v: builtins.toString v.wallpaper) monitorsWithWallpaper);
+        wallpaper = lib.mapAttrsToList (name: v: "${name}, ${v.wallpaper}") monitorsWithWallpaper;
+      };
     };
 
     wayland.windowManager.hyprland = {

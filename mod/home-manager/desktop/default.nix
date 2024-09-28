@@ -76,6 +76,12 @@
           };
 
           primary = lib.mkEnableOption "whether this is the primary monitor";
+
+          wallpaper = lib.mkOption {
+            description = "wallpaper for this monitor";
+            type = t.nullOr t.package;
+            default = null;
+          };
         };
       };
     in

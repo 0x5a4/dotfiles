@@ -69,29 +69,24 @@
   xfaf.desktop.swayidle.enable = true;
   xfaf.desktop.waybar.enable = true;
 
-  xfaf.desktop.monitors = {
+  xfaf.desktop.monitors = let
+    externalConfig = {
+      workspaces = [0];
+      defaultWorkspace = 0;
+      wallpaper = config.stylix.image;
+    };
+  in {
     "eDP-1" = {
       scale = 1.175;
       primary = true;
       workspaces = lib.lists.range 1 9;
       defaultWorkspace = 1;
+      wallpaper = config.stylix.image;
     };
-    "DP-1" = {
-      workspaces = [0];
-      defaultWorkspace = 0;
-    };
-    "DP-2" = {
-      workspaces = [0];
-      defaultWorkspace = 0;
-    };
-    "DP-3" = {
-      workspaces = [0];
-      defaultWorkspace = 0;
-    };
-    "DP-4" = {
-      workspaces = [0];
-      defaultWorkspace = 0;
-    };
+    "DP-1" = externalConfig;
+    "DP-2" = externalConfig;
+    "DP-3" = externalConfig;
+    "DP-4" = externalConfig;
   };
 
   home.sessionVariables = {
