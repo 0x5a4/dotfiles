@@ -12,7 +12,9 @@
     opts = config.xfaf.desktop.apps.kitty;
   in
     lib.mkIf opts.enable {
-      xfaf.desktop.terminalCommand = lib.mkIf opts.makeDefault "kitty";
+      xfaf.desktop.terminalCommand =
+        lib.mkIf
+        opts.makeDefault "kitty ${lib.optionalString config.xfaf.tmux.enable "-e tmux"}";
 
       programs.kitty = {
         enable = true;
