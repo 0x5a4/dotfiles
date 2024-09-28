@@ -122,13 +122,14 @@
   };
 
   home.packages = with pkgs; [
-    vesktop
-    spotify
-    prismlauncher
     cargo
+    clippy
+    element-desktop-wayland
+    prismlauncher
     rustc
     rustfmt
-    clippy
+    spotify
+    vesktop
     zig
   ];
 
