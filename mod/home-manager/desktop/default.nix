@@ -79,7 +79,7 @@
 
           wallpaper = lib.mkOption {
             description = "wallpaper for this monitor";
-            type = t.nullOr t.package;
+            type = t.nullOr t.path;
             default = null;
           };
         };
