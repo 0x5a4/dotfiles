@@ -7,7 +7,8 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../locale.nix
+    ../share/locale.nix
+    ../share/wifi.nix
 
     inputs.hardware.nixosModules.framework-13th-gen-intel
     outputs.nixosModules.xfaf
@@ -63,37 +64,6 @@
     };
   };
 
-  xfaf.services.wifi = {
-    enable = true;
-    secretsFile = ../secrets/wifi;
-    networks = {
-      HHUD-Y = "HHUDY";
-      UdoLandenberg = "UDOLANDENBERG";
-      "chaosdorf access" = "CHAOSDORFACCESS";
-      Vodafone-6F04 = "VODAFONE6F04";
-      WLAN-135020 = "WLAN135020";
-      SportfreundeCore = "SPORTFREUNDECORE";
-      Fritzbold = "FRITZBOLD";
-      "oh uff hallo gustavsob" = "GUSTAVSOB";
-      LambdaAufDemEFeld = "PHYSIKWLAN";
-      "Network_Mr.X" = "NETWORKMRX";
-      FelixPhone = "FELIXPHONE";
-      eduroam = {
-        auth = ''
-          key_mgmt=WPA-EAP
-          pairwise=CCMP
-          eap=TTLS
-          password=ext:EDUROAM_PASSWORD
-          altsubject_match="DNS:radius.hhu.de"
-          phase2="auth=PAP"
-          identity="bej86nug@hhu.de"
-          anonymous_identity="eduroam@hhu.de"
-          group=CCMP TKIP
-        '';
-      };
-    };
-  };
-
   xfaf.services.tlp.enable = true;
   services.thermald.enable = true;
 
@@ -104,18 +74,19 @@
 
   hardware.bluetooth.enable = true;
 
-  networking.hostName = "fword";
-
-  environment.variables = {
-    NIXOS_OZONE_WL = 1;
-  };
-
+  # needed for desktop
   programs.hyprland.enable = true;
   xfaf.services.greetd = {
     enable = true;
     defaultUser = "makrele";
     command = "hyprland";
   };
+  
+  environment.variables = {
+    NIXOS_OZONE_WL = 1;
+  };
+
+  networking.hostName = "fword";
 
   system.stateVersion = "23.11";
 }
