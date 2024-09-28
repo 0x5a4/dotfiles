@@ -7,9 +7,11 @@
   options.xfaf.shell.fish.enable = lib.mkEnableOption "install 0x5a4s fish config";
 
   config = lib.mkIf config.xfaf.shell.fish.enable {
-    programs.fzf = {
+    programs.fzf.enable = true;
+
+    programs.direnv = {
       enable = true;
-      enableFishIntegration = true;
+      nix-direnv.enable = true;
     };
 
     home.packages = with pkgs.fishPlugins;
