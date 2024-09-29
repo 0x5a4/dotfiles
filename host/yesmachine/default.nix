@@ -53,7 +53,8 @@
     opts = {
       shell = pkgs.fish;
       extraGroups = ["wheel" "video" "docker"];
-      hashedPasswordFile = config.sops.secrets.yesmachine-makrele.path;
+      # hashedPasswordFile = config.sops.secrets.yesmachine-makrele.path;
+      initialPassword = "test";
     };
     home-manager = {
       enable = false;
