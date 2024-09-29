@@ -53,8 +53,7 @@
     opts = {
       shell = pkgs.fish;
       extraGroups = ["wheel" "video" "docker"];
-      initialPassword = "test";
-      # hashedPasswordFile = config.sops.secrets.yesmachine-makrele.path;
+      hashedPasswordFile = config.sops.secrets.yesmachine-makrele.path;
     };
     home-manager = {
       enable = true;
@@ -64,8 +63,7 @@
 
   xfaf.services.pipewire.enable = true;
 
-  # TODO: make me xfaf.services.ssh.enable
-  services.openssh.enable = true;
+  xfaf.services.ssh.enable = true;
 
   xfaf.services.avahi.enable = true;
 

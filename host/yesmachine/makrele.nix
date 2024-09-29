@@ -11,7 +11,7 @@
 
   xfaf.shell = {
     enableAliases = true;
-    installTools = false;
+    installTools = true;
     fish.enable = true;
     starship.enable = true;
   };
@@ -21,7 +21,7 @@
   xfaf.btop.enable = true;
   xfaf.tmux.enable = false;
   xfaf.neovim = {
-    enable = false;
+    enable = true;
     makeDefault = true;
     extraLsps = [
       pkgs.nodePackages.typescript-language-server
@@ -49,15 +49,15 @@
   };
 
   home.packages = with pkgs; [
-    # cargo
-    # clippy
-    # element-desktop-wayland
-    # prismlauncher
-    # rustc
-    # rustfmt
-    # spotify
-    # vesktop
-    # zig
+    cargo
+    clippy
+    element-desktop-wayland
+    prismlauncher
+    rustc
+    rustfmt
+    spotify
+    vesktop
+    zig
   ];
 
   home.stateVersion = "24.05";

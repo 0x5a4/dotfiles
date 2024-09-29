@@ -64,7 +64,7 @@
                 type = "btrfs";
                 extraArgs = ["-f"];
                 mountpoint = "/mnt/games";
-                mountOptions = ["noatime"];
+                mountOptions = ["noatime" "fmask=0666" "dmask=0777"];
               };
             };
           };
