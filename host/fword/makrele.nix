@@ -110,6 +110,7 @@
           volume = true;
           brightness = true;
           idle-inhibit = true;
+          hyprland-submap = true;
         };
       };
     };
