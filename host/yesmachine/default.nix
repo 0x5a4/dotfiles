@@ -63,7 +63,8 @@
 
   xfaf.services.pipewire.enable = true;
 
-  xfaf.services.ssh.enable = true;
+  services.openssh.enable = true;
+  # xfaf.services.ssh.enable = true;
 
   xfaf.services.avahi.enable = true;
 
