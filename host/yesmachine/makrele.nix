@@ -21,7 +21,7 @@
   xfaf.btop.enable = true;
   xfaf.tmux.enable = true;
   xfaf.neovim = {
-    enable = true;
+    enable = false;
     makeDefault = true;
     extraLsps = [
       pkgs.nodePackages.typescript-language-server
