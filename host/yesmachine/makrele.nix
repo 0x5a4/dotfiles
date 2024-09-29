@@ -19,7 +19,7 @@
   xfaf.git.enable = true;
   xfaf.ssh.enable = true;
   xfaf.btop.enable = true;
-  xfaf.tmux.enable = false;
+  xfaf.tmux.enable = true;
   xfaf.neovim = {
     enable = true;
     makeDefault = true;
@@ -42,6 +42,69 @@
     };
 
     opacity.terminal = 0.94;
+  };
+
+  xfaf.desktop.apps = {
+    firefox = {
+      enable = true;
+      makeDefault = true;
+    };
+    kitty = {
+      enable = true;
+      makeDefault = true;
+      openTmux = true;
+    };
+    rofi = {
+      enable = true;
+      makeDefault = true;
+    };
+  };
+
+  xfaf.desktop.hyprland = {
+    enable = true;
+    cursor_warps = true;
+  };
+
+  xfaf.desktop.wob.enable = true;
+  xfaf.desktop.batsignal.enable = true;
+  xfaf.desktop.mako.enable = true;
+  xfaf.desktop.swayidle.enable = true;
+  xfaf.desktop.waybar.enable = true;
+
+  xfaf.desktop.monitors = {
+    HDMI-A-1 = {
+      workspaces = lib.lists.range 1 5;
+      defaultWorkspace = 1;
+      wallpaper = config.stylix.image;
+      bar = {
+        enable = true;
+        modules.left = {
+          clock = true;
+        };
+        modules.right = {
+          uptime = true;
+          volume = true;
+          idle-inhibit = true;
+        };
+      };
+    };
+    DP-1 = {
+      workspaces = lib.lists.range 6 10;
+      defaultWorkspace = 6;
+      wallpaper = config.stylix.image;
+      bar = {
+        enable = true;
+        modules.left = {
+          system-load = true;
+          network = true;
+        };
+        modules.right = {
+          clock = true;
+          hyprland-workspaces = true;
+          hyprland-submap = true;
+        };
+      };
+    };
   };
 
   home.sessionVariables = {

@@ -53,21 +53,29 @@
     opts = {
       shell = pkgs.fish;
       extraGroups = ["wheel" "video" "docker"];
-      # hashedPasswordFile = config.sops.secrets.yesmachine-makrele.path;
-      initialPassword = "test";
+      hashedPasswordFile = config.sops.secrets.yesmachine-makrele.path;
     };
     home-manager = {
-      enable = false;
+      enable = true;
       config = ./makrele.nix;
     };
   };
 
   xfaf.services.pipewire.enable = true;
 
-  services.openssh.enable = true;
-  # xfaf.services.ssh.enable = true;
+  xfaf.services.ssh.enable = true;
 
   xfaf.services.avahi.enable = true;
+
+  # needed for desktop
+  programs.hyprland.enable = true;
+  xfaf.services.greetd = {
+    enable = true;
+    defaultUser = "makrele";
+    command = "hyprland";
+  };
+
+  programs.steam.enable = true;
 
   environment.variables = {
     NIXOS_OZONE_WL = 1;
