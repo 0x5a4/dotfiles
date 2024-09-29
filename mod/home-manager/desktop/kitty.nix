@@ -6,6 +6,7 @@
   options.xfaf.desktop.apps.kitty = {
     enable = lib.mkEnableOption "install 0x5a4s kitty config";
     makeDefault = lib.mkEnableOption "make kitty the default terminal";
+    openTmux = lib.mkEnableOption "open tmux by default if kitty is run";
   };
 
   config = let
@@ -14,7 +15,7 @@
     lib.mkIf opts.enable {
       xfaf.desktop.terminalCommand =
         lib.mkIf
-        opts.makeDefault "kitty ${lib.optionalString config.xfaf.tmux.enable "-e tmux"}";
+        opts.makeDefault "kitty ${lib.optionalString opts.openTmux "-e tmux"}";
 
       programs.kitty = {
         enable = true;

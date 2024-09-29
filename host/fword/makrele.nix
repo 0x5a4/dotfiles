@@ -52,6 +52,7 @@
     kitty = {
       enable = true;
       makeDefault = true;
+      openTmux = true;
     };
     rofi = {
       enable = true;
