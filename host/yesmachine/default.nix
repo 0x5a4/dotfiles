@@ -56,7 +56,7 @@
       hashedPasswordFile = config.sops.secrets.yesmachine-makrele.path;
     };
     home-manager = {
-      enable = true;
+      enable = false;
       config = ./makrele.nix;
     };
   };
