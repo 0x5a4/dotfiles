@@ -11,7 +11,7 @@
 
   xfaf.shell = {
     enableAliases = true;
-    installTools = true;
+    installTools = false;
     fish.enable = true;
     starship.enable = true;
   };
@@ -19,7 +19,7 @@
   xfaf.git.enable = true;
   xfaf.ssh.enable = true;
   xfaf.btop.enable = true;
-  xfaf.tmux.enable = true;
+  xfaf.tmux.enable = false;
   xfaf.neovim = {
     enable = false;
     makeDefault = true;
@@ -49,15 +49,15 @@
   };
 
   home.packages = with pkgs; [
-    cargo
-    clippy
-    element-desktop-wayland
-    prismlauncher
-    rustc
-    rustfmt
-    spotify
-    vesktop
-    zig
+    # cargo
+    # clippy
+    # element-desktop-wayland
+    # prismlauncher
+    # rustc
+    # rustfmt
+    # spotify
+    # vesktop
+    # zig
   ];
 
   home.stateVersion = "24.05";
