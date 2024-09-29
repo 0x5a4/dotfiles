@@ -79,7 +79,7 @@
     nixosModules.xfaf = import ./mod/nixos;
     homeModules.xfaf = import ./mod/home-manager;
 
-    nixosConfigurations = genSystems ["fword"];
+    nixosConfigurations = genSystems ["fword" "yesmachine"];
 
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
       modules = [./host/droid];
