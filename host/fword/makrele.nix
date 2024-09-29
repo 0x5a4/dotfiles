@@ -127,7 +127,7 @@
   home.packages = with pkgs; [
     cargo
     clippy
-    element-desktop-wayland
+    element-desktop
     prismlauncher
     rustc
     rustfmt
