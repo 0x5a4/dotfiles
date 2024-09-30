@@ -52,6 +52,8 @@
               "https://github.com"
               "https://disneyplus.com"
               "https://hhu.de"
+              "https://inphima.de"
+              "https://hhu-fscs.de"
             ];
             "Behaviour" = "reject";
           };
@@ -73,14 +75,11 @@
           };
 
           bookmarks = let
-            define = url: {
-              name = "";
-              url = "https://${url}";
-            };
             defineNamed = name: url: {
               name = name;
               url = "https://${url}";
             };
+            define = url: defineNamed "" url;
             folder = name: bookmarks: {
               name = name;
               bookmarks = bookmarks;
