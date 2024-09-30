@@ -79,8 +79,9 @@
           "workspace ${shadowRealm} silent,^Chromium-browser-chromium$"
           "workspace ${shadowRealm} silent,^[gG]oogle-chrome$"
 
-          # Discord
+          # Communication
           "workspace ${discordWorkspace},^(discord|WebCord|vesktop)$"
+          "workspace ${discordWorkspace},^Element$"
 
           # Spotify
           "workspace ${spotifyWorkspace} silent,^(Spotify)$"
