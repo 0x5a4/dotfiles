@@ -34,6 +34,7 @@
         package = pkgs.monocraft;
         name = "Monocraft Nerd Font Complete";
       };
+      sizes.terminal = 10;
     };
 
     cursor = {
@@ -60,10 +61,7 @@
     };
   };
 
-  xfaf.desktop.hyprland = {
-    enable = true;
-    cursor_warps = true;
-  };
+  xfaf.desktop.hyprland.enable = true;
 
   xfaf.desktop.wob.enable = true;
   xfaf.desktop.batsignal.enable = true;
