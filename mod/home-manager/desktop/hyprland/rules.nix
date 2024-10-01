@@ -94,6 +94,7 @@
             "com.mojang.minecraft"
             "hl_linux"
             "org.libretro.RetroArch"
+            "^GT: New Horizons [0-9].[0-9](\.[0-9])?"
           ]
           ++ cfg.extraGameClasses);
 
