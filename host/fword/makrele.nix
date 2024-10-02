@@ -34,6 +34,16 @@
         package = pkgs.monocraft;
         name = "Monocraft Nerd Font Complete";
       };
+
+      sansSerif = {
+        package = pkgs.noto-fonts; 
+        name = "Noto Sans";
+      };
+      
+      serif = {
+        package = pkgs.noto-fonts; 
+        name = "Noto Serif";
+      };
     };
 
     cursor = {
