@@ -463,7 +463,8 @@
         "nixpkgs": "nixpkgs_2",
         "nur": "nur",
         "sops": "sops",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "templates": "templates"
       }
     },
     "scss-reset": {
@@ -547,6 +548,21 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "templates": {
+      "locked": {
+        "lastModified": 1725249436,
+        "narHash": "sha256-qqKaxlPv+6Fyj+NUuOLPOlD82caqDkmpw63qOQkIzzc=",
+        "owner": "nixos",
+        "repo": "templates",
+        "rev": "ad0e221dda33c4b564fad976281130ce34a20cb9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "templates",
         "type": "github"
       }
     },

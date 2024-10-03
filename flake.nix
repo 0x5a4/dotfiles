@@ -40,6 +40,9 @@
     };
 
     betterfox.url = "github:HeitorAugustoLN/betterfox-nix";
+
+    # for nix flake init
+    templates.url = "github:nixos/templates";
   };
 
   outputs = {
