@@ -44,7 +44,6 @@
         lib.attrsets.filterAttrs (_: value: value.home-manager.enable) opts;
     in {
       useGlobalPkgs = true;
-      useUserPackages = true;
       extraSpecialArgs = {inherit inputs outputs;};
       users =
         lib.attrsets.mapAttrs (
