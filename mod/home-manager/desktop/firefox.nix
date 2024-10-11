@@ -69,6 +69,8 @@
         };
 
         profiles.main = {
+          id = 0;
+
           betterfox = {
             enable = true;
             enableAllSections = true;
@@ -189,6 +191,8 @@
             "browser.translations.automaticallyPopup" = false;
           };
         };
+
+        profiles.empty.id = 1;
       };
     };
 }
