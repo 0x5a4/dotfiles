@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   inputs,
   outputs,
   ...
@@ -37,11 +38,18 @@
 
   terminal.font = "${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/NotoMonoNerdFontMono-Regular.ttf";
 
-  nix = {
+  nix = let
+    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+  in {
     package = pkgs.nixVersions.latest;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+    registry =
+      (lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs)
+      // {
+        np.flake = flakeInputs.nixpkgs;
+      };
   };
 
   time.timeZone = "Europe/Berlin";
