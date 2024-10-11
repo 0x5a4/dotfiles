@@ -7,7 +7,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../share/locale.nix
+    ../share/common.nix
     ../share/wifi.nix
 
     inputs.hardware.nixosModules.framework-13th-gen-intel
@@ -16,16 +16,6 @@
 
   sops.age.keyFile = "/home/makrele/.config/sops/age/keys.txt";
 
-  stylix.enable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
-  stylix.image = pkgs.fetchurl {
-    url = "https://pbs.twimg.com/media/EDyxVvoXsAAE9Zg.png";
-    sha256 = "sha256-NRfish27NVTJtJ7+eEWPOhUBe8vGtuTw+Osj5AVgOmM=";
-  };
-
-  boot.plymouth.enable = true;
-  xfaf.bootconfig.enable = true;
-  xfaf.nixconfig.enable = true;
   xfaf.nixconfig.allowUnfree = true;
 
   sops.secrets = {
@@ -41,15 +31,10 @@
     };
   };
 
-  programs.fish.enable = true;
-  users = {
-    defaultUserShell = pkgs.fish;
-    mutableUsers = false;
-    users.root = {
-      isSystemUser = true;
-      hashedPasswordFile = config.sops.secrets.fword-root.path;
-      uid = 0;
-    };
+  users.users.root = {
+    isSystemUser = true;
+    hashedPasswordFile = config.sops.secrets.fword-root.path;
+    uid = 0;
   };
 
   xfaf.users.makrele = {
@@ -80,10 +65,6 @@
     enable = true;
     defaultUser = "makrele";
     command = "hyprland";
-  };
-  
-  environment.variables = {
-    NIXOS_OZONE_WL = 1;
   };
 
   networking.hostName = "fword";
