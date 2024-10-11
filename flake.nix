@@ -107,5 +107,7 @@
         ];
       };
     });
+
+    checks = self.packages;
   };
 }

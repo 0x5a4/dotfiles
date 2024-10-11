@@ -1,4 +1,4 @@
-name: "Test"
+name: "flake check"
 on:
   pull_request:
   push:
@@ -12,10 +12,4 @@ jobs:
           path: |
             /nix/store
       - uses: nixbuild/nix-quick-install-action@v28
-      # - run: nix flake check
-      - run: nix flake show --json |
-          jq  '.packages."x86_64-linux"|keys[]' |
-          xargs -I {} nix build .#{}
-      # - run: nix flake show --json |
-      #     jq  '.nixosConfigurations|keys[]' |
-      #     xargs -I {} nix develop -c nixos-rebuild build --flake .#{}
+      - run: nix flake check
