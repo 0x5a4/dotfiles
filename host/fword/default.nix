@@ -64,7 +64,7 @@
   xfaf.services.greetd = {
     enable = true;
     defaultUser = "makrele";
-    command = "hyprland";
+    command = "Hyprland";
   };
 
   networking.hostName = "fword";

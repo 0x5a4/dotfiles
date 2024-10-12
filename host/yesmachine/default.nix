@@ -57,7 +57,7 @@
   xfaf.services.greetd = {
     enable = true;
     defaultUser = "makrele";
-    command = "hyprland";
+    command = "Hyprland";
   };
 
   programs.steam.enable = true;
