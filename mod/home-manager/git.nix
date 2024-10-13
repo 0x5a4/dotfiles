@@ -14,7 +14,7 @@
     programs.git = {
       enable = true;
 
-      userName = "1444";
+      userName = "0x5a4";
       userEmail = "54070204+0x5a4@users.noreply.github.com";
 
       lfs.enable = true;
