@@ -115,6 +115,8 @@
                   (defineNamed "inphima nextcloud" "nextcloud.inphima.de")
                   (defineNamed "mete" "metesecure.hhu-fscs.de")
                   (defineNamed "tickets" "tickets.astahhu.de/mailbox/4")
+                  (defineNamed "propra2" "github.com/hhu-propra2-ws24/Organisation")
+                  (defineNamed "sysprog" "coconucos.cs.uni-duesseldorf.de/lehre/home/lectures/bsusp/overview/")
                 ])
                 (folder "doc" [
                   (defineNamed "lua 5.4 reference" "www.lua.org/manual/5.4")
