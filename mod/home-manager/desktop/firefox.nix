@@ -49,7 +49,6 @@
             "Allow" = [
               "https://youtube.com"
               "https://github.com"
-              "https://github.com"
               "https://disneyplus.com"
               "https://hhu.de"
               "https://inphima.de"
