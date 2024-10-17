@@ -25,7 +25,10 @@
   in {
     nixpkgs = {
       overlays = let
-        myOverlays = builtins.attrValues outputs.overlays;
+        myOverlays =
+          if (outputs ? "overlays")
+          then (builtins.attrValues outputs.overlays)
+          else [];
       in
         myOverlays
         ++ [
