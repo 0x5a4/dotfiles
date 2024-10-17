@@ -16,7 +16,12 @@
     starship.enable = true;
   };
 
-  xfaf.git.enable = true;
+  xfaf.git = {
+    enable = true;
+    userName = "0x5a4";
+    userEmail = "54070204+0x5a4@users.noreply.github.com";
+  };
+
   xfaf.ssh.enable = true;
   xfaf.btop.enable = true;
   xfaf.tmux.enable = true;
@@ -36,12 +41,12 @@
       };
 
       sansSerif = {
-        package = pkgs.noto-fonts; 
+        package = pkgs.noto-fonts;
         name = "Noto Sans";
       };
-      
+
       serif = {
-        package = pkgs.noto-fonts; 
+        package = pkgs.noto-fonts;
         name = "Noto Serif";
       };
     };

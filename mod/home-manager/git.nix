@@ -4,7 +4,17 @@
   pkgs,
   ...
 }: {
-  options.xfaf.git.enable = lib.mkEnableOption "install 0x5a4s git config";
+  options.xfaf.git = {
+    userName = lib.mkOption {
+      description = "git user name";
+      type = lib.types.str;
+    };
+    userEmail = lib.mkOption {
+      description = "git user email";
+      type = lib.types.str;
+    };
+    enable = lib.mkEnableOption "install 0x5a4s git config";
+  };
 
   config = lib.mkIf config.xfaf.git.enable {
     home.packages = [
@@ -12,10 +22,9 @@
     ];
 
     programs.git = {
+      inherit (config.xfaf.git) userName userEmail;
+      
       enable = true;
-
-      userName = "0x5a4";
-      userEmail = "54070204+0x5a4@users.noreply.github.com";
 
       lfs.enable = true;
 
