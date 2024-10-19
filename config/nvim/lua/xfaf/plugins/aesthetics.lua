@@ -102,15 +102,11 @@ return {
     },
     {
         "j-hui/fidget.nvim",
-        config = true,
-        tag = "legacy",
-        event = "LspAttach",
-    },
-    {
-        "rcarriga/nvim-notify",
-        config = function()
-            vim.notify = require("notify")
-        end
+        config = {
+            notification = {
+                override_vim_notify = true,
+            },
+        },
     },
     {
         "Aasim-A/scrollEOF.nvim",

@@ -50,22 +50,22 @@ return {
                             end
                         end
 
-                        vim.notify("Running '" .. builder .. "'")
+                        vim.notify("Running '" .. builder .. "'", vim.log.levels.INFO)
                         vim.cmd("!" .. builder)
 
                         if #executables == 1 then
-                            vim.notify("Debugging " .. executables[1])
+                            vim.notify("Debugging " .. executables[1], vim.log.levels.INFO)
                             coroutine.resume(run, vim.fs.joinpath(root, executables[1]))
                         elseif #executables > 1 then
                             vim.ui.select(executables, { prompt = "Select executable" }, function(choice)
                                 if not choice then
                                     coroutine.resume(run, dap.ABORT)
                                 end
-                                vim.notify("Debugging " .. choice)
+                                vim.notify("Debugging " .. choice, vim.log.levels.INFO)
                                 coroutine.resume(run, vim.fs.joinpath(root, choice))
                             end)
                         else
-                            vim.notify("No executables found in search paths (root was '" .. root .. "')")
+                            vim.notify("No executables found in search paths (root was '" .. root .. "')", vim.log.levels.WARN)
                             coroutine.resume(run, dap.ABORT)
                         end
                     end)
