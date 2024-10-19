@@ -81,9 +81,6 @@ return {
                 },
             })
 
-            -- Java
-            lspconfig.jdtls.setup({})
-
             -- Javascript/Typescript
             lspconfig.ts_ls.setup({})
 
@@ -112,9 +109,6 @@ return {
 
             -- Python
             lspconfig.pyright.setup({})
-
-            -- Rust
-            lspconfig.rust_analyzer.setup({})
 
             -- Zig
             lspconfig.zls.setup({})

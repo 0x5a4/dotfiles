@@ -147,6 +147,7 @@
     rustc
     rustfmt
     spotify
+    thunderbird
     vesktop
     zig
   ];

@@ -42,6 +42,7 @@
           clang-tools
           clojure-lsp
           hadolint
+          jdt-language-server
           lua-language-server
           marksman
           nil
@@ -52,17 +53,23 @@
           rust-analyzer
           taplo
           texlab
+          vscode-extensions.vadimcn.vscode-lldb.adapter
+          vscode-extensions.vscjava.vscode-java-debug
           vscode-langservers-extracted
           zls
           # other stuff
-          ripgrep
           gcc
           git # for lazy
+          ripgrep
           # for tex preview
           zathura
           texliveFull
         ]
         ++ opts.extraLsps;
+
+      home.sessionVariables = {
+        JAVA_DEBUG = "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/";
+      };
 
       home.file = {
         ".config/nvim" = {

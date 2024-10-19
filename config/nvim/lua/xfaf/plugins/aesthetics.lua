@@ -40,7 +40,11 @@ return {
 
     {
         "stevearc/dressing.nvim",
-        config = true,
+        config = {
+            input = {
+                relative = "editor",
+            },
+        },
         event = "VeryLazy"
     },
     {

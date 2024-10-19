@@ -151,3 +151,13 @@ Summon a duck                            | <leader>fd
 Catch the duck                           | <leader>fc
 Dispense Master Oogway Quote             | :Oogway
 Activate Zen mode                        | <leader>oz
+
+## debug
+Toggle Breakpoint                        | <leader>db
+Start/Continue debugging                 | <F5>
+Step into function call                  | <F6>
+Step over function call                  | <F7>
+Step out of function                     | <F8>
+Step back                                | <F9>
+Stop debugger                            | <F10>
+Restart debugger                         | <F12>
