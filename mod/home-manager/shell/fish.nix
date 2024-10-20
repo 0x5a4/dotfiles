@@ -9,11 +9,6 @@
   config = lib.mkIf config.xfaf.shell.fish.enable {
     programs.fzf.enable = true;
 
-    programs.direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-
     home.packages = with pkgs.fishPlugins;
       [
         autopair

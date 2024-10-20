@@ -8,6 +8,7 @@
     ./starship.nix
     ./fish.nix
     ./tmux.nix
+    ./direnv.nix
   ];
 
   options.xfaf.shell = {

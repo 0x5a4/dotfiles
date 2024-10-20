@@ -14,6 +14,7 @@
     installTools = true;
     fish.enable = true;
     starship.enable = true;
+    direnv.enable = true;
   };
 
   xfaf.git = {
