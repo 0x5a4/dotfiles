@@ -17,12 +17,10 @@
 
   sops.secrets = {
     yesmachine-root = {
-      format = "yaml";
       sopsFile = ../secrets/users.yaml;
       neededForUsers = true;
     };
     yesmachine-makrele = {
-      format = "yaml";
       sopsFile = ../secrets/users.yaml;
       neededForUsers = true;
     };

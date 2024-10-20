@@ -20,12 +20,10 @@
 
   sops.secrets = {
     fword-root = {
-      format = "yaml";
       sopsFile = ../secrets/users.yaml;
       neededForUsers = true;
     };
     fword-makrele = {
-      format = "yaml";
       sopsFile = ../secrets/users.yaml;
       neededForUsers = true;
     };

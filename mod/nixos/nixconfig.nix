@@ -13,11 +13,16 @@
   options.xfaf.nixconfig = {
     enable = lib.mkOption {
       description = "auto configure nix";
-      type = lib.type.bool;
+      type = lib.types.bool;
       default = true;
     };
     allowUnfree = lib.mkEnableOption "allow unfree packages";
     enableChannels = lib.mkEnableOption "enable channels";
+    extraNixConfFile = lib.mkOption {
+      description = "path to file to include in nix.conf";
+      type = lib.types.nullOr lib.types.path;
+      default = null;
+    };
   };
 
   config = let
@@ -46,7 +51,14 @@
         experimental-features = "nix-command flakes cgroups auto-allocate-uids";
         flake-registry = "";
         nix-path = config.nix.nixPath;
+        auto-allocate-uids = true;
+        use-cgroups = true;
       };
+      extraOptions =
+        lib.optionalString
+        (opts.extraNixConfFile != null)
+        "!include ${opts.extraNixConfFile}";
+
       channel.enable = opts.enableChannels;
 
       registry =
