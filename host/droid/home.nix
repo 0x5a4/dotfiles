@@ -15,7 +15,12 @@
     starship.enable = true;
   };
 
-  xfaf.git.enable = true;
+  xfaf.git = {
+    enable = true;
+    userName = "0x5a4";
+    userEmail = "54070204+0x5a4@users.noreply.github.com";
+  };
+
   xfaf.ssh.enable = true;
   xfaf.btop.enable = true;
   xfaf.neovim = {
