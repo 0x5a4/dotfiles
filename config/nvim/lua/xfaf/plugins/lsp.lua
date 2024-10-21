@@ -104,6 +104,9 @@ return {
                 },
             })
 
+            -- Rust
+            lspconfig.rust_analyzer.setup({})
+
             -- Nix
             lspconfig.nil_ls.setup({})
 
