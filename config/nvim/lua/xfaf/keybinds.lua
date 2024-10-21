@@ -45,9 +45,6 @@ noremap("L", "$")
 -- h.nnoremap("<leader>b", "<cmd>UGDBBreakpoint<CR>")
 
 -- Text Manipulation
-nnoremap("X", "d")
-nnoremap("XX", "dd")
-xnoremap("X", "d")
 nnoremap("+", "~")
 nnoremap("Q", "@") --@ sucks
 nnoremap("<leader>p", '"+p')

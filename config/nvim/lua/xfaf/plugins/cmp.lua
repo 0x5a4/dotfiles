@@ -10,14 +10,9 @@ return {
             { "hrsh7th/cmp-buffer" },
             { "hrsh7th/cmp-cmdline" },
             { "saadparwaiz1/cmp_luasnip" },
-            {
-                "petertriho/cmp-git",
-                opts = {}
-            },
         },
         config = function()
             local cmp = require("cmp")
-            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
             local luasnip = require("luasnip")
 
             cmp.setup {
@@ -89,8 +84,6 @@ return {
                     { name = "path" },
                     { name = "crates" },
                     { name = "nvim_lua" },
-                    { name = "git" },
-                    { name = "neorg" },
                 }),
             }
 

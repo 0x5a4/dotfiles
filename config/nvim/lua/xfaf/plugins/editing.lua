@@ -1,7 +1,20 @@
 return {
-    "wellle/targets.vim",
-    "tpope/vim-surround",
-    "svermeulen/vim-cutlass",
+    {
+        "wellle/targets.vim",
+        event = "VeryLazy",
+    },
+    {
+        "kylechui/nvim-surround",
+        event = "VeryLazy",
+        config = true,
+    },
+    {
+        "gbprod/cutlass.nvim",
+        event = "VeryLazy",
+        opts = {
+            cut_key = "x",
+        },
+    },
     {
         "tpope/vim-commentary",
         keys = { { "gc", nil, mode = { "n", "x", "o" } } }
@@ -80,6 +93,7 @@ return {
     },
     {
         "m4xshen/smartcolumn.nvim",
+        event = "VeryLazy",
         opts = {
             colorcolumn = "100",
             scope = "window",

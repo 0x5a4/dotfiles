@@ -9,7 +9,6 @@ return {
     },
     {
         "nvim-lualine/lualine.nvim",
-        event = "VeryLazy",
         opts = {
             sections = {
                 lualine_a = { 'mode' },
@@ -40,21 +39,22 @@ return {
 
     {
         "stevearc/dressing.nvim",
+        event = "VeryLazy",
         config = {
             input = {
                 relative = "editor",
             },
         },
-        event = "VeryLazy"
     },
     {
         "h-hg/numbers.nvim",
+        event = "VeryLazy",
         config = true
     },
     {
         "kyazdani42/nvim-web-devicons",
+        lazy = true,
         config = true,
-        event = "VeryLazy"
     },
     {
         "eandrju/cellular-automaton.nvim",
@@ -102,14 +102,17 @@ return {
     },
     {
         "j-hui/fidget.nvim",
-        config = {
-            notification = {
-                override_vim_notify = true,
-            },
-        },
+        config = true,
+        event = "LspAttach",
+        init = function ()
+            vim.notify = function (msg, level, opts)
+                require("fidget").notify(msg, level, opts)
+            end
+        end
     },
     {
         "Aasim-A/scrollEOF.nvim",
+        event = "VeryLazy",
         opts = {
             insert_mode = true,
         },
