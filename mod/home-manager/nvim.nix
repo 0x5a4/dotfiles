@@ -61,9 +61,7 @@
           gcc
           git # for lazy
           ripgrep
-          # for tex preview
-          zathura
-          texliveFull
+          zathura # for tex preview
         ]
         ++ opts.extraLsps;
 
