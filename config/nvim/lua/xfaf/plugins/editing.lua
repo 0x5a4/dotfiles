@@ -13,6 +13,7 @@ return {
         event = "VeryLazy",
         opts = {
             cut_key = "x",
+            exclude = { "nx" },
         },
     },
     {
