@@ -1,11 +1,15 @@
 return {
     {
-        "Mofiqul/dracula.nvim",
-        lazy = false,
+        "folke/tokyonight.nvim",
         priority = 1000,
+        opts = {
+            style = "night",
+            transparent = true,
+        },
         config = function()
-            vim.cmd([[colorscheme dracula]])
+            vim.cmd([[colorscheme tokyonight-night]])
         end,
+        lazy = false,
     },
     {
         "nvim-lualine/lualine.nvim",
@@ -32,7 +36,7 @@ return {
             },
             options = {
                 globalstatus = true,
-                theme = 'dracula-nvim'
+                theme = 'tokyonight'
             }
         },
     },
@@ -104,8 +108,8 @@ return {
         "j-hui/fidget.nvim",
         config = true,
         event = "LspAttach",
-        init = function ()
-            vim.notify = function (msg, level, opts)
+        init = function()
+            vim.notify = function(msg, level, opts)
                 require("fidget").notify(msg, level, opts)
             end
         end
