@@ -62,16 +62,18 @@
         commit.gpgSign = true;
         rebase.autoStash = true;
         rebase.abbreviateCommands = true;
+        rerere.enabled = true;
+        branch.sort = "-committerdate";
       };
 
       aliases = {
         exec = "!exec ";
         make = "!exec make ";
-        whoops = "commit --amend --no-edit";
         fuckup = "reset --soft HEAD~1";
         root = "rev-parse --show-toplevel";
         lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
         fpush = "push --force-with-lease";
+        smartblame = "blame -w -CCC";
       };
     };
 
