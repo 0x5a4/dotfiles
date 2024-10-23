@@ -7,7 +7,6 @@ return {
             "nvim-telescope/telescope-symbols.nvim",
         },
         cmd = "Telescope",
-        tag = "0.1.4",
         keys = {
             { "<leader>ts", "<cmd>Telescope lsp_document_symbols<CR>" },
             { "<leader>te", "<cmd>Telescope diagnostics<CR>" },
