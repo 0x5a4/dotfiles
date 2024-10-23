@@ -45,7 +45,7 @@
           jdt-language-server
           lua-language-server
           marksman
-          nil
+          nixd
           nodePackages.bash-language-server
           prettierd
           pyright

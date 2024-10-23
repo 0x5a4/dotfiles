@@ -15,9 +15,6 @@ return {
                     diagnostics.hadolint,
                     -- Fish
                     diagnostics.fish,
-                    -- Nix
-                    code_actions.statix,
-                    formatting.alejandra,
                     -- Python
                     formatting.black,
                     -- All of that Web dev shit (also markdown)
@@ -108,7 +105,23 @@ return {
             lspconfig.rust_analyzer.setup({})
 
             -- Nix
-            lspconfig.nil_ls.setup({})
+            lspconfig.nixd.setup({
+                settings = {
+                    nixd = {
+                        nixpkgs = {
+                            expr = "import <nixpkgs> { }",
+                        },
+                        formatting = {
+                            command = "alejandra",
+                        },
+                        options = {
+                          nixos = {
+                              expr = '(builtins.getFlake "self").nixosConfigurations.fword.options',
+                          },
+                        },
+                    },
+                },
+            })
 
             -- Python
             lspconfig.pyright.setup({})
