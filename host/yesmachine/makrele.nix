@@ -127,15 +127,10 @@
   };
 
   home.packages = with pkgs; [
-    cargo
-    clippy
     element-desktop
     prismlauncher
-    rustc
-    rustfmt
     spotify
     vesktop
-    zig
   ];
 
   home.stateVersion = "24.05";
