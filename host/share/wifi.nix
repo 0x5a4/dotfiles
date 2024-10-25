@@ -14,6 +14,7 @@
       LambdaAufDemEFeld = "PHYSIKWLAN";
       "Network_Mr.X" = "NETWORKMRX";
       FelixPhone = "FELIXPHONE";
+      "bUm gast" = "BUMGAST";
       eduroam = {
         auth = ''
           key_mgmt=WPA-EAP
