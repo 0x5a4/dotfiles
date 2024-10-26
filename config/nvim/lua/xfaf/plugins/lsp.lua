@@ -106,18 +106,19 @@ return {
 
             -- Nix
             lspconfig.nixd.setup({
+                cmd = { "nixd" },
                 settings = {
                     nixd = {
                         nixpkgs = {
                             expr = "import <nixpkgs> { }",
                         },
                         formatting = {
-                            command = "alejandra",
+                            command = { "alejandra" },
                         },
                         options = {
-                          nixos = {
-                              expr = '(builtins.getFlake "self").nixosConfigurations.fword.options',
-                          },
+                            nixos = {
+                                expr = '(builtins.getFlake "self").nixosConfigurations.fword.options',
+                            },
                         },
                     },
                 },
