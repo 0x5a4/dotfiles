@@ -6,6 +6,7 @@
   sops.secrets.nix-conf = {
     sopsFile = ../secrets/nix-conf;
     format = "binary";
+    mode = "0444";
   };
 
   boot.plymouth.enable = true;
