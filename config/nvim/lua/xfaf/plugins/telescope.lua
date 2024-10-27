@@ -19,23 +19,24 @@ return {
             { "gi",         "<cmd>Telescope lsp_incoming_calls<CR>" },
             { "gd",         "<cmd>Telescope lsp_definitions<CR>" },
             {
-                "<C-M-p>",
+                "<C-p>",
                 "",
                 callback = function()
                     require("telescope.builtin").find_files({
-                        hidden = true,
-                        no_ignore = true,
-                        no_parent_ignore = true,
+                        cwd = vim.fs.root(0, '.git'),
                     })
                 end
             },
             {
-                "<C-p>",
+                "<C-M-p>",
                 "",
-                noremap = true,
                 callback = function()
-                    local ok = pcall(require("telescope.builtin").git_files, {})
-                    if not ok then require("telescope.builtin").find_files({}) end
+                    require("telescope.builtin").find_files({
+                        cwd = vim.fs.root(0, '.git'),
+                        hidden = true,
+                        no_ignore = true,
+                        no_ignore_parent = true,
+                    })
                 end
             },
         },
