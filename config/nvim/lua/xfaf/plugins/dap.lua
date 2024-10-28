@@ -135,7 +135,7 @@ return {
     {
         "theHamsta/nvim-dap-virtual-text",
         lazy = true,
-        config = {
+        opts = {
             display_callback = function(variable)
                 local name = string.lower(variable.name)
                 local value = string.lower(variable.value)
