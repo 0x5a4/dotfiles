@@ -5,6 +5,7 @@ return {
             "nvim-lua/plenary.nvim",
             "crispgm/telescope-heading.nvim",
             "nvim-telescope/telescope-symbols.nvim",
+            "nvim-telescope/telescope-fzy-native.nvim",
         },
         cmd = "Telescope",
         keys = {
@@ -70,6 +71,7 @@ return {
             local telescope = require("telescope")
 
             telescope.load_extension("heading")
+            telescope.load_extension("fzy_native")
 
             telescope.setup(opts)
         end,
