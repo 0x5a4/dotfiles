@@ -16,6 +16,8 @@
     extraNixConfFile = config.sops.secrets.nix-conf.path;
   };
 
+  xfaf.sudo.enable = true;
+
   stylix.enable = true;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
   stylix.image = pkgs.fetchurl {

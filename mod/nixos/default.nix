@@ -4,6 +4,7 @@
     ./bootconfig.nix
     ./nixconfig.nix
     ./users.nix
+    ./sudo.nix
 
     inputs.home-manager.nixosModules.home-manager
     inputs.sops.nixosModules.sops
