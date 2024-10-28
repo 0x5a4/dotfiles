@@ -13,16 +13,17 @@ if not vim.loop.fs_stat(lazypath) then
         lazypath,
     })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     spec = "xfaf.plugins",
     ui = {
         border = "rounded",
-        backdrop = 100
+        backdrop = 100,
     },
     install = {
-        colorscheme = { "dracula" },
+        colorscheme = { "tokyonight-night" },
     },
     dev = {
         path = "~/src",
@@ -30,5 +31,5 @@ require("lazy").setup({
     },
     change_detection = {
         notify = false,
-    }
+    },
 })

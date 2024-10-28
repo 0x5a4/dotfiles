@@ -4,14 +4,14 @@ return {
         lazy = false,
         cmd = "Oil",
         keys = {
-            { "-", "<cmd>Oil<CR>" }
+            { "-", "<cmd>Oil<CR>" },
         },
         opts = {
             columns = {
                 "icon",
                 "size",
             },
-        }
+        },
     },
     {
         "chrisgrieser/nvim-spider",
@@ -20,12 +20,12 @@ return {
             { "e",  "<cmd>lua require('spider').motion('e')<CR>",  mode = { "n", "o", "x" } },
             { "b",  "<cmd>lua require('spider').motion('b')<CR>",  mode = { "n", "o", "x" } },
             { "ge", "<cmd>lua require('spider').motion('ge')<CR>", mode = { "n", "o", "x" } },
-        }
+        },
     },
     {
         "gbprod/stay-in-place.nvim",
         config = true,
-        event = "User VisualEnter"
+        event = "User VisualEnter",
     },
     {
         "folke/flash.nvim",
@@ -38,11 +38,11 @@ return {
             },
         },
         keys = {
-            { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end, },
-            { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end, },
-            { "r",     mode = "o",               function() require("flash").remote() end, },
-            { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, },
-            { "<c-s>", mode = { "c" },           function() require("flash").toggle() end, },
+            { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end },
+            { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end },
+            { "r",     mode = "o",               function() require("flash").remote() end },
+            { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end },
+            { "<c-s>", mode = { "c" },           function() require("flash").toggle() end },
         },
     },
     {
@@ -57,7 +57,7 @@ return {
         init = function()
             vim.g.tmux_navigator_no_mappings = 1
             vim.g.tmux_navigator_save_on_switch = 2
-        end
+        end,
     },
     {
         "ethanholz/nvim-lastplace",
@@ -70,6 +70,6 @@ return {
         opts = {
             enabled = false,
             disable_mouse = false,
-        }
+        },
     },
 }

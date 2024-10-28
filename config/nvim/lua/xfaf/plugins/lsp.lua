@@ -4,7 +4,7 @@ return {
         lazy = true,
         cmd = { "NullLsLog" },
         config = function()
-            local null_ls = require("null-ls");
+            local null_ls = require("null-ls")
             local diagnostics = null_ls.builtins.diagnostics
             local formatting = null_ls.builtins.formatting
             local code_actions = null_ls.builtins.code_actions
@@ -25,7 +25,7 @@ return {
                 },
                 border = "rounded",
             })
-        end
+        end,
     },
     {
         "neovim/nvim-lspconfig",
@@ -97,6 +97,18 @@ return {
                                 "fmt",
                             },
                         },
+                        format = {
+                            defaultConfig = {
+                                quote_style = "double",
+                                trailing_table_separator = "smart",
+                                end_statement_with_semicolon = "replace_with_newline",
+                                line_space_after_do_statement = "fixed(2)",
+                                line_space_after_for_statement = "fixed(2)",
+                                line_space_after_if_statement = "fixed(2)",
+                                line_space_after_repeat_statement = "fixed(2)",
+                                line_space_after_while_statement = "fixed(2)",
+                            },
+                        },
                     },
                 },
             })
@@ -129,7 +141,7 @@ return {
 
             -- Zig
             lspconfig.zls.setup({})
-        end
+        end,
     },
     {
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -170,5 +182,5 @@ return {
         init = function()
             vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
         end,
-    }
+    },
 }

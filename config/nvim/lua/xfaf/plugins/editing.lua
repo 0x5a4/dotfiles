@@ -17,7 +17,7 @@ return {
     },
     {
         "tpope/vim-commentary",
-        keys = { { "gc", nil, mode = { "n", "x", "o" } } }
+        keys = { { "gc", nil, mode = { "n", "x", "o" } } },
     },
     {
         "julienvincent/nvim-paredit",
@@ -47,7 +47,7 @@ return {
         keys = {
             { "<leader>a", "<cmd>ISwapWith<CR>" },
             { "<leader>A", "<cmd>ISwap<CR>" },
-        }
+        },
     },
     {
         "windwp/nvim-autopairs",
@@ -58,7 +58,7 @@ return {
 
             autopairs.setup({
                 enable_check_bracket_line = true,
-                ignored_next_char = "[%w%.]"
+                ignored_next_char = "[%w%.]",
             })
 
             -- dont double quote lisps
@@ -67,9 +67,9 @@ return {
 
 
             autopairs.add_rules({
-                rule("$", "$", { "tex", "latex" })
+                rule("$", "$", { "tex", "latex" }),
             })
-        end
+        end,
     },
     {
         "matze/vim-move",
@@ -82,14 +82,14 @@ return {
         init = function()
             vim.g.move_key_modifier = "C"
             vim.g.move_key_modifier_visualmode = "C"
-        end
+        end,
     },
     {
         "rmagatti/alternate-toggler",
         keys = {
-            { "<leader>+", "<cmd>ToggleAlternate<CR>" }
+            { "<leader>+", "<cmd>ToggleAlternate<CR>" },
         },
-        cmd = "ToggleAlternate"
+        cmd = "ToggleAlternate",
     },
     {
         "m4xshen/smartcolumn.nvim",
@@ -104,7 +104,7 @@ return {
                 "checkhealth",
                 "TelescopePrompt",
                 "lspinfo",
-            }
+            },
         },
     },
 }

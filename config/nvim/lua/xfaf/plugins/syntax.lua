@@ -4,7 +4,7 @@ return {
         event = "User File",
         cmd = {
             "TSUpdate",
-            "TSUpdateSync"
+            "TSUpdateSync",
         },
         build = function()
             require("nvim-treesitter.install").update()
@@ -61,7 +61,7 @@ return {
                 enable = true,
             },
             indent = {
-                true
+                true,
             },
         },
         main = "nvim-treesitter.configs",
@@ -70,15 +70,15 @@ return {
     -- random filetypes
     {
         "fladson/vim-kitty",
-        ft = "kitty"
+        ft = "kitty",
     },
     {
         "ziglang/zig.vim",
         ft = "zig",
         init = function()
             vim.g.zig_fmt_parse_errors = 0
-        end
+        end,
     },
     "phelipetls/vim-hugo",
-    "sevko/vim-nand2tetris-syntax"
+    "sevko/vim-nand2tetris-syntax",
 }

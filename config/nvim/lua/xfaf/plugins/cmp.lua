@@ -33,7 +33,7 @@ return {
                             { "─", "CmpBorder" },
                             { "╰", "CmpBorder" },
                             { "│", "CmpBorder" },
-                        }
+                        },
                     },
                     documentation = {
                         border = {
@@ -79,7 +79,7 @@ return {
                     ["<Esc>"] = cmp.mapping.abort {},
                 },
                 sources = cmp.config.sources({
-                    { name = "luasnip", priority = 100 },
+                    { name = "luasnip",  priority = 100 },
                     { name = "nvim_lsp" },
                     { name = "path" },
                     { name = "crates" },
@@ -88,7 +88,7 @@ return {
             }
 
             local cmdline_mappings = {
-                ['<Tab>'] = {
+                ["<Tab>"] = {
                     c = function()
                         if cmp.visible() then
                             cmp.select_next_item()
@@ -97,7 +97,7 @@ return {
                         end
                     end,
                 },
-                ['<S-Tab>'] = {
+                ["<S-Tab>"] = {
                     c = function()
                         if cmp.visible() then
                             cmp.select_prev_item()
@@ -106,7 +106,7 @@ return {
                         end
                     end,
                 },
-                ['<C-j>'] = {
+                ["<C-j>"] = {
                     c = function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
@@ -115,7 +115,7 @@ return {
                         end
                     end,
                 },
-                ['<C-k>'] = {
+                ["<C-k>"] = {
                     c = function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()
@@ -124,44 +124,44 @@ return {
                         end
                     end,
                 },
-                ['<esc>'] = {
+                ["<esc>"] = {
                     c = cmp.mapping.abort(),
                 },
-                ['<CR>'] = {
+                ["<CR>"] = {
                     c = cmp.mapping.confirm({ select = false }),
-                }
+                },
             }
 
             -- `/` cmdline setup.
-            cmp.setup.cmdline('/', {
+            cmp.setup.cmdline("/", {
                 mapping = cmdline_mappings,
                 sources = {
-                    { name = 'buffer' }
-                }
+                    { name = "buffer" },
+                },
             })
 
             -- `:` cmdline setup.
-            cmp.setup.cmdline(':', {
+            cmp.setup.cmdline(":", {
                 mapping = cmdline_mappings,
                 sources = cmp.config.sources({
-                    { name = 'path' }
+                    { name = "path" },
                 }, {
                     {
-                        name = 'cmdline',
+                        name = "cmdline",
                         option = {
-                            ignore_cmds = { 'Man', '!' }
-                        }
-                    }
-                })
+                            ignore_cmds = { "Man", "!" },
+                        },
+                    },
+                }),
             })
-        end
+        end,
     },
     -- cmp sources
     {
         "saecki/crates.nvim",
-        tag = 'v0.3.0',
+        tag = "v0.3.0",
         dependencies = "nvim-lua/plenary.nvim",
         config = true,
         event = "BufEnter Cargo.toml",
-    }
+    },
 }

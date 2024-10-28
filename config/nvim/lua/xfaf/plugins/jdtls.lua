@@ -1,7 +1,7 @@
 return {
-   {
-        'mfussenegger/nvim-jdtls',
-        ft = 'java',
+    {
+        "mfussenegger/nvim-jdtls",
+        ft = "java",
         config = function()
             local jdtls = require("jdtls")
             local jdtlsd = require("jdtls.dap")
@@ -11,8 +11,8 @@ return {
             path.bundles = {
                 vim.fn.glob(
                     os.getenv("JAVA_DEBUG") ..
-                    "com.microsoft.java.debug.plugin-*.jar", 1)
-            };
+                    "com.microsoft.java.debug.plugin-*.jar", 1),
+            }
 
 
             local lsp_settings = {
@@ -21,7 +21,7 @@ return {
                         downloadSources = true,
                     },
                     configuration = {
-                        updateBuildConfiguration = 'interactive',
+                        updateBuildConfiguration = "interactive",
                         runtimes = path.runtimes,
                     },
                     maven = {
@@ -35,45 +35,45 @@ return {
                     },
                     format = {
                         enabled = true,
-                    }
+                    },
                 },
                 signatureHelp = {
                     enabled = false,
                 },
                 completion = {
                     favoriteStaticMembers = {
-                        'org.hamcrest.MatcherAssert.assertThat',
-                        'org.hamcrest.Matchers.*',
-                        'org.hamcrest.CoreMatchers.*',
-                        'org.junit.jupiter.api.Assertions.*',
-                        'java.util.Objects.requireNonNull',
-                        'java.util.Objects.requireNonNullElse',
-                        'org.mockito.Mockito.*',
+                        "org.hamcrest.MatcherAssert.assertThat",
+                        "org.hamcrest.Matchers.*",
+                        "org.hamcrest.CoreMatchers.*",
+                        "org.junit.jupiter.api.Assertions.*",
+                        "java.util.Objects.requireNonNull",
+                        "java.util.Objects.requireNonNullElse",
+                        "org.mockito.Mockito.*",
                     },
                 },
                 contentProvider = {
-                    preferred = 'fernflower',
+                    preferred = "fernflower",
                 },
                 extendedClientCapabilities = jdtls.extendedClientCapabilities,
                 sources = {
                     organizeImports = {
                         starThreshold = 9999,
                         staticStarThreshold = 9999,
-                    }
+                    },
                 },
                 codeGeneration = {
                     toString = {
-                        template = '${object.className}{${member.name()}=${member.value}, ${otherMembers}}',
+                        template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
                     },
                     useBlocks = true,
                 },
             }
 
             local function jdtls_on_attach(client, bufnr)
-                jdtls.setup_dap({ hotcodereplace = 'auto' })
+                jdtls.setup_dap({ hotcodereplace = "auto" })
                 jdtlsd.setup_dap_main_class_configs()
 
-                require('jdtls.dap').setup_dap_main_class_configs()
+                require("jdtls.dap").setup_dap_main_class_configs()
             end
 
             local config = {

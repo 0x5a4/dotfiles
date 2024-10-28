@@ -23,21 +23,21 @@ return {
                 "",
                 callback = function()
                     require("telescope.builtin").find_files({
-                        cwd = vim.fs.root(0, '.git'),
+                        cwd = vim.fs.root(0, ".git"),
                     })
-                end
+                end,
             },
             {
                 "<C-M-p>",
                 "",
                 callback = function()
                     require("telescope.builtin").find_files({
-                        cwd = vim.fs.root(0, '.git'),
+                        cwd = vim.fs.root(0, ".git"),
                         hidden = true,
                         no_ignore = true,
                         no_ignore_parent = true,
                     })
-                end
+                end,
             },
         },
         opts = {
@@ -47,7 +47,7 @@ return {
                         prompt_position = "top",
                     },
                 },
-                sorting_strategy = 'ascending',
+                sorting_strategy = "ascending",
                 mappings = {
                     i = {
                         ["<C-j>"] = "move_selection_next",
@@ -57,13 +57,13 @@ return {
                     },
                     n = {
                         ["q"] = "close",
-                    }
-                }
+                    },
+                },
             },
             pickers = {
                 spell_suggest = {
                     theme = "cursor",
-                }
+                },
             },
         },
         config = function(_, opts)
@@ -72,7 +72,7 @@ return {
             telescope.load_extension("heading")
 
             telescope.setup(opts)
-        end
+        end,
     },
     {
         "folke/todo-comments.nvim",
@@ -81,6 +81,6 @@ return {
             { "<leader>tt", "<cmd>TodoTelescope<CR>" },
         },
         dependencies = "nvim-lua/plenary.nvim",
-        config = true
+        config = true,
     },
 }

@@ -8,7 +8,7 @@ return {
     {
         "famiu/bufdelete.nvim",
         keys = {
-            { "<leader>c", "<cmd>Bdelete<CR>" }
+            { "<leader>c", "<cmd>Bdelete<CR>" },
         },
         cmd = { "Bdelete", "Bwipeout" },
     },
@@ -37,7 +37,7 @@ return {
             end,
             noremap = true,
             silent = true,
-        } }
+        } },
     },
     {
         "max397574/better-escape.nvim",
@@ -47,7 +47,7 @@ return {
             mapping = { "kj" },
             timeout = 500,
             clear_empty_lines = true,
-        }
+        },
     },
     {
         "lervag/vimtex",
@@ -81,11 +81,11 @@ return {
         lazy = true,
         keys = {
             { "<A-t>", '<cmd>lua require("FTerm").toggle()<CR>' },
-            { "<A-t>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', mode = { "t" } }
+            { "<A-t>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', mode = { "t" } },
         },
         opts = {
-            border = 'rounded'
-        }
+            border = "rounded",
+        },
     },
     {
         "lewis6991/gitsigns.nvim",
@@ -107,20 +107,20 @@ return {
             signcolumn = false,
             numhl = true,
             linehl = false,
-        }
+        },
     },
     {
-        'akinsho/git-conflict.nvim',
+        "akinsho/git-conflict.nvim",
         version = "*",
         event = "User GitFile",
         opts = {
             default_mappings = false,
         },
         keys = {
-            { "<leader>gck",  "<cmd>GitConflictPrevConflict<CR>" },
-            { "<leader>gcj",  "<cmd>GitConflictNextConflict<CR>" },
-            { "<leader>gco",  "<cmd>GitConflictChooseOurs<CR>" },
-            { "<leader>gct",  "<cmd>GitConflictChooseTheirs<CR>" },
+            { "<leader>gck", "<cmd>GitConflictPrevConflict<CR>" },
+            { "<leader>gcj", "<cmd>GitConflictNextConflict<CR>" },
+            { "<leader>gco", "<cmd>GitConflictChooseOurs<CR>" },
+            { "<leader>gct", "<cmd>GitConflictChooseTheirs<CR>" },
         },
     },
     {
@@ -137,7 +137,7 @@ return {
         keys = {
             { "<localleader>ee", "<cmd>Eval<CR>" },
             { "<localleader>ef", "<cmd>%Eval<CR>" },
-        }
+        },
     },
     {
         "sudormrfbin/cheatsheet.nvim",
@@ -145,12 +145,12 @@ return {
         event = "BufReadPre cheatsheet.txt",
         opts = {
             bundled_cheatsheets = {
-                enabled = { "default" }
-            }
+                enabled = { "default" },
+            },
         },
         keys = {
-            { "<leader>?", "<cmd>Cheatsheet<CR>" }
-        }
+            { "<leader>?", "<cmd>Cheatsheet<CR>" },
+        },
     },
     {
         "laytan/cloak.nvim",
@@ -163,7 +163,7 @@ return {
             enabled = true,
             cloak_telescope = true,
             cloak_length = 12,
-        }
+        },
     },
     {
         "xiyaowong/link-visitor.nvim",
@@ -174,10 +174,10 @@ return {
             "VisitLinkInBuffer",
             "VisitLinkUnderCursor",
             "VisitLinkNearCursor",
-            "VisitLinkNearest", },
+            "VisitLinkNearest" },
         keys = {
             { "<leader>tu", "<cmd>VisitLinkInBuffer<CR>" },
-            { "gu",         "<cmd>VisitLinkUnderCursor<CR>" }
+            { "gu",         "<cmd>VisitLinkUnderCursor<CR>" },
         },
     },
 }

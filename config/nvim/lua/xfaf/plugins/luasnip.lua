@@ -5,7 +5,7 @@ return {
         local luasnip = require("luasnip")
 
         luasnip.config.set_config({
-            region_check_events = { "InsertEnter", "CursorHold" }
+            region_check_events = { "InsertEnter", "CursorHold" },
         })
 
         require("luasnip.loaders.from_lua").lazy_load({ lazy_paths = "./lua/xfaf/snippets" })
@@ -21,7 +21,7 @@ return {
                     luasnip.change_choice(1)
                 end
             end,
-            mode = { "i", "s" }
+            mode = { "i", "s" },
         },
         {
             "<C-S-E>",
@@ -31,7 +31,7 @@ return {
                     luasnip.change_choice(-1)
                 end
             end,
-            mode = { "i", "s" }
+            mode = { "i", "s" },
         },
     },
 }

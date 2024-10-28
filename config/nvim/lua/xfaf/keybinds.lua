@@ -26,7 +26,7 @@ vim.api.nvim_set_var("mapleader", " ")
 vim.api.nvim_set_var("maplocalleader", ",")
 
 -- Really stupid, but otherwise FTerm breaks
-vim.keymap.set('n', '<leader>q', function()
+vim.keymap.set("n", "<leader>q", function()
     vim.cmd("wa")
     vim.cmd("qa")
 end)
@@ -85,5 +85,5 @@ vim.api.nvim_set_keymap("n", "<leader>om", "", {
         else
             vim.opt.mouse = ""
         end
-    end
+    end,
 })

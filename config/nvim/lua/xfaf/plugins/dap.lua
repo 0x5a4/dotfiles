@@ -24,7 +24,7 @@ return {
                     markers,
                     {
                         upward = true,
-                        path = vim.fn.expand("%:p:h")
+                        path = vim.fn.expand("%:p:h"),
                     }
                 )
                 return next(result) and vim.fs.dirname(result[1]) or vim.fn.getcwd()
@@ -61,11 +61,13 @@ return {
                                 if not choice then
                                     coroutine.resume(run, dap.ABORT)
                                 end
+
                                 vim.notify("Debugging " .. choice, vim.log.levels.INFO)
                                 coroutine.resume(run, vim.fs.joinpath(root, choice))
                             end)
                         else
-                            vim.notify("No executables found in search paths (root was '" .. root .. "')", vim.log.levels.WARN)
+                            vim.notify("No executables found in search paths (root was '" .. root .. "')",
+                                vim.log.levels.WARN)
                             coroutine.resume(run, dap.ABORT)
                         end
                     end)
@@ -77,7 +79,7 @@ return {
                     name = name,
                     type = "codelldb",
                     request = "launch",
-                    cwd = '${workspaceFolder}',
+                    cwd = "${workspaceFolder}",
                     stopOnEntry = false,
                     program = find_program(search_paths, markers, builder),
                     args = function()
@@ -91,12 +93,12 @@ return {
             end
 
             dap.adapters.codelldb = {
-                type = 'server',
+                type = "server",
                 port = "${port}",
                 executable = {
-                    command = 'codelldb',
+                    command = "codelldb",
                     args = { "--port", "${port}" },
-                }
+                },
             }
 
             dap.configurations.c = {
@@ -110,7 +112,7 @@ return {
             dap.configurations.rust = {
                 make_lldb_config("Build & Debug", { "target/debug" }, { "Cargo.lock" }, "cargo build"),
             }
-        end
+        end,
     },
     {
         "rcarriga/nvim-dap-ui",
@@ -147,6 +149,6 @@ return {
 
                 return " " .. variable.value
             end,
-        }
+        },
     },
 }
