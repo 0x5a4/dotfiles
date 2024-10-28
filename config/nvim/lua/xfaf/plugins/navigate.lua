@@ -30,24 +30,19 @@ return {
     {
         "folke/flash.nvim",
         event = "VeryLazy",
-        opts = {},
+        opts = {
+            modes = {
+                search = {
+                    enabled = true,
+                },
+            },
+        },
         keys = {
             { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end, },
             { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end, },
             { "r",     mode = "o",               function() require("flash").remote() end, },
             { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, },
             { "<c-s>", mode = { "c" },           function() require("flash").toggle() end, },
-            {
-                "gs",
-                mode = { "n", "x", "o" },
-                function()
-                    require("flash").jump({
-                        search = { mode = "search", max_length = 0 },
-                        label = { after = { 0, 0 } },
-                        pattern = "^"
-                    })
-                end
-            },
         },
     },
     {
@@ -68,5 +63,13 @@ return {
         "ethanholz/nvim-lastplace",
         event = { "BufReadPre" },
         config = true,
+    },
+    {
+        "m4xshen/hardtime.nvim",
+        dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+        opts = {
+            enabled = false,
+            disable_mouse = false,
+        }
     },
 }
