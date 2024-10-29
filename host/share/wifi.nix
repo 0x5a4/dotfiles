@@ -15,6 +15,7 @@
       "Network_Mr.X" = "NETWORKMRX";
       FelixPhone = "FELIXPHONE";
       "bUm gast" = "BUMGAST";
+      WIFIonICE = {};
       eduroam = {
         auth = ''
           key_mgmt=WPA-EAP
