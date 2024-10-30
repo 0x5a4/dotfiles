@@ -42,12 +42,12 @@
       };
 
       sansSerif = {
-        package = pkgs.noto-fonts; 
+        package = pkgs.noto-fonts;
         name = "Noto Sans";
       };
-      
+
       serif = {
-        package = pkgs.noto-fonts; 
+        package = pkgs.noto-fonts;
         name = "Noto Serif";
       };
 
@@ -86,11 +86,24 @@
   xfaf.desktop.swayidle.enable = true;
   xfaf.desktop.waybar.enable = true;
 
-  xfaf.desktop.monitors = {
+  xfaf.desktop.monitors = let
+    wallpaper-image = pkgs.fetchurl {
+      name = "fword-wallpaper-image";
+      url = "https://images.wallpapersden.com/image/download/galaxies-pixel-art_bGpsaW6UmZqaraWkpJRnamtlrWZlbWU.jpg";
+      hash = "sha256-Em1ECfdippXbFn7X4hOnqnzCONRt/Y00bFINdCvhe7M=";
+    };
+
+    wallpaper = pkgs.runCommandLocal "fword-wallpaper" {} ''
+      ${pkgs.imagemagick}/bin/convert -crop 50%x100% ${wallpaper-image} output.png
+      mkdir $out
+      mv output-0.png $out/left.png
+      mv output-1.png $out/right.png
+    '';
+  in {
     HDMI-A-1 = {
       workspaces = lib.lists.range 1 5;
       defaultWorkspace = 1;
-      wallpaper = config.stylix.image;
+      wallpaper = "${wallpaper}/right.png";
       bar = {
         enable = true;
         modules.left = {
@@ -106,7 +119,7 @@
     DP-1 = {
       workspaces = lib.lists.range 6 10;
       defaultWorkspace = 6;
-      wallpaper = config.stylix.image;
+      wallpaper = "${wallpaper}/left.png";
       bar = {
         enable = true;
         modules.left = {
