@@ -1,4 +1,5 @@
 return {
+    "svermeulen/vim-cutlass",
     {
         "wellle/targets.vim",
         event = "VeryLazy",
@@ -7,13 +8,6 @@ return {
         "kylechui/nvim-surround",
         event = "VeryLazy",
         config = true,
-    },
-    {
-        "gbprod/cutlass.nvim",
-        event = "VeryLazy",
-        opts = {
-            cut_key = "X",
-        },
     },
     {
         "tpope/vim-commentary",
