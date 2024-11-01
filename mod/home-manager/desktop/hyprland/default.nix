@@ -112,6 +112,7 @@ in {
           mouse_move_focuses_monitor = false;
           key_press_enables_dpms = true;
           disable_hyprland_logo = true;
+          new_window_takes_over_fullscreen = 1;
         };
 
         input = {
@@ -125,6 +126,7 @@ in {
 
           touchpad = {
             natural_scroll = false;
+            drag_lock = true;
           };
         };
 
