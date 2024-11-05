@@ -2,7 +2,7 @@ diff --git a/src/helpers/Splashes.hpp b/src/helpers/Splashes.hpp
 index 4a4fd022..b4aee669 100644
 --- a/src/helpers/Splashes.hpp
 +++ b/src/helpers/Splashes.hpp
-@@ -5,78 +5,25 @@
+@@ -5,78 +5,38 @@
  
  inline const std::vector<std::string> SPLASHES = {
      // clang-format off
@@ -99,6 +99,19 @@ index 4a4fd022..b4aee669 100644
 +    "neovim is love neovim is life",
 +    "robat gehen wir essen",
 +    "repo - hirschhintern"
++    "gepfuschte kackscheiße",
++    "dey/deren",
++    "im a robot",
++    "meine splashes sind viel besser als die originalen",
++    "my brain has use-after-free bugs",
++    "hit em wid the shit that go like baaa da da. baaa da da",
++    "knut <3",
++    "i take my lasergun and i go pew pew pew pew pew",
++    "good old michaelsoft binbows",
++    "yay minesweeper",
++    "schweinemensamüsli",
++    "da ist ein tipfeler",
++    "hello im slinky addicted"
      // clang-format on
 -};
 \ No newline at end of file
