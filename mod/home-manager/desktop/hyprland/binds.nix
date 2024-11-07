@@ -48,7 +48,6 @@
 
           # Switch workspaces with SUPER + [0-9]
           "SUPER, s, togglespecialworkspace, spotify"
-          "SUPER, ssharp, togglespecialworkspace, term"
           "SUPER, 1, workspace, 1"
           "SUPER, 2, workspace, 2"
           "SUPER, 3, workspace, 3"
