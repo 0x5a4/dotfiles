@@ -151,6 +151,7 @@
     prismlauncher
     spotify
     thunderbird
+    libreoffice
     vesktop
   ];
 
