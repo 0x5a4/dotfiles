@@ -39,8 +39,6 @@ vim.api.nvim_set_keymap("x", "kj", "<esc>", default_ops)
 vim.api.nvim_set_keymap("x", "<esc>", nop, default_ops)
 
 -- cut
-xnoremap("x", "d")
-nnoremap("x", "d")
 nnoremap("xx", "dd")
 nnoremap("X", "D")
 
