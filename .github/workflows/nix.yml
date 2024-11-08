@@ -12,7 +12,4 @@ jobs:
           path: |
             /nix/store
       - uses: nixbuild/nix-quick-install-action@v29
-        with:
-          nix_conf: |
-            extra-experimental-features = pipe-operators
-      - run: nix flake check
+      - run: nix --extra-experimental-features "pipe-operators" flake check
