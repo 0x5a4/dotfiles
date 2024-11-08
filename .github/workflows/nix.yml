@@ -11,7 +11,7 @@ jobs:
         with:
           path: |
             /nix/store
-      - uses: nixbuild/nix-quick-install-action@v28
+      - uses: nixbuild/nix-quick-install-action@v29
         with:
           nix_conf: |
             extra-experimental-features = pipe-operators
