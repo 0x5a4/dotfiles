@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   outputs,
@@ -12,7 +11,7 @@
     ../share/common-home.nix
   ];
 
-  stylix.sizes.terminal = 10;
+  stylix.fonts.sizes.terminal = 10;
 
   xfaf.desktop.hyprland.enable = true;
 
