@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   xfaf.services.wifi = {
     enable = true;
     secretsFile = ../secrets/wifi;
@@ -15,7 +16,7 @@
       "Network_Mr.X" = "NETWORKMRX";
       FelixPhone = "FELIXPHONE";
       "bUm gast" = "BUMGAST";
-      WIFIonICE = {};
+      WIFIonICE = { };
       eduroam = {
         auth = ''
           key_mgmt=WPA-EAP

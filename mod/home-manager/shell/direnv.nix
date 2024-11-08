@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   options.xfaf.shell.direnv.enable = lib.mkEnableOption "install 0x5a4s direnv config";
 
   config = {

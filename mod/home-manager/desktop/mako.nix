@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options.xfaf.desktop.mako = {
     enable = lib.mkEnableOption "install 0x5a4s hyprland config";
     output = lib.mkOption {
@@ -26,9 +27,7 @@
       width = 400;
 
       extraConfig =
-        /*
-        ini
-        */
+        # ini
         ''
           [urgency=high]
           layer=overlay

@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options.xfaf.services.pipewire.enable = lib.mkEnableOption "enable pipewire";
 
   config = lib.mkIf config.xfaf.services.pipewire.enable {

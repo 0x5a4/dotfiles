@@ -3,9 +3,11 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (builtins) toString;
-in {
+in
+{
   imports = [
     ./power.nix
     ./window.nix
@@ -27,35 +29,34 @@ in {
     ];
 
     stylix.targets.hyprpaper.enable = lib.mkForce false;
-    services.hyprpaper = let
-      monitorsWithWallpaper = lib.filterAttrs (_: v: v.wallpaper != null) config.xfaf.desktop.monitors;
-    in {
-      enable = true;
-      settings = {
-        splash = true;
-        preload = lib.unique (lib.mapAttrsToList (_: v: builtins.toString v.wallpaper) monitorsWithWallpaper);
-        wallpaper = lib.mapAttrsToList (name: v: "${name}, ${v.wallpaper}") monitorsWithWallpaper;
+    services.hyprpaper =
+      let
+        monitorsWithWallpaper = lib.filterAttrs (_: v: v.wallpaper != null) config.xfaf.desktop.monitors;
+      in
+      {
+        enable = true;
+        settings = {
+          splash = true;
+          preload = lib.unique (
+            lib.mapAttrsToList (_: v: builtins.toString v.wallpaper) monitorsWithWallpaper
+          );
+          wallpaper = lib.mapAttrsToList (name: v: "${name}, ${v.wallpaper}") monitorsWithWallpaper;
+        };
       };
-    };
 
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
-        monitor =
-          lib.foldlAttrs
+        monitor = lib.foldlAttrs (
+          acc: name: value:
           (
-            acc: name: value: (let
+            let
               refreshRate = lib.optionalString (value.refreshRate != null) "@${value.refreshRate}";
 
               resolution =
-                if value.resolution != null
-                then "${value.resolution}${refreshRate}"
-                else "preferred${refreshRate}";
+                if value.resolution != null then "${value.resolution}${refreshRate}" else "preferred${refreshRate}";
 
-              position =
-                if value.position != null
-                then value.position
-                else "auto";
+              position = if value.position != null then value.position else "auto";
 
               rotationMap = {
                 "0" = "0";
@@ -64,33 +65,31 @@ in {
                 "270" = "3";
               };
 
-              rotation = let
-                transform =
-                  if (rotationMap ? "${toString value.rotate}")
-                  then rotationMap."${toString value.rotate}"
-                  else abort "hyprland only accepts rotations in 90 degree steps";
-              in ",transform,${transform}";
+              rotation =
+                let
+                  transform =
+                    if (rotationMap ? "${toString value.rotate}") then
+                      rotationMap."${toString value.rotate}"
+                    else
+                      abort "hyprland only accepts rotations in 90 degree steps";
+                in
+                ",transform,${transform}";
             in
-              acc ++ ["${name},${resolution},${position},${toString value.scale}${rotation}"])
+            acc ++ [ "${name},${resolution},${position},${toString value.scale}${rotation}" ]
           )
-          [",preferred,auto,1"]
-          config.xfaf.desktop.monitors;
+        ) [ ",preferred,auto,1" ] config.xfaf.desktop.monitors;
 
-        workspace =
-          lib.foldlAttrs
-          (acc: name: value:
-            acc
-            ++ (
-              lib.map (w: let
-                default =
-                  if value ? "defaultWorkspace"
-                  then value.defaultWorkspace == w
-                  else false;
-              in "${toString w}, monitor:${name}, default:${toString default}")
-              value.workspaces
-            ))
-          []
-          config.xfaf.desktop.monitors;
+        workspace = lib.foldlAttrs (
+          acc: name: value:
+          acc
+          ++ (lib.map (
+            w:
+            let
+              default = if value ? "defaultWorkspace" then value.defaultWorkspace == w else false;
+            in
+            "${toString w}, monitor:${name}, default:${toString default}"
+          ) value.workspaces)
+        ) [ ] config.xfaf.desktop.monitors;
 
         bezier = [
           "myBezier, 0.05, 0.9, 0.1, 1.05"

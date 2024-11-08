@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.xfaf.services.ssh.enable = lib.mkEnableOption "enable the ssh server";
 
   config = lib.mkIf config.xfaf.services.ssh.enable {

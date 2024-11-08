@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.xfaf.btop.enable = lib.mkEnableOption "install 0x5a4s btop config";
 
   config = lib.mkIf config.xfaf.btop.enable {

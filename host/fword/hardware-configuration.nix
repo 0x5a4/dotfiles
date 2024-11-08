@@ -3,7 +3,8 @@
   lib,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -23,7 +24,11 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = ["defaults" "noatime" "umask=0077"];
+                mountOptions = [
+                  "defaults"
+                  "noatime"
+                  "umask=0077"
+                ];
               };
             };
             root = {
@@ -35,23 +40,25 @@
                 askPassword = true;
                 content = {
                   type = "btrfs";
-                  extraArgs = ["-f"];
-                  subvolumes = let
-                    mountOptions = ["noatime"];
-                  in {
-                    "/root" = {
-                      mountpoint = "/";
-                      inherit mountOptions;
+                  extraArgs = [ "-f" ];
+                  subvolumes =
+                    let
+                      mountOptions = [ "noatime" ];
+                    in
+                    {
+                      "/root" = {
+                        mountpoint = "/";
+                        inherit mountOptions;
+                      };
+                      "/nix" = {
+                        mountpoint = "/nix";
+                        inherit mountOptions;
+                      };
+                      "/swap" = {
+                        mountpoint = "/.swap";
+                        swap.swapfile.size = "16G";
+                      };
                     };
-                    "/nix" = {
-                      mountpoint = "/nix";
-                      inherit mountOptions;
-                    };
-                    "/swap" = {
-                      mountpoint = "/.swap";
-                      swap.swapfile.size = "16G";
-                    };
-                  };
                 };
               };
             };
@@ -61,10 +68,16 @@
     };
   };
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "thunderbolt"
+    "nvme"
+    "usb_storage"
+    "sd_mod"
+  ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

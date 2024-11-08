@@ -2,14 +2,16 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.xfaf.bootconfig = {
     enable = lib.mkEnableOption "auto configure the boot loader";
   };
 
-  config = let
-    opts = config.xfaf.bootconfig;
-  in
+  config =
+    let
+      opts = config.xfaf.bootconfig;
+    in
     lib.mkIf opts.enable {
       boot.loader = {
         timeout = 0;
@@ -21,7 +23,10 @@
         };
       };
 
-      boot.kernelParams = lib.mkBefore ["quiet" "loglevel=3"];
+      boot.kernelParams = lib.mkBefore [
+        "quiet"
+        "loglevel=3"
+      ];
       boot.initrd.systemd.enable = true;
     };
 }

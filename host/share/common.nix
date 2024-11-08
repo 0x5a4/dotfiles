@@ -1,4 +1,5 @@
-{pkgs, config, ...}: {
+{ pkgs, config, ... }:
+{
   imports = [
     ./locale.nix
   ];
@@ -12,7 +13,7 @@
   boot.plymouth.enable = true;
   xfaf.bootconfig.enable = true;
   xfaf.nixconfig = {
-    enable = true; 
+    enable = true;
     extraNixConfFile = config.sops.secrets.nix-conf.path;
   };
 

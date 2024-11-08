@@ -3,13 +3,15 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   options.xfaf.shell.fish.enable = lib.mkEnableOption "install 0x5a4s fish config";
 
   config = lib.mkIf config.xfaf.shell.fish.enable {
     programs.fzf.enable = true;
 
-    home.packages = with pkgs.fishPlugins;
+    home.packages =
+      with pkgs.fishPlugins;
       [
         autopair
         colored-man-pages

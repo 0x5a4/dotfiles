@@ -2,15 +2,17 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.xfaf.desktop.apps.tofi = {
     enable = lib.mkEnableOption "install 0x5a4s tofi config";
     makeDefault = lib.mkEnableOption "make tofi the default launcher";
   };
 
-  config = let
-    opts = config.xfaf.desktop.apps.tofi;
-  in
+  config =
+    let
+      opts = config.xfaf.desktop.apps.tofi;
+    in
     lib.mkIf opts.enable {
       stylix.targets.tofi.enable = false;
 

@@ -45,69 +45,83 @@
     templates.url = "github:nixos/templates";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    nix-on-droid,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    systems = [
-      "x86_64-linux"
-      "x86_64-darwin"
-      "aarch64-linux"
-      "aarch64-darwin"
-    ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nix-on-droid,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
+      systems = [
+        "x86_64-linux"
+        "x86_64-darwin"
+        "aarch64-linux"
+        "aarch64-darwin"
+      ];
 
-    lib = nixpkgs.lib;
+      lib = nixpkgs.lib;
 
-    forAllSystems = lib.genAttrs systems;
+      forAllSystems = lib.genAttrs systems;
 
-    mkSystem = hostname: {
-      "${hostname}" = lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./host/${hostname}];
+      mkSystem = hostname: {
+        "${hostname}" = lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [ ./host/${hostname} ];
+        };
       };
+
+      genSystems =
+        hostnames: builtins.foldl' lib.trivial.mergeAttrs { } (builtins.map mkSystem hostnames);
+    in
+    {
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+
+      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      overlays = import ./overlays.nix { inherit inputs; };
+
+      nixosModules.xfaf = import ./mod/nixos;
+      homeModules.xfaf = import ./mod/home-manager;
+
+      nixosConfigurations = genSystems [
+        "fword"
+        "yesmachine"
+      ];
+
+      nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+        modules = [ ./host/droid ];
+
+        pkgs = import nixpkgs {
+          system = "aarch64-linux";
+          overlays = [ nix-on-droid.overlays.default ];
+        };
+
+        extraSpecialArgs = {
+          inherit inputs outputs;
+        };
+
+        home-manager-path = home-manager.outPath;
+      };
+
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            nativeBuildInputs = with pkgs; [
+              sops
+              nixos-rebuild
+            ];
+          };
+        }
+      );
+
+      checks = self.packages;
     };
-
-    genSystems = hostnames:
-      builtins.foldl' lib.trivial.mergeAttrs {} (builtins.map mkSystem hostnames);
-  in {
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-    overlays = import ./overlays.nix {inherit inputs;};
-
-    nixosModules.xfaf = import ./mod/nixos;
-    homeModules.xfaf = import ./mod/home-manager;
-
-    nixosConfigurations = genSystems ["fword" "yesmachine"];
-
-    nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-      modules = [./host/droid];
-
-      pkgs = import nixpkgs {
-        system = "aarch64-linux";
-        overlays = [nix-on-droid.overlays.default];
-      };
-
-      extraSpecialArgs = {inherit inputs outputs;};
-
-      home-manager-path = home-manager.outPath;
-    };
-
-    devShells = forAllSystems (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      default = pkgs.mkShell {
-        nativeBuildInputs = with pkgs; [
-          sops
-          nixos-rebuild
-        ];
-      };
-    });
-
-    checks = self.packages;
-  };
 }

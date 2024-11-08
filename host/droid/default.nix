@@ -4,7 +4,8 @@
   inputs,
   outputs,
   ...
-}: {
+}:
+{
   environment.etcBackupExtension = ".bak";
 
   environment.packages = with pkgs; [
@@ -38,19 +39,19 @@
 
   terminal.font = "${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/NotoMonoNerdFontMono-Regular.ttf";
 
-  nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-  in {
-    package = pkgs.nixVersions.latest;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-    registry =
-      (lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs)
-      // {
+  nix =
+    let
+      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+    in
+    {
+      package = pkgs.nixVersions.latest;
+      extraOptions = ''
+        experimental-features = nix-command flakes
+      '';
+      registry = (lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs) // {
         np.flake = flakeInputs.nixpkgs;
       };
-  };
+    };
 
   time.timeZone = "Europe/Berlin";
 
@@ -58,7 +59,9 @@
     config = ./home.nix;
     backupFileExtension = "hm-bak";
     useGlobalPkgs = true;
-    extraSpecialArgs = {inherit inputs outputs;};
+    extraSpecialArgs = {
+      inherit inputs outputs;
+    };
   };
 
   user.shell = "${pkgs.fish}/bin/fish";

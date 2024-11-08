@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./wifi.nix
     ./avahi.nix

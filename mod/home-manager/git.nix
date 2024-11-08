@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options.xfaf.git = {
     userName = lib.mkOption {
       description = "git user name";
@@ -23,7 +24,7 @@
 
     programs.git = {
       inherit (config.xfaf.git) userName userEmail;
-      
+
       enable = true;
 
       lfs.enable = true;

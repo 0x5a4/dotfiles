@@ -2,20 +2,20 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.xfaf.desktop.apps.kitty = {
     enable = lib.mkEnableOption "install 0x5a4s kitty config";
     makeDefault = lib.mkEnableOption "make kitty the default terminal";
     openTmux = lib.mkEnableOption "open tmux by default if kitty is run";
   };
 
-  config = let
-    opts = config.xfaf.desktop.apps.kitty;
-  in
+  config =
+    let
+      opts = config.xfaf.desktop.apps.kitty;
+    in
     lib.mkIf opts.enable {
-      xfaf.desktop.terminalCommand =
-        lib.mkIf
-        opts.makeDefault "kitty ${lib.optionalString opts.openTmux "-e tmux"}";
+      xfaf.desktop.terminalCommand = lib.mkIf opts.makeDefault "kitty ${lib.optionalString opts.openTmux "-e tmux"}";
 
       programs.kitty = {
         enable = true;

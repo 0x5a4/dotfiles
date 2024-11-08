@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./starship.nix
     ./fish.nix
@@ -29,33 +30,39 @@
     xdg.enable = config.xfaf.shell.saneEnv;
 
     home.packages = lib.mkMerge [
-      (lib.mkIf config.xfaf.shell.enableAliases (with pkgs; [
-        bat
-        duf
-        eza
-        fastfetch
-        hyfetch
-        xcp
-      ]))
-      (lib.mkIf config.xfaf.shell.installTools (with pkgs; [
-        acpi
-        bat
-        duf
-        dust
-        eza
-        fastfetch
-        fd
-        file
-        jq
-        man-pages-posix
-        mdcat
-        psmisc
-        ripgrep
-        speedtest-rs
-        unzip
-        wget
-        xxd
-      ]))
+      (lib.mkIf config.xfaf.shell.enableAliases (
+        with pkgs;
+        [
+          bat
+          duf
+          eza
+          fastfetch
+          hyfetch
+          xcp
+        ]
+      ))
+      (lib.mkIf config.xfaf.shell.installTools (
+        with pkgs;
+        [
+          acpi
+          bat
+          duf
+          dust
+          eza
+          fastfetch
+          fd
+          file
+          jq
+          man-pages-posix
+          mdcat
+          psmisc
+          ripgrep
+          speedtest-rs
+          unzip
+          wget
+          xxd
+        ]
+      ))
     ];
 
     home.shellAliases = lib.mkIf config.xfaf.shell.enableAliases rec {

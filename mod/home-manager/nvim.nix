@@ -3,20 +3,22 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options.xfaf.neovim = {
     enable = lib.mkEnableOption "install 0x5a4s neovim config";
     makeDefault = lib.mkEnableOption "make neovim the default editor";
     extraLsps = lib.mkOption {
       description = "list of extra lsps to install";
       type = lib.types.listOf lib.types.package;
-      default = [];
+      default = [ ];
     };
   };
 
-  config = let
-    opts = config.xfaf.neovim;
-  in
+  config =
+    let
+      opts = config.xfaf.neovim;
+    in
     lib.mkIf opts.enable {
       xdg.mimeApps = {
         enable = true;
@@ -33,7 +35,8 @@
         withPython3 = true;
       };
 
-      home.packages = with pkgs;
+      home.packages =
+        with pkgs;
         [
           # lsps
           alejandra

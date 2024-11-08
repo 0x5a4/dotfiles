@@ -3,7 +3,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ../share/common.nix
@@ -35,7 +36,11 @@
   xfaf.users.makrele = {
     opts = {
       shell = pkgs.fish;
-      extraGroups = ["wheel" "video" "docker"];
+      extraGroups = [
+        "wheel"
+        "video"
+        "docker"
+      ];
       hashedPasswordFile = config.sops.secrets.yesmachine-makrele.path;
     };
     home-manager = {

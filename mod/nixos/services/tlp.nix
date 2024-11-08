@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.xfaf.services.tlp.enable = lib.mkEnableOption "enable the tlp service";
 
   config = lib.mkIf config.xfaf.services.tlp.enable {

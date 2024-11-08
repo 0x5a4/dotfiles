@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.xfaf.shell.starship.enable = lib.mkEnableOption "install 0x5a4s starship config";
 
   config = lib.mkIf config.xfaf.shell.starship.enable {

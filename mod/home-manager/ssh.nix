@@ -3,7 +3,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   options.xfaf.ssh.enable = lib.mkEnableOption "install 0x5a4s ssh config";
 
   config = lib.mkIf config.xfaf.ssh.enable {

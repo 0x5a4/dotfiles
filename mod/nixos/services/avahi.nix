@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   options.xfaf.services.avahi.enable = lib.mkEnableOption "enable avahi/mdns service";
 
   config = lib.mkIf config.xfaf.services.avahi.enable {

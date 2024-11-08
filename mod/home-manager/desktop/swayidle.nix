@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options.xfaf.desktop.swayidle.enable = lib.mkEnableOption "install 0x5a4s swayidle config";
 
   config = lib.mkIf config.xfaf.desktop.swayidle.enable {

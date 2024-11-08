@@ -5,7 +5,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.flake-programs-sqlite.nixosModules.programs-sqlite
   ];
@@ -25,57 +26,56 @@
     };
   };
 
-  config = let
-    opts = config.xfaf.nixconfig;
-  in {
-    nixpkgs = {
-      overlays = let
-        myOverlays =
-          if (outputs ? "overlays")
-          then (builtins.attrValues outputs.overlays)
-          else [];
-      in
-        myOverlays
-        ++ [
-          inputs.nur.overlay
-        ];
+  config =
+    let
+      opts = config.xfaf.nixconfig;
+    in
+    {
+      nixpkgs = {
+        overlays =
+          let
+            myOverlays = if (outputs ? "overlays") then (builtins.attrValues outputs.overlays) else [ ];
+          in
+          myOverlays
+          ++ [
+            inputs.nur.overlay
+          ];
 
-      config.allowUnfree = opts.allowUnfree;
-    };
-
-    nix = let
-      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-    in {
-      package = pkgs.nixVersions.latest;
-      settings = {
-        experimental-features = "nix-command flakes cgroups auto-allocate-uids";
-        flake-registry = "";
-        nix-path = config.nix.nixPath;
-        auto-allocate-uids = true;
-        use-cgroups = true;
+        config.allowUnfree = opts.allowUnfree;
       };
-      extraOptions =
-        lib.optionalString
-        (opts.extraNixConfFile != null)
-        "!include ${opts.extraNixConfFile}";
 
-      channel.enable = opts.enableChannels;
+      nix =
+        let
+          flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+        in
+        {
+          package = pkgs.nixVersions.latest;
+          settings = {
+            experimental-features = "nix-command flakes cgroups auto-allocate-uids";
+            flake-registry = "";
+            nix-path = config.nix.nixPath;
+            auto-allocate-uids = true;
+            use-cgroups = true;
+          };
+          extraOptions = lib.optionalString (
+            opts.extraNixConfFile != null
+          ) "!include ${opts.extraNixConfFile}";
 
-      registry =
-        (lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs)
-        // {
-          np.flake = flakeInputs.nixpkgs;
+          channel.enable = opts.enableChannels;
+
+          registry = (lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs) // {
+            np.flake = flakeInputs.nixpkgs;
+          };
+          nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
         };
-      nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+
+      programs.nh.enable = true;
+
+      environment.systemPackages = with pkgs; [
+        hydra-check
+        nix-output-monitor
+        nixpkgs-review
+        nix-update
+      ];
     };
-
-    programs.nh.enable = true;
-
-    environment.systemPackages = with pkgs; [
-      hydra-check
-      nix-output-monitor
-      nixpkgs-review
-      nix-update
-    ];
-  };
 }

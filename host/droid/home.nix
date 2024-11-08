@@ -2,7 +2,8 @@
   inputs,
   outputs,
   ...
-}: {
+}:
+{
   imports = [
     outputs.homeModules.xfaf
     inputs.stylix.homeManagerModules.stylix

@@ -2,12 +2,11 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   config = lib.mkIf config.xfaf.desktop.hyprland.enable {
     wayland.windowManager.hyprland.extraConfig =
-      /*
-      hyprlang
-      */
+      # hyprlang
       ''
         bind = SUPER, r, submap, window
 
