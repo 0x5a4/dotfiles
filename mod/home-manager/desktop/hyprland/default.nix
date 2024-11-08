@@ -4,9 +4,6 @@
   pkgs,
   ...
 }:
-let
-  inherit (builtins) toString;
-in
 {
   imports = [
     ./power.nix
@@ -31,65 +28,67 @@ in
     stylix.targets.hyprpaper.enable = lib.mkForce false;
     services.hyprpaper =
       let
-        monitorsWithWallpaper = lib.filterAttrs (_: v: v.wallpaper != null) config.xfaf.desktop.monitors;
+        monitorsWithWallpaper = config.xfaf.desktop.monitors |> lib.filterAttrs (_: v: v.wallpaper != null);
       in
       {
         enable = true;
         settings = {
           splash = true;
-          preload = lib.unique (
-            lib.mapAttrsToList (_: v: builtins.toString v.wallpaper) monitorsWithWallpaper
-          );
-          wallpaper = lib.mapAttrsToList (name: v: "${name}, ${v.wallpaper}") monitorsWithWallpaper;
+          preload =
+            monitorsWithWallpaper |> lib.mapAttrsToList (_: v: builtins.toString v.wallpaper) |> lib.unique;
+          wallpaper = monitorsWithWallpaper |> lib.mapAttrsToList (name: v: "${name}, ${v.wallpaper}");
         };
       };
 
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
-        monitor = lib.foldlAttrs (
-          acc: name: value:
-          (
-            let
-              refreshRate = lib.optionalString (value.refreshRate != null) "@${value.refreshRate}";
+        monitor =
+          config.xfaf.desktop.monitors
+          |> lib.foldlAttrs (
+            acc: name: value:
+            (
+              let
+                refreshRate = lib.optionalString (value.refreshRate != null) "@${value.refreshRate}";
 
-              resolution =
-                if value.resolution != null then "${value.resolution}${refreshRate}" else "preferred${refreshRate}";
+                resolution =
+                  if value.resolution != null then "${value.resolution}${refreshRate}" else "preferred${refreshRate}";
 
-              position = if value.position != null then value.position else "auto";
+                position = if value.position != null then value.position else "auto";
 
-              rotationMap = {
-                "0" = "0";
-                "90" = "1";
-                "180" = "2";
-                "270" = "3";
-              };
+                rotationMapped =
+                  let
+                    map = {
+                      "0" = "0";
+                      "90" = "1";
+                      "180" = "2";
+                      "270" = "3";
+                    };
+                  in
+                  assert lib.assertMsg (
+                    map ? "${builtins.toString value.rotate}"
+                  ) "hyprland only accepts rotations in 90 degree steps";
+                  map.${builtins.toString value.rotate};
 
-              rotation =
-                let
-                  transform =
-                    if (rotationMap ? "${toString value.rotate}") then
-                      rotationMap."${toString value.rotate}"
-                    else
-                      abort "hyprland only accepts rotations in 90 degree steps";
-                in
-                ",transform,${transform}";
-            in
-            acc ++ [ "${name},${resolution},${position},${toString value.scale}${rotation}" ]
-          )
-        ) [ ",preferred,auto,1" ] config.xfaf.desktop.monitors;
+                rotation = ",transform,${rotationMapped}";
+              in
+              acc ++ [ "${name},${resolution},${position},${toString value.scale}${rotation}" ]
+            )
+          ) [ ",preferred,auto,1" ];
 
-        workspace = lib.foldlAttrs (
-          acc: name: value:
-          acc
-          ++ (lib.map (
-            w:
-            let
-              default = if value ? "defaultWorkspace" then value.defaultWorkspace == w else false;
-            in
-            "${toString w}, monitor:${name}, default:${toString default}"
-          ) value.workspaces)
-        ) [ ] config.xfaf.desktop.monitors;
+        workspace =
+          config.xfaf.desktop.monitors
+          |> lib.foldlAttrs (
+            acc: name: value:
+            acc
+            ++ (lib.map (
+              w:
+              let
+                default = if value ? "defaultWorkspace" then value.defaultWorkspace == w else false;
+              in
+              "${toString w}, monitor:${name}, default:${toString default}"
+            ) value.workspaces)
+          ) [ ];
 
         bezier = [
           "myBezier, 0.05, 0.9, 0.1, 1.05"

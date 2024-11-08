@@ -144,32 +144,24 @@
               (lib.optional cfg.hyprland-submap "hyprland/submap")
             ];
           in
-          lib.mapAttrs (name: value: {
-            layer = "top";
-            position = value.bar.position;
-            output = name;
-            height = 32;
+          config.xfaf.desktop.monitors
+          |> lib.filterAttrs (_: v: v.bar.enable)
+          |> lib.mapAttrs (
+            name: value: {
+              layer = "top";
+              position = value.bar.position;
+              output = name;
+              height = 32;
 
-            include = [
-              (builtins.toString sharedModules)
-            ];
+              include = sharedModules |> builtins.toString |> lib.singleton;
 
-            modules-left = lib.pipe value.bar.modules.left [
-              mkModuleList
-              lib.flatten
-            ];
+              modules-left = value.bar.modules.left |> mkModuleList |> lib.flatten;
 
-            modules-center = lib.pipe value.bar.modules.center [
-              mkModuleList
-              lib.flatten
-            ];
+              modules-center = value.bar.modules.center |> mkModuleList |> lib.flatten;
 
-            modules-right = lib.pipe value.bar.modules.right [
-              mkModuleList
-              lib.reverseList
-              lib.flatten
-            ];
-          }) (lib.filterAttrs (_: v: v.bar.enable) config.xfaf.desktop.monitors);
+              modules-right = value.bar.modules.right |> mkModuleList |> lib.reverseList |> lib.flatten;
+            }
+          );
       };
     }
   );

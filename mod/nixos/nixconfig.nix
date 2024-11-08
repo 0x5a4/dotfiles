@@ -51,7 +51,7 @@
         {
           package = pkgs.nixVersions.latest;
           settings = {
-            experimental-features = "nix-command flakes cgroups auto-allocate-uids";
+            experimental-features = "nix-command flakes cgroups auto-allocate-uids pipe-operators";
             flake-registry = "";
             nix-path = config.nix.nixPath;
             auto-allocate-uids = true;

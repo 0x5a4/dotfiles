@@ -38,17 +38,16 @@
         secretsFile = config.sops.secrets.wifi.path;
 
         networks =
-          let
-            mkNetwork =
-              ssid: network_cfg:
-              if builtins.isString network_cfg then
-                {
-                  pskRaw = "ext:${network_cfg}";
-                }
-              else
-                network_cfg;
-          in
-          lib.attrsets.mapAttrs mkNetwork opts.networks;
+          opts.networks
+          |> lib.mapAttrs (
+            ssid: network_cfg:
+            if builtins.isString network_cfg then
+              {
+                pskRaw = "ext:${network_cfg}";
+              }
+            else
+              network_cfg
+          );
       };
     };
 }

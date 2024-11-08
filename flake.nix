@@ -66,17 +66,19 @@
 
       forAllSystems = lib.genAttrs systems;
 
-      mkSystem = hostname: {
-        "${hostname}" = lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./host/${hostname} ];
-        };
-      };
-
       genSystems =
-        hostnames: builtins.foldl' lib.trivial.mergeAttrs { } (builtins.map mkSystem hostnames);
+        x:
+        x
+        |> builtins.map (hostname: {
+          "${hostname}" = lib.nixosSystem {
+            specialArgs = {
+              inherit inputs outputs;
+            };
+            modules = [ ./host/${hostname} ];
+          };
+        })
+        |> builtins.foldl' lib.trivial.mergeAttrs { };
+
     in
     {
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);

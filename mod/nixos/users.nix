@@ -36,32 +36,28 @@
       opts = config.xfaf.users;
     in
     {
-      users.users = lib.attrsets.mapAttrs (
-        _: value:
-        {
-          isNormalUser = true;
-        }
-        // value.opts
-      ) opts;
+      users.users = opts |> lib.attrsets.mapAttrs (_: value: value.opts // { isNormalUser = true; });
 
       home-manager =
         let
-          want-hm = lib.attrsets.filterAttrs (_: value: value.home-manager.enable) opts;
+          want-hm = opts |> lib.attrsets.filterAttrs (_: value: value.home-manager.enable);
         in
         {
           useGlobalPkgs = true;
           extraSpecialArgs = {
             inherit inputs outputs;
           };
-          users = lib.attrsets.mapAttrs (
-            name: value:
-            { ... }:
-            {
-              home.username = name;
-              home.homeDirectory = "/home/" + name;
-              imports = [ value.home-manager.config ];
-            }
-          ) want-hm;
+          users =
+            want-hm
+            |> lib.attrsets.mapAttrs (
+              name: value:
+              { ... }:
+              {
+                home.username = name;
+                home.homeDirectory = "/home/" + name;
+                imports = [ value.home-manager.config ];
+              }
+            );
         };
     };
 }
