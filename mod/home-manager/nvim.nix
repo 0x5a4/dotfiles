@@ -39,7 +39,6 @@
         with pkgs;
         [
           # lsps
-          alejandra
           beautysh
           black
           clang-tools
@@ -49,6 +48,7 @@
           lua-language-server
           marksman
           nixd
+          nixfmt-rfc-style
           nodePackages.bash-language-server
           prettierd
           pyright
