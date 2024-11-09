@@ -2,7 +2,7 @@ diff --git a/src/helpers/Splashes.hpp b/src/helpers/Splashes.hpp
 index 4a4fd022..b4aee669 100644
 --- a/src/helpers/Splashes.hpp
 +++ b/src/helpers/Splashes.hpp
-@@ -5,78 +5,38 @@
+@@ -5,78 +5,37 @@
  
  inline const std::vector<std::string> SPLASHES = {
      // clang-format off
@@ -100,7 +100,6 @@ index 4a4fd022..b4aee669 100644
 +    "robat gehen wir essen",
 +    "repo - hirschhintern"
 +    "gepfuschte kackscheiße",
-+    "dey/deren",
 +    "im a robot",
 +    "meine splashes sind viel besser als die originalen",
 +    "my brain has use-after-free bugs",
