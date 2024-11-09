@@ -75,7 +75,7 @@
       # tree fake
       tree = ls + "--tree ";
       ltree = ll + "--tree ";
-      gtree = ltree + "--gitignore ";
+      gtree = ltree + "--git-ignore ";
       tr33 = tree + "--level=3 ";
       tr22 = tree + "--level=2 ";
       # convenience
