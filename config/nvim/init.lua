@@ -23,7 +23,7 @@ require("lazy").setup({
         backdrop = 100,
     },
     install = {
-        colorscheme = { "tokyonight-night" },
+        colorscheme = { "tokyonight" },
     },
     dev = {
         path = "~/src",

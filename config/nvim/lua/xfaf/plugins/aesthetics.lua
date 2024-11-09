@@ -2,12 +2,12 @@ return {
     {
         "folke/tokyonight.nvim",
         priority = 1000,
-        opts = {
-            style = "night",
-            transparent = true,
-        },
         config = function()
-            vim.cmd([[colorscheme tokyonight-night]])
+            require("tokyonight").setup({
+                style = "night",
+                transparent = true,
+            })
+            vim.cmd("colorscheme tokyonight")
         end,
         lazy = false,
     },
@@ -63,7 +63,7 @@ return {
     {
         "eandrju/cellular-automaton.nvim",
         keys = {
-            { "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>" },
+            { "(leader)fml", "(cmd)CellularAutomaton make_it_rain<CR>" },
         },
         cmd = "CellularAutomaton",
     },
