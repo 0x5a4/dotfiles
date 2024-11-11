@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }:
@@ -15,14 +16,14 @@
         bind = SUPER, n, submap, reset
         bind = , escape, submap, reset
 
-        bind = , space, exec, makoctl dismiss --all
+        bind = , space, exec, ${lib.getExe' pkgs.mako "makoctl"} dismiss --all
         bind = , space, submap, reset
-        bind = , r, exec, makoctl restore
-        bind = , q, exec, mako-toggle-mode do-not-disturb && makoctl mode -r shut-up
+        bind = , r, exec, ${lib.getExe' pkgs.mako "makoctl"} restore
+        bind = , q, exec, ${lib.getExe' pkgs.mako "makoctl"} mode -t do-not-disturb && ${lib.getExe' pkgs.mako "makoctl"} mode -r shut-up
         bind = , q, submap, reset
-        bind = SHIFT, q, exec, mako-toggle-mode shut-up && makoctl mode -r do-not-disturb
+        bind = SHIFT, q, exec, ${lib.getExe' pkgs.mako "makoctl"} -t shut-up && ${lib.getExe' pkgs.mako "makoctl"} mode -r do-not-disturb
         bind = SHIFT, q, submap, reset
-        bind = , w, exec, makoctl mode -s default
+        bind = , w, exec, ${lib.getExe' pkgs.mako "makoctl"} mode -s default
         bind = , w, submap, reset
 
         submap = reset

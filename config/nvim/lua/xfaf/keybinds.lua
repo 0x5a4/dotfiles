@@ -7,19 +7,23 @@ local default_ops = { noremap = true, silent = true }
 
 -- Key Mapping
 local function nnoremap(bind, to)
-    return vim.api.nvim_set_keymap("n", bind, to, default_ops)
+    vim.api.nvim_set_keymap("n", bind, to, default_ops)
 end
 
 local function noremap(bind, to)
-    return vim.api.nvim_set_keymap("", bind, to, default_ops)
+    vim.api.nvim_set_keymap("", bind, to, default_ops)
 end
 
 local function inoremap(bind, to)
-    return vim.api.nvim_set_keymap("i", bind, to, default_ops)
+    vim.api.nvim_set_keymap("i", bind, to, default_ops)
 end
 
 local function xnoremap(bind, to)
-    return vim.api.nvim_set_keymap("x", bind, to, default_ops)
+    vim.api.nvim_set_keymap("x", bind, to, default_ops)
+end
+
+local function onoremap(bind, to)
+    vim.api.nvim_set_keymap("o", bind, to, default_ops)
 end
 
 vim.api.nvim_set_var("mapleader", " ")
@@ -35,8 +39,8 @@ end)
 nnoremap("<leader>w", ":wa<CR>")
 
 -- Normal mode
-vim.api.nvim_set_keymap("x", "kj", "<esc>", default_ops)
-vim.api.nvim_set_keymap("x", "<esc>", nop, default_ops)
+xnoremap("kj", "<esc>")
+xnoremap("<esc>", nop)
 
 -- cut
 nnoremap("xx", "dd")
@@ -45,8 +49,6 @@ nnoremap("X", "D")
 -- Navigation
 noremap("H", "^")
 noremap("L", "$")
--- ugdb
--- h.nnoremap("<leader>b", "<cmd>UGDBBreakpoint<CR>")
 
 -- Text Manipulation
 nnoremap("+", "~")
@@ -56,6 +58,16 @@ nnoremap("<leader>y", '"+y')
 xnoremap("<leader>y", '"+y')
 nnoremap("go", "<cmd>call append(line('.'), repeat([''], v:count1))<CR>")
 nnoremap("gO", "<cmd>call append(line('.')-1, repeat([''], v:count1))<CR>")
+
+-- Text Objects
+onoremap("ar", "a]")
+onoremap("ir", "i]")
+onoremap("ac", "a}")
+onoremap("ic", "i}")
+onoremap("aq", "a\"")
+onoremap("iq", "i\"")
+onoremap("az", "a'")
+onoremap("iz", "i'")
 
 --LSP
 nnoremap("<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>")

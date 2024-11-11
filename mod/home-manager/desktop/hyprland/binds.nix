@@ -6,19 +6,6 @@
 }:
 {
   config = lib.mkIf config.xfaf.desktop.hyprland.enable {
-    # these are needed for some of the keybinds. i COULD inline them, but i hate writing
-    # the ${pkg}/bin/executable thingy
-    home.packages = with pkgs; [
-      grim
-      slurp
-      wl-clipboard
-      playerctl
-      wob-volume
-      wob-brightness
-      hyprland-mirror
-      wp-switch-output
-    ];
-
     wayland.windowManager.hyprland = {
       settings =
         let
@@ -33,7 +20,7 @@
             "SUPER, c, exec, killall rofi || rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history -calc-command \"echo -n '{result}' | wl-copy\""
 
             # screenshots
-            ",Print, exec, grim -g \"\$(slurp)\" - | wl-copy"
+            ",Print, exec, ${lib.getExe pkgs.grim} -g \"''$(${lib.getExe pkgs.slurp})\" - | ${lib.getExe' pkgs.wl-clipboard "wl-copy"}"
 
             "SUPER, q, killactive, "
             "SUPER ALT, q, exit, "
@@ -93,10 +80,10 @@
             "SUPER SHIFT, j, swapwindow, d"
 
             # switch output device
-            ", XF86Tools, exec, wp-switch-output"
-            ", XF86AudioMedia, exec, wp-switch-output"
+            ", XF86Tools, exec, ${lib.getExe pkgs.wp-switch-output}"
+            ", XF86AudioMedia, exec, ${lib.getExe pkgs.wp-switch-output}"
             # present
-            "SUPER, o, exec, hyprland-mirror"
+            "SUPER, o, exec, ${lib.getExe pkgs.hyprland-mirror}"
             "SUPER SHIFT, o, exec, killall wl-mirror"
           ];
 
@@ -106,18 +93,18 @@
           ];
 
           bindl = [
-            ",XF86AudioNext, exec, playerctl -p spotify next"
-            ",XF86AudioPrev, exec, playerctl -p spotify previous"
-            ",XF86AudioPlay, exec, playerctl -p spotify play-pause"
+            ",XF86AudioNext, exec, ${lib.getExe pkgs.playerctl} -p spotify next"
+            ",XF86AudioPrev, exec, ${lib.getExe pkgs.playerctl} -p spotify previous"
+            ",XF86AudioPlay, exec, ${lib.getExe pkgs.playerctl} -p spotify play-pause"
           ];
 
           bindle = [
-            ",XF86AudioLowerVolume, exec, wob-volume 2%-"
-            ",XF86AudioRaiseVolume, exec, wob-volume 2%+"
-            ",XF86AudioMute, exec, wob-volume mutetoggle"
+            ",XF86AudioLowerVolume, exec, ${lib.getExe pkgs.wob-volume} 2%-"
+            ",XF86AudioRaiseVolume, exec, ${lib.getExe pkgs.wob-volume} 2%+"
+            ",XF86AudioMute, exec, ${lib.getExe pkgs.wob-volume} mutetoggle"
 
-            ",XF86MonBrightnessUp, exec, wob-brightness +1"
-            ",XF86MonBrightnessDown, exec, wob-brightness -1"
+            ",XF86MonBrightnessUp, exec, ${lib.getExe pkgs.wob-brightness} +1"
+            ",XF86MonBrightnessDown, exec, ${lib.getExe pkgs.wob-brightness} -1"
           ];
         };
     };
