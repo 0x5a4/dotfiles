@@ -14,7 +14,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:0x5a4/home-manager/init-wayfire";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

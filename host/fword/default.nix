@@ -1,6 +1,7 @@
 {
   inputs,
   outputs,
+  lib,
   pkgs,
   config,
   ...
@@ -63,11 +64,19 @@
   hardware.bluetooth.enable = true;
 
   # needed for desktop
-  programs.hyprland.enable = true;
   xfaf.services.greetd = {
     enable = true;
     defaultUser = "makrele";
-    command = "Hyprland";
+  };
+
+  programs.hyprland.enable = true;
+
+  xfaf.services.greetd.command = lib.mkIf (config.specialisation != { }) "wayfire";
+
+  specialisation = {
+    hyprland.configuration = {
+      xfaf.services.greetd.command = "Hyprland";
+    };
   };
 
   networking.hostName = "fword";

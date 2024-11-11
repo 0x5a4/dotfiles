@@ -8,9 +8,10 @@
     ./mako.nix
     ./rofi.nix
     ./swayidle.nix
-    ./waybar.nix
-    ./wob.nix
     ./tofi.nix
+    ./waybar.nix
+    ./wayfire
+    ./wob.nix
   ];
 
   options.xfaf.desktop =
