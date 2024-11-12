@@ -14,6 +14,7 @@
   stylix.fonts.sizes.terminal = 10;
 
   xfaf.desktop.hyprland.enable = true;
+  xfaf.desktop.hyprpaper.enable = true;
 
   xfaf.desktop.monitors =
     let

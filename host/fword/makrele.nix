@@ -11,13 +11,13 @@
     ../share/common-home.nix
   ];
 
+  xfaf.desktop.wayfire.enable = true;
   xfaf.desktop.hyprland = {
     enable = true;
     cursor_warps = true;
   };
 
-  xfaf.desktop.wayfire.enable = true;
-
+  xfaf.desktop.hyprpaper.enable = true;
   xfaf.desktop.batsignal.enable = true;
 
   xfaf.desktop.monitors =

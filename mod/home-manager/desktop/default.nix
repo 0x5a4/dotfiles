@@ -4,6 +4,7 @@
     ./batsignal.nix
     ./firefox.nix
     ./hyprland
+    ./hyprpaper.nix
     ./kitty.nix
     ./mako.nix
     ./rofi.nix
