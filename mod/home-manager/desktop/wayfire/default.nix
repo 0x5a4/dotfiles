@@ -34,19 +34,19 @@
             "cube"
             "decoration"
             "expo"
+            "foreign-toplevel"
+            "gtk-shell"
+            "ipc"
+            "oswitch"
+            "session-lock"
+            "shortcuts-inhibit"
             "simple-tile"
             "vswipe"
             "vswitch"
             "wm-actions"
             "wobbly"
             "wrot"
-            "shortcuts-inhibit"
           ];
-        };
-        wrot = {
-          activate = "none";
-          activate-3d = "<super> <shift> BTN_RIGHT";
-          reset = "<super> <shift> BTN_R";
         };
         decoration = {
           title_height = 0;
@@ -61,7 +61,7 @@
           drag_lock = true;
         };
         cube = {
-          zoom = 0.5;
+          zoom = 0.6;
           background_mode = "skydome";
           skydome_texture =
             builtins.toString
@@ -75,6 +75,7 @@
           outer_vert_gap_size = 10;
           outer_horiz_gap_size = 10;
         };
+        vswitch.wraparound = true;
         vswipe = {
           fingers = 3;
           gap = 0;
