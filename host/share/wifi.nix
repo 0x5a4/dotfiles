@@ -1,5 +1,19 @@
-{ ... }:
+{ config, ... }:
 {
+  sops.secrets.easyroam = {
+    sopsFile = ../secrets/easyroam; 
+    format = "binary";
+  };
+  
+  services.easyroam = {
+    enable = true;
+    pkcsFile = config.sops.secrets.easyroam.path;
+    network = {
+      configure = true;
+      commonName = "3252125432889295763@easyroam-pca.uni-duesseldorf.de";
+    };
+  };
+
   xfaf.services.wifi = {
     enable = true;
     secretsFile = ../secrets/wifi;
@@ -17,19 +31,6 @@
       FelixPhone = "FELIXPHONE";
       "bUm gast" = "BUMGAST";
       WIFIonICE = { };
-      eduroam = {
-        auth = ''
-          key_mgmt=WPA-EAP
-          pairwise=CCMP
-          eap=TTLS
-          password=ext:EDUROAM_PASSWORD
-          altsubject_match="DNS:radius.hhu.de"
-          phase2="auth=PAP"
-          identity="bej86nug@hhu.de"
-          anonymous_identity="eduroam@hhu.de"
-          group=CCMP TKIP
-        '';
-      };
     };
   };
 }

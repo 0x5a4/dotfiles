@@ -13,6 +13,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-easyroam.url = "github:0x5a4/nix-easyroam";
+
     home-manager = {
       url = "github:0x5a4/home-manager/init-wayfire";
       inputs.nixpkgs.follows = "nixpkgs";

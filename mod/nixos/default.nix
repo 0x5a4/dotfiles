@@ -11,5 +11,6 @@
     inputs.sops.nixosModules.sops
     inputs.stylix.nixosModules.stylix
     inputs.disko.nixosModules.disko
+    inputs.nix-easyroam.nixosModules.nix-easyroam
   ];
 }
