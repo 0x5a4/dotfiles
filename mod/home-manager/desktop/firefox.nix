@@ -158,7 +158,7 @@
                   define "yt" "youtube.com/results?search_query={searchTerms}"
                     "www.youtube.com/favicon.ico";
                 "Nix Packages" = define "nixpkgs" "search.nixos.org/packages?query={searchTerms}" nixosIcon;
-                "Nix Options" = define "nixopts" "search.nixos.org/packages?query={searchTerms}" nixosIcon;
+                "Nix Options" = define "nixopts" "search.nixos.org/options?query={searchTerms}" nixosIcon;
                 "Noogle" = define "noogle" "noogle.dev/q?term={searchTerms}" nixosIcon;
                 "Home Manager" =
                   define "homeopts" "home-manager-options.extranix.com/?query={searchTerms}&release=master"
