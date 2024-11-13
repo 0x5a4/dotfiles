@@ -254,12 +254,15 @@
       }
     },
     "nix-easyroam": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
       "locked": {
-        "lastModified": 1731529076,
-        "narHash": "sha256-tco4Rtkx8L8MoZNAMHgye6BOG2GfZYmfOhuLuG/rwGM=",
+        "lastModified": 1731535886,
+        "narHash": "sha256-O1KxmT4f9IavDIo57Z816dlNKNdRJTMNbtmXH+GWyYw=",
         "owner": "0x5a4",
         "repo": "nix-easyroam",
-        "rev": "1bc6c61771f177b4dbb6802d50db4deca18d3806",
+        "rev": "74909218415df21b3a7749a83305d29ea23e659f",
         "type": "github"
       },
       "original": {
@@ -399,6 +402,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1731139594,
+        "narHash": "sha256-IigrKK3vYRpUu+HEjPL/phrfh7Ox881er1UEsZvw9Q4=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "76612b17c0ce71689921ca12d9ffdc9c23ce40b2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nmd": {
       "flake": false,
       "locked": {
@@ -477,7 +496,7 @@
         "home-manager": "home-manager",
         "nix-easyroam": "nix-easyroam",
         "nix-on-droid": "nix-on-droid",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nur": "nur",
         "sops": "sops",
         "stylix": "stylix",
