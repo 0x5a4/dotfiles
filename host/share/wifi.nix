@@ -8,10 +8,7 @@
   services.easyroam = {
     enable = true;
     pkcsFile = config.sops.secrets.easyroam.path;
-    network = {
-      configure = true;
-      commonName = "3252125432889295763@easyroam-pca.uni-duesseldorf.de";
-    };
+    network.configure = true;
   };
 
   xfaf.services.wifi = {
