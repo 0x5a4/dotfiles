@@ -33,7 +33,7 @@
     in
     {
       HDMI-A-1 = {
-        workspaces = lib.lists.range 1 5;
+        workspaces = lib.range 1 5;
         defaultWorkspace = 1;
         wallpaper = "${wallpaper}/right.png";
         bar = {
@@ -49,7 +49,7 @@
         };
       };
       DP-1 = {
-        workspaces = lib.lists.range 6 10;
+        workspaces = lib.range 6 10;
         defaultWorkspace = 6;
         wallpaper = "${wallpaper}/left.png";
         bar = {

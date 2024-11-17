@@ -6,7 +6,7 @@
     rofi-calc-wayland = prev.rofi-calc.overrideAttrs (
       finalAttrs: oldAttrs:
       let
-        unRofiInputs = prev.lib.lists.remove prev.rofi-unwrapped oldAttrs.buildInputs;
+        unRofiInputs = prev.lib.remove prev.rofi-unwrapped oldAttrs.buildInputs;
       in
       {
         buildInputs = unRofiInputs ++ [ prev.rofi-wayland ];

@@ -50,7 +50,7 @@
       eDP-1 = {
         inherit wallpaper;
         scale = 1.175;
-        workspaces = lib.lists.range 1 9;
+        workspaces = lib.range 1 9;
         defaultWorkspace = 1;
         bar = {
           enable = true;

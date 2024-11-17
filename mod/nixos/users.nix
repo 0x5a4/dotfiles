@@ -36,11 +36,11 @@
       opts = config.xfaf.users;
     in
     {
-      users.users = opts |> lib.attrsets.mapAttrs (_: value: value.opts // { isNormalUser = true; });
+      users.users = opts |> lib.mapAttrs (_: value: value.opts // { isNormalUser = true; });
 
       home-manager =
         let
-          want-hm = opts |> lib.attrsets.filterAttrs (_: value: value.home-manager.enable);
+          want-hm = opts |> lib.filterAttrs (_: value: value.home-manager.enable);
         in
         {
           useGlobalPkgs = true;
@@ -49,7 +49,7 @@
           };
           users =
             want-hm
-            |> lib.attrsets.mapAttrs (
+            |> lib.mapAttrs (
               name: value:
               { ... }:
               {

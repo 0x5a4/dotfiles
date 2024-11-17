@@ -70,16 +70,15 @@
 
       genSystems =
         x:
-        x
-        |> builtins.map (hostname: {
+        builtins.map (hostname: {
           "${hostname}" = lib.nixosSystem {
             specialArgs = {
               inherit inputs outputs;
             };
             modules = [ ./host/${hostname} ];
           };
-        })
-        |> builtins.foldl' lib.trivial.mergeAttrs { };
+        }) x
+        |> builtins.foldl' lib.mergeAttrs { };
 
     in
     {

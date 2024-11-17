@@ -33,21 +33,6 @@
           command = "${config.programs.swaylock.package}/bin/swaylock; ${pkgs.playerctl}/bin/playerctl pause";
         }
       ];
-
-      # timeouts =
-      #   [
-      #     {
-      #       timeout = 300;
-      #       command = "${config.programs.swaylock.package}/bin/swaylock";
-      #     }
-      #   ]
-      #   ++ (lib.lists.optionals config.xfaf.desktop.hyprland.enable [
-      #     {
-      #       timeout = 420;
-      #       command = "${pkgs.hyprland}/bin/hyprctl dispatch dpms off";
-      #       resumeCommand = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
-      #     }
-      #   ]);
     };
   };
 }

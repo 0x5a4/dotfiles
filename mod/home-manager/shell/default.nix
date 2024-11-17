@@ -29,45 +29,32 @@
 
     xdg.enable = config.xfaf.shell.saneEnv;
 
-    home.packages = lib.mkMerge [
-      (lib.mkIf config.xfaf.shell.enableAliases (
-        with pkgs;
-        [
-          bat
-          duf
-          eza
-          fastfetch
-          hyfetch
-          xcp
-        ]
-      ))
-      (lib.mkIf config.xfaf.shell.installTools (
-        with pkgs;
-        [
-          acpi
-          bat
-          duf
-          dust
-          eza
-          fastfetch
-          fd
-          file
-          jq
-          man-pages-posix
-          mdcat
-          psmisc
-          ripgrep
-          speedtest-rs
-          unzip
-          wget
-          xxd
-        ]
-      ))
-    ];
+    home.packages = lib.mkIf config.xfaf.shell.installTools (
+      with pkgs;
+      [
+        acpi
+        bat
+        duf
+        dust
+        eza
+        fastfetch
+        fd
+        file
+        jq
+        man-pages-posix
+        mdcat
+        psmisc
+        ripgrep
+        speedtest-rs
+        unzip
+        wget
+        xxd
+      ]
+    );
 
     home.shellAliases = lib.mkIf config.xfaf.shell.enableAliases rec {
       # ls stuff
-      ls = "eza -F --sort extension -n --no-user --group-directories-first --git --icons -Mo --hyperlink --git-repos-no-status --color-scale=size ";
+      ls = "${lib.getExe pkgs.eza} -F --sort extension -n --no-user --group-directories-first --git --icons -Mo --hyperlink --git-repos-no-status --color-scale=size ";
       ll = ls + "-l ";
       la = ll + "-a ";
       l = ll;
@@ -79,24 +66,21 @@
       tr33 = tree + "--level=3 ";
       tr22 = tree + "--level=2 ";
       # convenience
-      cat = "bat";
+      cat = lib.getExe pkgs.bat;
       ccat = "command cat";
       lsblk = "command lsblk -f";
       mkdirp = "mkdir -p";
       rm = "rm -Iv";
-      df = "duf";
-      cp = "xcp";
-      # fun
-      hyfetch = "hyfetch -b fastfetch";
-      neofetch = hyfetch;
+      df = lib.getExe pkgs.duf;
+      cp = lib.getExe pkgs.xcp;
       # git
-      gs = "git status -sb";
-      gd = "git diff";
-      gdc = "git diff --cached";
-      ga = "git add";
-      gaa = "git add --all";
-      gl = "git lg";
-      gcm = "git commit -m";
+      gs = "${lib.getExe pkgs.git} status -sb";
+      gd = "${lib.getExe pkgs.git} diff";
+      gdc = "${lib.getExe pkgs.git} diff --cached";
+      ga = "${lib.getExe pkgs.git} add";
+      gaa = "${lib.getExe pkgs.git} add --all";
+      gl = "${lib.getExe pkgs.git} lg";
+      gcm = "${lib.getExe pkgs.git} commit -m";
     };
   };
 }
