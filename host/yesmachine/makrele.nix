@@ -71,6 +71,7 @@
     element-desktop
     prismlauncher
     spotify
+    thunderbird
     vesktop
   ];
 
