@@ -34,7 +34,6 @@
 
   environment.motd = ''
     Welcome to Nix-on-Droid!
-    I officially diagnose you with a serious nix addiction!
   '';
 
   terminal.font = "${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/NotoMonoNerdFontMono-Regular.ttf";
@@ -46,7 +45,7 @@
     {
       package = pkgs.nixVersions.latest;
       extraOptions = ''
-        experimental-features = nix-command flakes
+        experimental-features = nix-command flakes pipe-operators
       '';
       registry = (lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs) // {
         np.flake = flakeInputs.nixpkgs;

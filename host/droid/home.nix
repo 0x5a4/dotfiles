@@ -29,5 +29,9 @@
     makeDefault = true;
   };
 
+  programs.fish.interactiveShellInit = ''
+    pidof ssh-agent || eval (ssh-agent -c)
+  '';
+
   home.stateVersion = "24.05";
 }
