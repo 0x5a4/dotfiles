@@ -258,11 +258,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1731702120,
-        "narHash": "sha256-6E8natcNWEbn4wk1+FkdEA1QmhCMRVMrqXxsejuaiOc=",
+        "lastModified": 1731881458,
+        "narHash": "sha256-wCCj6s4wWh40YgdR+u8Y38TltYbPZEVTNNTRLozfmJ4=",
         "owner": "0x5a4",
         "repo": "nix-easyroam",
-        "rev": "8306682212c395cdf0727fcef2e9aef16065042a",
+        "rev": "251ea425bf421058fd257d3b9ede6c457b02ddf9",
         "type": "github"
       },
       "original": {

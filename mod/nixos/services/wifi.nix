@@ -36,6 +36,7 @@
         enable = true;
         userControlled.enable = true;
         secretsFile = config.sops.secrets.wifi.path;
+        fallbackToWPA2 = false;
 
         networks =
           opts.networks

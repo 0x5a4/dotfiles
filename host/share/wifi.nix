@@ -3,12 +3,13 @@
   sops.secrets.easyroam = {
     sopsFile = ../secrets/easyroam; 
     format = "binary";
+    restartUnits = [ "easyroam-install.service" ];
   };
   
   services.easyroam = {
     enable = true;
     pkcsFile = config.sops.secrets.easyroam.path;
-    network.configure = true;
+    wpa-supplicant.enable = true;
   };
 
   xfaf.services.wifi = {
