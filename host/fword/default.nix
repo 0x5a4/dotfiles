@@ -73,6 +73,8 @@
 
   xfaf.services.greetd.command = lib.mkIf (config.specialisation != { }) "wayfire";
 
+  programs.steam.enable = true;
+
   specialisation = {
     hyprland.configuration = {
       xfaf.services.greetd.command = "Hyprland";
