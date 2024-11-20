@@ -30,7 +30,7 @@
   };
 
   programs.fish.interactiveShellInit = ''
-    pidof ssh-agent &> /dev/null || eval (ssh-agent -c) &> /dev/null
+    pidof ssh-agent || eval (ssh-agent -c) &> /dev/null
   '';
 
   home.stateVersion = "24.05";
