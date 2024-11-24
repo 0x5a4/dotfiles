@@ -76,6 +76,8 @@
   xfaf.desktop.swayidle.enable = true;
   xfaf.desktop.waybar.enable = true;
 
+  home.enableNixpkgsReleaseCheck = false;
+
   home.sessionVariables = {
     FLAKE = config.home.homeDirectory + "/.dotfiles";
   };
