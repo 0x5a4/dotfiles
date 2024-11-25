@@ -32,6 +32,8 @@
     mutableUsers = false;
   };
 
+  security.pam.services.swaylock = {};
+
   environment.variables = {
     NIXOS_OZONE_WL = 1;
   };
