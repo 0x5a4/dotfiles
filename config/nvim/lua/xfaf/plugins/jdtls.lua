@@ -10,7 +10,7 @@ return {
 
             path.bundles = {
                 vim.fn.glob(
-                    os.getenv("JAVA_DEBUG") ..
+                    os.getenv("JAVA_DEBUG_ADAPTER") ..
                     "com.microsoft.java.debug.plugin-*.jar", 1),
             }
 
