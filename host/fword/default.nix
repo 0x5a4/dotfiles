@@ -66,20 +66,11 @@
   # needed for desktop
   xfaf.services.greetd = {
     enable = true;
+    command = "wayfire";
     defaultUser = "makrele";
   };
 
-  programs.hyprland.enable = true;
-
-  xfaf.services.greetd.command = lib.mkIf (config.specialisation != { }) "wayfire";
-
   programs.steam.enable = true;
-
-  specialisation = {
-    hyprland.configuration = {
-      xfaf.services.greetd.command = "Hyprland";
-    };
-  };
 
   networking.hostName = "fword";
 
