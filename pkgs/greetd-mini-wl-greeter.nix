@@ -57,5 +57,6 @@ stdenv.mkDerivation (finalAttrs: {
     description = "Extremely minimal raw Wayland greeter for greetd";
     homepage = "https://github.com/philj56/greetd-mini-wl-greeter";
     license = lib.licenses.mit;
+    mainProgram = "greetd-mini-wl-greeter";
   };
 })

@@ -68,6 +68,7 @@
     enable = true;
     command = "wayfire";
     defaultUser = "makrele";
+    output = "eDP-1";
   };
 
   programs.steam.enable = true;
