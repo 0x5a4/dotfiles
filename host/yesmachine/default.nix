@@ -61,7 +61,7 @@
     enable = true;
     defaultUser = "makrele";
     command = "Hyprland";
-    output = "HDMI-A-1";
+    output = "DP-1";
   };
 
   programs.steam.enable = true;

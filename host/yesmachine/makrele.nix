@@ -32,10 +32,11 @@
       '';
     in
     {
-      HDMI-A-1 = {
+      DP-1 = {
         workspaces = lib.range 1 5;
         defaultWorkspace = 1;
         wallpaper = "${wallpaper}/right.png";
+        position = "0x0";
         bar = {
           enable = true;
           modules.left = {
@@ -48,10 +49,11 @@
           };
         };
       };
-      DP-1 = {
+      HDMI-A-1 = {
         workspaces = lib.range 6 10;
         defaultWorkspace = 6;
         wallpaper = "${wallpaper}/left.png";
+        position = "-1920x0";
         bar = {
           enable = true;
           modules.left = {
