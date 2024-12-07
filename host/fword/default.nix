@@ -44,6 +44,7 @@
         "wheel"
         "video"
         "docker"
+        "libvirtd"
       ];
       hashedPasswordFile = config.sops.secrets.fword-makrele.path;
     };
@@ -63,7 +64,6 @@
 
   hardware.bluetooth.enable = true;
 
-  # needed for desktop
   xfaf.services.greetd = {
     enable = true;
     command = "wayfire";
@@ -72,6 +72,14 @@
   };
 
   programs.steam.enable = true;
+
+  xfaf.services.tailscale = {
+    enable = true; 
+    secretsFile = ../secrets/tailscale;
+  };
+
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   networking.hostName = "fword";
 

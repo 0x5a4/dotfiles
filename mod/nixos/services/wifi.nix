@@ -10,12 +10,10 @@
     in
     {
       enable = lib.mkEnableOption "enable wifi services configuration";
-
       secretsFile = lib.mkOption {
         type = t.path;
         description = "path to the sops secret file used for passwords";
       };
-
       networks = lib.mkOption {
         type = t.attrsOf (t.either t.str t.attrs);
         description = "map from network ssids to either their password env name or an attrset that will be used as is";
@@ -38,17 +36,15 @@
         secretsFile = config.sops.secrets.wifi.path;
         fallbackToWPA2 = false;
 
-        networks =
-          opts.networks
-          |> lib.mapAttrs (
-            ssid: network_cfg:
-            if builtins.isString network_cfg then
-              {
-                pskRaw = "ext:${network_cfg}";
-              }
-            else
-              network_cfg
-          );
+        networks = lib.mapAttrs (
+          ssid: network_cfg:
+          if builtins.isString network_cfg then
+            {
+              pskRaw = "ext:${network_cfg}";
+            }
+          else
+            network_cfg
+        ) opts.networks;
       };
     };
 }

@@ -29,6 +29,7 @@
     in
     lib.mkOption {
       type = t.attrsOf userOpts;
+      default = { };
     };
 
   config =
@@ -36,28 +37,26 @@
       opts = config.xfaf.users;
     in
     {
-      users.users = opts |> lib.mapAttrs (_: value: value.opts // { isNormalUser = true; });
+      users.users = lib.mapAttrs (_: value: value.opts // { isNormalUser = true; }) opts;
 
       home-manager =
         let
-          want-hm = opts |> lib.filterAttrs (_: value: value.home-manager.enable);
+          want-hm = lib.filterAttrs (_: value: value.home-manager.enable) opts;
         in
         {
           useGlobalPkgs = true;
           extraSpecialArgs = {
             inherit inputs outputs;
           };
-          users =
-            want-hm
-            |> lib.mapAttrs (
-              name: value:
-              { ... }:
-              {
-                home.username = name;
-                home.homeDirectory = "/home/" + name;
-                imports = [ value.home-manager.config ];
-              }
-            );
+          users = lib.mapAttrs (
+            name: value:
+            { ... }:
+            {
+              home.username = name;
+              home.homeDirectory = "/home/" + name;
+              imports = [ value.home-manager.config ];
+            }
+          ) want-hm;
         };
     };
 }

@@ -1,11 +1,14 @@
 { ... }:
 {
   imports = [
-    ./wifi.nix
     ./avahi.nix
-    ./opensssh.nix
-    ./tlp.nix
-    ./pipewire.nix
     ./greetd.nix
+    ./opensssh.nix
+    ./pipewire.nix
+    ./tailscale.nix
+    ./tlp.nix
+    ./traefik.nix
+    ./vaultwarden
+    ./wifi.nix
   ];
 }

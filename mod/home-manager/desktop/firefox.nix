@@ -49,12 +49,14 @@
           };
           "Cookies" = {
             "Allow" = [
-              "https://youtube.com"
-              "https://github.com"
+              "https://adventofcode.com"
               "https://disneyplus.com"
+              "https://github.com"
+              "https://hhu-fscs.de"
               "https://hhu.de"
               "https://inphima.de"
-              "https://hhu-fscs.de"
+              "https://wienstroer.net"
+              "https://youtube.com"
             ];
             "Behaviour" = "reject";
           };

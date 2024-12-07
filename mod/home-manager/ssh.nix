@@ -17,15 +17,23 @@
       extraConfig = ''
         IdentityFile ~/.ssh/key
       '';
-      matchBlocks = {
-        teefax = {
-          hostname = "fscs.hhu.de";
-          forwardAgent = true;
-          extraOptions = {
-            User = "tischgoblin";
+      matchBlocks =
+        let
+          teenixBlock = hostname: {
+            inherit hostname;
+            forwardAgent = true;
+            extraOptions = {
+              User = "tischgoblin";
+            };
           };
+        in
+        {
+          teefax = teenixBlock "fscs.hhu.de";
+          "fscs.hhu.de" = teenixBlock "fscs.hhu.de";
+          testfax = teenixBlock "minecraft.fsphy.de";
+          "minecraft.fsphy.de" = teenixBlock "minecraft.fsphy.de";
+          helmut.forwardAgent = true;
         };
-      };
     };
   };
 }

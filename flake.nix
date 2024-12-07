@@ -69,17 +69,18 @@
       forAllSystems = lib.genAttrs systems;
 
       genSystems =
-        x:
-        builtins.map (hostname: {
-          "${hostname}" = lib.nixosSystem {
-            specialArgs = {
-              inherit inputs outputs;
+        hosts:
+        builtins.foldl' lib.mergeAttrs { } (
+          builtins.map (hostname: {
+            "${hostname}" = lib.nixosSystem {
+              specialArgs = {
+                inherit inputs outputs;
+              };
+              modules = [ ./host/${hostname} ];
             };
-            modules = [ ./host/${hostname} ];
-          };
-        }) x
-        |> builtins.foldl' lib.mergeAttrs { };
-
+          })
+          hosts
+        );
     in
     {
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
@@ -93,6 +94,7 @@
       nixosConfigurations = genSystems [
         "fword"
         "yesmachine"
+        "helmut"
       ];
 
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
