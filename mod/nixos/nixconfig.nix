@@ -38,7 +38,7 @@
           in
           myOverlays
           ++ [
-            inputs.nur.overlay
+            inputs.nur.overlays.default
           ];
 
         config.allowUnfree = opts.allowUnfree;

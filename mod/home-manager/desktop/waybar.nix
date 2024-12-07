@@ -116,9 +116,7 @@
     {
       stylix.targets.waybar.enable = false;
 
-      home.packages = [
-        (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
-      ];
+      home.packages = [ pkgs.nerd-fonts.symbols-only ];
 
       programs.waybar = {
         enable = true;

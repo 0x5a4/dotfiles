@@ -36,7 +36,7 @@
     Welcome to Nix-on-Droid!
   '';
 
-  terminal.font = "${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/NotoMonoNerdFontMono-Regular.ttf";
+  terminal.font = "${pkgs.nerd-fonts.noto}/share/fonts/truetype/NerdFonts/Noto/NotoMonoNerdFontMono-Regular.ttf";
 
   nix =
     let
