@@ -74,7 +74,7 @@
   programs.steam.enable = true;
 
   xfaf.services.tailscale = {
-    enable = true; 
+    enable = true;
     secretsFile = ../secrets/tailscale;
   };
 

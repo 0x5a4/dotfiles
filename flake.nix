@@ -2,6 +2,8 @@
   description = "0x5a4's nixos config. ein satz mit x, das war wohl nix";
 
   inputs = {
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nur.url = "github:nix-community/NUR";
@@ -53,6 +55,7 @@
       nixpkgs,
       home-manager,
       nix-on-droid,
+      treefmt-nix,
       ...
     }@inputs:
     let
@@ -66,7 +69,7 @@
 
       lib = nixpkgs.lib;
 
-      forAllSystems = lib.genAttrs systems;
+      eachSystem = f: lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
 
       specialArgs = {
         inherit inputs outputs;
@@ -85,9 +88,16 @@
         );
     in
     {
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = eachSystem (
+        pkgs:
+        treefmt-nix.lib.mkWrapper pkgs {
+          projectRootFile = "flake.nix";
+          settings.on-unmatched = "debug";
+          programs.nixfmt.enable = true;
+        }
+      );
 
-      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      packages = eachSystem (pkgs: import ./pkgs pkgs);
       overlays = import ./overlays.nix { inherit inputs; };
 
       nixosModules.xfaf = import ./mod/nixos;
@@ -111,20 +121,14 @@
         home-manager-path = home-manager.outPath;
       };
 
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          default = pkgs.mkShell {
-            nativeBuildInputs = with pkgs; [
-              sops
-              nixos-rebuild
-            ];
-          };
-        }
-      );
+      devShells = eachSystem (pkgs: {
+        default = pkgs.mkShell {
+          nativeBuildInputs = with pkgs; [
+            sops
+            nixos-rebuild
+          ];
+        };
+      });
 
       checks = self.packages;
     };

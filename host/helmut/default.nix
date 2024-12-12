@@ -69,7 +69,7 @@
   xfaf.services.traefik.enable = true;
 
   xfaf.services.vaultwarden = {
-    enable = true; 
+    enable = true;
     secretsFile = ../secrets/vaultwarden-env;
   };
 

@@ -19,7 +19,7 @@
     in
     lib.mkIf cfg.enable {
       sops.secrets.vaultwarden = {
-        sopsFile =  cfg.secretsFile; 
+        sopsFile = cfg.secretsFile;
         format = "binary";
         mode = "0444";
       };
