@@ -75,17 +75,6 @@
         inherit inputs outputs;
         xfaf-lib = import ./lib { inherit lib; };
       };
-
-      genSystems =
-        hosts:
-        builtins.foldl' lib.mergeAttrs { } (
-          builtins.map (hostname: {
-            "${hostname}" = lib.nixosSystem {
-              modules = [ ./host/${hostname} ];
-              inherit specialArgs;
-            };
-          }) hosts
-        );
     in
     {
       formatter = eachSystem (
@@ -103,11 +92,20 @@
       nixosModules.xfaf = import ./mod/nixos;
       homeModules.xfaf = import ./mod/home-manager;
 
-      nixosConfigurations = genSystems [
-        "fword"
-        "yesmachine"
-        "helmut"
-      ];
+      nixosConfigurations =
+        lib.genAttrs
+          [
+            "fword"
+            "yesmachine"
+            "helmut"
+          ]
+          (
+            hostname:
+            lib.nixosSystem {
+              modules = [ ./host/${hostname} ];
+              inherit specialArgs;
+            }
+          );
 
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
         modules = [ ./host/droid ];
