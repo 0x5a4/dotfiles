@@ -2,6 +2,7 @@
   config,
   lib,
   modulesPath,
+  xfaf-lib,
   ...
 }:
 {
@@ -9,62 +10,29 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  disko.devices = {
-    disk = {
-      main = {
-        type = "disk";
-        device = "/dev/nvme0n1";
-        content = {
-          type = "gpt";
-          partitions = {
-            boot = {
-              size = "2G";
-              type = "EF00";
-              content = {
-                type = "filesystem";
-                format = "vfat";
-                mountpoint = "/boot";
-                mountOptions = [
-                  "defaults"
-                  "noatime"
-                  "umask=0077"
-                ];
-              };
-            };
-            root = {
-              size = "100%";
-              content = {
-                type = "luks";
-                name = "crypt";
-                settings.allowDiscards = true;
-                askPassword = true;
-                content = {
-                  type = "btrfs";
-                  extraArgs = [ "-f" ];
-                  subvolumes =
-                    let
-                      mountOptions = [ "noatime" ];
-                    in
-                    {
-                      "/root" = {
-                        mountpoint = "/";
-                        inherit mountOptions;
-                      };
-                      "/nix" = {
-                        mountpoint = "/nix";
-                        inherit mountOptions;
-                      };
-                      "/swap" = {
-                        mountpoint = "/.swap";
-                        swap.swapfile.size = "16G";
-                      };
-                    };
-                };
-              };
-            };
+  disko.devices.disk.main = xfaf-lib.disko.mkGPT "/dev/nvme0n1" {
+    boot = xfaf-lib.disko.mkBootPartition "2G";
+    root = xfaf-lib.disko.mkLuks "crypt" {
+      type = "btrfs";
+      extraArgs = [ "-f" ];
+      subvolumes =
+        let
+          mountOptions = [ "noatime" ];
+        in
+        {
+          "/root" = {
+            mountpoint = "/";
+            inherit mountOptions;
+          };
+          "/nix" = {
+            mountpoint = "/nix";
+            inherit mountOptions;
+          };
+          "/swap" = {
+            mountpoint = "/.swap";
+            swap.swapfile.size = "16G";
           };
         };
-      };
     };
   };
 

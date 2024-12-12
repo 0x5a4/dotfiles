@@ -1,3 +1,4 @@
+{ xfaf-lib, ... }:
 {
   disko.devices = {
     disk =
@@ -20,34 +21,14 @@
         };
       in
       {
-        main = {
-          type = "disk";
-          device = "/dev/nvme0n1";
-          content = {
-            type = "gpt";
-            partitions = {
-              boot = {
-                size = "2G";
-                type = "EF00";
-                content = {
-                  type = "filesystem";
-                  format = "vfat";
-                  mountpoint = "/boot";
-                  mountOptions = [
-                    "defaults"
-                    "noatime"
-                    "umask=0077"
-                  ];
-                };
-              };
-              root = {
-                size = "100%";
-                content = {
-                  type = "btrfs";
-                  mountpoint = "/";
-                  mountOptions = [ "noatime" ];
-                };
-              };
+        main = xfaf-lib.disko.mkGPT "/dev/nvme0n1" {
+          boot = xfaf-lib.disko.mkBootPartition "2 ";
+          root = {
+            size = "100%";
+            content = {
+              type = "btrfs";
+              mountpoint = "/";
+              mountOptions = [ "noatime" ];
             };
           };
         };

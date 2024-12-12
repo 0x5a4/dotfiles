@@ -2,6 +2,7 @@
   config,
   lib,
   modulesPath,
+  xfaf-lib,
   ...
 }:
 {
@@ -11,69 +12,42 @@
 
   disko.devices = {
     disk = {
-      main = {
-        type = "disk";
-        device = "/dev/sdb";
-        content = {
-          type = "gpt";
-          partitions = {
-            ESP = {
-              size = "2G";
-              type = "EF00";
-              content = {
-                type = "filesystem";
-                format = "vfat";
-                mountpoint = "/boot";
-                mountOptions = [
-                  "defaults"
-                  "noatime"
-                  "umask=0077"
-                ];
+      main = xfaf-lib.disko.mkGPT "/dev/sdb" {
+        ESP = xfaf-lib.disko.mkBootPartition "2G";
+        root = {
+          size = "100%";
+          content = {
+            type = "btrfs";
+            extraArgs = [ "-f" ];
+            subvolumes =
+              let
+                mountOptions = [ "noatime" ];
+              in
+              {
+                "/root" = {
+                  mountpoint = "/";
+                  inherit mountOptions;
+                };
+                "/nix" = {
+                  mountpoint = "/nix";
+                  inherit mountOptions;
+                };
+                "/swap" = {
+                  mountpoint = "/.swap";
+                  swap.swapfile.size = "16G";
+                };
               };
-            };
-            root = {
-              size = "100%";
-              content = {
-                type = "btrfs";
-                extraArgs = [ "-f" ];
-                subvolumes =
-                  let
-                    mountOptions = [ "noatime" ];
-                  in
-                  {
-                    "/root" = {
-                      mountpoint = "/";
-                      inherit mountOptions;
-                    };
-                    "/nix" = {
-                      mountpoint = "/nix";
-                      inherit mountOptions;
-                    };
-                    "/swap" = {
-                      mountpoint = "/.swap";
-                      swap.swapfile.size = "16G";
-                    };
-                  };
-              };
-            };
           };
         };
       };
-      games = {
-        type = "disk";
-        device = "/dev/sdd";
-        content = {
-          type = "gpt";
-          partitions = {
-            games = {
-              size = "100%";
-              content = {
-                type = "btrfs";
-                extraArgs = [ "-f" ];
-                mountpoint = "/mnt/games";
-                mountOptions = [ "noatime" ];
-              };
-            };
+      games = xfaf-lib.disko.mkGPT "/dev/sdd" {
+        games = {
+          size = "100%";
+          content = {
+            type = "btrfs";
+            extraArgs = [ "-f" ];
+            mountpoint = "/mnt/games";
+            mountOptions = [ "noatime" ];
           };
         };
       };

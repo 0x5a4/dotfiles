@@ -68,18 +68,20 @@
 
       forAllSystems = lib.genAttrs systems;
 
+      specialArgs = {
+        inherit inputs outputs;
+        xfaf-lib = import ./lib { inherit lib; };
+      };
+
       genSystems =
         hosts:
         builtins.foldl' lib.mergeAttrs { } (
           builtins.map (hostname: {
             "${hostname}" = lib.nixosSystem {
-              specialArgs = {
-                inherit inputs outputs;
-              };
               modules = [ ./host/${hostname} ];
+              inherit specialArgs;
             };
-          })
-          hosts
+          }) hosts
         );
     in
     {
@@ -99,14 +101,11 @@
 
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
         modules = [ ./host/droid ];
+        extraSpecialArgs = specialArgs;
 
         pkgs = import nixpkgs {
           system = "aarch64-linux";
           overlays = [ nix-on-droid.overlays.default ];
-        };
-
-        extraSpecialArgs = {
-          inherit inputs outputs;
         };
 
         home-manager-path = home-manager.outPath;
