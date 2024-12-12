@@ -2,25 +2,16 @@
   description = "0x5a4's nixos config. ein satz mit x, das war wohl nix";
 
   inputs = {
-    treefmt-nix.url = "github:numtide/treefmt-nix";
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     nur.url = "github:nix-community/NUR";
 
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+
     hardware.url = "github:NixOS/nixos-hardware/master";
-
-    sops = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+    sops.url = "github:Mic92/sops-nix";
     nix-easyroam.url = "github:0x5a4/nix-easyroam";
-
-    home-manager = {
-      url = "github:0x5a4/home-manager/init-wayfire";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    disko.url = "github:nix-community/disko";
+    stylix.url = "github:danth/stylix";
 
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
@@ -28,20 +19,12 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    home-manager.url = "github:0x5a4/home-manager/init-wayfire";
 
     betterfox.url = "github:HeitorAugustoLN/betterfox-nix";
 
@@ -78,8 +61,7 @@
     in
     {
       formatter = eachSystem (
-        pkgs:
-        treefmt-nix.lib.mkWrapper pkgs {
+        (lib.flip treefmt-nix.lib.mkWrapper) {
           projectRootFile = "flake.nix";
           settings.on-unmatched = "debug";
           programs.nixfmt.enable = true;
