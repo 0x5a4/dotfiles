@@ -82,14 +82,11 @@
           bookmarks =
             let
               defineNamed = name: url: {
-                name = name;
+                inherit name;
                 url = "https://${url}";
               };
               define = url: defineNamed "" url;
-              folder = name: bookmarks: {
-                name = name;
-                bookmarks = bookmarks;
-              };
+              folder = name: bookmarks: { inherit name bookmarks; };
             in
             [
               {
@@ -135,6 +132,7 @@
                     (defineNamed "hugo" "gohugo.io/documentation")
                     (defineNamed "bootstrap" "getbootstrap.com/docs/")
                     (defineNamed "nixpkgs doc" "ryantm.github.io/nixpkgs/")
+                    (defineNamed "nixvim" "nix-community.github.io/nixvim/")
                   ])
                 ];
               }
