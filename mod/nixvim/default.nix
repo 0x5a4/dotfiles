@@ -1,3 +1,6 @@
-{ pkgs, lib, ... }:
 {
+  imports = [
+    ./autocmd.nix
+    ./settings.nix
+  ];
 }

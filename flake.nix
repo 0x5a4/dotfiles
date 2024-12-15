@@ -64,6 +64,7 @@
       nixvimModuleFor = pkgs: {
         inherit pkgs;
         module = import ./mod/nixvim;
+        extraSpecialArgs = specialArgs;
       };
     in
     {
