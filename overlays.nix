@@ -1,8 +1,5 @@
-{ ... }:
 {
-  additions = final: prev: import ./pkgs final.pkgs;
-
-  overrides = final: prev: {
+  default = final: prev: {
     rofi-calc-wayland = prev.rofi-calc.overrideAttrs (
       finalAttrs: oldAttrs:
       let
@@ -18,5 +15,5 @@
         patches = (oldAttrs.patches or [ ]) ++ [ ./config/hyprland_splashes.patch ];
       }
     );
-  };
+  } // import ./pkgs final.pkgs;
 }
