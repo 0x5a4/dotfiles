@@ -1,6 +1,5 @@
 { pkgs, lib, ... }:
 {
-
   extraConfigLuaPre = # lua
     ''
       local function runcmd(cmd, show_error)
