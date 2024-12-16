@@ -33,5 +33,10 @@
     concealcursor = "c";
   };
 
+  clipboard.providers = {
+    wl-copy.enable = true;
+    xsel.enable = true; 
+  };
+
   globals.tex_flavor = "latex";
 }
