@@ -32,14 +32,10 @@
     in
     {
       nixpkgs = {
-        overlays =
-          let
-            myOverlays = if (outputs ? "overlays") then (builtins.attrValues outputs.overlays) else [ ];
-          in
-          myOverlays
-          ++ [
-            inputs.nur.overlays.default
-          ];
+        overlays = [
+          inputs.nur.overlays.default
+          outputs.overlays.default
+        ];
 
         config.allowUnfree = opts.allowUnfree;
       };

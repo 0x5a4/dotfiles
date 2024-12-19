@@ -82,10 +82,10 @@
         {
           nixvim = nixvim.legacyPackages.${system}.makeNixvimWithModule (nixvimModuleFor pkgs);
         }
-        // import ./pkgs pkgs
+        // (import ./pkgs { inherit pkgs lib; }).allPackages
       );
 
-      overlays = import ./overlays.nix;
+      overlays = import ./overlays.nix { inherit lib; };
 
       nixosModules.xfaf = import ./mod/nixos;
       homeModules.xfaf = import ./mod/home-manager;
@@ -133,7 +133,7 @@
         {
           nixvim-config = nixvim.lib.${system}.check.mkTestDerivationFromNixvimModule (nixvimModuleFor pkgs);
         }
-        // (import ./pkgs pkgs)
+        // (import ./pkgs { inherit pkgs lib; }).allPackages
       );
     };
 }
