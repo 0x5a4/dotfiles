@@ -41,9 +41,6 @@ with lib.nixvim;
       '';
     })
 
-    # Different normal mode
-    (xnoremap "kj" "<esc>")
-
     # Cut
     (nnoremap "xx" "dd")
     (nnoremap "X" "D")

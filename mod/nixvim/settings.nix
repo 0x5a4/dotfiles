@@ -38,5 +38,8 @@
     xsel.enable = true;
   };
 
-  globals.tex_flavor = "latex";
+  globals = {
+    tex_flavor = "latex";
+    tex_conceal = "abdmg";
+  };
 }

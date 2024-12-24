@@ -1,5 +1,5 @@
 { lib, ... }:
-lib.nixvim.neovim-plugin.mkNeovimPlugin {
+lib.nixvim.plugins.neovim.mkNeovimPlugin {
   name = "iswap";
   package = "duck-nvim";
   maintainers = [ ];

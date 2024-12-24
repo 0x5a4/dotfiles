@@ -1,7 +1,7 @@
 { lib, ... }:
 lib.nixvim.plugins.neovim.mkNeovimPlugin {
-  name = "cellular-automaton";
-  package = "cellular-automaton-nvim";
+  name = "venn";
+  package = "venn-nvim";
   callSetup = false;
   maintainers = [ ];
 }
