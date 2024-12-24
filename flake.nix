@@ -106,7 +106,7 @@
           );
 
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-        modules = [ ./host/droid ];
+        modules = [ ./hosts/droid ];
         extraSpecialArgs = specialArgs;
 
         pkgs = import nixpkgs {

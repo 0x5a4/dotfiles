@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  xfaf-lib,
   inputs,
   outputs,
   ...
@@ -59,7 +60,7 @@
     backupFileExtension = "hm-bak";
     useGlobalPkgs = true;
     extraSpecialArgs = {
-      inherit inputs outputs;
+      inherit xfaf-lib inputs outputs;
     };
   };
 
