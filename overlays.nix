@@ -1,22 +1,31 @@
-{ ... }:
+{ lib, ... }:
+let
+  mkPkgSets = pkgs: import ./pkgs { inherit lib pkgs; };
+in
 {
-  additions = final: prev: import ./pkgs final.pkgs;
+  vimPlugins =
+    final: prev:
+    let
+      pkgSets = mkPkgSets prev;
+    in
+    {
+      vimPlugins = prev.vimPlugins.extend (_: _: pkgSets.vimPlugins);
+    };
 
-  overrides = final: prev: {
-    rofi-calc-wayland = prev.rofi-calc.overrideAttrs (
-      finalAttrs: oldAttrs:
-      let
-        unRofiInputs = prev.lib.remove prev.rofi-unwrapped oldAttrs.buildInputs;
-      in
+  default =
+    final: prev:
+    let
+      pkgSets = mkPkgSets prev;
+    in
+    lib.mergeAttrsList [
+      pkgSets.extra
+      pkgSets.scripts
       {
-        buildInputs = unRofiInputs ++ [ prev.rofi-wayland ];
+        hyprland = prev.hyprland.overrideAttrs (
+          finalAttrs: oldAttrs: {
+            patches = (oldAttrs.patches or [ ]) ++ [ ./patches/hyprland_splashes.patch ];
+          }
+        );
       }
-    );
-
-    hyprland = prev.hyprland.overrideAttrs (
-      finalAttrs: oldAttrs: {
-        patches = (oldAttrs.patches or [ ]) ++ [ ./config/hyprland_splashes.patch ];
-      }
-    );
-  };
+    ];
 }

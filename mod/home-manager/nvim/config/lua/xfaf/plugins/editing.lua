@@ -101,7 +101,6 @@ return {
             },
         },
     },
-    { "christoomey/vim-sort-motion" },
     {
         "kana/vim-textobj-indent",
         dependencies = { "kana/vim-textobj-user" },
@@ -110,4 +109,5 @@ return {
         "kana/vim-textobj-entire",
         dependencies = { "kana/vim-textobj-user" },
     },
+    { "christoomey/vim-sort-motion" },
 }

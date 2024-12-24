@@ -1,19 +1,6 @@
-{ lib, ... }:
+{ xfaf-lib, lib, ... }:
 {
-  imports = [
-    ./batsignal.nix
-    ./firefox.nix
-    ./hyprland
-    ./hyprpaper.nix
-    ./kitty.nix
-    ./mako.nix
-    ./rofi.nix
-    ./swayidle.nix
-    ./tofi.nix
-    ./waybar.nix
-    ./wayfire
-    ./wob.nix
-  ];
+  imports = xfaf-lib.importAllChildren ./.;
 
   options.xfaf.desktop =
     let

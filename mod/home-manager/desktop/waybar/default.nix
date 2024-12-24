@@ -121,7 +121,7 @@
       programs.waybar = {
         enable = true;
         systemd.enable = true;
-        style = ../../../config/waybar.css;
+        style = ./waybar.css;
         settings =
           let
             # dont forget to flatten the result!

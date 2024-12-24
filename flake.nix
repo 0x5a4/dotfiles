@@ -27,6 +27,8 @@
 
     betterfox.url = "github:HeitorAugustoLN/betterfox-nix";
 
+    nixvim.url = "github:nix-community/nixvim";
+
     # for nix flake init
     templates.url = "github:nixos/templates";
   };
@@ -38,6 +40,7 @@
       home-manager,
       nix-on-droid,
       treefmt-nix,
+      nixvim,
       ...
     }@inputs:
     let
@@ -51,24 +54,38 @@
 
       lib = nixpkgs.lib;
 
-      eachSystem = f: lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
+      eachSystem = f: lib.genAttrs systems (system: f system nixpkgs.legacyPackages.${system});
 
       specialArgs = {
         inherit inputs outputs;
         xfaf-lib = import ./lib { inherit lib; };
       };
+
+      nixvimModuleFor = pkgs: {
+        inherit pkgs;
+        module = import ./mod/nixvim;
+        extraSpecialArgs = specialArgs;
+      };
     in
     {
       formatter = eachSystem (
+        system: pkgs:
         (lib.flip treefmt-nix.lib.mkWrapper) {
           projectRootFile = "flake.nix";
           settings.on-unmatched = "debug";
           programs.nixfmt.enable = true;
-        }
+        } pkgs
       );
 
-      packages = eachSystem (pkgs: import ./pkgs pkgs);
-      overlays = import ./overlays.nix { inherit inputs; };
+      packages = eachSystem (
+        system: pkgs:
+        {
+          nixvim = nixvim.legacyPackages.${system}.makeNixvimWithModule (nixvimModuleFor pkgs);
+        }
+        // (import ./pkgs { inherit pkgs lib; }).allPackages
+      );
+
+      overlays = import ./overlays.nix { inherit lib; };
 
       nixosModules.xfaf = import ./mod/nixos;
       homeModules.xfaf = import ./mod/home-manager;
@@ -83,7 +100,7 @@
           (
             hostname:
             lib.nixosSystem {
-              modules = [ ./host/${hostname} ];
+              modules = [ ./hosts/${hostname} ];
               inherit specialArgs;
             }
           );
@@ -100,15 +117,23 @@
         home-manager-path = home-manager.outPath;
       };
 
-      devShells = eachSystem (pkgs: {
-        default = pkgs.mkShell {
-          nativeBuildInputs = with pkgs; [
-            sops
-            nixos-rebuild
-          ];
-        };
-      });
+      devShells = eachSystem (
+        system: pkgs: {
+          default = pkgs.mkShell {
+            nativeBuildInputs = with pkgs; [
+              sops
+              nixos-rebuild
+            ];
+          };
+        }
+      );
 
-      checks = self.packages;
+      checks = eachSystem (
+        system: pkgs:
+        {
+          nixvim-config = nixvim.lib.${system}.check.mkTestDerivationFromNixvimModule (nixvimModuleFor pkgs);
+        }
+        // (import ./pkgs { inherit pkgs lib; }).allPackages
+      );
     };
 }

@@ -24,7 +24,7 @@
 
         package = pkgs.rofi-wayland;
 
-        theme = ../../../config/rofi-theme.rasi;
+        theme = ./rofi-theme.rasi;
 
         plugins = with pkgs; [
           rofi-calc-wayland

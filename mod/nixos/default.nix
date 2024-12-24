@@ -1,12 +1,10 @@
-{ inputs, ... }:
 {
-  imports = [
-    ./services
-    ./bootconfig.nix
-    ./nixconfig.nix
-    ./users.nix
-    ./sudo.nix
-
+  xfaf-lib,
+  inputs,
+  ...
+}:
+{
+  imports = (xfaf-lib.importAllChildren ./.) ++ [
     inputs.home-manager.nixosModules.home-manager
     inputs.sops.nixosModules.sops
     inputs.stylix.nixosModules.stylix

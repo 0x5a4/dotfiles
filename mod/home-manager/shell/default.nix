@@ -1,16 +1,12 @@
 {
   config,
   lib,
+  xfaf-lib, 
   pkgs,
   ...
 }:
 {
-  imports = [
-    ./starship.nix
-    ./fish.nix
-    ./tmux.nix
-    ./direnv.nix
-  ];
+  imports = xfaf-lib.importAllChildren ./.;
 
   options.xfaf.shell = {
     enableAliases = lib.mkEnableOption "enable 0x5a4s shell aliases";

@@ -1,5 +1,6 @@
 {
   lib,
+  xfaf-lib,
   config,
   inputs,
   outputs,
@@ -46,7 +47,7 @@
         {
           useGlobalPkgs = true;
           extraSpecialArgs = {
-            inherit inputs outputs;
+            inherit xfaf-lib inputs outputs;
           };
           users = lib.mapAttrs (
             name: value:
