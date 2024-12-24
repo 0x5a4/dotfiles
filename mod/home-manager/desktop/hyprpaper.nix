@@ -15,7 +15,6 @@
       {
         enable = true;
         settings = {
-          splash = true;
           preload =
             monitorsWithWallpaper |> lib.mapAttrsToList (_: v: builtins.toString v.wallpaper) |> lib.unique;
           wallpaper = monitorsWithWallpaper |> lib.mapAttrsToList (name: v: "${name}, ${v.wallpaper}");

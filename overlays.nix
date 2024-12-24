@@ -20,12 +20,5 @@ in
     lib.mergeAttrsList [
       pkgSets.extra
       pkgSets.scripts
-      {
-        hyprland = prev.hyprland.overrideAttrs (
-          finalAttrs: oldAttrs: {
-            patches = (oldAttrs.patches or [ ]) ++ [ ./patches/hyprland_splashes.patch ];
-          }
-        );
-      }
     ];
 }
