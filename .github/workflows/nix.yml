@@ -9,7 +9,10 @@ jobs:
       actions: write
     steps:
       - uses: actions/checkout@v4
-      - uses: nixbuild/nix-quick-install-action@v29
+      - uses: cachix/install-nix-action@v27
+        with:
+          extra_nix_config: |
+            extra-experimental-features = pipe-operators
       - uses: nix-community/cache-nix-action@v5
         with:
           primary-key: nix-${{ runner.os }}-${{ hashFiles('flake.nix', 'flake.lock', 'pkgs/*.nix') }}
@@ -26,4 +29,4 @@ jobs:
           purge-created: 0
           # except the version with the `primary-key`, if it exists
           purge-primary-key: never
-      - run: nix --extra-experimental-features "pipe-operators" flake check
+      - run: nix flake check
