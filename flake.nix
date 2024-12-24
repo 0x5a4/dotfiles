@@ -131,7 +131,7 @@
       checks = eachSystem (
         system: pkgs:
         {
-          # nixvim-config = nixvim.lib.${system}.check.mkTestDerivationFromNixvimModule (nixvimModuleFor pkgs);
+          nixvim-config = nixvim.lib.${system}.check.mkTestDerivationFromNixvimModule (nixvimModuleFor pkgs);
         }
         // (import ./pkgs { inherit pkgs lib; }).allPackages
       );
