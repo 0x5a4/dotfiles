@@ -78,9 +78,6 @@
     secretsFile = ../secrets/tailscale;
   };
 
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
-
   networking.hostName = "fword";
 
   system.stateVersion = "23.11";
