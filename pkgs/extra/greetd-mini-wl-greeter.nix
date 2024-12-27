@@ -26,7 +26,7 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "philj56";
     repo = "greetd-mini-wl-greeter";
     rev = "61f25ed34a1a35a061c2f3605fc3d4b37a7d0d8e";
-    hash = "sha256-3q4FnjISe/MeF+egqpqHzDrBCNAkOjE6GxVmXMbqM9w=";
+    hash = "sha256-ifeQbzMA9O+yhLveTXpEmgG2BsSp4lxbd3yo8o69fxA=";
   };
 
   nativeBuildInputs = [
