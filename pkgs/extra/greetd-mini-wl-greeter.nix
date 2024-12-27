@@ -20,12 +20,12 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "greetd-mini-wl-greeter";
-  version = "0-unstable-2021-11-04";
+  version = "0-unstable-2024-12-27";
 
   src = fetchFromGitHub {
     owner = "philj56";
     repo = "greetd-mini-wl-greeter";
-    rev = "c28c5249c4d3ba7076e2c6ea598e3ad93a168301";
+    rev = "61f25ed34a1a35a061c2f3605fc3d4b37a7d0d8e";
     hash = "sha256-3q4FnjISe/MeF+egqpqHzDrBCNAkOjE6GxVmXMbqM9w=";
   };
 
