@@ -27,7 +27,9 @@
         theme = ./rofi-theme.rasi;
 
         plugins = with pkgs; [
-          rofi-calc-wayland
+          (rofi-calc.override {
+            rofi-unwrapped = rofi-wayland-unwrapped;
+          })
         ];
 
         extraConfig = {
