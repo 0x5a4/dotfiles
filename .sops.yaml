@@ -3,7 +3,7 @@ keys:
   - &yesmachine age1rs4fcwsjt7v0uja0v4a9aedrakmvl67sk69yjhzdsrusl3a29glsq40m5e
   - &helmut age1vksq4426jdzk5reu3889e283lvvew66pqwea9s29q802kycp63vsfve5th
 creation_rules:
-  - path_regex: host/secrets/.*
+  - path_regex: hosts/secrets/.*
     key_groups:
       - age:
           - *fword
