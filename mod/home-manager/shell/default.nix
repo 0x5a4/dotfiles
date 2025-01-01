@@ -59,8 +59,8 @@
       tree = ls + "--tree ";
       ltree = ll + "--tree ";
       gtree = ltree + "--git-ignore ";
-      tr33 = tree + "--level=3 ";
-      tr22 = tree + "--level=2 ";
+      tree2 = tree + "--level=2 ";
+      tree3 = tree + "--level=3 ";
       # convenience
       cat = lib.getExe pkgs.bat;
       ccat = "command cat";
