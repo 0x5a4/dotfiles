@@ -75,10 +75,11 @@
 
   home.packages = with pkgs; [
     element-desktop
+    jetbrains.idea-ultimate
+    libreoffice
     prismlauncher
     spotify
     thunderbird
-    libreoffice
     vesktop
   ];
 
