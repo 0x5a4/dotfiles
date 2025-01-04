@@ -34,6 +34,7 @@ return {
                 "just",
                 "kotlin",
                 "lua",
+                "latex",
                 "make",
                 "markdown",
                 "markdown_inline",
@@ -59,6 +60,7 @@ return {
             },
             highlight = {
                 enable = true,
+                disable = { "markdown", "markdown_inline", "latex" },
             },
             indent = {
                 true,

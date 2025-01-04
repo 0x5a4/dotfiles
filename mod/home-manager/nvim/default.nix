@@ -64,6 +64,8 @@
             zls
             # other stuff
             gcc # for treesitter
+            tree-sitter
+            nodejs
             git # for lazy
             ripgrep # for telescope
           ]

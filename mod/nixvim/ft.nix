@@ -22,5 +22,8 @@
     "ftplugin/zig.vim".text = ''
       setlocal commentstring=//\ %s
     '';
+    "syntax/markdown.vim".text = ''
+      syntax match markdownNewLine "  $" conceal cchar=⏎
+    '';
   };
 }

@@ -13,7 +13,14 @@ with lib.nixvim;
     treesitter = {
       enable = true;
       settings = {
-        highlight.enable = true;
+        highlight = {
+          enable = true;
+          disable = [
+            "markdown"
+            "markdown_inline"
+            "latex"
+          ];
+        };
         indent.enable = true;
       };
       grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
@@ -26,11 +33,11 @@ with lib.nixvim;
         diff
         dockerfile
         fish
+        git_config
+        git_rebase
         gitattributes
         gitcommit
-        git_config
         gitignore
-        git_rebase
         html
         hyprlang
         ini
@@ -39,6 +46,7 @@ with lib.nixvim;
         json
         just
         kotlin
+        latex
         lua
         make
         markdown
