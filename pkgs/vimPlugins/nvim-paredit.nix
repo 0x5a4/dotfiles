@@ -1,6 +1,7 @@
 {
-  vimUtils,
   fetchFromGitHub,
+  vimPlugins,
+  vimUtils,
 }:
 vimUtils.buildVimPlugin {
   pname = "nvim-paredit";
@@ -11,4 +12,8 @@ vimUtils.buildVimPlugin {
     rev = "0fadfa5cb14c4a2a8fc3e8fbd3cb72c7d5e16eda";
     hash = "sha256-yqKIc3ZYhpAg1TWB71yOGCa321eogpA6bK3KeKQJT6w=";
   };
+
+  nativeBuildInputs = [
+    vimPlugins.nvim-treesitter
+  ];
 }

@@ -3,9 +3,8 @@ let
   pkgNames =
     path:
     builtins.readDir path
-    |> lib.filterAttrs (n: v: v == "regular")
+    |> lib.filterAttrs (n: v: v == "regular" && (lib.hasSuffix ".nix" n))
     |> lib.attrNames
-    |> lib.filter (lib.hasSuffix ".nix")
     |> lib.map (lib.removeSuffix ".nix");
 
   buildPkgs = path: lib.genAttrs (pkgNames path) (name: pkgs.callPackage "${path}/${name}.nix" { });
