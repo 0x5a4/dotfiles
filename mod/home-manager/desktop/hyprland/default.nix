@@ -68,10 +68,9 @@
             acc
             ++ (lib.map (
               w:
-              let
-                default = if value ? "defaultWorkspace" then value.defaultWorkspace == w else false;
-              in
-              "${toString w}, monitor:${name}, default:${toString default}"
+              "${toString w}, monitor:${name}${
+                lib.optionalString (value ? "defaultWorkspace") ",default:true" 
+              }"
             ) value.workspaces)
           ) [ ];
 
