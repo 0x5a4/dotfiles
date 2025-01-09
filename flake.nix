@@ -23,7 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager.url = "github:0x5a4/home-manager/init-wayfire";
+    home-manager.url = "github:nix-community/home-manager";
 
     betterfox.url = "github:HeitorAugustoLN/betterfox-nix";
 

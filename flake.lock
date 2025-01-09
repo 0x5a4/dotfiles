@@ -357,16 +357,15 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1736001745,
-        "narHash": "sha256-jtU7ueYwpDT5tNq07Xgsn874j+wkVltyGSJhGZE2TT4=",
-        "owner": "0x5a4",
+        "lastModified": 1736366465,
+        "narHash": "sha256-Fo68EF6p/N9GJyHiAUbXtiE7IJlb3IMjK86LuxFMsRU=",
+        "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "844b87c5d2c1926c9944c5ea261c5571f6a503ff",
+        "rev": "7e00856596891850ba5ad4c5ecd2ed74468c08c5",
         "type": "github"
       },
       "original": {
-        "owner": "0x5a4",
-        "ref": "init-wayfire",
+        "owner": "nix-community",
         "repo": "home-manager",
         "type": "github"
       }
