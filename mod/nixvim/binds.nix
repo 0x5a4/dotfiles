@@ -1,5 +1,5 @@
-{ lib, xfaf-lib, ... }:
-with xfaf-lib.nixvim;
+{ lib, ... }:
+with lib.xfaf.nixvim;
 with lib.nixvim;
 {
   globals = {

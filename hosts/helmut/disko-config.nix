@@ -1,4 +1,4 @@
-{ xfaf-lib, ... }:
+{ lib, ... }:
 {
   disko.devices = {
     disk =
@@ -21,8 +21,8 @@
         };
       in
       {
-        main = xfaf-lib.disko.mkGPT "/dev/nvme0n1" {
-          boot = xfaf-lib.disko.mkBootPartition "2 ";
+        main = lib.xfaf.disko.mkGPT "/dev/nvme0n1" {
+          boot = lib.xfaf.disko.mkBootPartition "2 ";
           root = {
             size = "100%";
             content = {

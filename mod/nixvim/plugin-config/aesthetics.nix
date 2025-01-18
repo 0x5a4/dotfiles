@@ -1,5 +1,5 @@
-{ xfaf-lib, lib, ... }:
-with xfaf-lib.nixvim;
+{ lib, ... }:
+with lib.xfaf.nixvim;
 with lib.nixvim;
 {
   plugins = {

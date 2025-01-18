@@ -1,4 +1,4 @@
-{ xfaf-lib, ... }:
+{ lib, ... }:
 {
-  imports = xfaf-lib.importAllChildren ./.;
+  imports = lib.xfaf.importAllChildren ./.;
 }

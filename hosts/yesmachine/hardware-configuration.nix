@@ -2,7 +2,6 @@
   config,
   lib,
   modulesPath,
-  xfaf-lib,
   ...
 }:
 {
@@ -12,8 +11,8 @@
 
   disko.devices = {
     disk = {
-      main = xfaf-lib.disko.mkGPT "/dev/sdb" {
-        ESP = xfaf-lib.disko.mkBootPartition "2G";
+      main = lib.xfaf.disko.mkGPT "/dev/sdb" {
+        ESP = lib.xfaf.disko.mkBootPartition "2G";
         root = {
           size = "100%";
           content = {
@@ -40,7 +39,7 @@
           };
         };
       };
-      games = xfaf-lib.disko.mkGPT "/dev/sdd" {
+      games = lib.xfaf.disko.mkGPT "/dev/sdd" {
         games = {
           size = "100%";
           content = {

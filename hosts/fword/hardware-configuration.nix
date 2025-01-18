@@ -2,7 +2,6 @@
   config,
   lib,
   modulesPath,
-  xfaf-lib,
   ...
 }:
 {
@@ -10,9 +9,9 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  disko.devices.disk.main = xfaf-lib.disko.mkGPT "/dev/nvme0n1" {
-    boot = xfaf-lib.disko.mkBootPartition "2G";
-    root = xfaf-lib.disko.mkLuks "crypt" {
+  disko.devices.disk.main = lib.xfaf.disko.mkGPT "/dev/nvme0n1" {
+    boot = lib.xfaf.disko.mkBootPartition "2G";
+    root = lib.xfaf.disko.mkLuks "crypt" {
       type = "btrfs";
       extraArgs = [ "-f" ];
       subvolumes =

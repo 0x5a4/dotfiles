@@ -1,10 +1,9 @@
 {
   pkgs,
-  xfaf-lib,
   lib,
   ...
 }:
-with xfaf-lib.nixvim;
+with lib.xfaf.nixvim;
 with lib.nixvim;
 {
   keymaps = [

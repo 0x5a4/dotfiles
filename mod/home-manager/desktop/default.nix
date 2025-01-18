@@ -1,6 +1,6 @@
-{ xfaf-lib, lib, ... }:
+{ lib, ... }:
 {
-  imports = xfaf-lib.importAllChildren ./.;
+  imports = lib.xfaf.importAllChildren ./.;
 
   options.xfaf.desktop =
     let

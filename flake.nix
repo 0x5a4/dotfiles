@@ -52,19 +52,24 @@
         "aarch64-darwin"
       ];
 
-      lib = nixpkgs.lib;
+      lib = nixpkgs.lib.extend (
+        final: prev: {
+          xfaf = import ./lib { lib = prev; };
+        }
+      );
 
       eachSystem = f: lib.genAttrs systems (system: f system nixpkgs.legacyPackages.${system});
 
       specialArgs = {
-        inherit inputs outputs;
-        xfaf-lib = import ./lib { inherit lib; };
+        inherit inputs outputs lib;
       };
 
       nixvimModuleFor = pkgs: {
         inherit pkgs;
         module = import ./mod/nixvim;
-        extraSpecialArgs = specialArgs;
+        extraSpecialArgs = specialArgs // {
+          lib = lib.extend nixvim.lib.overlay;
+        };
       };
     in
     {

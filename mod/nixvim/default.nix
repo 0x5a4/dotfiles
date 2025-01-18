@@ -1,6 +1,6 @@
-{ xfaf-lib, outputs, ... }:
+{ lib, outputs, ... }:
 {
-  imports = xfaf-lib.importAllChildren ./.;
+  imports = lib.xfaf.importAllChildren ./.;
 
   nixpkgs.overlays = [ outputs.overlays.vimPlugins ];
 

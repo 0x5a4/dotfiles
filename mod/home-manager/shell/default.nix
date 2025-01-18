@@ -1,12 +1,11 @@
 {
   config,
   lib,
-  xfaf-lib, 
   pkgs,
   ...
 }:
 {
-  imports = xfaf-lib.importAllChildren ./.;
+  imports = lib.xfaf.importAllChildren ./.;
 
   options.xfaf.shell = {
     enableAliases = lib.mkEnableOption "enable 0x5a4s shell aliases";

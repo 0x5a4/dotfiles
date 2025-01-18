@@ -1,10 +1,10 @@
 {
-  xfaf-lib,
+  lib,
   inputs,
   ...
 }:
 {
-  imports = (xfaf-lib.importAllChildren ./.) ++ [
+  imports = (lib.xfaf.importAllChildren ./.) ++ [
     inputs.home-manager.nixosModules.home-manager
     inputs.sops.nixosModules.sops
     inputs.stylix.nixosModules.stylix
