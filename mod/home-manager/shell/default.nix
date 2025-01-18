@@ -35,6 +35,7 @@
         fastfetch
         fd
         file
+        imagemagick
         jq
         man-pages-posix
         mdcat

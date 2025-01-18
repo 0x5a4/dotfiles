@@ -25,7 +25,7 @@
       };
 
       wallpaper = pkgs.runCommandLocal "fword-wallpaper" { } ''
-        ${pkgs.imagemagick}/bin/convert -crop 50%x100% ${wallpaper-image} output.png
+        ${lib.getExe pkgs.imagemagick} -crop 50%x100% ${wallpaper-image} output.png
         mkdir $out
         mv output-0.png $out/left.png
         mv output-1.png $out/right.png
