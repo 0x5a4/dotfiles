@@ -18,14 +18,7 @@
 
   xfaf.desktop.monitors =
     let
-      wallpaper = pkgs.fetchurl {
-        name = "fword-wallpaper";
-        url = "https://img.itch.zone/aW1hZ2UvOTY3MDg0LzU1MjAyMTIucG5n/794x1000/K13gwE.png";
-        hash = "sha256-psw6lxfxAcRSNZ/7Y3EQvpukL8HYpr0H96Wld3qL+wU=";
-      };
-
       externalConfig = {
-        inherit wallpaper;
         workspaces = [ 0 ];
         defaultWorkspace = 0;
         bar = {
@@ -44,7 +37,6 @@
     in
     {
       eDP-1 = {
-        inherit wallpaper;
         scale = 1.175;
         workspaces = lib.range 1 9;
         defaultWorkspace = 1;

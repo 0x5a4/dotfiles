@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 {
   imports = [
     ./locale.nix
@@ -21,10 +21,10 @@
 
   stylix.enable = true;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
-  stylix.image = pkgs.fetchurl {
+  stylix.image = lib.mkDefault (pkgs.fetchurl {
     url = "https://pbs.twimg.com/media/EDyxVvoXsAAE9Zg.png";
     sha256 = "sha256-NRfish27NVTJtJ7+eEWPOhUBe8vGtuTw+Osj5AVgOmM=";
-  };
+  });
 
   programs.fish.enable = true;
   users = {

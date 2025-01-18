@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 {
   imports = lib.xfaf.importAllChildren ./.;
 
@@ -71,7 +71,7 @@
               wallpaper = lib.mkOption {
                 description = "wallpaper for this monitor";
                 type = t.nullOr t.path;
-                default = null;
+                default = config.stylix.image;
               };
 
               bar =
