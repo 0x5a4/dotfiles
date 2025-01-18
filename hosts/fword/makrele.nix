@@ -80,7 +80,6 @@
     prismlauncher
     spotify
     thunderbird
-    vesktop
   ];
 
   home.stateVersion = "23.11";

@@ -24,10 +24,9 @@
     };
 
     home-manager.url = "github:nix-community/home-manager";
-
     betterfox.url = "github:HeitorAugustoLN/betterfox-nix";
-
     nixvim.url = "github:nix-community/nixvim";
+    nixcord.url = "github:KaylorBen/nixcord";
 
     # for nix flake init
     templates.url = "github:nixos/templates";

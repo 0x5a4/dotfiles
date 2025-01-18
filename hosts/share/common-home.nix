@@ -69,14 +69,13 @@
       enable = true;
       makeDefault = true;
     };
+    vencord.enable = true;
   };
 
   xfaf.desktop.wob.enable = true;
   xfaf.desktop.mako.enable = true;
   xfaf.desktop.swayidle.enable = true;
   xfaf.desktop.waybar.enable = true;
-
-  home.enableNixpkgsReleaseCheck = false;
 
   home.sessionVariables = {
     FLAKE = config.home.homeDirectory + "/.dotfiles";
