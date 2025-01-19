@@ -19,13 +19,13 @@
   xfaf.desktop.monitors =
     let
       wallpaper-image = pkgs.fetchurl {
-        name = "fword-wallpaper-image";
+        name = "yesmachine-wallpaper-image";
         url = "https://images.wallpapersden.com/image/download/galaxies-pixel-art_bGpsaW6UmZqaraWkpJRnamtlrWZlbWU.jpg";
         hash = "sha256-Em1ECfdippXbFn7X4hOnqnzCONRt/Y00bFINdCvhe7M=";
       };
 
-      wallpaper = pkgs.runCommandLocal "fword-wallpaper" { } ''
-        ${lib.getExe pkgs.imagemagick} -crop 50%x100% ${wallpaper-image} output.png
+      wallpaper = pkgs.runCommandLocal "yesmachine-wallpaper" { } ''
+        ${lib.getExe pkgs.imagemagick} ${wallpaper-image} -crop 50%x100% output.png
         mkdir $out
         mv output-0.png $out/left.png
         mv output-1.png $out/right.png
