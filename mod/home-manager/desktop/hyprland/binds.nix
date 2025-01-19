@@ -20,7 +20,7 @@
             "SUPER, c, exec, killall rofi || rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history -calc-command \"echo -n '{result}' | wl-copy\""
 
             # screenshots
-            ",Print, exec, ${lib.getExe pkgs.grim} -g \"''$(${lib.getExe pkgs.slurp})\" - | ${lib.getExe' pkgs.wl-clipboard "wl-copy"}"
+            ",Print, exec, ${lib.getExe pkgs.grim} -g \"$(${lib.getExe pkgs.slurp})\" - | ${lib.getExe' pkgs.wl-clipboard "wl-copy"}"
 
             "SUPER, q, killactive, "
             "SUPER ALT, q, exit, "
