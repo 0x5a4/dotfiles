@@ -41,7 +41,7 @@
         };
 
         specialArgs = {
-          inherit inputs pkgs;
+          inherit inputs;
           host-config = config;
         };
 

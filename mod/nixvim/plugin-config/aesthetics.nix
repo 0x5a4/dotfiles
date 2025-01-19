@@ -108,7 +108,7 @@ with lib.nixvim;
 
     fidget = {
       enable = true;
-      notification.overrideVimNotify = true;
+      settings.notification.override_vim_notify = true;
     };
 
     visual-whitespace = {
