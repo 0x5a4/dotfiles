@@ -50,11 +50,11 @@
 
     home.shellAliases = lib.mkIf config.xfaf.shell.enableAliases rec {
       # ls stuff
-      ls = "${lib.getExe pkgs.eza} -F --sort extension -n --no-user --group-directories-first --git --icons -Mo --hyperlink --git-repos-no-status --color-scale=size ";
+      ls = "${lib.getExe pkgs.eza} -F --sort extension --group-directories-first --git --icons -Mo --hyperlink --git-repos-no-status --color-scale=size --no-permissions ";
       ll = ls + "-l ";
       la = ll + "-a ";
       l = ll;
-      gls = ll + " --git-ignore ";
+      gls = ll + "--git-ignore ";
       # tree fake
       tree = ls + "--tree ";
       ltree = ll + "--tree ";
