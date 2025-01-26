@@ -15,7 +15,7 @@
   xfaf.git = {
     enable = true;
     userName = "0x5a4";
-    userEmail = "54070204+0x5a4@users.noreply.github.com";
+    userEmail = "bej86nug@hhu.de";
   };
 
   xfaf.ssh.enable = true;
@@ -76,6 +76,9 @@
   xfaf.desktop.mako.enable = true;
   xfaf.desktop.swayidle.enable = true;
   xfaf.desktop.waybar.enable = true;
+
+  programs.gpg.enable = true;
+  services.gpg-agent.enable = true;
 
   home.sessionVariables = {
     FLAKE = config.home.homeDirectory + "/.dotfiles";
