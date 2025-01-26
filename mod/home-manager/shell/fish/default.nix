@@ -28,6 +28,9 @@
       enable = true;
 
       interactiveShellInit = ''
+        # disable ? globbing (only takes effect when fish is restarted)
+        set -U fish_features qmark-noglob
+        # dont greet me
         set fish_greeting
       '';
 
