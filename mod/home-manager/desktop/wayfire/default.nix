@@ -50,8 +50,7 @@
         };
         decoration = {
           title_height = 0;
-          inactive_color = "\\#222222aa";
-          active_color = "\\#333333dd";
+          border_size = 2;
         };
         input = {
           xkb_layout = "de";
@@ -63,13 +62,6 @@
         cube = {
           zoom = 0.6;
           background_mode = "skydome";
-          skydome_texture =
-            builtins.toString
-            <| pkgs.fetchurl {
-              name = "skydome-texture.png";
-              url = "https://img.itch.zone/aW1hZ2UvOTY3MDg0LzU1MjAyMTIucG5n/794x1000/K13gwE.png";
-              hash = "sha256-psw6lxfxAcRSNZ/7Y3EQvpukL8HYpr0H96Wld3qL+wU=";
-            };
         };
         simple-tile = {
           outer_vert_gap_size = 10;

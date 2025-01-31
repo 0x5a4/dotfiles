@@ -3,6 +3,7 @@
   outputs,
   pkgs,
   config,
+  options,
   ...
 }:
 {

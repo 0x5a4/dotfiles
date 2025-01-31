@@ -52,6 +52,8 @@
             nix-path = config.nix.nixPath;
             auto-allocate-uids = true;
             use-cgroups = true;
+            substituters = [ "https://attic.hhu-fscs.de/fscs-public" ];
+            trusted-public-keys = [ "fscs-public:MuWSWnGgABFBwdeum/8n4rJxDpzYqhgd/Vm7u3fGMig=" ];
           };
           extraOptions = lib.optionalString (
             opts.extraNixConfFile != null

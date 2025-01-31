@@ -11,7 +11,7 @@
     sops.url = "github:Mic92/sops-nix";
     nix-easyroam.url = "github:0x5a4/nix-easyroam";
     disko.url = "github:nix-community/disko";
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:0x5a4/stylix/init-wayfire";
 
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
