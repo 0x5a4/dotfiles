@@ -29,6 +29,7 @@
       FelixPhone = "FELIXPHONE";
       "bUm gast" = "BUMGAST";
       WIFIonICE = { };
+      TENTEN = "TENTEN";
     };
   };
 }
