@@ -30,8 +30,8 @@
         {
           teefax = teenixBlock "fscs.hhu.de";
           "fscs.hhu.de" = teenixBlock "fscs.hhu.de";
-          testfax = teenixBlock "minecraft.fsphy.de";
-          "minecraft.fsphy.de" = teenixBlock "minecraft.fsphy.de";
+          testfax = teenixBlock "dev.hhu-fscs.de";
+          "minecraft.fsphy.de" = teenixBlock "dev.hhu-fscs.de";
           helmut.forwardAgent = true;
         };
     };
