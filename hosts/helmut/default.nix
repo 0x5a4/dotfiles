@@ -31,6 +31,11 @@
     };
   };
 
+  stylix.image = pkgs.fetchurl {
+    url = "https://pbs.twimg.com/media/EDyxVvoXsAAE9Zg.png";
+    sha256 = "sha256-NRfish27NVTJtJ7+eEWPOhUBe8vGtuTw+Osj5AVgOmM=";
+  };
+
   users.users.root = {
     isSystemUser = true;
     uid = 0;
