@@ -1,8 +1,7 @@
 {
   lib,
   config,
-  inputs,
-  outputs,
+  specialArgs,
   ...
 }:
 {
@@ -45,9 +44,7 @@
         in
         {
           useGlobalPkgs = true;
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
+          extraSpecialArgs = lib.removeAttrs specialArgs [ "lib" ];
           users = lib.mapAttrs (
             name: value:
             { ... }:
