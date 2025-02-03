@@ -1,10 +1,17 @@
-# 0x5a4's dotfiles
+# 1444's dotfiles
 
-*There used to be a README here...*
+Welcome to my home! This is my nixos configuration, most notably including:
 
-> [!IMPORTANT]
-> I use the new pipe operators in some places, so watch out when you copy-paste from here!
+- wayfire
+- hyprland
+- fish
+- nixvim
+- stylix
+- a bunch of smaller things like waybar, rofi, etc
+- all my wifi passwords? whoops
 
-## Credit
+The code is well structured and readable, but is not intended to be drop-in. I extend `lib` and depend
+on pretty specific `specialArgs` (e.g. `inputs` and `outputs`), so don't expect to be able to use this repo
+as an input to your configuration. Feel free to copy-paste though!
 
-Loosely stolen from [here](https://github.com/Misterio77/nix-starter-configs/)
+I started maintaining this repo a few months after getting into linux, so if you (or I, for nostalgic purposes) look at the commit history, we can pretty much see my entire linux journey! Isn't that great?
