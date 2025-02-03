@@ -5,8 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
 
-    treefmt-nix.url = "github:numtide/treefmt-nix";
-
     hardware.url = "github:NixOS/nixos-hardware/master";
     sops.url = "github:Mic92/sops-nix";
     nix-easyroam.url = "github:0x5a4/nix-easyroam";
@@ -38,7 +36,6 @@
       nixpkgs,
       home-manager,
       nix-on-droid,
-      treefmt-nix,
       nixvim,
       ...
     }@inputs:
@@ -74,11 +71,9 @@
     {
       formatter = eachSystem (
         system: pkgs:
-        (lib.flip treefmt-nix.lib.mkWrapper) {
-          projectRootFile = "flake.nix";
-          settings.on-unmatched = "debug";
-          programs.nixfmt.enable = true;
-        } pkgs
+        pkgs.writers.writeBashBin "fmt" ''
+          find . -type f -name \*.nix | xargs ${lib.getExe pkgs.nixfmt-rfc-style}
+        ''
       );
 
       packages = eachSystem (
