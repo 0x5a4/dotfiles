@@ -1,6 +1,15 @@
 { lib, ... }:
-with lib.xfaf.nixvim;
-with lib.nixvim;
+let 
+  inherit (lib.xfaf.nixvim)
+    veryLazyEvent
+    lazyKeyBindsOf
+    keyBindsFromAttrs
+    nnoremap;
+
+    inherit (lib.nixvim)
+      mkRaw
+      listToUnkeyedAttrs;
+in
 {
   plugins = {
     web-devicons.enable = true;
@@ -121,8 +130,6 @@ with lib.nixvim;
     scroll-eof = {
       enable = true;
       settings.insert_mode = true;
-      lazyLoad.enable = true;
-      lazyLoad.settings.event = veryLazyEvent;
     };
   };
 }

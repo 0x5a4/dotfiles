@@ -3,21 +3,32 @@
   lib,
   ...
 }:
-with lib.xfaf.nixvim;
-with lib.nixvim;
+let
+  inherit (lib.xfaf.nixvim)
+    nnoremap
+    keyBindsFromAttrs
+    lazyKeyBindsOf
+    ;
+in
 {
   extraPlugins = with pkgs.vimPlugins; [
     bufdelete-nvim
     mkdir-nvim
+    vim-fireplace
   ];
 
-  # fterm
+  # cheatsheet
+  # cloak nvim
+  # link-visitor-nvim
 
   keymaps = [
-    #bufdelete
+    # bufdelete
     (nnoremap "<leader>c" "<cmd>Bdelete<CR>")
-    #vimtex
+    # vimtex
     (nnoremap "<leader>vt" "<cmd>VimtexCompile<CR>")
+    # vim-fireplace
+    (nnoremap "<localleader>ee" "<cmd>Eval<CR>")
+    (nnoremap "<localleader>ef" "<cmd>%Eval<CR>")
   ];
 
   plugins = {
@@ -25,16 +36,10 @@ with lib.nixvim;
       enable = true;
       settings = {
         default_mappings = false;
-        mappings =
-          let
-            esc-mapping = {
-              k.j = "<esc>";
-            };
-          in
-          {
-            i = esc-mapping;
-            x = esc-mapping;
-          };
+        mappings = {
+          i.k.j = "<esc>";
+          x.k.j = "<esc>";
+        };
       };
     };
 
@@ -61,6 +66,28 @@ with lib.nixvim;
         };
       };
     };
-  };
 
+    floaterm = {
+      enable = true;
+      settings = {
+        height = 0.8;
+        keymap_toggle = "<A-t>";
+      };
+    };
+
+    hex = {
+      enable = true;
+      lazyLoad = {
+        enable = true;
+        settings.cmd = [
+          "HexDump"
+          "HexAssemble"
+          "HexToggle"
+        ];
+        settings.keys = lazyKeyBindsOf [
+          (nnoremap "<leader>oh" "<cmd>HexToggle<CR>")
+        ];
+      };
+    };
+  };
 }

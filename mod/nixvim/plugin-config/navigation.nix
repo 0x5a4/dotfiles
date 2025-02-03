@@ -3,8 +3,20 @@
   lib,
   ...
 }:
-with lib.xfaf.nixvim;
-with lib.nixvim;
+let
+  inherit (lib.xfaf.nixvim)
+    nnoremap
+    nxonoremap
+    onoremap
+    noremap'
+    keyBindsFromAttrs
+    lazyKeyBindsOf
+    ;
+
+  inherit (lib.nixvim)
+    mkRaw
+    ;
+in
 {
   keymaps = [
     # oil

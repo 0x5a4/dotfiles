@@ -1,10 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
-with lib.xfaf.nixvim;
-with lib.nixvim;
+{ pkgs, ... }:
 {
   extraPlugins = [ pkgs.vimPlugins.vim-hugo ];
 

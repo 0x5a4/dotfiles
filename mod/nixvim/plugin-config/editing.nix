@@ -3,8 +3,18 @@
   lib,
   ...
 }:
-with lib.xfaf.nixvim;
-with lib.nixvim;
+let
+  inherit (lib.xfaf.nixvim)
+    veryLazyEvent
+    lazyKeyBindsOf
+    nnoremap
+    keyBindsFromAttrs
+    ;
+
+  inherit (lib.nixvim)
+    mkRaw
+    ;
+in
 {
   extraPlugins = with pkgs.vimPlugins; [
     antonys-macro-repeater
@@ -130,8 +140,7 @@ with lib.nixvim;
           "VBoxHO"
         ];
         keys = lazyKeyBindsOf [
-          (nnoremap "<leader>ov" (mkRaw
-          ''
+          (nnoremap "<leader>ov" (mkRaw ''
             function()
                 local venn_enabled = vim.inspect(vim.b.venn_enabled)
                 if venn_enabled == "nil" then
