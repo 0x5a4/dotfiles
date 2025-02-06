@@ -50,6 +50,7 @@
           "Cookies" = {
             "Allow" = [
               "https://adventofcode.com"
+              "https://astahhu.de"
               "https://disneyplus.com"
               "https://github.com"
               "https://hhu-fscs.de"
