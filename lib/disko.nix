@@ -8,12 +8,16 @@
     };
   };
 
+  # assumes ssds
   mkLuks = name: content: {
     size = "100%";
     content = {
       inherit name content;
       type = "luks";
-      settings.allowDiscards = true;
+      settings = {
+        allowDiscards = true;
+        bypassWorkqueues = true;
+      };
       askPassword = true;
     };
   };
