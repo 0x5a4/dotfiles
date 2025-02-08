@@ -78,6 +78,11 @@
           "myBezier, 0.05, 0.9, 0.1, 1.05"
         ];
 
+        ecosystem = {
+          no_update_news = true;
+          no_donation_nag = true;
+        };
+
         general = {
           layout = "dwindle";
           border_size = 1;
