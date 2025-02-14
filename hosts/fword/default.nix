@@ -1,9 +1,9 @@
 {
   inputs,
+  lib,
   outputs,
   pkgs,
   config,
-  options,
   ...
 }:
 {
@@ -66,6 +66,11 @@
 
   services.printing.enable = true;
   xfaf.services.avahi.enable = true;
+
+  services.fwupd = {
+    enable = true;
+    extraRemotes = [ "lvfs-testing" ];
+  };
 
   hardware.bluetooth.enable = true;
 
