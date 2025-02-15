@@ -56,15 +56,15 @@
               ""
               ""
             ];
-            on-click = "${pkgs.wp-switch-output}/bin/wp-switch-output";
-            on-click-right = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+            on-click = "${lib.getExe pkgs.wp-switch-output}";
+            on-click-right = "${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_AUDIO_SINK@ toggle";
             states = {
               high = 80;
             };
           };
           battery = {
-            format = "{capacity}% {icon}";
-            format-charging = "󱐋 {capacity}% {icon}";
+            format = "{icon} {capacity}%";
+            format-charging = "{icon} {capacity}% 󱐋";
             format-icons = [
               ""
               ""
@@ -78,23 +78,23 @@
           };
           network = {
             format = "{ifname}";
-            format-wifi = "{essid} ({signalStrength}%) ";
+            format-wifi = "  {essid} ({signalStrength}%)";
             format-ethernet = " 󰈁 ";
             format-disconnected = "";
           };
           bluetooth = {
             format = "";
             format-disabled = "󰂲";
-            format-connected = " {num_connections} connected";
+            format-connected = " {num_connections}";
             tooltip-format = "{controller_alias}\t{controller_address}";
             tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";
             tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
-            on-click-right = "${pkgs.tlp}/bin/bluetooth toggle";
+            on-click-right = "${lib.getExe' pkgs.tlp "bluetooth"} toggle";
           };
           backlight = {
             tooltip = false;
             device = "intel_backlight";
-            format = "{percent}% {icon}";
+            format = "{icon} {percent}%";
             format-icons = [
               ""
               ""
@@ -108,7 +108,7 @@
             exec = "${wlinhibit-script}/bin/wlinhibit.sh";
             return-type = "json";
             restart-interval = 3;
-            on-click = "killall wlinhibit || ${pkgs.wlinhibit}/bin/wlinhibit";
+            on-click = "killall wlinhibit || ${lib.getExe' pkgs.wlinhibit "wlinhibit"}";
           };
         }
       );

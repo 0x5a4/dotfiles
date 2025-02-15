@@ -26,12 +26,12 @@
           enable = true;
           modules.left = {
             clock = true;
-            system-load = true;
+            network = true;
+            bluetooth = true;
           };
           modules.right = {
             battery = true;
             volume = true;
-            network = true;
           };
         };
       };
