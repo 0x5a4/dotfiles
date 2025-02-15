@@ -72,8 +72,6 @@
     extraRemotes = [ "lvfs-testing" ];
   };
 
-  hardware.bluetooth.enable = true;
-
   xfaf.services.greetd = {
     enable = true;
     command = "wayfire";

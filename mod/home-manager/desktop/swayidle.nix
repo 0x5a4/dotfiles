@@ -23,14 +23,18 @@
 
     services.swayidle = {
       enable = true;
+      timeouts = lib.singleton {
+        timeout = 120;
+        command = lib.getExe config.programs.swaylock.package;
+      };
       events = [
         {
           event = "lock";
-          command = "${config.programs.swaylock.package}/bin/swaylock";
+          command = lib.getExe config.programs.swaylock.package;
         }
         {
           event = "before-sleep";
-          command = "${config.programs.swaylock.package}/bin/swaylock; ${pkgs.playerctl}/bin/playerctl pause";
+          command = "${lib.getExe config.programs.swaylock.package}; ${lib.getExe pkgs.playerctl} pause";
         }
       ];
     };
