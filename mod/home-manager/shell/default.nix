@@ -40,6 +40,7 @@
         man-pages-posix
         mdcat
         psmisc
+        pv
         ripgrep
         speedtest-rs
         unzip
