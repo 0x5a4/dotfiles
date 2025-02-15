@@ -158,8 +158,12 @@
                 "Youtube" =
                   define "yt" "youtube.com/results?search_query={searchTerms}"
                     "www.youtube.com/favicon.ico";
-                "Nix Packages" = define "nixpkgs" "search.nixos.org/packages?channel=unstable&query={searchTerms}" nixosIcon;
-                "Nix Options" = define "nixopts" "search.nixos.org/options?channel=unstable&query={searchTerms}" nixosIcon;
+                "Nix Packages" =
+                  define "nixpkgs" "search.nixos.org/packages?channel=unstable&query={searchTerms}"
+                    nixosIcon;
+                "Nix Options" =
+                  define "nixopts" "search.nixos.org/options?channel=unstable&query={searchTerms}"
+                    nixosIcon;
                 "Noogle" = define "noogle" "noogle.dev/q?term={searchTerms}" nixosIcon;
                 "Home Manager" =
                   define "homeopts" "home-manager-options.extranix.com/?query={searchTerms}&release=master"
@@ -219,6 +223,9 @@
           settings = {
             "extensions.autoDisableScopes" = 0;
             "browser.translations.automaticallyPopup" = false;
+            "media.rdd-ffmpeg.enabled" = true;
+            "media.ffmpeg.vaapi.enabled" = true;
+            "media.navigator.mediadatadecoder_vpx_enabled" = true;
           };
         };
 

@@ -83,11 +83,6 @@
 
   programs.steam.enable = true;
 
-  xfaf.services.tailscale = {
-    enable = true;
-    secretsFile = ../secrets/tailscale;
-  };
-
   networking.hostName = "fword";
 
   system.stateVersion = "23.11";
