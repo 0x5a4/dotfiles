@@ -74,6 +74,8 @@
           command_calc = "killall rofi || rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history -calc-command \"echo -n '{result}' | wl-copy\"";
           binding_screenshot = "KEY_SYSRQ";
           command_screenshot = "${lib.getExe pkgs.grim} -g \"$(${lib.getExe pkgs.slurp})\" - | ${lib.getExe' pkgs.wl-clipboard "wl-copy"}";
+          binding_powermenu = "<super> KEY_M";
+          command_powermenu = lib.getExe pkgs.wlogout;
           # Volume
           binding_volume_mute = "KEY_MUTE";
           command_volume_mute = "${lib.getExe pkgs.wob-volume} mutetoggle";
