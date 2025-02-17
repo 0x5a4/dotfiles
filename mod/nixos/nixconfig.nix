@@ -28,7 +28,7 @@
 
   config =
     let
-      opts = config.xfaf.nixconfig;
+      cfg = config.xfaf.nixconfig;
     in
     {
       nixpkgs = {
@@ -37,7 +37,7 @@
           outputs.overlays.default
         ];
 
-        config.allowUnfree = opts.allowUnfree;
+        config.allowUnfree = cfg.allowUnfree;
       };
 
       nix =
@@ -56,10 +56,10 @@
             trusted-public-keys = [ "fscs-public:MuWSWnGgABFBwdeum/8n4rJxDpzYqhgd/Vm7u3fGMig=" ];
           };
           extraOptions = lib.optionalString (
-            opts.extraNixConfFile != null
-          ) "!include ${opts.extraNixConfFile}";
+            cfg.extraNixConfFile != null
+          ) "!include ${cfg.extraNixConfFile}";
 
-          channel.enable = opts.enableChannels;
+          channel.enable = cfg.enableChannels;
 
           registry = (lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs) // {
             np.flake = flakeInputs.nixpkgs;

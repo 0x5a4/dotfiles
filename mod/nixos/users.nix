@@ -2,6 +2,8 @@
   lib,
   config,
   specialArgs,
+  inputs,
+  outputs,
   ...
 }:
 {
@@ -43,7 +45,6 @@
           want-hm = lib.filterAttrs (_: value: value.home-manager.enable) opts;
         in
         {
-          useGlobalPkgs = true;
           extraSpecialArgs = lib.removeAttrs specialArgs [ "lib" ];
           users = lib.mapAttrs (
             name: value:
@@ -52,6 +53,17 @@
               home.username = name;
               home.homeDirectory = "/home/" + name;
               imports = [ value.home-manager.config ];
+
+              nixpkgs = {
+                overlays = [
+                  inputs.nur.overlays.default
+                  outputs.overlays.default
+                ];
+
+                config = {
+                  inherit (config.xfaf.nixconfig) allowUnfree;
+                };
+              };
             }
           ) want-hm;
         };
