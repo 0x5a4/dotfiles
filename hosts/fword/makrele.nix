@@ -14,7 +14,7 @@
   xfaf.desktop.wayfire.enable = true;
   xfaf.desktop.hyprpaper.enable = true;
 
-  xfaf.desktop.wluma.enable = true;
+  services.wluma.enable = true;
   xfaf.desktop.batsignal.enable = true;
 
   xfaf.desktop.monitors =
