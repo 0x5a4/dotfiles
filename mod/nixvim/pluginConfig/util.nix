@@ -6,7 +6,6 @@
 let
   inherit (lib.xfaf.nixvim)
     nnoremap
-    keyBindsFromAttrs
     lazyKeyBindsOf
     ;
 in
@@ -17,8 +16,6 @@ in
     vim-fireplace
   ];
 
-  # cheatsheet
-  # cloak nvim
   # link-visitor-nvim
 
   keymaps = [
@@ -29,9 +26,19 @@ in
     # vim-fireplace
     (nnoremap "<localleader>ee" "<cmd>Eval<CR>")
     (nnoremap "<localleader>ef" "<cmd>%Eval<CR>")
+    # cheatsheet
+    (nnoremap "<leader>?" "<cmd>Cheatsheet<CR>")
   ];
 
   plugins = {
+    cheatsheet = {
+      enable = true;
+      settings.bundled_cheatsheets.enabled = [ "default" ];
+      cheatsheet.navigation = {
+        "<leader>c" = "Close the current buffer";
+      };
+    };
+
     better-escape = {
       enable = true;
       settings = {
@@ -87,6 +94,29 @@ in
         settings.keys = lazyKeyBindsOf [
           (nnoremap "<leader>oh" "<cmd>HexToggle<CR>")
         ];
+      };
+    };
+
+    cloak = {
+      enable = true;
+      lazyLoad = {
+        enable = true;
+        settings.cmd = [
+          "CloakToggle"
+          "CloakPreviewLine"
+        ];
+        settings.event = [
+          "BufReadPre .env*"
+          "BufNewFile .env*"
+        ];
+        settings.keys = lazyKeyBindsOf [
+          (nnoremap "<leader>oc" "<cmd>CloakToggle<CR>")
+        ];
+      };
+      settings = {
+        enabled = true;
+        cloak_telescope = true;
+        cloak_length = 12;
       };
     };
   };

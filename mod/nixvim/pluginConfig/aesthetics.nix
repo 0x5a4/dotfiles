@@ -12,6 +12,14 @@ let
 in
 {
   plugins = {
+    cheatsheet.cheatsheet = {
+      fun = {
+        "<leader>fml" = "Make it rain!";
+        "<leader>fc" = "Bye Bye companion";
+        "<leader>fd" = "Summon an emotional support companion";
+      };
+    };
+  
     web-devicons.enable = true;
 
     numbers-nvim = {

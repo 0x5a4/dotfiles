@@ -8,6 +8,22 @@ let
 in
 {
   plugins = {
+    cheatsheet.cheatsheet.git = {
+      "<leader>og" = "Toggle line based diff highlighting";
+      "<leader>gb" = "Git blame";
+      "<leader>gx" = "Show deleted lines";
+      "<leader>gj" = "Go to the next hunk";
+      "<leader>gk" = "Go to the next hunk";
+      "<leader>g+" = "Stage the hunk under the cursor";
+      "<leader>gs" = "Stage the entire buffer";
+      "<leader>g#" = "Undo hunk staging";
+      "<leader>grr" = "Reset hunk under the cursor";
+      "<leader>gcj" = "Got to the next git conflict";
+      "<leader>gck" = "Got to the previous git conflict";
+      "<leader>gco" = "Choose our modifications of the conflict under the cursor";
+      "<leader>gct" = "Choose their modifications of the conflict under the cursor";
+    };
+  
     gitsigns = {
       enable = true;
       settings = {

@@ -30,6 +30,10 @@
       interactiveShellInit = ''
         # disable ? globbing (only takes effect when fish is restarted)
         set -U fish_features qmark-noglob
+
+        # grc ulimit is broken
+        set -U grc_plugin_ignore_execs ulimit
+
         # dont greet me
         set fish_greeting
       '';

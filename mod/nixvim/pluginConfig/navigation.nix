@@ -37,6 +37,12 @@ in
   extraPlugins = [ pkgs.vimPlugins.telescope-symbols-nvim ];
 
   plugins = {
+    cheatsheet.cheatsheet = {
+      navigation = {
+        "-" = "Open file explorer";
+      };
+    };
+  
     oil = {
       enable = true;
       settings.columns = [
