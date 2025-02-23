@@ -1,14 +1,16 @@
 { lib, ... }:
-let 
+let
   inherit (lib.xfaf.nixvim)
     veryLazyEvent
     lazyKeyBindsOf
     keyBindsFromAttrs
-    nnoremap;
+    nnoremap
+    ;
 
-    inherit (lib.nixvim)
-      mkRaw
-      listToUnkeyedAttrs;
+  inherit (lib.nixvim)
+    mkRaw
+    listToUnkeyedAttrs
+    ;
 in
 {
   plugins = {
@@ -19,7 +21,7 @@ in
         "<leader>fd" = "Summon an emotional support companion";
       };
     };
-  
+
     web-devicons.enable = true;
 
     numbers-nvim = {
@@ -131,8 +133,6 @@ in
     visual-whitespace = {
       enable = true;
       settings.space_char = " ";
-      lazyLoad.enable = true;
-      lazyLoad.settings.event = "User VisualEnter";
     };
 
     scroll-eof = {

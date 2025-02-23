@@ -64,10 +64,6 @@
         yaml
         zig
       ];
-      lazyLoad = {
-        enable = true;
-        settings.event = "User File";
-      };
     };
 
     zig = {

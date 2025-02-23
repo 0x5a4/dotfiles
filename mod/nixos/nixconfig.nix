@@ -42,7 +42,7 @@
 
       nix =
         let
-          flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+          flakeInputs = lib.filterAttrs (_: lib.isType "flake") (lib.removeAttrs inputs [ "self" ]);
         in
         {
           package = pkgs.nixVersions.latest;
@@ -55,13 +55,12 @@
             substituters = [ "https://attic.hhu-fscs.de/fscs-public" ];
             trusted-public-keys = [ "fscs-public:MuWSWnGgABFBwdeum/8n4rJxDpzYqhgd/Vm7u3fGMig=" ];
           };
-          extraOptions = lib.optionalString (
-            cfg.extraNixConfFile != null
-          ) "!include ${cfg.extraNixConfFile}";
+          extraOptions = lib.optionalString (cfg.extraNixConfFile != null) "!include ${cfg.extraNixConfFile}";
 
           channel.enable = cfg.enableChannels;
 
           registry = (lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs) // {
+            xfaf-config.flake = inputs.self;
             np.flake = flakeInputs.nixpkgs;
           };
           nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;

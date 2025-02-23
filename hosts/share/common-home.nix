@@ -24,9 +24,6 @@
   xfaf.neovim = {
     enable = true;
     makeDefault = true;
-    extraLsps = [
-      pkgs.nodePackages.typescript-language-server
-    ];
   };
 
   stylix = {

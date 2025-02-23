@@ -2,6 +2,7 @@
 let
   inherit (lib.xfaf.nixvim)
     keyBindsFromAttrs
+    noremap
     nnoremap
     onoremap
     xnoremap
@@ -54,17 +55,17 @@ in
 
   keymaps = lib.flatten [
     (keyBindsFromAttrs nnoremap {
-      # Jump to start/end of line
-      "H" = "^";
-      "L" = "$";
+
       # LSP Stuff
       "<C-Space>" = "<cmd>lua vim.lsp.buf.code_action()<CR>";
       "<leader>r" = "<cmd>lua vim.lsp.buf.rename()<CR>";
       "<C-q>" = "<cmd>lua vim.lsp.buf.hover()<CR>";
       "<C-f>" = "<cmd>lua vim.lsp.buf.format({ async = true })<CR>";
+
       # Buffer Navigation
       "<leader>l" = ":bn<CR>";
       "<leader>h" = ":bp<CR>";
+
       # Quick save/quit
       "<leader>w" = ":wa<CR>";
       "<leader>q" = mkRaw ''
@@ -73,6 +74,14 @@ in
           vim.cmd("qa")
         end
       '';
+
+      # Shortcuts for newlines
+      "go" = "<cmd>call append(line('.'), repeat([''], v:count1))<CR>";
+      "gO" = "<cmd>call append(line('.')-1, repeat([''], v:count1))<CR>";
+
+      # Toggle spell checking
+      "<leader>os" = ":set spell!<CR>";
+
       # Toggle mouse
       "<leader>om" = mkRaw ''
         function()
@@ -84,6 +93,10 @@ in
         end
       '';
     })
+
+    # Jump to start/end of line
+    (noremap "H" "^")
+    (noremap "L" "$")
 
     # Cut
     (nnoremap "xx" "dd")

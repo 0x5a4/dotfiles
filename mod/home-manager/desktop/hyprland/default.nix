@@ -68,9 +68,7 @@
             acc
             ++ (lib.map (
               w:
-              "${toString w}, monitor:${name}${
-                lib.optionalString (value ? "defaultWorkspace") ",default:true" 
-              }"
+              "${toString w}, monitor:${name}${lib.optionalString (value ? "defaultWorkspace") ",default:true"}"
             ) value.workspaces)
           ) [ ];
 

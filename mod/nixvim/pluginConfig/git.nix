@@ -23,7 +23,7 @@ in
       "<leader>gco" = "Choose our modifications of the conflict under the cursor";
       "<leader>gct" = "Choose their modifications of the conflict under the cursor";
     };
-  
+
     gitsigns = {
       enable = true;
       settings = {
@@ -55,6 +55,7 @@ in
     git-conflict = {
       enable = true;
       settings.default_mappings = false;
+      autoLoad = true;
       lazyLoad = {
         enable = true;
         settings = {

@@ -6,6 +6,7 @@
 let
   inherit (lib.xfaf.nixvim)
     nnoremap
+    xnoremap
     lazyKeyBindsOf
     ;
 in
@@ -15,8 +16,6 @@ in
     mkdir-nvim
     vim-fireplace
   ];
-
-  # link-visitor-nvim
 
   keymaps = [
     # bufdelete
@@ -28,14 +27,22 @@ in
     (nnoremap "<localleader>ef" "<cmd>%Eval<CR>")
     # cheatsheet
     (nnoremap "<leader>?" "<cmd>Cheatsheet<CR>")
+
+    (xnoremap "kj" "<esc>")
   ];
 
   plugins = {
     cheatsheet = {
       enable = true;
       settings.bundled_cheatsheets.enabled = [ "default" ];
-      cheatsheet.navigation = {
-        "<leader>c" = "Close the current buffer";
+      cheatsheet = {
+        navigation = {
+          "<leader>c" = "Close the current buffer";
+        };
+        util = {
+          "<leader>vt" = "Preview .tex files";
+          "<leader>?" = "Open the cheatsheet";
+        };
       };
     };
 
@@ -44,8 +51,9 @@ in
       settings = {
         default_mappings = false;
         mappings = {
+          c.k.j = "<esc>";
           i.k.j = "<esc>";
-          x.k.j = "<esc>";
+          s.k.j = "<esc>";
         };
       };
     };

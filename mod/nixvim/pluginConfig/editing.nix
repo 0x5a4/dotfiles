@@ -7,6 +7,7 @@ let
   inherit (lib.xfaf.nixvim)
     veryLazyEvent
     lazyKeyBindsOf
+    noremap'
     nnoremap
     keyBindsFromAttrs
     ;
@@ -14,6 +15,11 @@ let
   inherit (lib.nixvim)
     mkRaw
     ;
+
+  siremap = noremap' [
+    "s"
+    "i"
+  ];
 in
 {
   extraPlugins = with pkgs.vimPlugins; [
@@ -25,7 +31,38 @@ in
     vim-targets
   ];
 
+  keymaps = keyBindsFromAttrs siremap {
+    "<C-E>" = mkRaw ''
+      function()
+          local luasnip = require("luasnip")
+          if luasnip.choice_active() then
+              luasnip.change_choice(1)
+          end
+      end
+    '';
+    "<C-M-p>" = mkRaw ''
+      function()
+          local luasnip = require("luasnip")
+          if luasnip.choice_active() then
+              luasnip.change_choice(-1)
+          end
+      end
+    '';
+  };
+
   plugins = {
+    cheatsheet.cheatsheet = {
+      editing = {
+        "ys" = "Surround text object";
+        "cs" = "Change surrounding character";
+        "ds" = "Delete surrounding character";
+        "<leader>+" = "Toggle Alternate of word under cursor (e.g. true <=> false)";
+        "<leader>a" = "Swap Treesitter Node under cursor with another one";
+        "<leader>A" = "Swap Two Treesitter Nodes";
+        "<leader>ov" = "Toggle venn mode";
+      };
+    };
+
     nvim-surround = {
       enable = true;
       lazyLoad.enable = true;
@@ -163,5 +200,8 @@ in
         ];
       };
     };
+
+    friendly-snippets.enable = true;
+    luasnip.enable = true;
   };
 }

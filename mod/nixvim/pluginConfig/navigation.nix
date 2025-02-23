@@ -10,7 +10,6 @@ let
     onoremap
     noremap'
     keyBindsFromAttrs
-    lazyKeyBindsOf
     ;
 
   inherit (lib.nixvim)
@@ -18,18 +17,46 @@ let
     ;
 in
 {
-  keymaps = [
-    # oil
-    (nnoremap "-" "<cmd>Oil<CR>")
+  keymaps = lib.flatten [
+    (keyBindsFromAttrs nnoremap {
+      # oil
+      "-" = "<cmd>Oil<CR>";
+
+      # Telescope
+      "<leader>ts" = "<cmd>Telescope lsp_document_symbols<CR>";
+      "<leader>te" = "<cmd>Telescope diagnostics<CR>";
+      "<leader>tq" = "<cmd>Telescope spell_suggest<CR>";
+      "<leader>tc" = "<cmd>Telescope git_commits<CR>";
+      "<leader>tf" = "<cmd>Telescope current_buffer_fuzzy_find<CR>";
+      "<leader>tg" = "<cmd>Telescope live_grep<CR>";
+      "<leader>tz" = "<cmd>Telescope symbols<CR>";
+      "<leader>tt" = "<cmd>TodoTelescope<CR>";
+      "gi" = "<cmd>Telescope lsp_incoming_calls<CR>";
+      "gd" = "<cmd>Telescope lsp_definitions<CR>";
+      "<C-p>" = mkRaw ''
+        function()
+            require("telescope.builtin").find_files({
+                cwd = vim.fs.root(0, ".git"),
+            })
+        end
+      '';
+      "<C-M-p>" = mkRaw ''
+        function()
+            require("telescope.builtin").find_files({
+                cwd = vim.fs.root(0, ".git"),
+                hidden = true,
+                no_ignore = true,
+                no_ignore_parent = true,
+            })
+        end
+      '';
+    })
 
     # flash
     (nxonoremap "s" (mkRaw "require('flash').jump"))
     (nxonoremap "S" (mkRaw "require('flash').treesitter"))
     (onoremap "r" (mkRaw "require('flash').remote"))
     (noremap' [ "o" "x" ] "R" (mkRaw "require('flash').treesitter_search"))
-
-    # todo comments
-    (nnoremap "<leader>tt" "<cmd>TodoTelescope<CR>")
   ];
 
   highlight.FlashLabel.link = "@string";
@@ -38,11 +65,28 @@ in
 
   plugins = {
     cheatsheet.cheatsheet = {
+      git = {
+        "<leader>tc" = "Show git commits";
+      };
       navigation = {
         "-" = "Open file explorer";
+        "s" = "Flash jump";
+        "S" = "Flash treesitter jump";
+        "R" = "Flash treesitter search";
+        "<leader>tt" = "Show Project Todo Comments";
+        "<leader>ts" = "Show Document Symbols";
+        "<leader>te" = "Show Document Diagnostics";
+        "<leader>tq" = "Show Spell suggestions for the word under the cursor";
+        "<leader>tf" = "Fuzzy find in the current buffer";
+        "<leader>tg" = "Fuzzy find in the current project";
+        "<leader>tz" = "Show List of Symbols (like Emoji)";
+        "gi" = "Show incoming calls";
+        "gd" = "Goto Definition";
+        "<C-p>" = "Goto File";
+        "<C-M-p>" = "Goto File, not respecting ignore files";
       };
     };
-  
+
     oil = {
       enable = true;
       settings.columns = [
@@ -112,42 +156,6 @@ in
               "q" = "close";
             };
           };
-        };
-      };
-      lazyLoad = {
-        enable = true;
-        settings = {
-          cmd = "Telescope";
-          keys =
-            lazyKeyBindsOf
-            <| keyBindsFromAttrs nnoremap {
-              "<leader>ts" = "<cmd>Telescope lsp_document_symbols<CR>";
-              "<leader>te" = "<cmd>Telescope diagnostics<CR>";
-              "<leader>tq" = "<cmd>Telescope spell_suggest<CR>";
-              "<leader>tc" = "<cmd>Telescope git_commits<CR>";
-              "<leader>tf" = "<cmd>Telescope current_buffer_fuzzy_find<CR>";
-              "<leader>tg" = "<cmd>Telescope live_grep<CR>";
-              "<leader>tz" = "<cmd>Telescope symbols<CR>";
-              "gi" = "<cmd>Telescope lsp_incoming_calls<CR>";
-              "gd" = "<cmd>Telescope lsp_definitions<CR>";
-              "<C-p>" = mkRaw ''
-                function()
-                    require("telescope.builtin").find_files({
-                        cwd = vim.fs.root(0, ".git"),
-                    })
-                end
-              '';
-              "<C-M-p>" = mkRaw ''
-                function()
-                    require("telescope.builtin").find_files({
-                        cwd = vim.fs.root(0, ".git"),
-                        hidden = true,
-                        no_ignore = true,
-                        no_ignore_parent = true,
-                    })
-                end
-              '';
-            };
         };
       };
     };

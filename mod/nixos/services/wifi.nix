@@ -17,7 +17,7 @@
       networks = lib.mkOption {
         type = t.attrsOf (t.either t.str t.attrs);
         description = "map from network ssids to either their password env name or an attrset that will be used as is";
-        default = {};
+        default = { };
       };
     };
 
