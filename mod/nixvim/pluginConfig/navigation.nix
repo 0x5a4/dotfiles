@@ -117,11 +117,13 @@ in
 
     lastplace.enable = true;
 
+    stay-in-place.enable = true;
+
     tmux-navigator = {
       enable = true;
       settings = {
         disable_when_zoomed = 1;
-        no_mappings = 0;
+        no_mappings = 1;
         save_on_switch = 2; # write all buffers
       };
       keymaps = keyBindsFromAttrs nnoremap {
