@@ -6,11 +6,17 @@ let
     nnoremap
     onoremap
     xnoremap
+    noremap'
     ;
 
   inherit (lib.nixvim)
     mkRaw
     ;
+
+  vnnoremap = noremap' [
+    "n"
+    "v"
+  ];
 in
 {
   globals = {
@@ -55,7 +61,6 @@ in
 
   keymaps = lib.flatten [
     (keyBindsFromAttrs nnoremap {
-
       # LSP Stuff
       "<C-Space>" = "<cmd>lua vim.lsp.buf.code_action()<CR>";
       "<leader>r" = "<cmd>lua vim.lsp.buf.rename()<CR>";
@@ -78,6 +83,9 @@ in
       # Shortcuts for newlines
       "go" = "<cmd>call append(line('.'), repeat([''], v:count1))<CR>";
       "gO" = "<cmd>call append(line('.')-1, repeat([''], v:count1))<CR>";
+
+      # Toggle casing with +
+      "+" = "~";
 
       # Toggle spell checking
       "<leader>os" = ":set spell!<CR>";
@@ -102,6 +110,10 @@ in
     (nnoremap "xx" "dd")
     (nnoremap "X" "D")
     (xnoremap "x" "d")
+
+    # copy paste
+    (vnnoremap "<leader>y" "\"+y")
+    (vnnoremap "<leader>p" "\"+p")
 
     # Text objects
     (keyBindsFromAttrs onoremap {

@@ -70,5 +70,10 @@
       enable = true;
       settings.fmt_parse_errors = 0;
     };
+
+    flutter-tools = {
+      enable = true;
+      settings.widget_guides.enabled = true;
+    };
   };
 }
