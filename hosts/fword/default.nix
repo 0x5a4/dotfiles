@@ -80,6 +80,8 @@
   };
 
   programs.steam.enable = true;
+  
+  services.pcscd.enable = true;
 
   networking.hostName = "fword";
 

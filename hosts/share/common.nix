@@ -35,6 +35,19 @@
 
   security.pam.services.swaylock = { };
 
+  programs.yubikey-touch-detector.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-qt;
+    enableSSHSupport = true;
+  };
+
+  environment.shellInit = ''
+    gpg-connect-agent /bye
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+    echo UPDATESTARTUPTTY | gpg-connect-agent
+  '';
+
   environment.variables = {
     NIXOS_OZONE_WL = 1;
   };
