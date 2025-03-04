@@ -32,6 +32,7 @@ in
 
     cellular-automaton = {
       enable = true;
+      autoLoad = true;
       lazyLoad = {
         enable = true;
         settings.cmd = "CellularAutomaton";
@@ -45,6 +46,7 @@ in
 
     duck = {
       enable = true;
+      autoLoad = true;
       lazyLoad = {
         enable = true;
         settings.keys =

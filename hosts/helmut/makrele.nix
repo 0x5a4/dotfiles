@@ -17,11 +17,7 @@
     direnv.enable = true;
   };
 
-  xfaf.git = {
-    enable = true;
-    userName = "0x5a4";
-    userEmail = "54070204+0x5a4@users.noreply.github.com";
-  };
+  xfaf.git.enable = true;
 
   xfaf.ssh.enable = true;
   xfaf.btop.enable = true;

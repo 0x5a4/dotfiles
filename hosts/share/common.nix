@@ -45,7 +45,7 @@
   environment.shellInit = ''
     gpg-connect-agent /bye
     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-    echo UPDATESTARTUPTTY | gpg-connect-agent
+    echo UPDATESTARTUPTTY | gpg-connect-agent &> /dev/null
   '';
 
   environment.variables = {
