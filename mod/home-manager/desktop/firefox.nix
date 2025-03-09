@@ -208,6 +208,7 @@
             enhanced-github
             enhanced-h264ify
             github-file-icons
+            gnome-shell-integration
             istilldontcareaboutcookies
             modrinthify
             multi-account-containers
@@ -216,6 +217,7 @@
             privacy-possum
             return-youtube-dislikes
             smart-referer
+            sponsorblock
             ublock-origin
             user-agent-string-switcher
           ];
