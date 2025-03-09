@@ -33,11 +33,7 @@
     };
   };
 
-  users.users.root = {
-    isSystemUser = true;
-    hashedPasswordFile = config.sops.secrets.fword-root.path;
-    uid = 0;
-  };
+  users.users.root.hashedPasswordFile = config.sops.secrets.fword-root.path;
 
   xfaf.users.makrele = {
     opts = {

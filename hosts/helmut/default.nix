@@ -36,14 +36,7 @@
     sha256 = "sha256-NRfish27NVTJtJ7+eEWPOhUBe8vGtuTw+Osj5AVgOmM=";
   };
 
-  users.users.root = {
-    isSystemUser = true;
-    uid = 0;
-    hashedPasswordFile = config.sops.secrets.helmut-root.path;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICAoWrXcbe0HbxOHRqbeSofUoYez8l5ydvTfpop0I5gD fword"
-    ];
-  };
+  users.users.root.hashedPasswordFile = config.sops.secrets.helmut-root.path;
 
   xfaf.users.makrele = {
     opts = {

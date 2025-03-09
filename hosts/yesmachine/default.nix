@@ -32,11 +32,7 @@
     };
   };
 
-  users.users.root = {
-    isSystemUser = true;
-    hashedPasswordFile = config.sops.secrets.yesmachine-root.path;
-    uid = 0;
-  };
+  users.users.root.hashedPasswordFile = config.sops.secrets.yesmachine-root.path;
 
   xfaf.users.makrele = {
     opts = {
