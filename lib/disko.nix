@@ -1,6 +1,7 @@
 { ... }:
 {
   mkGPT = device: partitions: {
+    inherit device;
     type = "disk";
     content = {
       inherit partitions;
