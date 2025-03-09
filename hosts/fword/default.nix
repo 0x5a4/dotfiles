@@ -76,6 +76,8 @@
     output = "eDP-1";
   };
 
+  xfaf.services.ssh.enable = true;
+
   programs.steam.enable = true;
 
   services.pcscd.enable = true;
