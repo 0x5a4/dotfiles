@@ -6,7 +6,7 @@
     nur.url = "github:nix-community/NUR";
 
     hardware.url = "github:NixOS/nixos-hardware/master";
-    sops.url = "github:Mic92/sops-nix";
+    sops-nix.url = "github:Mic92/sops-nix";
     nix-easyroam.url = "github:0x5a4/nix-easyroam";
     disko.url = "github:nix-community/disko";
     stylix.url = "github:danth/stylix";
@@ -36,6 +36,7 @@
       nixpkgs,
       home-manager,
       nix-on-droid,
+      sops-nix,
       nixvim,
       ...
     }@inputs:
@@ -119,9 +120,14 @@
       devShells = eachSystem (
         system: pkgs: {
           default = pkgs.mkShell {
+            sopsPGPKeyDirs = [
+              "${toString ./.}/hosts/keys/"
+            ];
+
             nativeBuildInputs = with pkgs; [
               sops
               nixos-rebuild
+              sops-nix.packages.${system}.sops-import-keys-hook
             ];
           };
         }

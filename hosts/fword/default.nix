@@ -1,6 +1,5 @@
 {
   inputs,
-  lib,
   outputs,
   pkgs,
   config,
@@ -80,10 +79,10 @@
   };
 
   programs.steam.enable = true;
-  
+
   services.pcscd.enable = true;
 
   networking.hostName = "fword";
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.11";
 }

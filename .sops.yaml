@@ -1,11 +1,15 @@
 keys:
-  - &fword age1n9e7ymdmcprdynwutygfvd6an2h9xcvpneehu9gcsd93vr0mvg5sqndy08
   - &yesmachine age1rs4fcwsjt7v0uja0v4a9aedrakmvl67sk69yjhzdsrusl3a29glsq40m5e
   - &helmut age1vksq4426jdzk5reu3889e283lvvew66pqwea9s29q802kycp63vsfve5th
+  - &yubikey-5c A853CDF0343BD4109955148F254350978B595DCA 
+  - &yubikey-nano 5A8C4CBC21DC694E5EB6348B6DCC662BCBF8B50D
+  - &yesmachine age15yv0zu4t07adyv7xtvt36g3tg5lreexq46hrkqua28g9unfucp0swl2kt4
 creation_rules:
   - path_regex: hosts/secrets/.*
     key_groups:
-      - age:
-          - *fword
-          - *yesmachine
+      - pgp:
+          - *yubikey-5c
+          - *yubikey-nano
+        age:
           - *helmut
+          - *yesmachine

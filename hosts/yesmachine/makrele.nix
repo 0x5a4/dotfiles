@@ -74,6 +74,7 @@
     prismlauncher
     spotify
     thunderbird
+    yubikey-manager
   ];
 
   home.stateVersion = "24.05";

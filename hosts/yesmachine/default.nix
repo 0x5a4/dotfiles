@@ -12,7 +12,7 @@
     outputs.nixosModules.xfaf
   ];
 
-  sops.age.keyFile = "/home/makrele/.config/sops/age/keys.txt";
+  # sops.age.keyFile = "/home/makrele/.config/sops/age/keys.txt";
 
   stylix.image = pkgs.fetchurl {
     url = "https://pbs.twimg.com/media/EDyxVvoXsAAE9Zg.png";
@@ -70,6 +70,8 @@
   };
 
   programs.steam.enable = true;
+
+  services.pcscd.enable = true;
 
   networking.hostName = "yesmachine";
 
