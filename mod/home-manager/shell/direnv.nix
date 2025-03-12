@@ -9,7 +9,7 @@
       config = {
         hide_env_diff = true;
         strict_env = true;
-        warn_timeout = "20s";
+        warn_timeout = "0";
       };
       stdlib = ''
         : "''${XDG_CACHE_HOME:="''${HOME}/.cache"}"
