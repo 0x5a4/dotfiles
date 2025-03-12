@@ -70,6 +70,7 @@
     };
 
   home.packages = with pkgs; [
+    chromium
     element-desktop
     prismlauncher
     spotify
