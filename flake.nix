@@ -28,6 +28,8 @@
 
     # for nix flake init
     templates.url = "github:nixos/templates";
+
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
