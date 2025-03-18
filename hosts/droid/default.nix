@@ -6,6 +6,8 @@
   ...
 }:
 {
+  imports = [ inputs.stylix.nixOnDroidModules.stylix ];
+
   environment.etcBackupExtension = ".bak";
 
   environment.packages = with pkgs; [
