@@ -43,6 +43,7 @@
     cursor = {
       package = pkgs.rose-pine-cursor;
       name = "BreezeX-RosePine-Linux";
+      size = 32;
     };
 
     opacity.terminal = 0.94;
