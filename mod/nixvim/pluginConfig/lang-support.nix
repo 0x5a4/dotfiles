@@ -8,11 +8,7 @@
       settings = {
         highlight = {
           enable = true;
-          disable = [
-            "markdown"
-            "markdown_inline"
-            "latex"
-          ];
+          disable = [ "latex" ];
         };
         indent.enable = true;
       };

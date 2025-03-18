@@ -46,6 +46,7 @@
         in
         {
           extraSpecialArgs = lib.removeAttrs specialArgs [ "lib" ];
+          backupFileExtension = "backup";
           users = lib.mapAttrs (
             name: value:
             { ... }:

@@ -67,6 +67,7 @@
     };
 
   home.packages = with pkgs; [
+    chromium
     element-desktop
     jetbrains.idea-ultimate
     libreoffice
