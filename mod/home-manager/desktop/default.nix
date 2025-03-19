@@ -90,6 +90,7 @@
                     idle-inhibit = mkModuleOption "idle inhibitor";
                     brightness = mkModuleOption "brightness";
                     volume = mkModuleOption "volume";
+                    tray = mkModuleOption "tray";
                   };
                 in
                 {

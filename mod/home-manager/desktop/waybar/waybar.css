@@ -31,6 +31,7 @@
 #backlight,
 #wireplumber,
 #custom-wlinhibit,
+#tray,
 #battery {
   color: @green;
 }
@@ -45,6 +46,7 @@
 #battery,
 #custom-wlinhibit,
 #backlight,
+#tray,
 #submap {
   border: 1px solid #181825;
   border-radius: 10px;
@@ -87,6 +89,7 @@ window#waybar {
 #bluetooth,
 #backlight,
 #custom-wlinhibit,
+#tray,
 #clock {
   background: @background-darker;
   padding: 0px 10px;

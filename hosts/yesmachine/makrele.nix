@@ -46,6 +46,7 @@
             uptime = true;
             volume = true;
             idle-inhibit = true;
+            tray = true;
           };
         };
       };
