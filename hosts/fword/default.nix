@@ -78,6 +78,9 @@
 
   services.pcscd.enable = true;
 
+  virtualisation.docker.enable = true;
+  virtualisation.docker.enableOnBoot = false;
+  
   networking.hostName = "fword";
 
   system.stateVersion = "24.11";
