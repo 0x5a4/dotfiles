@@ -57,6 +57,7 @@
             brightness = true;
             idle-inhibit = true;
             hyprland-submap = true;
+            tray = true;
           };
         };
       };
