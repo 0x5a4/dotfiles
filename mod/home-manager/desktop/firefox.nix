@@ -112,7 +112,8 @@
             enableAllSections = true;
           };
 
-          bookmarks =
+          bookmarks.force = true;
+          bookmarks.settings =
             let
               defineNamed = name: url: {
                 inherit name;
@@ -172,13 +173,13 @@
             ];
 
           search = {
-            default = "DuckDuckGo";
+            default = "ddg";
             force = true;
             engines =
               let
                 define = alias: url: iconURL: {
                   urls = [ { template = "https://${url}"; } ];
-                  iconUpdateURL = "https://${iconURL}";
+                  icon = "https://${iconURL}";
                   updateInterval = 24 * 60 * 60 * 1000;
                   definedAliases = [ "@${alias}" ];
                 };
@@ -222,10 +223,10 @@
                 "Portage" =
                   define "portage" "packages.gentoo.org/packages/search?q={searchTerms}"
                     "packages.gentoo.org/favicon.ico";
-                "Google".metaData.hidden = true;
-                "Bing".metaData.hidden = true;
+                "google".metaData.hidden = true;
+                "bing".metaData.hidden = true;
                 "Amazon.de".metaData.hidden = true;
-                "eBay".metaData.hidden = true;
+                "ebay".metaData.hidden = true;
                 "Twitter".metaData.hidden = true;
               };
           };
