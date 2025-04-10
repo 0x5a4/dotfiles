@@ -4,8 +4,6 @@
 
   nixpkgs.overlays = [ outputs.overlays.vimPlugins ];
 
-  plugins.lz-n.enable = true;
-
   viAlias = true;
   vimAlias = true;
 

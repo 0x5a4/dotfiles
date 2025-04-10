@@ -2,7 +2,6 @@
 let
   inherit (lib.xfaf.nixvim)
     veryLazyEvent
-    lazyKeyBindsOf
     keyBindsFromAttrs
     nnoremap
     ;
@@ -13,6 +12,30 @@ let
     ;
 in
 {
+  keymaps = keyBindsFromAttrs nnoremap {
+    "<leader>fml" = "<cmd>CellularAutomaton make_it_rain<CR>";
+    "<leader>fc" = "<cmd>lua require('duck').cook()<CR>";
+    "<leader>fd" = mkRaw ''
+      function()
+        local filetype = vim.bo.filetype
+        local d_u_c_k = {
+            rust = "🦀",
+            zig = "🦎",
+            lua = "🌚",
+            nix = ""
+        }
+
+        local icon = d_u_c_k[filetype] or "🦆"
+
+        if math.random(50) == 1 then
+            icon = "ඞ"
+        end
+
+        require("duck").hatch(icon, 5)
+      end
+    '';
+  };
+
   plugins = {
     cheatsheet.cheatsheet = {
       fun = {
@@ -24,57 +47,11 @@ in
 
     web-devicons.enable = true;
 
-    numbers-nvim = {
-      enable = true;
-      lazyLoad.enable = true;
-      lazyLoad.settings.event = veryLazyEvent;
-    };
+    numbers-nvim.enable = true;
 
-    cellular-automaton = {
-      enable = true;
-      autoLoad = true;
-      lazyLoad = {
-        enable = true;
-        settings.cmd = "CellularAutomaton";
-        settings.keys =
-          lazyKeyBindsOf
-          <| keyBindsFromAttrs nnoremap {
-            "<leader>fml" = "<cmd>CellularAutomaton make_it_rain<CR>";
-          };
-      };
-    };
+    cellular-automaton.enable = true;
 
-    duck = {
-      enable = true;
-      autoLoad = true;
-      lazyLoad = {
-        enable = true;
-        settings.keys =
-          lazyKeyBindsOf
-          <| keyBindsFromAttrs nnoremap {
-            "<leader>fc" = "<cmd>lua require('duck').cook()<CR>";
-            "<leader>fd" = mkRaw ''
-              function()
-                local filetype = vim.bo.filetype
-                local d_u_c_k = {
-                    rust = "🦀",
-                    zig = "🦎",
-                    lua = "🌚",
-                    nix = ""
-                }
-
-                local icon = d_u_c_k[filetype] or "🦆"
-
-                if math.random(50) == 1 then
-                    icon = "ඞ"
-                end
-
-                require("duck").hatch(icon, 5)
-              end
-            '';
-          };
-      };
-    };
+    duck.enable = true;
 
     lualine = {
       enable = true;
@@ -115,8 +92,6 @@ in
     dressing = {
       enable = true;
       settings.input.relative = "editor";
-      lazyLoad.enable = true;
-      lazyLoad.settings.event = veryLazyEvent;
     };
 
     bufferline = {

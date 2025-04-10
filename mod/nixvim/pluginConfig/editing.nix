@@ -31,24 +31,54 @@ in
     vim-targets
   ];
 
-  keymaps = keyBindsFromAttrs siremap {
-    "<C-E>" = mkRaw ''
-      function()
-          local luasnip = require("luasnip")
-          if luasnip.choice_active() then
-              luasnip.change_choice(1)
-          end
-      end
-    '';
-    "<C-M-p>" = mkRaw ''
-      function()
-          local luasnip = require("luasnip")
-          if luasnip.choice_active() then
-              luasnip.change_choice(-1)
-          end
-      end
-    '';
-  };
+  keymaps = lib.flatten [
+    (keyBindsFromAttrs nnoremap {
+      "<leader>+" = "<cmd>ToggleAlternate<CR>";
+
+      "<leader>a" = "<cmd>ISwapWith<CR>";
+      "<leader>A" = "<cmd>ISwap<CR>";
+
+      "<leader>ov" = mkRaw ''
+        function()
+            local venn_enabled = vim.inspect(vim.b.venn_enabled)
+            if venn_enabled == "nil" then
+                vim.b.venn_enabled = true
+                vim.cmd [[setlocal ve=all]]
+                -- draw a line on HJKL keystokes
+                vim.api.nvim_buf_set_keymap(0, "n", "J", "<C-v>j:VBox<CR>", { noremap = true })
+                vim.api.nvim_buf_set_keymap(0, "n", "K", "<C-v>k:VBox<CR>", { noremap = true })
+                vim.api.nvim_buf_set_keymap(0, "n", "L", "<C-v>l:VBox<CR>", { noremap = true })
+                vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", { noremap = true })
+                -- draw a box by pressing "f" with visual selection
+                vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", { noremap = true })
+            else
+                vim.cmd [[setlocal ve=]]
+                vim.cmd [[mapclear <buffer>]]
+                vim.b.venn_enabled = nil
+            end
+        end
+      '';
+    })
+
+    (keyBindsFromAttrs siremap {
+      "<C-E>" = mkRaw ''
+        function()
+            local luasnip = require("luasnip")
+            if luasnip.choice_active() then
+                luasnip.change_choice(1)
+            end
+        end
+      '';
+      "<C-M-p>" = mkRaw ''
+        function()
+            local luasnip = require("luasnip")
+            if luasnip.choice_active() then
+                luasnip.change_choice(-1)
+            end
+        end
+      '';
+    })
+  ];
 
   plugins = {
     cheatsheet.cheatsheet = {
@@ -60,25 +90,37 @@ in
         "<leader>a" = "Swap Treesitter Node under cursor with another one";
         "<leader>A" = "Swap Two Treesitter Nodes";
         "<leader>ov" = "Toggle venn mode";
+
+      };
+      paredit = {
+        ">)" = "Slurp forwards";
+        ">(" = "Barf backwards";
+        "<)" = "Barf forwards";
+        "<(" = "Slurp backwards";
+
+        ">p" = "Drag element pairs right";
+        "<p" = "Drag element pairs left";
+
+        ">f" = "Drag form right";
+        "<f" = "Drag form left";
+
+        "E" = "Jump to next element tail";
+        "W" = "Jump to next element head";
+        "B" = "Jump to previous element head";
+        "gE" = "Jump to previous element tail";
+
+        "af" = "Around form";
+        "if" = "In form";
+        "aF" = "Around top level form";
+        "iF" = "In top level form";
+        "ae" = "Around element";
+        "ie" = "Element";
       };
     };
 
-    nvim-surround = {
-      enable = true;
-      lazyLoad.enable = true;
-      lazyLoad.settings.event = veryLazyEvent;
-    };
+    nvim-surround.enable = true;
 
-    alternate-toggler = {
-      enable = true;
-      lazyLoad.enable = true;
-      lazyLoad.settings = {
-        cmd = "ToggleAlternate";
-        keys = lazyKeyBindsOf [
-          (nnoremap "<leader>+" "<cmd>ToggleAlternate<CR>")
-        ];
-      };
-    };
+    alternate-toggler.enable = true;
 
     commentary.enable = true;
 
@@ -100,9 +142,6 @@ in
               rule("$", "$", { "tex", "latex" }),
           })
         '';
-
-      lazyLoad.enable = true;
-      lazyLoad.settings.event = "InsertEnter";
     };
 
     smartcolumn = {
@@ -119,11 +158,7 @@ in
       };
     };
 
-    nvim-paredit = {
-      enable = true;
-      lazyLoad.enable = true;
-      lazyLoad.settings.ft = "clojure";
-    };
+    nvim-paredit.enable = true;
 
     vim-move = {
       enable = true;
@@ -133,75 +168,12 @@ in
       };
     };
 
-    iswap = {
-      enable = true;
-      lazyLoad.enable = true;
-      lazyLoad.settings = {
-        cmd = [
-          "ISwap"
-          "ISwapWith"
-          "ISwapWithLeft"
-          "ISwapWithRight"
-          "ISwapNode"
-          "ISwapNodeWith"
-          "ISwapNodeWithLeft"
-          "ISwapNodeWithRight"
-          "IMove"
-          "IMoveWith"
-          "IMoveWithLeft"
-          "IMoveWithRight"
-          "IMoveNode"
-          "IMoveNodeWith"
-          "IMoveNodeWithLeft"
-          "IMoveNodeWithRight"
-        ];
-        keys =
-          lazyKeyBindsOf
-          <| keyBindsFromAttrs nnoremap {
-            "<leader>a" = "<cmd>ISwapWith<CR>";
-            "<leader>A" = "<cmd>ISwap<CR>";
-          };
-      };
-    };
+    iswap.enable = true;
 
-    venn = {
-      enable = true;
-      lazyLoad.enable = true;
-      lazyLoad.settings = {
-        cmd = [
-          "VBox"
-          "VBoxO"
-          "VBoxD"
-          "VBoxDO"
-          "VBoxH"
-          "VBoxHO"
-        ];
-        keys = lazyKeyBindsOf [
-          (nnoremap "<leader>ov" (mkRaw ''
-            function()
-                local venn_enabled = vim.inspect(vim.b.venn_enabled)
-                if venn_enabled == "nil" then
-                    vim.b.venn_enabled = true
-                    vim.cmd [[setlocal ve=all]]
-                    -- draw a line on HJKL keystokes
-                    vim.api.nvim_buf_set_keymap(0, "n", "J", "<C-v>j:VBox<CR>", { noremap = true })
-                    vim.api.nvim_buf_set_keymap(0, "n", "K", "<C-v>k:VBox<CR>", { noremap = true })
-                    vim.api.nvim_buf_set_keymap(0, "n", "L", "<C-v>l:VBox<CR>", { noremap = true })
-                    vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", { noremap = true })
-                    -- draw a box by pressing "f" with visual selection
-                    vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", { noremap = true })
-                else
-                    vim.cmd [[setlocal ve=]]
-                    vim.cmd [[mapclear <buffer>]]
-                    vim.b.venn_enabled = nil
-                end
-            end
-          ''))
-        ];
-      };
-    };
+    venn.enable = true;
 
     friendly-snippets.enable = true;
+
     luasnip.enable = true;
   };
 }

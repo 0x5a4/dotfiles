@@ -7,7 +7,6 @@ let
   inherit (lib.xfaf.nixvim)
     nnoremap
     xnoremap
-    lazyKeyBindsOf
     ;
 in
 {
@@ -16,6 +15,8 @@ in
     mkdir-nvim
     vim-fireplace
   ];
+
+  extraPackages = [ pkgs.python3 ];
 
   keymaps = [
     # bufdelete
@@ -29,6 +30,10 @@ in
     (nnoremap "<leader>?" "<cmd>Cheatsheet<CR>")
 
     (xnoremap "kj" "<esc>")
+    # hex
+    (nnoremap "<leader>oh" "<cmd>HexToggle<CR>")
+    # cloak
+    (nnoremap "<leader>oc" "<cmd>CloakToggle<CR>")
   ];
 
   plugins = {
@@ -90,37 +95,10 @@ in
       };
     };
 
-    hex = {
-      enable = true;
-      lazyLoad = {
-        enable = true;
-        settings.cmd = [
-          "HexDump"
-          "HexAssemble"
-          "HexToggle"
-        ];
-        settings.keys = lazyKeyBindsOf [
-          (nnoremap "<leader>oh" "<cmd>HexToggle<CR>")
-        ];
-      };
-    };
+    hex.enable = true;
 
     cloak = {
       enable = true;
-      lazyLoad = {
-        enable = true;
-        settings.cmd = [
-          "CloakToggle"
-          "CloakPreviewLine"
-        ];
-        settings.event = [
-          "BufReadPre .env*"
-          "BufNewFile .env*"
-        ];
-        settings.keys = lazyKeyBindsOf [
-          (nnoremap "<leader>oc" "<cmd>CloakToggle<CR>")
-        ];
-      };
       settings = {
         enabled = true;
         cloak_telescope = true;

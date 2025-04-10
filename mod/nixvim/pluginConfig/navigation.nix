@@ -162,10 +162,6 @@ in
       };
     };
 
-    todo-comments = {
-      enable = true;
-      lazyLoad.enable = true;
-      lazyLoad.settings.event = "User File";
-    };
+    todo-comments.enable = true;
   };
 }
