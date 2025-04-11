@@ -145,6 +145,7 @@
                     (defineNamed "mems" "imgflip.com/memegenerator")
                     (defineNamed "noogle" "noogle.dev")
                     (defineNamed "nüschtos" "nüschtos.de")
+                    (defineNamed "sign2mint" "sign2mint.de")
                   ])
                   (folder "uni" [
                     (defineNamed "ilias" "ilias.hhu.de/login.php?client_id=UniRZ&cmd=force_login&lang=de")
@@ -187,7 +188,7 @@
                 nixosIcon = "nixos.wiki/favico.png";
               in
               {
-                "Ard Mediathek" = define "ard" "ardmediathek.de/suche/{searchTerms}" "";
+                "Ard Mediathek" = define "ard" "ardmediathek.de/suche/{searchTerms}" "ardmediathek.de/favicon.ico";
                 "Youtube" =
                   define "yt" "youtube.com/results?search_query={searchTerms}"
                     "www.youtube.com/favicon.ico";
@@ -223,6 +224,9 @@
                 "Portage" =
                   define "portage" "packages.gentoo.org/packages/search?q={searchTerms}"
                     "packages.gentoo.org/favicon.ico";
+                "Sign Dict" =
+                  define "signdict" "signdict.org/search?q={searchTerms}"
+                    "https://signdict.org/favicon.ico";
                 "google".metaData.hidden = true;
                 "bing".metaData.hidden = true;
                 "Amazon.de".metaData.hidden = true;
