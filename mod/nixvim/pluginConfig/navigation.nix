@@ -62,6 +62,7 @@ in
   highlight.FlashLabel.link = "@string";
 
   extraPlugins = [ pkgs.vimPlugins.telescope-symbols-nvim ];
+  extraLuaPackages = luaPkgs: [ luaPkgs.luautf8 ];
 
   plugins = {
     cheatsheet.cheatsheet = {
