@@ -8,8 +8,9 @@
   options.xfaf.git.enable = lib.mkEnableOption "install 0x5a4s git config";
 
   config = lib.mkIf config.xfaf.git.enable {
-    home.packages = [
-      pkgs.git-absorb
+    home.packages = with pkgs; [
+      git-absorb
+      gh
     ];
 
     programs.git =
@@ -78,12 +79,5 @@
           smartblame = "blame -w -CCC";
         };
       };
-
-    programs.gh = {
-      enable = true;
-      extensions = with pkgs; [
-        gh-markdown-preview
-      ];
-    };
   };
 }

@@ -14,6 +14,8 @@ in
     vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
     vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
 
+    vim.diagnostic.config({ virtual_text = true })
+
     local border = {
         { "╭", "FloatBorder" },
         { "─", "FloatBorder" },
@@ -34,7 +36,6 @@ in
   '';
 
   keymaps = keyBindsFromAttrs noremap {
-    "<leader>ol" = ''<cmd>lua require("lsp_lines").toggle()<CR>'';
     "<C-f>" = mkRaw ''
       function()
           require("conform").format({ async = true, lsp_fallback = true })
