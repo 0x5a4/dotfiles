@@ -32,6 +32,7 @@
         set -U grc_plugin_ignore_execs ulimit
 
         set sponge_purge_only_on_exit true
+        set sponge_allow_previously_successful true
 
         # dont greet me
         set fish_greeting
