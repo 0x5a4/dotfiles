@@ -88,6 +88,7 @@
               "https://hhu-fscs.de"
               "https://hhu.de"
               "https://inphima.de"
+              "https://phynix-hhu.de"
               "https://wienstroer.net"
               "https://youtube.com"
             ];

@@ -18,15 +18,26 @@
             inherit hostname;
             forwardAgent = true;
             extraOptions = {
-              User = "tischgoblin";
+              User = "arthur";
             };
           };
+
+          teefax = teenixBlock "teefax.hhu-fscs.de";
+          verleihnix = teenixBlock "verleihnix.hhu-fscs.de";
+          sebigbos = teenixBlock "sebigbos.hhu-fscs.de";
         in
         {
-          teefax = teenixBlock "fscs.hhu.de";
-          "fscs.hhu.de" = teenixBlock "fscs.hhu.de";
-          testfax = teenixBlock "dev.hhu-fscs.de";
-          "dev.hhu-fscs.de" = teenixBlock "dev.hhu-fscs.de";
+          inherit teefax;
+          "teefax.hhu-fscs.de" = teefax;
+          "fscs.hhu.de" = teefax;
+          "hhu-fscs.de" = teefax;
+
+          inherit verleihnix;
+          "dev.hhu-fscs.de" = verleihnix;
+          "verleihnix.hhu-fscs.de" = verleihnix;
+
+          inherit sebigbos;
+          "sebigbos.hhu-fscs.de" = sebigbos;
           helmut.forwardAgent = true;
         };
     };
