@@ -50,10 +50,10 @@
         genGameRules =
           classes:
           builtins.concatMap (e: [
-            "workspace ${gameWorkspace},^${e}$"
-            "fullscreen,^${e}$"
-            "idleinhibit always,^${e}$"
-            "forcergbx,^${e}$"
+            "workspace ${gameWorkspace}, class:${e}"
+            "fullscreen, class:${e}"
+            "idleinhibit always, class:${e}"
+            "forcergbx, class:${e}"
           ]) classes;
       in
       {
@@ -72,29 +72,29 @@
         windowrule =
           [
             # Browser
-            "workspace ${browserWorkspace} silent,^(firefox|librewolf)$"
+            "workspace ${browserWorkspace} silent, class:(firefox|librewolf)"
 
             # Office Stuff
-            "workspace ${officeWorkspace},^(thunderbird)$"
-            "workspace ${officeWorkspace},^(filezilla)$"
-            "workspace ${officeWorkspace},^(libreoffice-).*$"
-            "workspace ${officeWorkspace},^(soffice)$"
+            "workspace ${officeWorkspace}, class:thunderbird"
+            "workspace ${officeWorkspace}, class:filezilla"
+            "workspace ${officeWorkspace}, class:libreoffice-.*"
+            "workspace ${officeWorkspace}, class:soffice"
 
             # Game Launchers
-            "workspace ${gameLauncherWorkspace} silent,^(org.prismlauncher.PrismLauncher)$"
-            "workspace ${gameLauncherWorkspace} silent,^steam$"
+            "workspace ${gameLauncherWorkspace} silent, class:org.prismlauncher.PrismLauncher"
+            "workspace ${gameLauncherWorkspace} silent, class:steam"
 
             # Banish Chromium to the Shadow Realm
-            "workspace ${shadowRealm} silent,^Chromium-browser-chromium$"
-            "workspace ${shadowRealm} silent,^[gG]oogle-chrome$"
+            "workspace ${shadowRealm} silent, class:Chromium-browser-chromium"
+            "workspace ${shadowRealm} silent, class:[gG]oogle-chrome"
 
             # Communication
-            "workspace ${discordWorkspace},^(discord|WebCord|vesktop)$"
-            "workspace ${discordWorkspace},^Element$"
+            "workspace ${discordWorkspace}, class:(discord|WebCord|vesktop)"
+            "workspace ${discordWorkspace}, class:Element"
 
             # Spotify
-            "workspace ${spotifyWorkspace} silent,^(Spotify)$"
-            "tile,^(Spotify)$"
+            "workspace ${spotifyWorkspace} silent, class:Spotify"
+            "tile, class:Spotify"
           ]
           ++ (
             genGameRules [
@@ -111,8 +111,8 @@
 
         windowrulev2 = [
           # Steam needs some special stuff
-          "workspace ${gameLauncherWorkspace} silent, title:^Steam$"
-          "center, title:^(Steam)$" # this is for the steam update window
+          "workspace ${gameLauncherWorkspace} silent, title:Steam"
+          "center, title:Steam" # this is for the steam update window
         ];
       };
   };
