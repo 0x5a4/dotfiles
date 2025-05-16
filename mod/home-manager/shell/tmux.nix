@@ -36,6 +36,11 @@
             unbind %
             unbind '"'
 
+            set-option -g focus-events on
+
+            set -g default-terminal "screen-256color"
+            set-option -sa terminal-overrides ",xterm-kitty:RGB"
+
             # if i use splits i will propably want the same dir
             bind b split-window -c "#{pane_current_path}"
             bind v split-window -h -c "#{pane_current_path}"
