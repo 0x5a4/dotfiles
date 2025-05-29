@@ -23,9 +23,6 @@ in
     (nnoremap "<leader>c" "<cmd>Bdelete<CR>")
     # vimtex
     (nnoremap "<leader>vt" "<cmd>VimtexCompile<CR>")
-    # vim-fireplace
-    (nnoremap "<localleader>ee" "<cmd>Eval<CR>")
-    (nnoremap "<localleader>ef" "<cmd>%Eval<CR>")
     # cheatsheet
     (nnoremap "<leader>?" "<cmd>Cheatsheet<CR>")
 
