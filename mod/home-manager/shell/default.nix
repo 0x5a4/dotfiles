@@ -78,6 +78,8 @@
       gaa = "${lib.getExe pkgs.git} add --all";
       gl = "${lib.getExe pkgs.git} lg";
       gcm = "${lib.getExe pkgs.git} commit -m";
+      # clojure repl
+      cljrepl = ''clj -Sdeps '{:deps {cider/cider-nrepl {:mvn/version "0.52.1"} }}' -M -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"'';
     };
   };
 }
