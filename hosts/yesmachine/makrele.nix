@@ -16,7 +16,7 @@
   xfaf.desktop.hyprland.enable = true;
   xfaf.desktop.hyprpaper.enable = true;
 
-  xfaf.desktop.rofi = {
+  xfaf.desktop.apps.rofi = {
     enable = true;
     makeDefault = true;
   };

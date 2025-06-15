@@ -21,6 +21,8 @@
       programs.tofi = {
         enable = true;
         settings = {
+          auto-accept-single = true;
+          drun-launch = true;
           width = "100%";
           height = "100%";
           border-width = 0;
