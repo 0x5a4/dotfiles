@@ -59,10 +59,6 @@
       makeDefault = true;
       openTmux = true;
     };
-    rofi = {
-      enable = true;
-      makeDefault = true;
-    };
     vencord.enable = true;
   };
 

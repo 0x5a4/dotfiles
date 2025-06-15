@@ -67,7 +67,7 @@
 
   xfaf.services.greetd = {
     enable = true;
-    command = "wayfire";
+    command = "river";
     defaultUser = "makrele";
     output = "eDP-1";
   };

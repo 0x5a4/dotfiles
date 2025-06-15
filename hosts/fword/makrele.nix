@@ -11,10 +11,18 @@
     ../share/common-home.nix
   ];
 
-  xfaf.desktop.wayfire.enable = true;
+  xfaf.desktop.river.enable = true;
   xfaf.desktop.hyprpaper.enable = true;
 
   xfaf.desktop.batsignal.enable = true;
+
+  xfaf.desktop.apps = {
+    rofi.enable = true;
+    tofi = {
+      enable = true;
+      makeDefault = true;
+    };
+  };
 
   xfaf.desktop.monitors =
     let
@@ -44,7 +52,7 @@
           enable = true;
           modules.left = {
             clock = true;
-            hyprland-workspaces = true;
+            river-tags = true;
             system-load = true;
             network = true;
             bluetooth = true;
@@ -55,7 +63,7 @@
             volume = true;
             brightness = true;
             idle-inhibit = true;
-            hyprland-submap = true;
+            river-mode = true;
             tray = true;
           };
         };

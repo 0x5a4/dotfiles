@@ -31,6 +31,7 @@
       WIFIonICE = { };
       TENTEN = "TENTEN";
       c4 = {};
+      "Wildbach Camping" = {};
     };
   };
 }

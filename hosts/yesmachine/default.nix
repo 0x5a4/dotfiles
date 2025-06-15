@@ -12,8 +12,6 @@
     outputs.nixosModules.xfaf
   ];
 
-  # sops.age.keyFile = "/home/makrele/.config/sops/age/keys.txt";
-
   stylix.image = pkgs.fetchurl {
     url = "https://pbs.twimg.com/media/EDyxVvoXsAAE9Zg.png";
     sha256 = "sha256-NRfish27NVTJtJ7+eEWPOhUBe8vGtuTw+Osj5AVgOmM=";

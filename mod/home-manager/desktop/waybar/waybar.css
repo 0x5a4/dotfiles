@@ -26,6 +26,7 @@
 #clock,
 #user,
 #submap,
+#mode,
 #network,
 #bluetooth,
 #backlight,
@@ -41,12 +42,14 @@
 #wireplumber,
 #clock,
 #workspaces,
+#tags,
 #network,
 #bluetooth,
 #battery,
 #custom-wlinhibit,
 #backlight,
 #tray,
+#mode,
 #submap {
   border: 1px solid #181825;
   border-radius: 10px;
@@ -80,7 +83,9 @@ window#waybar {
 #cpu,
 #memory,
 #workspaces,
+#tags,
 #submap,
+#mode,
 #user,
 #wireplumber,
 #custom-mako,
@@ -98,12 +103,19 @@ window#waybar {
 
 #cpu,
 #memory,
+#mode
 #workspaces button {
   color: @selection;
   border: none;
 }
 
+#tags button.occupied {
+  color: @selection;
+  border: none;
+}
+
 #submap,
+#mode,
 #workspaces {
   border-radius: 10px;
 }
@@ -112,6 +124,7 @@ window#waybar {
   background: @background-darker;
 }
 
+#tags,
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
@@ -120,6 +133,10 @@ window#waybar {
 }
 
 #workspaces button.active {
+  color: @red;
+}
+
+#tags button.focused {
   color: @red;
 }
 
@@ -136,6 +153,7 @@ window#waybar {
 }
 
 #wireplumber.muted,
+#mode.normal,
 #bluetooth.disabled,
 #custom-wlinhibit.deactivated {
   color: @selection;

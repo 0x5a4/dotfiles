@@ -10,4 +10,6 @@
     |> lib.attrNames
     |> lib.remove "default.nix"
     |> lib.map (name: "${path}/${name}");
+
+  powersOfTwo = n: lib.fold (_: acc: acc ++ [ ((lib.last acc) * 2) ]) [ 1 ] (lib.replicate n 1);
 }

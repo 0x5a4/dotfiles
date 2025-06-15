@@ -16,6 +16,11 @@
   xfaf.desktop.hyprland.enable = true;
   xfaf.desktop.hyprpaper.enable = true;
 
+  xfaf.desktop.rofi = {
+    enable = true;
+    makeDefault = true;
+  };
+
   xfaf.desktop.monitors =
     let
       wallpaper-image = pkgs.fetchurl {

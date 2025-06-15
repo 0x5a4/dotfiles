@@ -14,8 +14,6 @@
   config = lib.mkIf config.xfaf.desktop.apps.vencord.enable {
     programs.nixcord = {
       enable = true;
-      discord.enable = false;
-      vesktop.enable = true;
 
       config =
         let

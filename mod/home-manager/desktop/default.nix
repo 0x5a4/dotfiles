@@ -76,12 +76,14 @@
 
               bar =
                 let
-                  mkModuleOption = name: lib.mkEnableOption "enable the ${name} module";
+                  mkModuleOption = name: lib.mkEnableOption "the ${name} module";
 
                   moduleOpts = {
                     clock = mkModuleOption "clock";
                     hyprland-workspaces = mkModuleOption "hyprland workspaces";
                     hyprland-submap = mkModuleOption "hyprland submap";
+                    river-mode = mkModuleOption "river mode";
+                    river-tags = mkModuleOption "river tags";
                     system-load = mkModuleOption "system load";
                     battery = mkModuleOption "battery";
                     network = mkModuleOption "network";

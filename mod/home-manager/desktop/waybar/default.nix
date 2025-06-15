@@ -31,6 +31,18 @@
             tooltip = false;
             on-click = "${pkgs.hyprland}/bin/hyprctl dispatch submap reset";
           };
+          "river/mode" = {
+            tooltip = false;
+            on-click = "${pkgs.river}/bin/riverctl enter-mode normal";
+          };
+          "river/tags" = rec {
+            tooltip = false;
+            num-tags = 10;
+            tag-labels = (map toString (lib.range 1 9) ++ [0]);
+            set-tags = lib.xfaf.powersOfTwo 10;
+            toggle-tags = set-tags;
+            hide-vacant = true;
+          };
           cpu = {
             interval = 5;
             format = "";
@@ -108,7 +120,7 @@
             exec = "${wlinhibit-script}/bin/wlinhibit.sh";
             return-type = "json";
             restart-interval = 3;
-            on-click = "killall wlinhibit || ${lib.getExe' pkgs.wlinhibit "wlinhibit"}";
+            on-click = "${lib.getExe' pkgs.psmisc "killall"} wlinhibit || ${lib.getExe' pkgs.wlinhibit "wlinhibit"}";
           };
           tray = {
             icon-size = 21; 
@@ -133,6 +145,7 @@
               (lib.optional cfg.uptime "user")
               (lib.optional cfg.clock "clock")
               (lib.optional cfg.hyprland-workspaces "hyprland/workspaces")
+              (lib.optional cfg.river-tags "river/tags")
               (lib.optionals cfg.system-load [
                 "memory"
                 "cpu"
@@ -144,6 +157,7 @@
               (lib.optional cfg.network "network")
               (lib.optional cfg.bluetooth "bluetooth")
               (lib.optional cfg.hyprland-submap "hyprland/submap")
+              (lib.optional cfg.river-mode "river/mode")
               (lib.optional cfg.tray "tray")
             ];
           in
