@@ -41,19 +41,21 @@
               }) tags
             );
 
-          spawnWithFlags = flags: command: "spawn ${flags} '${command}'";
-          spawn = spawnWithFlags "";
+          spawn = command: "spawn '${command}'";
 
           mediaKeys = {
             "None XF86AudioNext" = spawn "${lib.getExe pkgs.playerctl} -p spotify next";
             "None XF86AudioPrev" = spawn "${lib.getExe pkgs.playerctl} -p spotify previous";
             "None XF86AudioPlay" = spawn "${lib.getExe pkgs.playerctl} -p spotify play-pause";
-            "None XF86AudioLowerVolume" = spawnWithFlags "-repeat" "${lib.getExe pkgs.wob-volume} 2%-";
-            "None XF86AudioRaiseVolume" = spawnWithFlags "-repeat" "${lib.getExe pkgs.wob-volume} 2%+";
             "None XF86AudioMute" = spawn "${lib.getExe pkgs.wob-volume} mutetoggle";
 
-            "None XF86MonBrightnessUp" = spawnWithFlags "-repeat" "${lib.getExe pkgs.wob-brightness} +1";
-            "None XF86MonBrightnessDown" = spawnWithFlags "-repeat" "${lib.getExe pkgs.wob-brightness} -1";
+          };
+
+          mediaKeysRepeat = {
+            "None XF86AudioLowerVolume" = spawn "${lib.getExe pkgs.wob-volume} 2%-";
+            "None XF86AudioRaiseVolume" = spawn "${lib.getExe pkgs.wob-volume} 2%+";
+            "None XF86MonBrightnessUp" = spawn "${lib.getExe pkgs.wob-brightness} +1";
+            "None XF86MonBrightnessDown" = spawn "${lib.getExe pkgs.wob-brightness} -1";
           };
         in
         {
@@ -93,9 +95,10 @@
             "Super W" = spawn "${config.xfaf.desktop.browserCommand}";
             "Super Space" =
               spawn "${lib.getExe' pkgs.psmisc "killall"} ${builtins.head (lib.splitString " " config.xfaf.desktop.launcherCommand)} || ${config.xfaf.desktop.launcherCommand}";
-            
-            "Super C" = spawn ''${lib.getExe' pkgs.psmisc "killall"} rofi || rofi -show calc -modi calc -no-show-match -no-sort -calc-command "echo -n {result} | wl-copy"'';
-            
+
+            "Super C" =
+              spawn ''${lib.getExe' pkgs.psmisc "killall"} rofi || rofi -show calc -modi calc -no-show-match -no-sort -calc-command "echo -n {result} | wl-copy"'';
+
             "None Print" =
               spawn "${lib.getExe pkgs.grim} -g \"$(${lib.getExe pkgs.slurp})\" - | ${lib.getExe' pkgs.wl-clipboard "wl-copy"}";
 
@@ -114,9 +117,17 @@
             "Super N" = "enter-mode notify";
           } // mediaKeys;
 
+          map."-repeat" = {
+            normal = mediaKeysRepeat;
+            locked = mediaKeysRepeat;
+          };
+
           map.locked = mediaKeys;
 
-          declare-mode = [ "power" "notify" ];
+          declare-mode = [
+            "power"
+            "notify"
+          ];
 
           map.power = {
             "None Escape" = "enter-mode normal";
