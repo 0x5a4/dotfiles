@@ -196,6 +196,7 @@
                 "Nix Packages" =
                   define "nixpkgs" "search.nixos.org/packages?channel=unstable&query={searchTerms}"
                     nixosIcon;
+                "Nix Package Versions" = define "nixhist" "lazamar.co.uk/nix-versions/?channel=nixpkgs-unstable&package={searchTerms}" nixosIcon;
                 "Nix Options" =
                   define "nixopts" "search.nixos.org/options?channel=unstable&query={searchTerms}"
                     nixosIcon;
