@@ -101,6 +101,8 @@ in
 
         clojure_lsp.enable = true;
 
+        fennel_ls.enable = true;
+
         hls = {
           enable = true;
           installGhc = true;

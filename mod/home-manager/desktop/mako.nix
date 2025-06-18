@@ -22,27 +22,17 @@
     services.mako = {
       enable = true;
 
-      defaultTimeout = 5000;
-      output = config.xfaf.desktop.mako.output;
-      width = 400;
+      settings = {
+        default-timeout = 5000;
+        output = config.xfaf.desktop.mako.output;
+        width = 400;
 
-      extraConfig =
-        # ini
-        ''
-          [urgency=high]
-          layer=overlay
-          default-timeout=0
-          ignore-timeout=true
-
-          [mode=do-not-disturb urgency=low]
-          invisible=true
-
-          [mode=do-not-disturb urgency=normal]
-          invisible=true
-
-          [mode=shut-up]
-          invisible=true
-        '';
+        "urgency=high" = {
+          layer = "overlay";
+          default-timeout = 0;
+          ignore-timeout = true;
+        };
+      };
     };
   };
 }

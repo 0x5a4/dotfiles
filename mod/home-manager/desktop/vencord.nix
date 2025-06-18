@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    inputs.nixcord.homeManagerModules.nixcord
+    inputs.nixcord.homeModules.nixcord
   ];
 
   options.xfaf.desktop.apps.vencord.enable = lib.mkEnableOption "install 0x5a4s vencord config";

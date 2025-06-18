@@ -21,6 +21,7 @@
         css
         diff
         dockerfile
+        fennel
         fish
         git_config
         git_rebase
