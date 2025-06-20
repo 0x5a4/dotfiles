@@ -24,7 +24,7 @@
     services.swayidle = {
       enable = true;
       timeouts = lib.singleton {
-        timeout = 120;
+        timeout = 600;
         command = lib.getExe config.programs.swaylock.package;
       };
       events = [
