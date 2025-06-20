@@ -27,7 +27,6 @@
         bind = , l, exec, loginctl lock-session
         bind = , l, submap, reset
 
-        bind = , i, exec, killall wlinhibit || wlinhibit
         bind = , i, submap, reset
 
         submap = reset

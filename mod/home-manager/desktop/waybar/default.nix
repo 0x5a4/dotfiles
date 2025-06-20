@@ -9,14 +9,6 @@
 
   config = lib.mkIf config.xfaf.desktop.waybar.enable (
     let
-      wlinhibit-script = pkgs.writeScriptBin "wlinhibit.sh" ''
-        if pidof wlinhibit &> /dev/null; then
-            echo '{"text":""}'
-        else
-            echo '{"text":"", "class":"deactivated"}'
-        fi
-      '';
-
       sharedModules = pkgs.writeText "waybar-modules.json" (
         builtins.toJSON {
           clock = {
@@ -38,7 +30,7 @@
           "river/tags" = rec {
             tooltip = false;
             num-tags = 10;
-            tag-labels = (map toString (lib.range 1 9) ++ [0]);
+            tag-labels = (map toString (lib.range 1 9) ++ [ 0 ]);
             set-tags = lib.xfaf.powersOfTwo 10;
             toggle-tags = set-tags;
             hide-vacant = true;
@@ -115,15 +107,16 @@
           user = {
             format = "🐢 up {work_H}:{work_M}";
           };
-          "custom/wlinhibit" = {
+          idle_inhibitor = {
+            format = "{icon}";
             tooltip = false;
-            exec = "${wlinhibit-script}/bin/wlinhibit.sh";
-            return-type = "json";
-            restart-interval = 3;
-            on-click = "${lib.getExe' pkgs.psmisc "killall"} wlinhibit || ${lib.getExe' pkgs.wlinhibit "wlinhibit"}";
+            format-icons = {
+              activated = "";
+              deactivated = "";
+            };
           };
           tray = {
-            icon-size = 21; 
+            icon-size = 21;
             spacing = 10;
           };
         }
@@ -151,7 +144,7 @@
                 "cpu"
               ])
               (lib.optional cfg.battery "battery")
-              (lib.optional cfg.idle-inhibit "custom/wlinhibit")
+              (lib.optional cfg.idle-inhibit "idle_inhibitor")
               (lib.optional cfg.brightness "backlight")
               (lib.optional cfg.volume "wireplumber")
               (lib.optional cfg.network "network")

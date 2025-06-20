@@ -66,6 +66,7 @@ in
       settings = {
         view_method = "zathura";
         quickfix_mode = 0;
+        quickfix_open_on_warning = 0;
         syntax_conceal = {
           accents = 1;
           cites = 1;

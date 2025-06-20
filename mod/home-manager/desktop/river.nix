@@ -142,9 +142,6 @@
             "None L" = spawn "loginctl lock-session";
 
             "None X" = "exit";
-
-            "None I" =
-              spawn "${lib.getExe' pkgs.psmisc "killall"} wlinhibit || ${lib.getExe' pkgs.wlinhibit "wlinhibit"}";
           };
 
           map.notify = {

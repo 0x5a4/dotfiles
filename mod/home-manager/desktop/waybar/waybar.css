@@ -31,8 +31,8 @@
 #bluetooth,
 #backlight,
 #wireplumber,
-#custom-wlinhibit,
 #tray,
+#idle_inhibitor,
 #battery {
   color: @green;
 }
@@ -46,7 +46,7 @@
 #network,
 #bluetooth,
 #battery,
-#custom-wlinhibit,
+#idle_inhibitor,
 #backlight,
 #tray,
 #mode,
@@ -93,7 +93,7 @@ window#waybar {
 #network,
 #bluetooth,
 #backlight,
-#custom-wlinhibit,
+#idle_inhibitor,
 #tray,
 #clock {
   background: @background-darker;
@@ -155,6 +155,6 @@ window#waybar {
 #wireplumber.muted,
 #mode.normal,
 #bluetooth.disabled,
-#custom-wlinhibit.deactivated {
+#idle_inhibitor.deactivated {
   color: @selection;
 }

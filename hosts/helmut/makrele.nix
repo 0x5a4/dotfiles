@@ -30,7 +30,7 @@
   home.enableNixpkgsReleaseCheck = false;
 
   home.sessionVariables = {
-    FLAKE = config.home.homeDirectory + "/.dotfiles";
+    NH_FLAKE = config.home.homeDirectory + "/.dotfiles";
   };
 
   home.stateVersion = "23.11";

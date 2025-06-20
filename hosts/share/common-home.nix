@@ -68,6 +68,6 @@
   xfaf.desktop.waybar.enable = true;
 
   home.sessionVariables = {
-    FLAKE = config.home.homeDirectory + "/.dotfiles";
+    NH_FLAKE = config.home.homeDirectory + "/.dotfiles";
   };
 }

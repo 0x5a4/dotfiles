@@ -20,7 +20,6 @@
 
   config = lib.mkIf config.xfaf.desktop.hyprland.enable {
     home.packages = with pkgs; [
-      wlinhibit
       wl-clipboard
       xdg-desktop-portal-hyprland
     ];
