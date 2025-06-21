@@ -103,7 +103,7 @@ window#waybar {
 
 #cpu,
 #memory,
-#mode
+#mode,
 #workspaces button {
   color: @selection;
   border: none;
