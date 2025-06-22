@@ -10,6 +10,7 @@
   config = lib.mkIf config.xfaf.desktop.river.enable {
     home.packages = with pkgs; [
       xdg-desktop-portal-wlr
+      lswt
       wl-clipboard
       rivercarro
     ];
@@ -43,6 +44,14 @@
 
           spawn = command: "spawn '${command}'";
 
+          rule =
+            app-id: title: action:
+            lib.concatStringsSep " " [
+              (lib.optionalString (app-id != null) "-app-id '${app-id}'")
+              (lib.optionalString (title != null) "-title '${title}'")
+              action
+            ];
+
           mediaKeys = {
             "None XF86AudioNext" = spawn "${lib.getExe pkgs.playerctl} -p spotify next";
             "None XF86AudioPrev" = spawn "${lib.getExe pkgs.playerctl} -p spotify previous";
@@ -57,6 +66,16 @@
             "None XF86MonBrightnessUp" = spawn "${lib.getExe pkgs.wob-brightness} +1";
             "None XF86MonBrightnessDown" = spawn "${lib.getExe pkgs.wob-brightness} -1";
           };
+
+          generateGameRules =
+            classes:
+            lib.concatLists (
+              map (class: [
+                (rule class null "tags ${toString (builtins.elemAt tagBits 4)}")
+                (rule class null "fullscreen")
+                (rule class null "tearing")
+              ]) classes
+            );
         in
         {
           default-layout = "rivercarro";
@@ -151,6 +170,37 @@
             "None Space" = spawn "${lib.getExe' pkgs.mako "makoctl"} dismiss --all";
             "None R" = spawn "${lib.getExe' pkgs.mako "makoctl"} restore";
           };
+
+          rule-add =
+            [
+              (rule "firefox" null "ssd")
+              (rule "firefox" null "tags ${toString (builtins.elemAt tagBits 2)}")
+              (rule "chromium-browser" null "ssd")
+              (rule "chromium-browser" null "tags ${toString (builtins.elemAt tagBits 8)}")
+
+              (rule "thunderbird" null "tags ${toString (builtins.elemAt tagBits 3)}")
+              (rule "filezilla" null "tags ${toString (builtins.elemAt tagBits 3)}")
+              (rule "libreoffice-*" null "tags ${toString (builtins.elemAt tagBits 3)}")
+              (rule "soffice" null "tags ${toString (builtins.elemAt tagBits 3)}")
+
+              (rule "org.prismlauncher.PrismLauncher" null "tags ${toString (builtins.elemAt tagBits 5)}")
+              (rule "steam" null "tags ${toString (builtins.elemAt tagBits 5)}")
+              (rule null "Steam" "tags ${toString (builtins.elemAt tagBits 5)}")
+
+              (rule "discord" null "tags ${toString (builtins.elemAt tagBits 9)}")
+              (rule "WebCord" null "tags ${toString (builtins.elemAt tagBits 9)}")
+              (rule "vesktop" null "tags ${toString (builtins.elemAt tagBits 9)}")
+              (rule "Element" null "tags ${toString (builtins.elemAt tagBits 9)}")
+            ]
+            ++ (generateGameRules [
+              "steam_app_*"
+              "Stardew Valley"
+              "Minecraft*"
+              "com.mojang.minecraft"
+              "hl_linux"
+              "org.libretro.RetroArch"
+              "GT: New Horizons*"
+            ]);
         };
     };
   };

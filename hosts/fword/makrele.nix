@@ -33,11 +33,13 @@
           enable = true;
           modules.left = {
             clock = true;
+            river-tags = true;
             network = true;
             bluetooth = true;
           };
           modules.right = {
             battery = true;
+            river-mode = true;
             volume = true;
           };
         };
