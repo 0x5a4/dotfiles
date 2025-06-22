@@ -71,7 +71,7 @@
             classes:
             lib.concatLists (
               map (class: [
-                (rule class null "tags ${toString (builtins.elemAt tagBits 4)}")
+                (rule class null "tags ${toString (builtins.elemAt tagBits 3)}")
                 (rule class null "fullscreen")
                 (rule class null "tearing")
               ]) classes
@@ -174,23 +174,23 @@
           rule-add =
             [
               (rule "firefox" null "ssd")
-              (rule "firefox" null "tags ${toString (builtins.elemAt tagBits 2)}")
+              (rule "firefox" null "tags ${toString (builtins.elemAt tagBits 1)}")
               (rule "chromium-browser" null "ssd")
-              (rule "chromium-browser" null "tags ${toString (builtins.elemAt tagBits 8)}")
+              (rule "chromium-browser" null "tags ${toString (builtins.elemAt tagBits 7)}")
 
-              (rule "thunderbird" null "tags ${toString (builtins.elemAt tagBits 3)}")
-              (rule "filezilla" null "tags ${toString (builtins.elemAt tagBits 3)}")
-              (rule "libreoffice-*" null "tags ${toString (builtins.elemAt tagBits 3)}")
-              (rule "soffice" null "tags ${toString (builtins.elemAt tagBits 3)}")
+              (rule "thunderbird" null "tags ${toString (builtins.elemAt tagBits 2)}")
+              (rule "filezilla" null "tags ${toString (builtins.elemAt tagBits 2)}")
+              (rule "libreoffice-*" null "tags ${toString (builtins.elemAt tagBits 2)}")
+              (rule "soffice" null "tags ${toString (builtins.elemAt tagBits 2)}")
 
-              (rule "org.prismlauncher.PrismLauncher" null "tags ${toString (builtins.elemAt tagBits 5)}")
-              (rule "steam" null "tags ${toString (builtins.elemAt tagBits 5)}")
-              (rule null "Steam" "tags ${toString (builtins.elemAt tagBits 5)}")
+              (rule "org.prismlauncher.PrismLauncher" null "tags ${toString (builtins.elemAt tagBits 4)}")
+              (rule "steam" null "tags ${toString (builtins.elemAt tagBits 4)}")
+              (rule null "Steam" "tags ${toString (builtins.elemAt tagBits 4)}")
 
-              (rule "discord" null "tags ${toString (builtins.elemAt tagBits 9)}")
-              (rule "WebCord" null "tags ${toString (builtins.elemAt tagBits 9)}")
-              (rule "vesktop" null "tags ${toString (builtins.elemAt tagBits 9)}")
-              (rule "Element" null "tags ${toString (builtins.elemAt tagBits 9)}")
+              (rule "discord" null "tags ${toString (builtins.elemAt tagBits 8)}")
+              (rule "WebCord" null "tags ${toString (builtins.elemAt tagBits 8)}")
+              (rule "vesktop" null "tags ${toString (builtins.elemAt tagBits 8)}")
+              (rule "Element" null "tags ${toString (builtins.elemAt tagBits 8)}")
             ]
             ++ (generateGameRules [
               "steam_app_*"
