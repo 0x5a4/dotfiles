@@ -158,6 +158,7 @@
                     (defineNamed "propra2" "github.com/hhu-propra2-ws24/Organisation")
                     (defineNamed "sysprog" "coconucos.cs.uni-duesseldorf.de/lehre/home/lectures/bsusp/overview/")
                     (defineNamed "sciebo" "uni-duesseldorf.sciebo.de/")
+                    (defineNamed "ordnungen" "hhu-ordnungen.github.io/ordnungen/")
                   ])
                   (folder "doc" [
                     (defineNamed "lua 5.4 reference" "www.lua.org/manual/5.4")
