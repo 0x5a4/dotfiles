@@ -152,7 +152,7 @@
                     (defineNamed "ilias" "ilias.hhu.de/login.php?client_id=UniRZ&cmd=force_login&lang=de")
                     (defineNamed "lsf" "lsf.hhu.de")
                     (defineNamed "fscs" "fscs.hhu.de")
-                    (defineNamed "inphima nextcloud" "nextcloud.inphima.de")
+                    (defineNamed "phynix nextcloud" "nextcloud.phynix.de")
                     (defineNamed "mete" "metesecure.hhu-fscs.de")
                     (defineNamed "tickets" "tickets.astahhu.de/mailbox/4")
                     (defineNamed "propra2" "github.com/hhu-propra2-ws24/Organisation")

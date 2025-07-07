@@ -45,7 +45,7 @@
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ ];
 
   hardware.graphics.extraPackages = with pkgs; [ intel-media-driver ];
 

@@ -2,10 +2,13 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 {
-  imports = lib.xfaf.importAllChildren ./.;
+  imports = lib.xfaf.importAllChildren ./. ++ [
+    inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+  ];
 
   options.xfaf.shell = {
     enableAliases = lib.mkEnableOption "enable 0x5a4s shell aliases";
@@ -23,6 +26,7 @@
     };
 
     xdg.enable = config.xfaf.shell.saneEnv;
+    programs.command-not-found.enable = true;
 
     home.packages = lib.mkIf config.xfaf.shell.installTools (
       with pkgs;
