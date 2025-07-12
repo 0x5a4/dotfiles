@@ -16,7 +16,6 @@
 
   xfaf.ssh.enable = true;
   xfaf.btop.enable = true;
-  xfaf.tmux.enable = true;
   xfaf.neovim = {
     enable = true;
     makeDefault = true;
@@ -57,7 +56,6 @@
     kitty = {
       enable = true;
       makeDefault = true;
-      openTmux = true;
     };
     vencord.enable = true;
   };

@@ -41,6 +41,7 @@
         keybindings = {
           "ctrl+plus" = "change_font_size all +1.0";
           "ctrl+minus" = "change_font_size all -1.0";
+          "ctrl+shift+enter" = "new_os_window_with_cwd";
         };
 
         font = {
