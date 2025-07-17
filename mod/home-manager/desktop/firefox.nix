@@ -143,7 +143,7 @@
                     (defineNamed "plotz" "www.plotz.co.uk")
                     (defineNamed "toml validator" "www.toml-lint.com")
                     (defineNamed "click" "clickclickclick.click/#4a955f9cf0bbe3854fa9ede6935d540c")
-                    (defineNamed "mems" "imgflip.com/memegenerator")
+                    (defineNamed "mems" "imgflip.com")
                     (defineNamed "noogle" "noogle.dev")
                     (defineNamed "nüschtos" "nüschtos.de")
                     (defineNamed "sign2mint" "sign2mint.de")
