@@ -25,7 +25,7 @@
       '';
     in
     lib.mkIf opts.enable {
-      xfaf.desktop.terminalCommand = lib.mkIf opts.makeDefault "kitty ${lib.optionalString opts.openTmux "-e tmux"}";
+      xfaf.desktop.terminalCommand = lib.mkIf opts.makeDefault "kitty -1 ${lib.optionalString opts.openTmux "-e tmux"}";
 
       # disable stylix kitty support, because it breaks colors
       # i partially inline it
@@ -41,7 +41,7 @@
         keybindings = {
           "ctrl+plus" = "change_font_size all +1.0";
           "ctrl+minus" = "change_font_size all -1.0";
-          "ctrl+shift+enter" = "new_os_window_with_cwd";
+          "alt+shift+t" = "new_os_window_with_cwd";
         };
 
         font = {
