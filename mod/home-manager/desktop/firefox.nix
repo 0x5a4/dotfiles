@@ -253,7 +253,6 @@
             modrinthify
             multi-account-containers
             no-pdf-download
-            passbolt
             privacy-possum
             return-youtube-dislikes
             smart-referer
