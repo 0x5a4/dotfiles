@@ -32,6 +32,7 @@
       TENTEN = "TENTEN";
       c4 = {};
       "Wildbach Camping" = {};
+      Wi-Fried-Tofu = "WI_FRIED_TOFU";
     };
   };
 }
