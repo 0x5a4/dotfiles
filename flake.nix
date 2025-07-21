@@ -97,7 +97,6 @@
           [
             "fword"
             "yesmachine"
-            "helmut"
           ]
           (
             hostname:

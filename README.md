@@ -2,6 +2,7 @@
 
 Welcome to my home! This is my nixos configuration, most notably including:
 
+- river
 - wayfire
 - hyprland
 - fish
