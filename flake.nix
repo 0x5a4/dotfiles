@@ -70,6 +70,13 @@
           lib = lib.extend nixvim.lib.overlay;
         };
       };
+
+      mkNixosSystem =
+        entrypoint:
+        (lib.nixosSystem {
+          modules = [ entrypoint ];
+          inherit specialArgs;
+        });
     in
     {
       formatter = eachSystem (
@@ -92,19 +99,10 @@
       nixosModules.xfaf = import ./mod/nixos;
       homeModules.xfaf = import ./mod/home-manager;
 
-      nixosConfigurations =
-        lib.genAttrs
-          [
-            "fword"
-            "yesmachine"
-          ]
-          (
-            hostname:
-            lib.nixosSystem {
-              modules = [ ./hosts/${hostname} ];
-              inherit specialArgs;
-            }
-          );
+      nixosConfigurations = {
+        fword = mkNixosSystem ./hosts/fword;
+        yesmachine = mkNixosSystem ./hosts/yesmachine;
+      };
 
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
         modules = [ ./hosts/droid ];
