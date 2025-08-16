@@ -16,8 +16,6 @@
 
   xfaf.desktop.batsignal.enable = true;
 
-  xfaf.services.itd.enable = true;
-
   xfaf.desktop.apps = {
     rofi.enable = true;
     tofi = {

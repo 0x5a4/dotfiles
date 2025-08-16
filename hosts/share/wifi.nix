@@ -26,13 +26,19 @@
       "oh uff hallo gustavsob" = "GUSTAVSOB";
       LambdaAufDemEFeld = "PHYSIKWLAN";
       "Network_Mr.X" = "NETWORKMRX";
-      FelixPhone = "FELIXPHONE";
+      "iPhone von Felix" = "FELIXPHONE";
       "bUm gast" = "BUMGAST";
       WIFIonICE = { };
       TENTEN = "TENTEN";
-      c4 = {};
-      "Wildbach Camping" = {};
+      c4 = { };
       Wi-Fried-Tofu = "WI_FRIED_TOFU";
+      "OpenWrt" = {
+        pskRaw = "ext:OPENWRT";
+        hidden = true;
+        extraConfig = ''
+          disabled=1
+        '';
+      };
     };
   };
 }
