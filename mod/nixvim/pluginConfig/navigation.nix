@@ -109,7 +109,7 @@ in
     flash = {
       enable = true;
       settings = {
-        labels = "abdefgiklnopqrswxyz234579+#";
+        labels = "abdefgiklnopqrswxyz23479+#";
         jump.autojump = true;
         modes.search.enabled = true;
       };
