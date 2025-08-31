@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  lib,
   ...
 }:
 {
@@ -15,7 +14,6 @@
     mode = "0444";
   };
 
-  boot.plymouth.enable = true;
   xfaf.bootconfig.enable = true;
   xfaf.nixconfig = {
     enable = true;
