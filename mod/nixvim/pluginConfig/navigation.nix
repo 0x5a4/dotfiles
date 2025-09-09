@@ -134,11 +134,6 @@ in
       };
     };
 
-    hardtime = {
-      enable = true;
-      settings.disable_mouse = false;
-    };
-
     telescope = {
       enable = true;
       extensions.fzy-native.enable = true;
