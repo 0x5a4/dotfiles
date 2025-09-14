@@ -33,6 +33,7 @@
       [
         acpi
         bat
+        dig
         duf
         dust
         eza
