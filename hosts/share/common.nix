@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   config,
   ...
@@ -49,4 +50,8 @@
   environment.variables = {
     NIXOS_OZONE_WL = 1;
   };
+
+  networking.nameservers = lib.mkAfter [
+    "9.9.9.9"
+  ];
 }
