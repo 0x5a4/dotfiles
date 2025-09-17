@@ -270,6 +270,7 @@
             "media.ffmpeg.vaapi.enabled" = true;
             "media.navigator.mediadatadecoder_vpx_enabled" = true;
             "dom.input.fallbackUploadDir" = config.home.homeDirectory;
+            "browser.fixup.domainsuffixwhitelist.lan" = true;
           };
         };
 
