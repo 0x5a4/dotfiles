@@ -21,11 +21,11 @@
 
   sops.secrets = {
     yesmachine-root = {
-      sopsFile = ../secrets/users.yaml;
+      sopsFile = ../../sops/secrets/users.yaml;
       neededForUsers = true;
     };
     yesmachine-makrele = {
-      sopsFile = ../secrets/users.yaml;
+      sopsFile = ../../sops/secrets/users.yaml;
       neededForUsers = true;
     };
   };

@@ -1,7 +1,7 @@
 { config, ... }:
 {
   sops.secrets.easyroam = {
-    sopsFile = ../secrets/easyroam;
+    sopsFile = ../../sops/secrets/easyroam;
     format = "binary";
     restartUnits = [ "easyroam-install.service" ];
   };
@@ -14,7 +14,7 @@
 
   xfaf.services.wifi = {
     enable = true;
-    secretsFile = ../secrets/wifi;
+    secretsFile = ../../sops/secrets/wifi;
     networks = {
       HHUD-Y = "HHUDY";
       UdoLandenberg = "UDOLANDENBERG";

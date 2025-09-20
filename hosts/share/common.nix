@@ -10,7 +10,7 @@
   ];
 
   sops.secrets.nix-conf = {
-    sopsFile = ../secrets/nix-conf;
+    sopsFile = ../../sops/secrets/nix-conf;
     format = "binary";
     mode = "0444";
   };

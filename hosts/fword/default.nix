@@ -26,11 +26,11 @@
 
   sops.secrets = {
     fword-root = {
-      sopsFile = ../secrets/users.yaml;
+      sopsFile = ../../sops/secrets/users.yaml;
       neededForUsers = true;
     };
     fword-makrele = {
-      sopsFile = ../secrets/users.yaml;
+      sopsFile = ../../sops/secrets/users.yaml;
       neededForUsers = true;
     };
   };
