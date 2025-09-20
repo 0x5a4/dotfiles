@@ -3,13 +3,13 @@
 Welcome to my home! This is my nixos configuration, most notably including:
 
 - river
-- wayfire
-- hyprland
+- wayfire (dead)
+- hyprland (dead)
 - fish
 - nixvim
 - stylix
-- a bunch of smaller things like waybar, rofi, etc
-- all my wifi passwords? whoops
+- a bunch of smaller things like waybar, \[rt\]ofi, etc
+- all my wifi passwords? whoops! oh wait, theyre sops encrypted
 
 The code is well structured and readable, but is not intended to be drop-in. I extend `lib` and depend
 on pretty specific `specialArgs` (e.g. `inputs` and `outputs`), so don't expect to be able to use this repo
