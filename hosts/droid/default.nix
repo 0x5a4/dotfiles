@@ -6,8 +6,6 @@
   ...
 }:
 {
-  imports = [ inputs.stylix.nixOnDroidModules.stylix ];
-
   environment.etcBackupExtension = ".bak";
 
   environment.packages = with pkgs; [
@@ -18,6 +16,7 @@
     diffutils
     findutils
     utillinux
+    iputils
     tzdata
     hostname
     man
@@ -37,11 +36,6 @@
   environment.motd = ''
     Welcome to Nix-on-Droid!
   '';
-
-  stylix.image = pkgs.fetchurl {
-    url = "https://pbs.twimg.com/media/EDyxVvoXsAAE9Zg.png";
-    sha256 = "sha256-NRfish27NVTJtJ7+eEWPOhUBe8vGtuTw+Osj5AVgOmM=";
-  };
 
   nix =
     let

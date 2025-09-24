@@ -1,6 +1,5 @@
-{ outputs, ... }:
 {
-  imports = [ outputs.homeModules.xfaf ];
+  imports = [ ../../mod/home-manager/shell ];
 
   xfaf.shell = {
     enableAliases = true;
