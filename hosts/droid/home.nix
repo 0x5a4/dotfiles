@@ -9,15 +9,6 @@
     starship.enable = true;
   };
 
-  xfaf.git.enable = true;
-
-  xfaf.ssh.enable = true;
-  xfaf.btop.enable = true;
-  xfaf.neovim = {
-    enable = true;
-    makeDefault = true;
-  };
-
   programs.fish.interactiveShellInit = ''
     eval (ssh-agent -c) &> /dev/null
   '';
