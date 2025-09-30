@@ -120,7 +120,7 @@
         system: pkgs: {
           default = pkgs.mkShell {
             sopsPGPKeyDirs = [
-              "${toString ./.}/hosts/keys/"
+              "${toString ./.}/sops/keys"
             ];
 
             nativeBuildInputs = with pkgs; [

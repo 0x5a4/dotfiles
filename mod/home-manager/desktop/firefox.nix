@@ -89,6 +89,7 @@
               "https://hhu.de"
               "https://inphima.de"
               "https://phynix-hhu.de"
+              "https://tech.lgbt"
               "https://wienstroer.net"
               "https://youtube.com"
             ];
@@ -135,7 +136,7 @@
                   (define "nixos.wiki")
                   (define "github.com")
                   (define "crates.io")
-                  (define "feddit.de")
+                  (define "tech.lgbt")
                   (folder "tools" [
                     (defineNamed "craiyon" "craiyon.com")
                     (defineNamed "hex to dec" "www.rapidtables.com/convert/number/hex-to-decimal.html")
