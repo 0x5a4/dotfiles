@@ -39,11 +39,13 @@
         eza
         fastfetch
         fd
+        feh
         file
         imagemagick
         jq
         man-pages-posix
         mdcat
+        mpv
         psmisc
         pv
         ripgrep
