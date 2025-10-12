@@ -58,6 +58,9 @@
           notify_on_cmd_finish = "invisible 30";
           touch_scroll_multiplier = 5;
 
+          enable_audio_bell = "yes";
+          visual_bell_duration = "0.5";
+
           disable_ligatures = "always";
           font_features = "MonocraftNerdFontComplete- -liga";
 
