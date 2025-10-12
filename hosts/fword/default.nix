@@ -45,6 +45,7 @@
         "video"
         "docker"
         "libvirtd"
+        "ydotool"
       ];
       hashedPasswordFile = config.sops.secrets.fword-makrele.path;
     };
@@ -88,6 +89,8 @@
      ENV{ID_VENDOR}=="Yubico",\
      RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
   '';
+
+  services.ydotool.enable = true;
 
   networking.hostName = "fword";
 
