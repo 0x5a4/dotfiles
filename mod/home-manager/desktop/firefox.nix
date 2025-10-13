@@ -245,6 +245,7 @@
             bitwarden
             boring-rss
             clearurls
+            close-tabs-shortcuts
             darkreader
             decentraleyes
             don-t-fuck-with-paste

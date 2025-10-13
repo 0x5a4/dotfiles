@@ -25,6 +25,8 @@
           teefax = teenixBlock "teefax.hhu-fscs.de";
           verleihnix = teenixBlock "verleihnix.hhu-fscs.de";
           sebigbos = teenixBlock "sebigbos.hhu-fscs.de";
+
+          vps = teenixBlock "0x5a4.de";
         in
         {
           inherit teefax;
@@ -38,7 +40,9 @@
 
           inherit sebigbos;
           "sebigbos.hhu-fscs.de" = sebigbos;
-          helmut.forwardAgent = true;
+
+          inherit vps;
+          "0x5a4.de" = vps;
         };
     };
   };

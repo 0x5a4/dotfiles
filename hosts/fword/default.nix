@@ -83,10 +83,7 @@
 
   services.udev.extraRules = ''
     ACTION=="remove",\
-     ENV{ID_BUS}=="usb",\
-     ENV{ID_MODEL_ID}=="0407",\
-     ENV{ID_VENDOR_ID}=="1050",\
-     ENV{ID_VENDOR}=="Yubico",\
+     ENV{ID_VENDOR_FROM_DATABASE}=="Yubico.com",\
      RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
   '';
 

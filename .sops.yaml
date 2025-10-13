@@ -5,7 +5,7 @@ keys:
   - &yubikey-5c FF6CE42B2F2B7B602E9694BAC09465A0C8B07B02
   - &yubikey-nano 5A8C4CBC21DC694E5EB6348B6DCC662BCBF8B50D
 creation_rules:
-  - path_regex: hosts/secrets/.*
+  - path_regex: sops/secrets/.*
     key_groups:
       - pgp:
           - *yubikey-5c
