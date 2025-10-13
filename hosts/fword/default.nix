@@ -87,7 +87,7 @@
      RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
   '';
 
-  services.ydotool.enable = true;
+  programs.ydotool.enable = true;
 
   networking.hostName = "fword";
 
