@@ -10,8 +10,10 @@
   config = lib.mkIf config.xfaf.ssh.enable {
     programs.ssh = {
       enable = true;
+
       package = pkgs.openssh;
-      addKeysToAgent = "yes";
+      enableDefaultConfig = false;
+
       matchBlocks =
         let
           teenixBlock = hostname: {
@@ -43,6 +45,10 @@
 
           inherit vps;
           "0x5a4.de" = vps;
+
+          "*" = {
+            addKeysToAgent = "yes";
+          };
         };
     };
   };

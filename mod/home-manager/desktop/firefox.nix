@@ -7,7 +7,7 @@
 }:
 {
   imports = [
-    inputs.betterfox.homeManagerModules.betterfox
+    inputs.betterfox.homeModules.betterfox
   ];
 
   options.xfaf.desktop.apps.firefox = {
@@ -59,7 +59,11 @@
       programs.firefox = {
         enable = true;
 
-        betterfox.enable = true;
+        betterfox = {
+          enable = true;
+
+          profiles.main.enableAllSections = true; 
+        };
 
         policies = {
           "DisableFormHistory" = true;
@@ -108,11 +112,6 @@
 
         profiles.main = {
           id = 0;
-
-          betterfox = {
-            enable = true;
-            enableAllSections = true;
-          };
 
           bookmarks.force = true;
           bookmarks.settings =

@@ -25,7 +25,7 @@
           };
           "river/mode" = {
             tooltip = false;
-            on-click = "${pkgs.river}/bin/riverctl enter-mode normal";
+            on-click = "${pkgs.river-classic}/bin/riverctl enter-mode normal";
           };
           "river/tags" = rec {
             tooltip = false;

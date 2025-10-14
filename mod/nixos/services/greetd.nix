@@ -40,7 +40,7 @@
               hash = "sha256-SkXrLbHvBOItJ7+8vW+6iXV+2g0f8bUJf9KcCXYOZF0=";
             };
             riverConfig = pkgs.writeScriptBin "greeter.river.init.sh" ''
-              riverctl="${lib.getExe' pkgs.river "riverctl"}"
+              riverctl="${lib.getExe' pkgs.river-classic "riverctl"}"
 
               $riverctl keyboard-layout \
                 -variant nodeadkeys \
@@ -56,7 +56,7 @@
               $riverctl hide-cursor when-typing enabled
 
               $riverctl default-layout rivertile
-              ${lib.getExe' pkgs.river "rivertile"} &
+              ${lib.getExe' pkgs.river-classic "rivertile"} &
 
               ${lib.getExe pkgs.swaybg} -mfill -i ${backgroundImage} &
 
@@ -69,7 +69,7 @@
             '';
           in
           {
-            default_session.command = "${lib.getExe' pkgs.river "river"} -c ${lib.getExe riverConfig}";
+            default_session.command = "${lib.getExe' pkgs.river-classic "river"} -c ${lib.getExe riverConfig}";
           };
       };
     };

@@ -2,7 +2,7 @@
   writeShellApplication,
   wireplumber,
   jq,
-  rofi-wayland,
+  rofi,
 }:
 writeShellApplication {
   name = "wp-switch-output";
@@ -10,7 +10,7 @@ writeShellApplication {
   runtimeInputs = [
     wireplumber
     jq
-    rofi-wayland
+    rofi
   ];
 
   text = ''
