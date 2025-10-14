@@ -374,11 +374,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1748726258,
-        "narHash": "sha256-Yznu0MYOGKn9sl+EWrJtu/LtQNKyR3DCGx00jivlb2U=",
+        "lastModified": 1760440483,
+        "narHash": "sha256-ijI19hjR9TesQF+ky9e+HmoyPdhCYcB78dTuajaPPTo=",
         "owner": "0x5a4",
         "repo": "nix-easyroam",
-        "rev": "592540d50149d5ccc2e2ff5105d141ed710dad57",
+        "rev": "82abafc65be7a283d81f36a1cc35aced6c3a8805",
         "type": "github"
       },
       "original": {
