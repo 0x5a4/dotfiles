@@ -9,6 +9,7 @@
 
   config = lib.mkIf config.xfaf.services.pipewire.enable {
     security.rtkit.enable = true;
+    
     services.pipewire = {
       enable = true;
       alsa.enable = true;

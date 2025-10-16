@@ -19,9 +19,6 @@
           teenixBlock = hostname: {
             inherit hostname;
             forwardAgent = true;
-            extraOptions = {
-              User = "arthur";
-            };
           };
 
           teefax = teenixBlock "teefax.hhu-fscs.de";

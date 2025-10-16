@@ -52,7 +52,7 @@
             { ... }:
             {
               home.username = name;
-              home.homeDirectory = "/home/" + name;
+              home.homeDirectory = lib.mkDefault ("/home/" + name);
               imports = [ value.home-manager.config ];
 
               nixpkgs = {

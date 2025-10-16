@@ -29,7 +29,7 @@
       sopsFile = ../../sops/secrets/users.yaml;
       neededForUsers = true;
     };
-    fword-makrele = {
+    fword-arthur = {
       sopsFile = ../../sops/secrets/users.yaml;
       neededForUsers = true;
     };
@@ -37,7 +37,7 @@
 
   users.users.root.hashedPasswordFile = config.sops.secrets.fword-root.path;
 
-  xfaf.users.makrele = {
+  xfaf.users.arthur = {
     opts = {
       shell = pkgs.fish;
       extraGroups = [
@@ -47,11 +47,11 @@
         "libvirtd"
         "ydotool"
       ];
-      hashedPasswordFile = config.sops.secrets.fword-makrele.path;
+      hashedPasswordFile = config.sops.secrets.fword-arthur.path;
     };
     home-manager = {
       enable = true;
-      config = ./makrele.nix;
+      config = ./arthur.nix;
     };
   };
 
@@ -71,7 +71,7 @@
   xfaf.services.greetd = {
     enable = true;
     command = "river";
-    defaultUser = "makrele";
+    defaultUser = "arthur";
     output = "eDP-1";
   };
 

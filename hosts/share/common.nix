@@ -34,7 +34,6 @@
 
   security.pam.services.swaylock = { };
 
-  programs.yubikey-touch-detector.enable = true;
   programs.gnupg.agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-qt;

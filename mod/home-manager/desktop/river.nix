@@ -13,6 +13,7 @@
       lswt
       wl-clipboard
       rivercarro
+      wlr-randr
     ];
 
     wayland.windowManager.river = {
@@ -155,10 +156,10 @@
             "None S" = spawn "systemctl poweroff";
             "None R" = spawn "systemctl reboot";
 
-            "None H" = spawn "systemctl hibernate";
-            "None N" = spawn "systemctl suspend";
+            "None H" = spawn "systemctl hibernate && riverctl enter-mode normal";
+            "None N" = spawn "systemctl suspend && riverctl enter-mode normal";
 
-            "None L" = spawn "loginctl lock-session";
+            "None L" = spawn "loginctl lock-session && riverctl enter-mode normal";
 
             "None X" = "exit";
           };
@@ -167,8 +168,8 @@
             "None Escape" = "enter-mode normal";
             "Super N" = "enter-mode normal";
 
-            "None Space" = spawn "${lib.getExe' pkgs.mako "makoctl"} dismiss --all";
-            "None R" = spawn "${lib.getExe' pkgs.mako "makoctl"} restore";
+            "None Space" = spawn "${lib.getExe' pkgs.mako "makoctl"} dismiss --all && riverctl enter-mode normal";
+            "None R" = spawn "${lib.getExe' pkgs.mako "makoctl"} restore ";
           };
 
           rule-add =
