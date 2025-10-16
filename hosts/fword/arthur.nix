@@ -9,6 +9,7 @@
     outputs.homeModules.xfaf
 
     ../share/common-home.nix
+    ./mute-eduroam.nix
   ];
 
   xfaf.desktop.river.enable = true;

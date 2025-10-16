@@ -16,13 +16,13 @@
           runtimeInputs = with pkgs; [
             wpa_supplicant
             gnused
-            wireplumber
+            wob-volume
           ];
 
           text = ''
             if [ "$2" = "CONNECTED" ]; then
-              if [ "$(wpa_cli get_network "$WPA_ID" ssid | sed -e '2b;d' | sed -e 's/^.//' -e 's/.$//')" = "eduroam" ]; then
-                wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
+              if [ "$(wpa_cli get_network "$WPA_ID" ssid | sed -e 's/^.//' -e 's/.$//' -e '2b;d')" = "eduroam" ]; then
+                wob-volume muteon
               fi
             fi
           '';
