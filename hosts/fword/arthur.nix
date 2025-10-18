@@ -82,6 +82,7 @@
     element-desktop
     libreoffice
     prismlauncher
+    pwvucontrol
     spotify
     thunderbird
     yubikey-manager
