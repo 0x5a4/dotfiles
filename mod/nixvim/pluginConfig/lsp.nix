@@ -95,6 +95,8 @@ in
       '';
 
       servers = {
+        arduino_language_server.enable = true;
+        
         bashls.enable = true;
 
         clangd.enable = true;
