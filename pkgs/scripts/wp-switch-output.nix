@@ -2,7 +2,7 @@
   writeShellApplication,
   wireplumber,
   jq,
-  rofi,
+  tofi,
 }:
 writeShellApplication {
   name = "wp-switch-output";
@@ -10,7 +10,7 @@ writeShellApplication {
   runtimeInputs = [
     wireplumber
     jq
-    rofi
+    tofi
   ];
 
   text = ''
@@ -60,8 +60,8 @@ writeShellApplication {
 
     # get sinks as json
     SINKS=$("''${SCRIPTFILE}")
-    # let the use select one through rofi
-    SELECTION=$(echo "''${SINKS}" | jq -re '.[]|"\(.desc)"' | rofi -dmenu)
+    # let the use select one through tofi
+    SELECTION=$(echo "''${SINKS}" | jq -re '.[]|"\(.desc)"' | tofi --prompt-text output)
     # associate the selection back to its sink id
     SINKID=$(echo "''${SINKS}" | jq -re ".[]|select(.desc==\"''${SELECTION}\")|.id")
 
